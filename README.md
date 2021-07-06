@@ -1,102 +1,293 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Slice of Pie!
 
-Welcome USER_NAME,
+## Code Institute's Milestone Project 4 - Full Stack Frameworks
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. The last update to this file was: **July 2, 2021**
+Slice of Pie is the brainchild of Zoe Thexton, who produces custom triangular tables that fit seamlessly into any section of a person's living or bedroom. Designed using CAD software, the tables can be assembled by hand in a variety of sizes, types of wood, and number of shelving levels. The inspiration for this product came from the need to get creative with the limited space available in her own living room (and generally missing somewhere to put a cup of tea down as a result of this!), while the triangular shape is the inspiration for the name.  
 
-## Gitpod Reminders
+## Table of Contents
+* [UX](#ux)
+    * [User Stories](#user-stories)
+* [Planning and Design](#planning-and-design)
+    * [Strategy Plane](#strategy-plane)
+    * [Scope Plane](#scope-plane)
+    * [Structure Plane](#structure-plane)
+    * [Skeleton Plane](#skeleton-plane)
+    * [Surface Plane](#surface-plane)
+        * [Colour Scheme](#colour-scheme)
+        * [Typography](#typography)
+        * [Animations](#animations)
+    * [Data Model](#data-model)
+* [Features and Django Apps](#features-and-django-apps)
+* [Existing Features](#existing-features)
+* [Defensive design features](#defensive-design-features)
+* [Features left to implement](#features-left-to-implement)
+* [Technologies used](#technologies-used)
+    * [Languages and frameworks](#languages-and-frameworks)
+    * [Additional tools](#additional-tools)
+* [Git commit messages](#git-commit-messages)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Setting up AWS](#setting-up-amazon-web-services-aws)
+* [Setting up Emails](#setting-up-email-confirmations)
+* [Cloning](#cloning)
+* [Credits](#credits)
+    * [Media](#media)
+    * [Acknowledgements](#acknowledgements)  
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+  
+## UX
 
-`python3 -m http.server`
+My main goals for the creation of this website were as follows:
+* 
+* 
+* 
 
-A blue button should appear to click: _Make Public_,
+### User Stories
 
-Another blue button should appear to click: _Open Browser_.
+#### Developer
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+As the developer of the site:
 
-A blue button should appear to click: _Make Public_,
+#### Site owner/administrator
 
-Another blue button should appear to click: _Open Browser_.
+#### Users
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Planning and Design
 
-To log into the Heroku toolbelt CLI:
+### Strategy Plane
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+(Intro)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+The **focus** of the project is:
+* 
 
-------
+The **business goals** of the stakeholder are:
 
-## Release History
+* 
+* 
+* 
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+*Therefore...*
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+(Research phase)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+* 
+* 
+* 
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+(Importance vs viability metric)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+| Opportunity                | Importance | Viability
+| -------------------------- | ---------- |-----------
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+| **Total**                  | **total**     | **total**
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+(Mostly viable, but here is what I'm leaving out)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* 
+* 
+* 
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Scope Plane
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+Based on research and planning achieved during the strategy plane, and considering any limitations of my current coding abilities, the features I decided were critical for the completion of my user stories were as follows:
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+#### Required functional specifications
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+* 
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Content requirements
 
-------
+* 
 
-## FAQ about the uptime script
+#### Nice to haves
 
-**Why have you added this script?**
+(intro to nice to haves)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+* 
 
-**How will this affect me?**
+### Structure Plane
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+(intro to structure plane)
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+1. **Homepage, containing:**
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+#### Interaction Design
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+* 
 
-**Can I opt out?**
+#### Information Architecture
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+* 
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+### Skeleton Plane
 
-**Anything more?**
+(intro to skeleton)
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+#### Changes from skeleton plane to final result
 
----
+* 
 
-Happy coding!
+### Surface Plane
+
+(Intro to surface and buzzwords)
+
+* Professional
+
+#### Colour Scheme
+
+(Intro to colours)
+
+* 
+
+(screenshot)
+
+#### Typography
+
+(intro to typography and reasoning behind choices)
+
+(screenshot of fonts)
+
+![Nunito screenshot](static/images/nunito.png)
+
+#### Animations
+
+### Data Model
+
+#### Conceptual Design Phase
+
+A basic map of how I could get my various entities to interact with each other on a conceptual level was created as the below flowchart:
+
+(screenshot)
+
+#### Logical Design Phase
+
+The finalised way my collections work would together on the backend is best illustrated by the below entity relationship diagram:
+
+(screenshot)
+
+#### Physical Design Phase
+
+(Explanation of the database choice and how it is used)
+
+#### Data models
+
+(Bullet points of the models)
+
+## Features and Django Apps
+
+### Existing Features
+
+#### Consistent across all pages
+
+* 
+
+#### Homepage
+
+* 
+
+#### Login and registration
+
+* 
+
+#### Products/product builder
+
+* 
+
+#### Profile
+
+* 
+
+#### Bag and wishlist
+
+* 
+
+#### Checkout
+
+* 
+
+#### Profile page
+
+* 
+
+### Defensive design features
+
+(Intro to section)
+
+#### On the frontend
+
+#### On the backend
+
+*Custom 404 and 500 pages were created as well*
+
+### Features left to implement
+
+## Technologies used
+
+### Languages and frameworks
+
+* **HTML5:** Language used for structure and content across all pages.
+* **CSS3:** Language used to style elements from the HTML pages.
+* **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of the homepage modals and the grid system which greatly improved the responsiveness of each page.
+* **JavaScript:** Programming language used to add interactivity to the homepage and implement the logic required to make the game work.
+* **jQuery:** JavaScript framework which helped me select and manipulate elements with greater ease than purely through JavaScript.
+* **Python:** Backend language used to control the logic on the site.
+* **Flask:** Python framework used to simmplify the routing and HTML templating on the site.
+* **MongoDB**: Non-relational database used to store and update the information provided by users of the site.
+
+### Additional tools
+
+* [Amiresponsive:](http://ami.responsivedesign.is/) Used to produce the hero image in README.md and check general responsiveness of the pages.
+* [dbdiagram:](https://dbdiagram.io/home) Used to create my entity relationship diagram.
+* [Favicon Generator:](https://realfavicongenerator.net/) Used to create the favicon on the browser tab.
+* [FontAwesome:](https://fontawesome.com/) Large database of icons which I used all over the site to add to the visual language.
+* [Free Formatter:](https://www.freeformatter.com/html-formatter.html) Used to help ensure code was consistently formatted across all files.
+* [Github:](https://github.com/) Version control and storage of my code.
+* [Gitpod:](https://gitpod.io/) Development environment where all the code was written.
+* [Google Docs:](https://docs.google.com/) Used for note taking and was where much of my readme was initially written.
+* Google Developer Tools: Used for debugging and testing of responsiveness across several screen sizes. Also vital to the testing of JavaScript functions as and when they were created.
+* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Nunito' font.
+* [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
+* [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
+* [PEP8Online:](http://pep8online.com/) Confirmed that my Python code complied to PEP8 standards.
+* [TinyJPG:](https://tinyjpg.com/) Service used to compress background images and help with site performance
+* [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with agile principles.
+* [W3C CSS Validation Service:](https://jigsaw.w3.org/css-validator/) Confirmed that my CSS is legal.
+* [W3C Markup Validation Service:](https://validator.w3.org/) Confirmed that my HTML code is legal.
+* [WAVE:](https://wave.webaim.org/) Allowed me to evaluate and test the accessibility of the site.
+
+## Git commit messages
+
+For the commits on this project, I continued to follow the basic rules I had set during my three previous milestone projects. That is to say:
+
+* Always use the imperative tense so that readers would read as *the purpose of this commit is to* - etc.
+* Commit often, and keep messages as short as possible.
+* Start comments where possible with a prefix that summarises what the commit is for, such as fix (for bugs), add, remove, amend, style, or docs (for anything added to README.md).
+* Include the file name or function in question where possible.
+* Use the prefix 'logic:' in any commits aimed at amending or adding in something that was specifically related to backend logic.
+* Use the prefix 'test:' for any commits that were being pushed specifically to test bug fixes onto the live site.
+
+At the time of writing, these are among my recent commit messages and illustrate the format I applied for this project:
+
+## Testing
+
+Please see a full report of the testing applied to this project [here.](testing.md)
+
+## Deployment
+
+## Setting up Amazon Web Services (AWS)
+
+## Setting up email confirmations
+
+## Cloning
+
+## Credits
+
+### Media
+
+* 
+
+### Acknowledgements
+
+A huge thank you to all the people who took part in user testing, the Code Institute's Slack community, and my mentor Aaron Sinnott for advice at various stages during development of the site.
