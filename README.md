@@ -1,5 +1,7 @@
 # Slice of Pie!
 
+![Wireframe temp hero image](media/nonproducts/landing-page.png)
+
 ## Code Institute's Milestone Project 4 - Full Stack Frameworks
 
 Slice of Pie is the brainchild of Zoe Thexton, who produces custom triangular tables that fit seamlessly into any section of a person's living or bedroom. Designed using CAD software, the tables can be assembled by hand in a variety of sizes, types of wood, and number of shelving levels. The inspiration for this product came from the need to get creative with the limited space available in her own living room (and generally missing somewhere to put a cup of tea down as a result of this!), while the product's name comes from the triangular shape of the finished design. The only thing missing now is a means to sell this innovative product to consumers, so I offered to develop and build an e-commerce store capable of displaying the product range and accepting secure payments for orders. My aim for this project is to create a site that allows potential customers to browse all available designs or build their ideal table using a product builder, while allowing administrators to manage the products by adding, editting, or deleting SKUs when required.
@@ -139,64 +141,161 @@ Based on research and planning achieved during the strategy plane, and consideri
 
 #### Required functional specifications
 
-* 
+* Registration and login capability, so that details and preferences can be saved.
+* Admin ability to manage content via the frontend.
+* Featured products on the homepage that can be editted by the administrator.
+* Product builder, which will basically be an advanced filter.
+* Product details for individual products.
+* Ability to simply browse all available products and apply filters.
+* Add, remove or amending the shopping cart.
+* Profile page for favourites and order history (if logged in).
+* Secure checkout and payment.
+* Free delivery for reaching a certain threshold
 
 #### Content requirements
 
-* 
+* Ability to request new password if the user has forgotten.
+* Admin control should allow for CRUD capability on listed products.
+* Product builder needs to be aesthetically pleasing and seamless to the user journey.
+* Favouriting must remember saved products when logging back in.
+* Checkout must offer ability to save details for later (if logged in) or guest checkout for those that do not wish to create an account.
 
 #### Nice to haves
 
-(intro to nice to haves)
+I felt at this stage that the above features would contribute to a well rounded and functioning final product, but listed out some features that would be great to include if there was time:
 
-* 
+* Create an account using social media.
+* FAQ or about section to both give the seller a profile and explain what the product is and who the site owner is.
+* Sign up to mailing list form.
 
 ### Structure Plane
 
-(intro to structure plane)
+With the functional specifications and content requirements nicely ironed out, I concluded that I would need the following pages or Django apps in order to allow users the most seamless journey across the site as possible:
 
 1. **Homepage, containing:**
 
+* Animation or video which acts as an alternative to a hero image, with one potential idea being a quick animation of the table itself being assembled.
+* The name of the site and calls to action directing the user to the ‘build your table’ and ‘create account’ sections of the site.
+* Featured products just beneath the fold, split into two sides of the screen. Each box has an image of the product and a ‘view’ button. First one could be the basic or flagship product (which is the cheapest available table), and the second one could be the most premium offering.
+
+2. **Registration/login/password reset forms, containing:**
+* Login or registration form.
+* Feedback if field are incorrectly populated.
+* Option to switch from register to login, or vice versa.
+* Forgot password option on login form.
+* Confirm email address after logging in.
+* (Bonus) Ability to sign in using social media.
+
+3. **Product builder page, containing:**
+* Entry and disappear animations that present the options available to build a table step by step, starting with choice of sizes, folowed by number of shelves, and finally the type of material.
+* The price updates after each choice is made, and you can go back to a previous step if yo uchange your mind.
+* The selection of the final parameter directs the user to the individual product detail page.
+
+4. **All products page, containing:**
+* Conventional suqre boxes structure as per most e-commerce stores, containing product images, descriptions, prices, 'view' buttons', and a heart which would add the product to the user's wishlist.
+* Option to sort by price, amount of shelves, and size.
+* Option to filter by certain size of table, amount of shelves, or material.
+
+5. **Product (detail) page, containing:**
+* Larger version of the product image.
+* Title and price per unit of the product.
+* Quantity buttons, the default being 1 with the option to increase or decrease quantity accordingly.
+* Add to basket or wish list buttons.
+* Dimmed and disabled buttons if the product is unavailable.
+
+6. **Bag and wishlist sidebars across each page, containing:**
+* Bag items can be increased or decreased in quantity, or removed entirely.
+* Items in wish list can be added directly to the basket, or removed.
+* Checkout option directly from the bag, or a message saying 'Your bag is empty' if there is nothing in there.
+
+7. **Checkout page, containing:**
+* A summary of what is about to be ordered, with the ability to edit or remove these products from checkout at this late stage.
+* Form with personal details and delivery details, which can be saved by the user if they want to and are logged in.
+
+8. **Product management page for administrators only, containing:**
+* A simple form to add products onto the site, update them, or delete them if required.
+* 'Unavailable' option so that products can be made out of stock.
 
 #### Interaction Design
 
-* 
+* The site needs a nonlinear structure through the use of a fixed navigation bar which allows users to choose what section of the site they can jump to.
+* A consistent footer across all pages can display the logo, copyright information and social links (if any exist).
+* User feedback is required at various stages of their journey, such as:
+    * When hovering over links.
+    * Feedback message when any user actions pertaining to the bag or wish list through use of toasts.
+* The same colour scheme and design choices are needed across all pages to maintain consistency.
+* Where applicable, content should be viewable just beyond the fold so users know they can continue to scroll.
 
 #### Information Architecture
 
-* 
+* Tree structure can be implemented with use of burger icon on mobile devices.
+* Priority of links from left to right
+* Priority as follows: logo on far left, then in the middle is ‘build table’ and ‘browse all’, far right is ‘Sign in/sign out’, ‘wish list’, ‘basket’
+* Most important CTAs should be visible on landing page: ‘build product’ or ‘create account’
+* Where possible there should be no more than three clicks for a user to reach end of journey (if applicable) 
 
 ### Skeleton Plane
 
-(intro to skeleton)
+At this point in development, it felt safe to start serious work on wireframes. These were created using [InVision](https://www.invisionapp.com/), and were incredibly useful in ironing out any potential design flaws before any line of code has been written.
+
+![All wireframes](media/nonproducts/all-wireframes.png)
+
+![Login](media/nonproducts/login.png)
+
+![Profile](media/nonproducts/profile.png)
+
+![Product builder](media/nonproducts/product-builder.png)
+
+![Product detail](media/nonproducts/product-details.png)
+
+![All products](media/nonproducts/all-products.png)
+
+![Checkout](media/nonproducts/checkout.png)
+
+![Product manager](media/nonproducts/product-manager.png)
 
 #### Changes from skeleton plane to final result
 
-* 
+(Will need completing once the site has been completed)
 
 ### Surface Plane
 
-(Intro to surface and buzzwords)
+Once wireframing was complete, it was time to start thinking seriously about how the Front End of the website should be approached in terms of 'look and feel'. I asked Zoe for some key words that she'd like to have associated with a website that she owns, and we settled on the follwoing:
 
-* Professional
+* Modern
+* Technology
+* Mature
+* Innovative
+* Homemade
+
+These words would help inform some of the trickier aesthetic choices to be made with the site from this stage of development.
 
 #### Colour Scheme
 
-(Intro to colours)
+After combining the key associative words with the colour pallette generator found on Coolors, I settled on the following colour scheme for the website:
 
-* 
+* #ffefeb (white)
+* #2b70a1 (blue)
+* #7d1224 (burgundy)
+* #8d91a0 (silver)
+* #011627 (rich black)
 
 (screenshot)
 
 #### Typography
 
-(intro to typography and reasoning behind choices)
+As the general feel of the site needed to feel professional and modern, plenty of existing fonts could be easily ruled out of contention out of the bat. In the end I settled on the Varela Round font from Google Fonts, as it was noted that the rounded edge of the lettering mirrors the tables that are on sale nicely.
 
 (screenshot of fonts)
 
-![Nunito screenshot](static/images/nunito.png)
-
 #### Animations
+
+I set out at the beginning of development with the intention of implementing all of the following animations to aid the user experience:
+
+* Change of image, or a zoom effect whenever a product is hovered over - be it on the homepage, product builder, or all products page.
+* I want the buttons to have some striking hover effects, as opposed to the simple change of colour that accompanied my previous projects.
+* The product builder feature will rely heavily on entry and exit animations for the various stages of the product building process.
+* Custom loading animations for when a page might take a while to load.
 
 ### Data Model
 
@@ -204,7 +303,7 @@ Based on research and planning achieved during the strategy plane, and consideri
 
 A basic map of how I could get my various entities to interact with each other on a conceptual level was created as the below flowchart:
 
-(screenshot)
+![Conceptual design](media/nonproducts/conceptual-design.png)
 
 #### Logical Design Phase
 
@@ -214,11 +313,32 @@ The finalised way my collections work would together on the backend is best illu
 
 #### Physical Design Phase
 
-(Explanation of the database choice and how it is used)
+MySQL is the database in use for the development environment on this project, while PostgreSQL is the database used for the live site through deployment on Heroku.
 
 #### Data models
 
-(Bullet points of the models)
+**Product model**
+* SKU
+* Name
+* Size
+* Levels
+* Material
+* Price
+* Image 1
+* Image 2
+* Unavailable - true or false.
+
+**Size/angle model**
+* Name
+* Friendly name
+
+**Levels model**
+* Name
+* Friendly name
+
+**Material model**
+* Name
+* Friendly name
 
 ## Features and Django Apps
 
