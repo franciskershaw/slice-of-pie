@@ -240,6 +240,8 @@ At this point in development, it felt safe to start serious work on wireframes. 
 
 ![All wireframes](media/nonproducts/all-wireframes.png)
 
+![Homepage](media/nonproducts/landing-page.png)
+
 ![Login](media/nonproducts/login.png)
 
 ![Profile](media/nonproducts/profile.png)
