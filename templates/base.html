@@ -33,10 +33,12 @@
 
     <title>Slice of Pie | {% block extra_title %}{% endblock %}</title>
 </head>
+
 <body>
     
+    <!-- Navbar -->
     <header>
-        <nav><p>This is a navbar</p></nav>
+        {% include 'includes/navbar.html' %}
     </header>
 
     {% if messages %}
