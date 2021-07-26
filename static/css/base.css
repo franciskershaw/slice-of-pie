@@ -29,6 +29,11 @@ ul {
   display: flex;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+  position: relative;
+}
+
 /* Navigation bar */
 
 /* Source - responsive navigation bar sourced and tweaked to spec from https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/ */
@@ -225,7 +230,7 @@ ul {
 /* Footer */
 
 footer {
-  height: 100px;
+  height: 120px;
   background-color: var(--navbar-bg-color);
   justify-content: center;
   align-items: center;
@@ -247,9 +252,39 @@ footer ul li a {
 }
 
 .footer-link a i {
-  font-size: 140%;
+  font-size: 130%;
 }
 
 #footer ul li {
   display: inline
+}
+
+/* Wishlist and basket sidebars */
+
+.sidebar {
+  background-color: grey;
+  height: 100vh;
+  z-index: 50;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  right: -105%;
+  overflow-x: hidden;
+  transition: .75s;
+}
+
+.sidebar-opened {
+  right: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .sidebar {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .sidebar {
+    width: 35%;
+  }
 }

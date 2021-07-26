@@ -35,30 +35,38 @@
 </head>
 
 <body>
-    
-    <!-- Navbar -->
-    <header id="navigation-bar">
-        {% include 'includes/navbar.html' %}
-    </header>
+    <div class="overflow-hidden">
+        <!-- Navbar -->
+        <header id="navigation-bar">
+            {% include 'includes/navbar.html' %}
+        </header>
 
-    {% if messages %}
-        <div class="message-container">
-            <!-- for loop for messages needs to go in here -->
-        </div>
-    {% endif %}
+        <!-- Wishlist -->
+        {% include 'includes/wishlist.html' %}
 
-    {% block content %}
-    {% endblock %}
+        <!-- Basket -->
+        {% include 'includes/basket.html' %}
 
-    <footer id="footer" class="flex-container fixed-bottom">
-        {% include 'includes/footer.html' %}
-    </footer>
+        {% if messages %}
+            <div class="message-container">
+                <!-- for loop for messages needs to go in here -->
+            </div>
+        {% endif %}
 
-    {% block postloadjs %}
-        <!-- <script>
-            $('.toast').toast('show');
-        </script> -->
-        <script src="{% static 'js/navbar.js' %}"></script>
-    {% endblock %}
+        {% block content %}
+        {% endblock %}
+        
+        <!-- Footer -->
+        <footer id="footer" class="flex-container fixed-bottom">
+            {% include 'includes/footer.html' %}
+        </footer>
+
+        {% block postloadjs %}
+            <!-- <script>
+                $('.toast').toast('show');
+            </script> -->
+            <script src="{% static 'js/navbar.js' %}"></script>
+        {% endblock %}
+    </div>
 </body>
 </html>
