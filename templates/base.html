@@ -37,7 +37,7 @@
 <body>
     
     <!-- Navbar -->
-    <header>
+    <header id="navigation-bar">
         {% include 'includes/navbar.html' %}
     </header>
 
@@ -54,6 +54,7 @@
         <!-- <script>
             $('.toast').toast('show');
         </script> -->
+        <script src="{% static 'js/navbar.js' %}"></script>
     {% endblock %}
 </body>
 </html>
