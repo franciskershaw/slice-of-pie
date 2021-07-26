@@ -50,6 +50,10 @@
     {% block content %}
     {% endblock %}
 
+    <footer id="footer" class="flex-container fixed-bottom">
+        {% include 'includes/footer.html' %}
+    </footer>
+
     {% block postloadjs %}
         <!-- <script>
             $('.toast').toast('show');

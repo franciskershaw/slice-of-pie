@@ -1,18 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 :root {
-  --navbar-bg-color: hsl(0, 0%, 15%);
-  --navbar-text-color: hsl(0, 0%, 85%);
+  --navbar-bg-color: #7d1224;
+  --navbar-text-color: #fdeded;
   --navbar-text-color-focus: white;
   --navbar-bg-contrast: hsl(0, 0%, 25%);
+  --main-font: 'Varela Round', sans-serif;
 }
+
+/* General styles */
 
 * {
   margin: 0;
   padding: 0;
 }
 
-/* General styles */
+body {
+  font-family: var(--main-font);
+}
+
+ul {
+  padding-left: 0;
+}
 
 .flex-container {
   padding-left: 1.4rem;
@@ -20,13 +29,11 @@
   display: flex;
 }
 
-/* Navigation bar and footer */
+/* Navigation bar */
 
 /* Source - responsive navigation bar sourced and tweaked to spec from https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/ */
 
 .navbar-container {
-  display: flex;
-  display: flex;
   justify-content: space-between;
   height: 100%;
   align-items: center;
@@ -42,9 +49,7 @@
   color: var(--navbar-text-color);
   transition: color 0.2s ease-in-out;
   text-decoration: none;
-  display: flex;
   font-weight: 400;
-  align-items: center;
   transition: background-color 0.2s ease-in-out,
               color 0.2s ease-in-out;
 }
@@ -55,10 +60,10 @@
 }
 
 .navbar-link {
-  justify-content: start;
   width: 100%;
   padding: 0.4em 0.4em;
-  border-radius: 5px;
+  border: none;
+  background-color: transparent;
 }
 
 .navbar-link:focus,
@@ -105,10 +110,21 @@
 .mobile-icon-list {
   list-style-type: none;
   display: flex;
+  margin-bottom: 0;
 }
 
 .mobile-icon-btn {
-  color: #F6F1F1;
+  padding: 0.4em 0.4em;
+  color: var(--navbar-text-color);
+  background-color: transparent;
+  transition: color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border: none;
+}
+
+.mobile-icons {
   padding: 0.4em 0.4em;
   text-decoration: none;
 }
@@ -204,4 +220,36 @@
   #navigation-bar .navbar-link:last-child {
       margin-right: 0;
   }
+}
+
+/* Footer */
+
+footer {
+  height: 100px;
+  background-color: var(--navbar-bg-color);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 130%;
+  padding-top: 10px;
+}
+
+footer ul {
+  list-style-type: none;
+  padding-top: 10px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: var(--navbar-text-color);
+  text-decoration: none;
+  padding: 5px;
+}
+
+.footer-link a i {
+  font-size: 140%;
+}
+
+#footer ul li {
+  display: inline
 }
