@@ -451,6 +451,8 @@ Please see a full report of the testing applied to this project [here.](testing.
 
 ## Credits
 
+* Code for the navigation bar was sourced and then tweaked to spec from [this helpful blog post](https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/) by Aleksandr Hovhannisyan
+
 ### Media
 
 * 
