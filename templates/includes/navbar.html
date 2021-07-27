@@ -22,7 +22,11 @@
     <div class="navbar-menu desktop-icons d-none d-md-block">
         <ul class="navbar-links">
             <li>
-                <button class="navbar-link"><i class="fas fa-user"></i></button>
+                <button id="navBarDropdown" class="navbar-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></button>
+                <ul class="dropdown-menu" aria-labelledby="navBarDropdown">
+                    <li><a href="#" class="dropdown-item">Sign in</a></li>
+                    <li><a href="#" class="dropdown-item">Create account</a></li>
+                </ul>
             </li>
             <li>
                 <button class="navbar-link wishlist-btn"><i class="fas fa-heart"></i></button>
