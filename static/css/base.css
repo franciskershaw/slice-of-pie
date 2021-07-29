@@ -1,10 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 :root {
-  --navbar-bg-color: #7d1224;
-  --navbar-text-color: #fdeded;
-  --navbar-text-color-focus: white;
+  --dark: #011627;
+  --burgendy: #7d1224;
+  --blue: #2b70a1;
+  --lavender: #fdeded;
+  --white: #ffffff;
   --navbar-bg-contrast: hsl(0, 0%, 25%);
+
   --main-font: 'Varela Round', sans-serif;
 }
 
@@ -17,6 +20,8 @@
 
 body {
   font-family: var(--main-font);
+  /* background-color: var(--burgendy); */
+  letter-spacing: .5px;
 }
 
 ul {
@@ -32,6 +37,18 @@ ul {
 .overflow-hidden {
   overflow: hidden;
   position: relative;
+}
+
+.page-container {
+  margin-top: 64px;
+}
+
+.center-content {
+	position: relative;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
 }
 
 /* Navigation bar */
@@ -51,17 +68,18 @@ ul {
 
 .brand-link,
 .navbar-link {
-  color: var(--navbar-text-color);
+  color: var(--lavender);
   transition: color 0.2s ease-in-out;
   text-decoration: none;
   font-weight: 400;
   transition: background-color 0.2s ease-in-out,
               color 0.2s ease-in-out;
+  font-size: 110%;
 }
 
 .brand-link:focus,
 .brand-link:hover {
-  color: var(--navbar-text-color-focus);
+  color: var(--white);
 }
 
 .navbar-link {
@@ -73,7 +91,7 @@ ul {
 
 .navbar-link:focus,
 .navbar-link:hover {
-    color: var(--navbar-text-color-focus);
+    color: var(--white);
     background-color: var(--navbar-bg-contrast);
 }
 
@@ -109,7 +127,7 @@ ul {
   transition: background-color 0.2s ease-in-out,
               transform 0.2s ease-in-out,
               opacity 0.2s ease-in-out;
-  background-color: var(--navbar-text-color);
+  background-color: var(--lavender);
 }
 
 .mobile-icon-list {
@@ -120,7 +138,7 @@ ul {
 
 .mobile-icon-btn {
   padding: 0.4em 0.4em;
-  color: var(--navbar-text-color);
+  color: var(--lavender);
   background-color: transparent;
   transition: color 0.2s ease-in-out;
   display: flex;
@@ -136,7 +154,7 @@ ul {
 
 .navbar-toggle:focus .icon-bar,
 .navbar-toggle:hover .icon-bar {
-    background-color: var(--navbar-text-color-focus);
+    background-color: var(--white);
 }
 
 .navbar-links {
@@ -144,7 +162,7 @@ ul {
   max-height: 0;
   overflow: hidden;
   position: absolute;
-  background-color: var(--navbar-bg-color);
+  background-color: var(--burgendy);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -164,7 +182,7 @@ ul {
   --navbar-height: 64px;
   position: fixed;
   height: var(--navbar-height);
-  background-color: var(--navbar-bg-color);
+  background-color: var(--burgendy);
   left: 0;
   right: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
@@ -231,7 +249,7 @@ ul {
 
 footer {
   height: 120px;
-  background-color: var(--navbar-bg-color);
+  background-color: var(--burgendy);
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -246,7 +264,7 @@ footer ul {
 
 footer ul li a {
   text-decoration: none;
-  color: var(--navbar-text-color);
+  color: var(--lavender);
   text-decoration: none;
   padding: 5px;
 }
@@ -270,7 +288,7 @@ footer ul li a {
   top: 0;
   right: -105%;
   overflow-x: hidden;
-  transition: .75s;
+  transition: 1.25s;
 }
 
 .sidebar-opened {
@@ -288,3 +306,49 @@ footer ul li a {
     width: 35%;
   }
 }
+
+/* Homepage */
+
+.index-content-container {
+  padding-top: 70px;
+}
+
+.index-content-container h1 {
+  color: var(--dark);
+  font-size: 2.5rem;
+}
+
+.landing-container {
+  text-align: center;
+  padding-top: 40px;
+  padding-right: 20px;
+  padding-left: 20px;
+  height: 70vh;
+}
+
+.index-headings-container {
+  padding-left: 10px;
+  padding-right: 10px;
+  max-width: 290px;
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.cta-btn-container {
+  text-align: center;
+  max-width: 290px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.cta-btn {
+  margin-bottom: 20px;
+  width: 140px;
+  padding: 4px;
+  border: 2px solid var(--blue);
+  border-radius: 4px;
+  font-size: 130%;
+  background-color: var(--blue);
+}
+
