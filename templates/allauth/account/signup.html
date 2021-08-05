@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="page-container text-center">
-  <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  <form class="signup user-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
     <h3>Create an account</h1>
     {% csrf_token %}
     {{ form.as_p }}

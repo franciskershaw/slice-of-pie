@@ -352,10 +352,3 @@ footer ul li a {
   background-color: var(--blue);
 }
 
-/* Login and signup pages */
-
-.signup {
-  border: 1px solid;
-  /* max-width: 400px; */
-}
-
