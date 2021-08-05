@@ -3,8 +3,16 @@
         <li>
             <button class="mobile-icon-btn" id="navBarDropdown" class="navbar-link" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user"></i></button>
             <ul class="dropdown-menu" aria-labelledby="navBarDropdown">
-                <li><a href="#" class="dropdown-item">Sign in</a></li>
-                <li><a href="#" class="dropdown-item">Create account</a></li>
+                {% if request.user.is_authenticated %}
+                        <li><a href="#" class="dropdown-item">Profile</a></li>
+                        <li><a href="{% url 'account_logout' %}" class="dropdown-item">Sign Out</a></li>
+                        {% if request.user.is_superuser %}
+                            <li><a href="#" class="dropdown-item">Product Manager</a></li>
+                        {% endif %}
+                {% else %}
+                        <li><a href="{% url 'account_login' %}" class="dropdown-item">Sign in</a></li>
+                        <li><a href="{% url 'account_signup' %}" class="dropdown-item">Create account</a></li>
+                {% endif %}
             </ul>
         </li>
         <li>
