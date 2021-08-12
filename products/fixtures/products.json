@@ -1,0 +1,36 @@
+[
+    {
+      "pk": 1,
+      "model": "products.product",
+      "fields": {
+        "sku": "SKU0001",
+        "name": "1 Level Acryllic 60 Degree Slice Of Pie",
+        "price": 50,
+        "angle": 1,
+        "levels": 1,
+        "material": 1,
+        "description": "A custom designed 60 degree angled table made from acryllic wood with 1 level. Please note that the images are artistic representations of the finished product and will differ slightly to your completed order.",
+        "image_1": "1-acryllic-60_1.jpg",
+        "image_2": "1-acryllic-60_2.jpg",
+        "image_url": "",
+        "unavailable": false
+      }
+    },
+    {
+        "pk": 2,
+        "model": "products.product",
+        "fields": {
+          "sku": "SKU0002",
+          "name": "1 Level Plywood 60 Degree Slice Of Pie",
+          "price": 50,
+          "angle": 1,
+          "levels": 1,
+          "material": 2,
+          "description": "A custom designed 60 degree angled table made from plywood wood with 1 level. Please note that the images are artistic representations of the finished product and will differ slightly to your completed order.",
+          "image_1": "1-acryllic-60_1.jpg",
+          "image_2": "1-acryllic-60_2.jpg",
+          "image_url": "",
+          "unavailable": false
+        }
+      }
+  ]
