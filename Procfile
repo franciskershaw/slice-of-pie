@@ -1,0 +1,1 @@
+web: gunicorn slice_of_pie.wsgi:application
