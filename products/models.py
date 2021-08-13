@@ -47,6 +47,7 @@ class Product(models.Model):
         'Angle', null=True, blank=True, on_delete=models.SET_NULL)
     level = models.ForeignKey(
         'Level', null=True, blank=True, on_delete=models.SET_NULL)
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=None)
     description = models.TextField()
     image_1 = models.ImageField(null=True, blank=True)
     image_2 = models.ImageField(null=True, blank=True)
