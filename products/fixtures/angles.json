@@ -1,0 +1,1 @@
+[{"pk":1,"model":"products.angles","fields":{"name":"60_degree","friendly_name":"60 Degree"}},{"pk":2,"model":"products.angles","fields":{"name":"120_degree","friendly_name":"120 Degree"}},{"pk":3,"model":"products.angles","fields":{"name":"180_degree","friendly_name":"180 Degree"}}]

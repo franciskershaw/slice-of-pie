@@ -1,0 +1,1 @@
+[{"pk":1,"model":"products.levels","fields":{"name":"1_level","friendly_name":"1 Level"}},{"pk":2,"model":"products.levels","fields":{"name":"2_levels","friendly_name":"2 Levels"}},{"pk":3,"model":"products.levels","fields":{"name":"3_levels","friendly_name":"3 Levels"}}]

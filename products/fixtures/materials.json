@@ -1,0 +1,1 @@
+[{"pk":1,"model":"products.materials","fields":{"name":"acryllic","friendly_name":"Acryllic"}},{"pk":2,"model":"products.materials","fields":{"name":"plywood","friendly_name":"Plywood"}},{"pk":3,"model":"products.materials","fields":{"name":"pine","friendly_name":"Pine"}},{"pk":4,"model":"products.materials","fields":{"name":"oak","friendly_name":"Oak"}}]
