@@ -13,10 +13,22 @@
       <div class="col-6 text-center p-0">
          <button id="sort" type="button" class="filter-sort btn btn-primary w-100">Sort</button>
       </div>
+      {% for product in products %}
+      <div class="col-12 col-md-4 border text-center product-card">
+         <a href="#">
+            <div class="image-container">
+               <img class="product-image" src="/media/1-acryllic-120.jpg" alt="placeholder-image">
+            </div>
+            <div class="product-title">
+               <p>{{ product.name }}</p>
+            </div>
+            <div class="product-price">
+               <p>£{{ product.price }}</p>
+            </div>
+         </a>
+      </div>
+   {% endfor %}
    </div>
-   <!-- {% for product in products %}
-    <p>{{ product }}</p>
-   {% endfor %} -->
 </div>
 
 {% endblock %}

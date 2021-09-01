@@ -366,6 +366,21 @@ footer ul li a {
   border-radius: 0px;
 }
 
+.product-card {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container {
+  width: 100%;
+}
+
+.product-image {
+  height: 145px;
+} 
+
 div.products h1 {
   padding-top: var(--h1-padding);
   font-size: var(--h1-size);
