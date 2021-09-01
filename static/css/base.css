@@ -10,6 +10,8 @@
   --navbar-height: 64px;
 
   --main-font: 'Varela Round', sans-serif;
+  --h1-margin: 35px;
+  --h1-size: 2rem;
 }
 
 /* General styles */
@@ -350,5 +352,12 @@ footer ul li a {
   border-radius: 4px;
   font-size: 130%;
   background-color: var(--blue);
+}
+
+/* All products page */
+
+div.products h1 {
+  padding-top: var(--h1-margin);
+  font-size: var(--h1-size);
 }
 
