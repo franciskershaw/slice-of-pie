@@ -10,7 +10,7 @@
   --navbar-height: 64px;
 
   --main-font: 'Varela Round', sans-serif;
-  --h1-margin: 35px;
+  --h1-padding: 35px;
   --h1-size: 2rem;
 }
 
@@ -356,8 +356,23 @@ footer ul li a {
 
 /* All products page */
 
+.filter-sort {
+  font-size: 150%;
+  padding: 15px 0;
+  letter-spacing: 1px;
+  color: var(--dark);
+  background-color: var(--lavender);
+  border: 1px solid;
+  border-radius: 0px;
+}
+
 div.products h1 {
-  padding-top: var(--h1-margin);
+  padding-top: var(--h1-padding);
   font-size: var(--h1-size);
+  margin-bottom: 20px;
+}
+
+#sort {
+  border-left: none;
 }
 

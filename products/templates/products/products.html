@@ -4,11 +4,19 @@
 
 {% block content %}
 
-<div class="products page-container">
+<div class="products page-container container-fluid">
    <h1 class="text-center">All Tables</h1>
-   {% for product in products %}
+   <div class="row">
+      <div class="col-6 text-center p-0">
+         <button type="button" class="filter-sort btn btn-primary w-100">Filter</button>
+      </div>
+      <div class="col-6 text-center p-0">
+         <button id="sort" type="button" class="filter-sort btn btn-primary w-100">Sort</button>
+      </div>
+   </div>
+   <!-- {% for product in products %}
     <p>{{ product }}</p>
-   {% endfor %}
+   {% endfor %} -->
 </div>
 
 {% endblock %}
