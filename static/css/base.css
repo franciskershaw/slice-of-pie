@@ -367,7 +367,7 @@ footer ul li a {
 }
 
 .product-card {
-  height: 280px;
+  height: 310px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -375,11 +375,38 @@ footer ul li a {
 
 .image-container {
   width: 100%;
+  margin-top: 15px;
 }
 
 .product-image {
-  height: 145px;
-} 
+  height: 180px;
+  border: solid;
+  width: 210px;
+  object-fit: cover;
+  padding-top: 13px;
+  padding-left: 35px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.product-price {
+  font-size: 1.25rem;
+}
+
+.product-heart {
+  position: relative;
+  top: -115px;
+  right: 13px;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: var(--dark);
+}
 
 div.products h1 {
   padding-top: var(--h1-padding);
@@ -391,3 +418,8 @@ div.products h1 {
   border-left: none;
 }
 
+@media screen and (min-width: 768px) {
+  .filter-sort {
+    margin-bottom: 20px;
+  }
+}
