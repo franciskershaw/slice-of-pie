@@ -3,13 +3,13 @@
 {% load static %}
 
 {% block content %}
-
+{% include 'includes/filter.html' %}
 <div class="products page-container container">
    <h1 class="text-center">All Tables</h1>
    <div class="row">
       <div class="col-md-4 d-none d-md-block"></div>
       <div class="col-6 col-md-2 text-center p-0">
-         <button type="button" class="filter-sort btn btn-primary w-100">Filter</button>
+         <button id="filter" type="button" class="filter-sort btn btn-primary w-100">Filter</button>
       </div>
       <div class="col-6 col-md-2 text-center p-0">
          <button id="sort" type="button" class="filter-sort btn btn-primary w-100">Sort</button>
@@ -37,13 +37,23 @@
                </button>
             </div>
          </div>
-         <!-- <a class="product-heart" href="{% url 'account_login' %}">
-            <i class="far fa-heart" aria-hidden="true"></i>
-            <span class="sr-only">Add to wishlist</span>
-         </a> -->
       </div>
    {% endfor %}
    </div>
 </div>
 
+{% endblock %}
+{% block postloadjs %}
+   <script type="text/javascript">
+      const filterBtn = document.querySelector('#filter');
+      const filterOptions = document.querySelector('.filter-options')
+      filterBtn.addEventListener('click', () => {
+         filterOptions.classList.add('.filter-opened');
+      })
+
+      const closeFilter = document.querySelector('.close-filter')
+      closeFilter.addEventListener('click', () => {
+         filterOptions.classList.remove('.filter-opened');
+      })
+   </script>  
 {% endblock %}

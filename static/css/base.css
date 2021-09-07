@@ -403,10 +403,20 @@ footer ul li a {
   right: 13px;
 }
 
-/* .product-card a {
-  text-decoration: none;
-  color: var(--dark);
-} */
+.filter-options {
+  background-color: grey;
+  height: 100vh;
+  z-index: 50;
+  position: fixed;
+  width: 100vw;
+  top: -105%;
+  overflow-x: hidden;
+  transition: 1.25s;
+}
+
+.filter-options.flexbox-container.\.filter-opened {
+  top: 0;
+}
 
 div.products h1 {
   padding-top: var(--h1-padding);
