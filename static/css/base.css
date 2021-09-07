@@ -367,7 +367,7 @@ footer ul li a {
 }
 
 .product-card {
-  height: 310px;
+  height: 370px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -403,10 +403,10 @@ footer ul li a {
   right: 13px;
 }
 
-.product-card a {
+/* .product-card a {
   text-decoration: none;
   color: var(--dark);
-}
+} */
 
 div.products h1 {
   padding-top: var(--h1-padding);

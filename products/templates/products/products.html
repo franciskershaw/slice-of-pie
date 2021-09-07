@@ -17,7 +17,7 @@
       <div class="col-md-4 d-none d-md-block"></div>
       {% for product in products %}
       <div class="col-12 col-md-4 border text-center product-card">
-         <a href="#">
+         <div>
             <div class="image-container">
                <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
             </div>
@@ -27,7 +27,16 @@
             <div class="product-price">
                <p>£{{ product.price }}</p>
             </div>
-         </a>
+            <div class="view-and-heart">
+               <buton class="btn btn-primary">
+                  View
+               </buton>
+               <button class="btn btn-primary">
+                  <i class="far fa-heart" aria-hidden="true"></i>
+                  <span class="sr-only">Add to wishlist</span>
+               </button>
+            </div>
+         </div>
          <!-- <a class="product-heart" href="{% url 'account_login' %}">
             <i class="far fa-heart" aria-hidden="true"></i>
             <span class="sr-only">Add to wishlist</span>
