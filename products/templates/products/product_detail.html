@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<div class="product-detail page-container container">
+   <div class="row text-center">
+      <div class="col-12 col-md-6">
+         <img class="product-image product-image-detail" src="{{ MEDIA_URL }}{{ product.image_1 }}"
+            alt="{{ product.name }}">
+      </div>
+      <div class="col-12 col-md-6 key-product-actions-container">
+         <div class="row">
+            <div class="col-12 product-title-detail">
+               <h2>{{ product.name }}</h2>
+            </div>
+            <div class="col-12 product-price-detail">
+               £{{ product.price }}
+            </div>
+            <div class="col-12 product-quantity-outer">
+               <form class="form" action="" method="POST">
+                  {% csrf_token %}
+                  <div class="form-row">
+                     <div class="form-group">
+                        <div class="input-group">
+                           <div class="input-group-prepend">
+                              <button class="decrement-qty btn btn-black rounded-0" data-item_id="{{ product.id }}"
+                                 id="decrement-qty_{{ product.id }}">
+                                 <span class="icon">
+                                    <i class="fas fa-minus"></i>
+                                 </span>
+                              </button>
+                           </div>
+                           <input class="form-control qty_input" type="number" name="quantity" value="1" min="1"
+                              max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                           <div class="input-group-append">
+                              <button class="increment-qty btn btn-black rounded-0" data-item_id="{{ product.id }}"
+                                 id="increment-qty_{{ product.id }}">
+                                 <span class="icon">
+                                    <i class="fas fa-plus"></i>
+                                 </span>
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-6">
+                        <button><input type="submit" value="Add to Bag"></button>
+                     </div>
+                     <div class="col-6">
+                        <button>Add to Wishlist</button>
+                     </div>
+                  </div>
+               </form>
+            </div>
+         </div>
+      </div>
+      <div class="col-12 product-description text-start">
+         <p><em>{{ product.description }}</em></p>
+      </div>
+      <div class="col-12">
+         <a href="{% url 'products' %}" class="btn btn-primary btn-md cta-btn">Browse all</a>
+      </div>
+   </div>
+</div>
+{% endblock %}

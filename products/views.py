@@ -1,11 +1,12 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Product
+from .models import Product, Material
 
 # Create your views here.
 
 
 def all_products(request):
     """A view to return the all products page"""
+
     products = Product.objects.all()
 
     context = {

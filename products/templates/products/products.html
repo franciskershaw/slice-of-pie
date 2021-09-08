@@ -12,16 +12,15 @@
          <button id="filter" type="button" class="filter-sort btn btn-primary w-100">Filter</button>
       </div>
       <div class="col-6 col-md-2 text-center p-0">
-         <select id="sort" class="filter-sort w-100 btn btn-primary">
-            <option value="reset" selected="">Sort by</option>
-            <option value="price_asc">Price (low to high)</option>
-            <option value="price_desc">Price (high to low)</option>
-            <option value="levels_asc">Levels (most to least)</option>
-            <option value="levels_desc">Levels (least to most)</option>
-            <option value="size_asc">Size (smallest-largest)</option>
-            <option value="size_desc">Size (largest-smallest)</option>
+         <select id="sort-select" class="filter-sort w-100 btn btn-primary">
+            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+            <option value="levels_asc" {% if current_sorting == 'levels_asc' %}selected{% endif %}>Levels (most to least)</option>
+            <option value="levels_desc" {% if current_sorting == 'levels_desc' %}selected{% endif %}>Levels (least to most)</option>
+            <option value="size_asc" {% if current_sorting == 'size_asc' %}selected{% endif %}>Size (smallest-largest)</option>
+            <option value="size_desc" {% if current_sorting == 'size_desc' %}selected{% endif %}>Size (largest-smallest)</option>
         </select>
-         <!-- <button id="sort" type="button" class="filter-sort btn btn-primary w-100">Sort</button> -->
       </div>
       <div class="col-md-4 d-none d-md-block"></div>
       {% for product in products %}
@@ -37,9 +36,9 @@
                <p>£{{ product.price }}</p>
             </div>
             <div class="view-and-heart">
-               <buton class="btn btn-primary">
-                  View
-               </buton>
+               <button class="btn btn-primary">
+                  <a href="{% url 'product_detail' product.id %}">View</a> 
+               </button>
                <button class="btn btn-primary">
                   <i class="far fa-heart" aria-hidden="true"></i>
                   <span class="sr-only">Add to wishlist</span>
@@ -53,6 +52,7 @@
 
 {% endblock %}
 {% block postloadjs %}
+   {{ block.super }}
    <script type="text/javascript">
       const filterBtn = document.querySelector('#filter');
       const filterOptions = document.querySelector('.filter-options')
@@ -65,4 +65,28 @@
          filterOptions.classList.remove('.filter-opened');
       })
    </script>  
+
+   <script type="text/javascript">
+      console.log('this script says hello');
+      $('#sort-select').change(function() {
+         var selector = $(this);
+         var currentUrl = new URL(window.location);
+
+         var selectedVal = selector.val();
+         if(selectedVal != "reset"){
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+         } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+
+            window.location.replace(currentUrl);
+         }
+      })
+   </script>
 {% endblock %}

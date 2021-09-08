@@ -433,3 +433,41 @@ div.products h1 {
     margin-bottom: 20px;
   }
 }
+
+/* Product detail page */
+
+.product-detail {
+  padding-top: 50px;
+}
+
+.product-image-detail {
+  height: 240px;
+  width: 265px;
+  padding-top: 10px;
+  padding-left: 50px;
+  margin-bottom: 20px;
+}
+
+.product-title-detail {
+  /* font-size: 130%; */
+  padding-right: 30px;
+  padding-left: 30px;
+  margin-bottom: 5px;
+}
+
+.product-price-detail {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.form-row {
+  margin-bottom: 20px;
+}
+
+/* .product-quantity-outer {
+  margin-bottom: 15px;
+} */
+
+.product-description {
+  padding: 0px 25px;
+}
