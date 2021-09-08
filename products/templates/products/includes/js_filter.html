@@ -1,0 +1,21 @@
+<script>
+    function getValues() {
+        let inputs = $('.filter-category');
+        let currentUrl = new URL(window.location)['href'];
+        currentUrl = currentUrl.split('products/')[0];
+        let urlString = currentUrl + 'products/?';
+        for (input of inputs) {
+            if (input['checked']) {
+                urlString += (input.classList[1] + '=' + input['value'] + '&');
+            }
+        }
+        urlString = urlString.slice(0, -1);
+        window.location = urlString;
+    };
+
+    let button = document.querySelector('#apply-filter');
+    button.addEventListener('click', () => {
+        getValues();
+    })
+
+</script>

@@ -67,7 +67,6 @@
    </script>  
 
    <script type="text/javascript">
-      console.log('this script says hello');
       $('#sort-select').change(function() {
          var selector = $(this);
          var currentUrl = new URL(window.location);
@@ -89,4 +88,5 @@
          }
       })
    </script>
+   {% include 'products/includes/js_filter.html' %}
 {% endblock %}
