@@ -1,0 +1,60 @@
+<!-- Sort selector -->
+<script type="text/javascript">
+    $('#sort-select').change(function() {
+       var selector = $(this);
+       var currentUrl = new URL(window.location);
+
+       var selectedVal = selector.val();
+       if(selectedVal != "reset"){
+          var sort = selectedVal.split("_")[0];
+          var direction = selectedVal.split("_")[1];
+
+          currentUrl.searchParams.set("sort", sort);
+          currentUrl.searchParams.set("direction", direction);
+
+          window.location.replace(currentUrl);
+       } else {
+          currentUrl.searchParams.delete("sort");
+          currentUrl.searchParams.delete("direction");
+
+          window.location.replace(currentUrl);
+       }
+    })
+ </script>
+
+<!-- Open and close filter section -->
+<script type="text/javascript">
+    const filterBtn = document.querySelector('#filter');
+    const filterOptions = document.querySelector('.filter-options')
+    filterBtn.addEventListener('click', () => {
+       filterOptions.classList.add('.filter-opened');
+    })
+
+    const closeFilter = document.querySelector('.close-filter')
+    closeFilter.addEventListener('click', () => {
+       filterOptions.classList.remove('.filter-opened');
+    })
+ </script>  
+
+<!-- Handle filter form -->
+<script>
+    function createUrl() {
+        let inputs = $('.filter-category');
+        let currentUrl = new URL(window.location)['href'];
+        currentUrl = currentUrl.split('products/')[0];
+        let urlString = currentUrl + 'products/?';
+        for (input of inputs) {
+            if (input['checked']) {
+                urlString += (input.classList[1] + '=' + input['value'] + '&');
+            }
+        }
+        urlString = urlString.slice(0, -1);
+        window.location = urlString;
+    };
+
+    let button = document.querySelector('#apply-filter');
+    button.addEventListener('click', () => {
+        createUrl();
+    })
+
+</script>

@@ -16,10 +16,8 @@
             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
             <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-            <option value="levels_asc" {% if current_sorting == 'levels_asc' %}selected{% endif %}>Levels (most to least)</option>
-            <option value="levels_desc" {% if current_sorting == 'levels_desc' %}selected{% endif %}>Levels (least to most)</option>
-            <option value="size_asc" {% if current_sorting == 'size_asc' %}selected{% endif %}>Size (smallest-largest)</option>
-            <option value="size_desc" {% if current_sorting == 'size_desc' %}selected{% endif %}>Size (largest-smallest)</option>
+            <option value="levels_asc" {% if current_sorting == 'levels_asc' %}selected{% endif %}>Levels (least to most)</option>
+            <option value="levels_desc" {% if current_sorting == 'levels_desc' %}selected{% endif %}>Levels (most to least)</option>
         </select>
       </div>
       <div class="col-md-4 d-none d-md-block"></div>
@@ -53,40 +51,5 @@
 {% endblock %}
 {% block postloadjs %}
    {{ block.super }}
-   <script type="text/javascript">
-      const filterBtn = document.querySelector('#filter');
-      const filterOptions = document.querySelector('.filter-options')
-      filterBtn.addEventListener('click', () => {
-         filterOptions.classList.add('.filter-opened');
-      })
-
-      const closeFilter = document.querySelector('.close-filter')
-      closeFilter.addEventListener('click', () => {
-         filterOptions.classList.remove('.filter-opened');
-      })
-   </script>  
-
-   <script type="text/javascript">
-      $('#sort-select').change(function() {
-         var selector = $(this);
-         var currentUrl = new URL(window.location);
-
-         var selectedVal = selector.val();
-         if(selectedVal != "reset"){
-            var sort = selectedVal.split("_")[0];
-            var direction = selectedVal.split("_")[1];
-
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-
-            window.location.replace(currentUrl);
-         } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-
-            window.location.replace(currentUrl);
-         }
-      })
-   </script>
-   {% include 'products/includes/js_filter.html' %}
+   {% include 'products/includes/all_products_js.html' %}
 {% endblock %}
