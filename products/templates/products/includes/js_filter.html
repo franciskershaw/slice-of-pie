@@ -1,5 +1,5 @@
 <script>
-    function getValues() {
+    function createUrl() {
         let inputs = $('.filter-category');
         let currentUrl = new URL(window.location)['href'];
         currentUrl = currentUrl.split('products/')[0];
@@ -15,7 +15,7 @@
 
     let button = document.querySelector('#apply-filter');
     button.addEventListener('click', () => {
-        getValues();
+        createUrl();
     })
 
 </script>
