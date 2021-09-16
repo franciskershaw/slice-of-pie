@@ -1,4 +1,21 @@
-<div class="basket-sidebar sidebar flexbox-container">
-    <button class="close-sidebar">Close me</button>
-    <p>I am the basket</p>
+<div class="basket-sidebar sidebar flexbox-container container">
+    <div class="row text-center">
+        <div class="col-12 sidebar-header">
+            <button class="close-sidebar"><i class="fas fa-times"><span class="sr-only">close sidebar</span></i></button>
+            <div>Basket <i class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></div>
+        </div>
+        {% if bag_items %}
+        <div class="col-12 text-start">
+            <p>Items are in the bag</p>
+        </div>
+        {% else %}
+        <div class="col-12 empty-sidebar">
+            <p>Your Basket is empty</p>
+        </div>
+        <div class="col-12">
+            <a href="#" class="btn btn-primary btn-md cta-btn">Build Table</a>
+        </div>
+        {% endif %}
+    </div>
+    <hr>
 </div>

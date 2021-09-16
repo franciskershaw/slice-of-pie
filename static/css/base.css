@@ -297,6 +297,25 @@ footer ul li a {
   right: 0;
 }
 
+.sidebar-header {
+  margin-top: 30px;
+  font-size: 200%;
+  margin-bottom: 15px;
+}
+
+.empty-sidebar {
+  font-size: 1.5rem;
+}
+
+button.close-sidebar {
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 30px;
+  top: 15px;
+  /* font-size: 150%; */
+}
+
 @media screen and (min-width: 768px) {
   .sidebar {
     width: 50%;
