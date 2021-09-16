@@ -78,7 +78,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                # 'slice_of_pie.contexts.shopping_basket',
+                'slice_of_pie.contexts.basket_contents',
             ],
         },
     },
@@ -191,6 +191,10 @@ if 'USE_AWS' in os.environ:
     # Override static and media URLs in production
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+# Stripe payments
+FREE_DELIVERY_THRESHOLD = 200
+STANDARD_DELIVERY_PERCENTAGE = 5
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
