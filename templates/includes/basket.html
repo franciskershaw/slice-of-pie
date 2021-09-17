@@ -5,9 +5,15 @@
             <div>Basket <i class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></div>
         </div>
         {% if basket_items %}
-        <div class="col-12 text-start">
-            <p>Items are in the bag</p>
+        <div class="col-12 border">
+            <div>Items: {{ basket_items|length }}</div>
         </div>
+        {% for item in basket_items %}
+        <div class="col-12">
+            <img class="product-image product-image-detail" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
+            alt="{{ product.name }}">
+        </div>
+        {% endfor %}
         {% else %}
         <div class="col-12 empty-sidebar">
             <p>Your Basket is empty</p>
