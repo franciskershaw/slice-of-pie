@@ -6,9 +6,12 @@
         </div>
         {% if basket_items %}
         <div class="col-12 border">
-            <div>Items: {{ basket_items|length }}</div>
+            <div>Items: {{ product_count }}</div>
         </div>
         {% for item in basket_items %}
+        <div class="col-12">
+            {{ item.product.name }} x {{ item.quantity }}
+        </div>
         <div class="col-12">
             <img class="product-image product-image-detail" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
             alt="{{ product.name }}">
