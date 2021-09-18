@@ -1,12 +1,46 @@
 <script type="text/javascript">
-    $('.increment-qty').click((e) => {
+
+    // Handle enabling and disabling of the quantity buttons
+    function handleEnableDisable(itemId) {
+        let currentValue = parseInt($(`#id_qty_${itemId}`).val());
+        let minusDisabled = currentValue < 2;
+        let plusDisabled = currentValue > 98;
+        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+    }
+
+    // Ensure decrease input is initially disabled
+    let allQtyInputs = $('.qty_input');
+    console.log(allQtyInputs);
+    for (input of allQtyInputs) {
+        let itemId = $(input).data('item_id');
+        handleEnableDisable(itemId);
+    }
+
+    // Change event for arrow key changes
+    $('.qty_input').change(() => {
+        let itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    })
+    
+    // Increment the value of the quantity input field
+    let incrementBtn = $('.increment-qty');
+    incrementBtn.click((e) => {
         e.preventDefault();
-        let inputGroup = document.querySelector('.input-group')
-        console.log(inputGroup);
-        // console.log(document.querySelectorAll('.input-group'))
-        // console.log(document.querySelectorAll('.qty_input'));
-        // var closestInput = $('.input-group').find('.qty_input')[0];
-        // var currentValue = parseInt($(closestInput).val());
-        
+        let quantityField = document.querySelector('.qty_input');
+        let currentValue = parseInt(quantityField.value);
+        $(quantityField).val(currentValue + 1);
+        let itemId = incrementBtn.data('item_id');
+        handleEnableDisable(itemId);
+    })
+    // Decrement the value of the quantity input field
+    let decrementBtn = $('.decrement-qty');
+    decrementBtn.click((e) => {
+        e.preventDefault();
+        let quantityField = document.querySelector('.qty_input');
+        let currentValue = parseInt(quantityField.value);
+        $(quantityField).val(currentValue - 1);
+        let itemId = decrementBtn.data('item_id');
+        handleEnableDisable(itemId);
     })
 </script>
