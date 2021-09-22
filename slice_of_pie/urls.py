@@ -25,4 +25,6 @@ urlpatterns = [
     path('', include('home.urls')),
     path('products/', include('products.urls')),
     path('add/<item_id>/', views.add_to_basket, name='add_to_basket'),
+    path('adjust/<item_id>/', views.adjust_basket, name='adjust_basket'),
+    path('remove/<item_id/', views.remove_item, name="remove_item"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
