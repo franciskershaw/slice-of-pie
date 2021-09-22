@@ -11,36 +11,37 @@
 
     // Ensure decrease input is initially disabled
     let allQtyInputs = $('.qty_input');
-    console.log(allQtyInputs);
     for (input of allQtyInputs) {
         let itemId = $(input).data('item_id');
         handleEnableDisable(itemId);
     }
 
     // Change event for arrow key changes
-    $('.qty_input').change(() => {
+    $('.qty_input').change(function() {
         let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     })
     
     // Increment the value of the quantity input field
-    let incrementBtn = $('.increment-qty');
-    incrementBtn.click((e) => {
+    $('.increment-qty').click(function(e) {
         e.preventDefault();
-        let quantityField = document.querySelector('.qty_input');
-        let currentValue = parseInt(quantityField.value);
-        $(quantityField).val(currentValue + 1);
-        let itemId = incrementBtn.data('item_id');
+        let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        let currentValue = parseInt($(closestInput).val());
+        $(closestInput).val(currentValue + 1);
+        let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     })
-    // Decrement the value of the quantity input field
-    let decrementBtn = $('.decrement-qty');
-    decrementBtn.click((e) => {
+
+    // Decrement the value of the quantity input field   
+    $('.decrement-qty').click(function(e) {
         e.preventDefault();
-        let quantityField = document.querySelector('.qty_input');
-        let currentValue = parseInt(quantityField.value);
-        $(quantityField).val(currentValue - 1);
-        let itemId = decrementBtn.data('item_id');
+        let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        console.log(closestInput);
+        let currentValue = parseInt($(closestInput).val());
+        console.log(currentValue)
+        $(closestInput).val(currentValue - 1);
+        let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
-    })
+    });
+
 </script>
