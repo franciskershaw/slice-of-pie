@@ -2,30 +2,30 @@
 
     // Handle enabling and disabling of the quantity buttons
     function handleEnableDisable(itemId) {
-        let currentValue = parseInt($(`#id_qty_${itemId}`).val());
+        let currentValue = parseInt($(`#id_qty_bskt_${itemId}`).val());
         let minusDisabled = currentValue < 2;
         let plusDisabled = currentValue > 98;
-        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
-        $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
+        $(`#decrement-qty_bskt_${itemId}`).prop('disabled', minusDisabled);
+        $(`#increment-qty_bskt_${itemId}`).prop('disabled', plusDisabled);
     }
 
     // Ensure decrease input is initially disabled
-    let allQtyInputs = $('.qty_input');
+    let allQtyInputs = $('.qty_input_bskt');
     for (input of allQtyInputs) {
         let itemId = $(input).data('item_id');
         handleEnableDisable(itemId);
     }
 
     // Change event for arrow key changes
-    $('.qty_input').change(function() {
+    $('.qty_input_bskt').change(function() {
         let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     })
     
     // Increment the value of the quantity input field
-    $('.increment-qty').click(function(e) {
+    $('.increment-qty_bskt').click(function(e) {
         e.preventDefault();
-        let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        let closestInput = $(this).closest('.input-group_bskt').find('.qty_input_bskt')[0];
         let currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue + 1);
         let itemId = $(this).data('item_id');
@@ -33,9 +33,9 @@
     })
 
     // Decrement the value of the quantity input field   
-    $('.decrement-qty').click(function(e) {
+    $('.decrement-qty_bskt').click(function(e) {
         e.preventDefault();
-        let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        let closestInput = $(this).closest('.input-group_bskt').find('.qty_input_bskt')[0];
         let currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue - 1);
         let itemId = $(this).data('item_id');
