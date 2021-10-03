@@ -47,7 +47,7 @@
                  <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
             <a class="update-link text-info"><small>Update</small></a>
-            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}"><small>Remove</small></a>
+            <a class="remove-item text-danger float-right" id="remove_item{{ item.item_id }}"><small>Remove</small></a>
         </div>
         
         {% endfor %}
@@ -75,15 +75,21 @@
 
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
+        console.log('OUCH')
         let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).attr('id').split('remove_')[1];
-        let url = `/remove/${itemId}/`;
-        let data = {'csrfmiddlewaretoken': csrfToken};
-
+        console.log(csrfToken);
+        let itemId = $(this).attr('id').split('remove_item')[1];
+        console.log(itemId)
+        let url = `/remove_item/${itemId}/`;
+        console.log(url)
+        let data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
+        console.log(data)
         $.post(url, data)
-        .done(function() {
-            location.reload();
-        })
+            .done(function () {
+                location.reload();
+            });
     })
 
 </script>

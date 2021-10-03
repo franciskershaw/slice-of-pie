@@ -1,25 +1,25 @@
 <script type="text/javascript">
 
     // Handle enabling and disabling of the quantity buttons
-    function handleEnableDisable(itemId) {
-        let currentValue = parseInt($(`#id_qty_bskt_${itemId}`).val());
-        let minusDisabled = currentValue < 2;
-        let plusDisabled = currentValue > 98;
-        $(`#decrement-qty_bskt_${itemId}`).prop('disabled', minusDisabled);
-        $(`#increment-qty_bskt_${itemId}`).prop('disabled', plusDisabled);
+    function handleEnableDisableBskt(itemId) {
+        let currentValueBskt = parseInt($(`#id_qty_bskt_${itemId}`).val());
+        let minusDisabledBskt = currentValueBskt < 2;
+        let plusDisabledBskt = currentValueBskt > 98;
+        $(`#decrement-qty_bskt_${itemId}`).prop('disabled', minusDisabledBskt);
+        $(`#increment-qty_bskt_${itemId}`).prop('disabled', plusDisabledBskt);
     }
 
     // Ensure decrease input is initially disabled
-    let allQtyInputs = $('.qty_input_bskt');
-    for (input of allQtyInputs) {
+    let allQtyInputsBskt = $('.qty_input_bskt');
+    for (input of allQtyInputsBskt) {
         let itemId = $(input).data('item_id');
-        handleEnableDisable(itemId);
+        handleEnableDisableBskt(itemId);
     }
 
     // Change event for arrow key changes
     $('.qty_input_bskt').change(function() {
         let itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
+        handleEnableDisableBskt(itemId);
     })
     
     // Increment the value of the quantity input field
@@ -29,7 +29,7 @@
         let currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue + 1);
         let itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
+        handleEnableDisableBskt(itemId);
     })
 
     // Decrement the value of the quantity input field   
@@ -39,7 +39,7 @@
         let currentValue = parseInt($(closestInput).val());
         $(closestInput).val(currentValue - 1);
         let itemId = $(this).data('item_id');
-        handleEnableDisable(itemId);
+        handleEnableDisableBskt(itemId);
     });
 
 </script>

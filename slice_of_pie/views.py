@@ -38,12 +38,13 @@ def remove_item(request, item_id):
     """ Remove item entirely from basket """
 
     try:
+        print('Trying!')
         redirect_url = request.POST.get('redirect_url')
         basket = request.session.get('basket', {})
         basket.pop(item_id)
 
         request.session['basket'] = basket
         return HttpResponse(status=200)
-    
+
     except Exception as e:
         return HttpResponse(status=500)
