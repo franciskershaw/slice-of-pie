@@ -51,6 +51,9 @@
         </div>
         
         {% endfor %}
+        <a href="{% url 'checkout' %}">
+            Secure Checkout
+        </a>
         {% else %}
         <div class="col-12 empty-sidebar">
             <p>Your Basket is empty</p>
