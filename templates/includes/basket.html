@@ -78,17 +78,12 @@
 
     // Remove item and reload on click
     $('.remove-item').click(function(e) {
-        console.log('OUCH')
         let csrfToken = "{{ csrf_token }}";
-        console.log(csrfToken);
         let itemId = $(this).attr('id').split('remove_item')[1];
-        console.log(itemId)
         let url = `/remove_item/${itemId}/`;
-        console.log(url)
         let data = {
             'csrfmiddlewaretoken': csrfToken
         };
-        console.log(data)
         $.post(url, data)
             .done(function () {
                 location.reload();
