@@ -92,6 +92,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
@@ -201,7 +203,7 @@ if 'USE_AWS' in os.environ:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 # Stripe payments
-FREE_DELIVERY_THRESHOLD = 200
+FREE_DELIVERY_THRESHOLD = 0
 STANDARD_DELIVERY_PERCENTAGE = 5
 
 # Default primary key field type

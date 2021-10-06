@@ -5,10 +5,10 @@ from .forms import OrderForm
 
 
 def checkout(request):
-    bag = request.session.get('bag', {})
-    if not bag:
-        messages.error(request, "There's nothing in your bag yet")
-        print('BOO')
+    basket = request.session.get('basket', {})
+    print(basket)
+    if not basket:
+        messages.error(request, "There's nothing in your basket yet")
         return redirect(reverse('products'))
 
     order_form = OrderForm()

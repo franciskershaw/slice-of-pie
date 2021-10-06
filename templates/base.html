@@ -49,7 +49,9 @@
 
         {% if messages %}
             <div class="message-container">
-                <!-- for loop for messages needs to go in here -->
+                {% for message in messages %}
+                    {% include 'includes/toasts/toasts_success.html' %}
+                {% endfor %}
             </div>
         {% endif %}
 
@@ -62,9 +64,9 @@
         </footer>
 
         {% block postloadjs %}
-            <!-- <script>
+            <script>
                 $('.toast').toast('show');
-            </script> -->
+            </script>
             <script src="{% static 'js/navbar.js' %}"></script>
         {% endblock %}
     </div>
