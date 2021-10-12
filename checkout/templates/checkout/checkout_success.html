@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="checkout page-container container">
+    <section>
+        <h1>Thank you</h1>
+        <h2>Summary</h2>
+    </section>
+    <section>
+        <p>Your order information is below. A confirmation email will be sent to {{ order.email }}.</p>
+    </section>
+    <section>
+        
+    </section>
+</div>
+{% endblock %}
