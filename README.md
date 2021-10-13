@@ -460,3 +460,7 @@ Please see a full report of the testing applied to this project [here.](testing.
 ### Acknowledgements
 
 A huge thank you to all the people who took part in user testing, the Code Institute's Slack community, and my mentor Aaron Sinnott for advice at various stages during development of the site.
+
+#### Bugs
+
+Stripe: typos in my webhook handlers caused 500 errors
