@@ -464,3 +464,4 @@ A huge thank you to all the people who took part in user testing, the Code Insti
 #### Bugs
 
 Stripe: typos in my webhook handlers caused 500 errors
+Navbar: profile button dropdown stopped working (was because navbar-links had overflow set to hidden)
