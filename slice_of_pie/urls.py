@@ -28,4 +28,5 @@ urlpatterns = [
     path('adjust/<item_id>/', views.adjust_basket, name='adjust_basket'),
     path('remove_item/<item_id>/', views.remove_item, name="remove_item"),
     path('checkout/', include('checkout.urls')),
+    path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
