@@ -163,7 +163,7 @@ ul {
 .navbar-links {
   list-style-type: none;
   max-height: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   position: absolute;
   background-color: var(--burgendy);
   display: flex;
