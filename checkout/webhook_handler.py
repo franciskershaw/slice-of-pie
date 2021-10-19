@@ -5,6 +5,7 @@ from django.http import HttpResponse
 
 from products.models import Product
 from .models import Order, OrderLineItem
+from profiles.models import UserProfile
 
 
 class StripeWH_Handler:
@@ -39,6 +40,21 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
+        # Update profile information if save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.default_phone_number = shipping_details.phone
+                profile.default_country = shipping_details.address.country
+                profile.default_postcode = shipping_details.address.postal_code
+                profile.default_town_or_city = shipping_details.address.city
+                profile.default_street_address1 = shipping_details.address.line1
+                profile.default_street_address2 = shipping_details.address.line2
+                profile.default_county = shipping_details.address.state
+                profile.save()
+
         order_exists = False
         attempt = 1
         while attempt <= 5:
@@ -57,9 +73,7 @@ class StripeWH_Handler:
                     original_basket=basket,
                     stripe_pid=pid,
                 )
-                print(f'order is {order}')
                 order_exists = True
-                print(f'order_exists: {order_exists}')
                 break
             except Order.DoesNotExist:
                 attempt += 1
@@ -70,10 +84,10 @@ class StripeWH_Handler:
                 status=200)
         else:
             order = None
-            print(f'order: {order}')
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
+                    user_profile=profile,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     country=shipping_details.address.country,
@@ -85,7 +99,6 @@ class StripeWH_Handler:
                     original_basket=basket,
                     stripe_pid=pid,
                 )
-                print(f'order: {order}')
                 for item_id, item_data in json.loads(basket).items():
                     product = Product.objects.get(id=item_id)
                     if isinstance(item_data, int):
@@ -95,10 +108,8 @@ class StripeWH_Handler:
                             quantity=item_data,
                         )
                         order_line_item.save()
-                        print(f'order_line_item: {order_line_item}')
             except Exception as e:
                 if order:
-                    print(f'order: {order}')
                     order.delete()
                 return HttpResponse(
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
