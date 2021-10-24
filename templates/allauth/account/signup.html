@@ -6,16 +6,18 @@
 
 {% block content %}
 <div class="page-container text-center">
-  <form class="signup user-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
-    <h3>Create an account</h1>
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if redirect_field_value %}
-    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-    <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-  </form>
+  <div class="login-form-content">
+    <form class="signup user-form" id="signup_form" method="post" action="{% url 'account_signup' %}">
+      <h3>Create an account</h1>
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button class="login-btn" type="submit">{% trans "Sign Up" %} &raquo;</button>
+      <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+    </form>
+  </div>
 </div>
 
 

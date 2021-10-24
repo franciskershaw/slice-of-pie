@@ -7,7 +7,7 @@
   --lavender: #fdeded;
   --white: #ffffff;
   --navbar-bg-contrast: hsl(0, 0%, 25%);
-  --navbar-height: 64px;
+  --navbar-height: 10vh;
 
   --main-font: 'Varela Round', sans-serif;
   --h1-padding: 35px;
@@ -23,7 +23,8 @@
 
 body {
   font-family: var(--main-font);
-  /* background-color: var(--burgendy); */
+  background: rgb(1,22,39);
+  background: linear-gradient(90deg, rgba(1,22,39,1) 0%, rgba(43,112,161,1) 75%);
   letter-spacing: .5px;
 }
 
@@ -44,6 +45,9 @@ ul {
 
 .page-container {
   margin-top: var(--navbar-height);
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 20px;
 }
 
 .center-content {
@@ -52,6 +56,10 @@ ul {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 100%;
+}
+
+.fill-page {
+  height: 73vh;
 }
 
 /* Navigation bar */
@@ -251,7 +259,7 @@ ul {
 /* Footer */
 
 footer {
-  height: 120px;
+  height: 17vh;
   background-color: var(--burgendy);
   justify-content: center;
   align-items: center;
@@ -327,6 +335,85 @@ button.close-sidebar {
   .sidebar {
     width: 35%;
   }
+}
+
+/* Login / Sign up / Forgot Password pages */
+
+.login-form-content {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 20px;
+  color: var(--lavender);
+  background-color: #80808030;
+  margin-bottom: 20px;
+}
+
+.login-extras {
+  margin: 0;
+}
+
+.login-form-content h3 {
+  font-size: 155%;
+  padding-bottom: 10px;
+  text-shadow: 1px 1px #434242;
+}
+
+.login-form-content label {
+  text-align: start;
+  display: block;
+  margin-bottom: 1px;
+  font-size: 85%;
+}
+
+.login.user-form input,
+.signup.user-form input {
+  width: 100%;
+  padding-left: 10px;
+  outline: none;
+  height: 45px;
+  background-color: #ffffffcc;
+  border: 1px solid var(--dark);
+}
+
+.login.user-form input:focus {
+  background-color: var(--lavender);
+}
+
+.login.user-form input:hover {
+  background-color: var(--lavender);
+}
+
+.login-form-content label[for='id_remember'],
+.login-form-content input[id='id_remember']{
+  display: none;
+}
+
+form.login.user-form button,
+form.signup.user-form button {
+  width: 50%;
+  height: 50px;
+  font-size: 120%;
+  background-color: var(--burgendy);
+  border: 1px solid var(--white);
+  border-radius: 8px;
+  color: var(--white);
+  margin-bottom: 15px;
+  margin-top: 5px;
+  transition: transform 0.5s;
+}
+
+form.login.user-form button:hover {
+  transform: scale(1.1);
+}
+
+.login-form-content a {
+  text-decoration: underline;
+  color: var(--lavender);
+}
+
+#password-reset {
+  display: block;
+  margin-bottom: 2px;
 }
 
 /* Homepage */
