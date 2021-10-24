@@ -340,7 +340,7 @@ button.close-sidebar {
 /* Login / Sign up / Forgot Password pages */
 
 .login-form-content {
-  border: 1px solid;
+  border: 1px solid #ffffff12;
   border-radius: 5px;
   padding: 20px;
   color: var(--lavender);
@@ -365,8 +365,7 @@ button.close-sidebar {
   font-size: 85%;
 }
 
-.login.user-form input,
-.signup.user-form input {
+.user-form input {
   width: 100%;
   padding-left: 10px;
   outline: none;
@@ -375,11 +374,11 @@ button.close-sidebar {
   border: 1px solid var(--dark);
 }
 
-.login.user-form input:focus {
+.user-form input:focus {
   background-color: var(--lavender);
 }
 
-.login.user-form input:hover {
+.user-form input:hover {
   background-color: var(--lavender);
 }
 
@@ -388,8 +387,7 @@ button.close-sidebar {
   display: none;
 }
 
-form.login.user-form button,
-form.signup.user-form button {
+.user-form button {
   width: 50%;
   height: 50px;
   font-size: 120%;
@@ -402,7 +400,7 @@ form.signup.user-form button {
   transition: transform 0.5s;
 }
 
-form.login.user-form button:hover {
+.user-form button:hover {
   transform: scale(1.1);
 }
 
