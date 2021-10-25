@@ -29,6 +29,14 @@
   let passwordLabel = document.querySelector('[for="id_password"]');
   loginLabel.textContent = 'Login Details';
   passwordLabel.textContent = 'Password';
+
+  let errorListItems = document.querySelectorAll('.errorlist');
+  let loginInput = document.querySelector('#id_login');
+  for(errorListItem of errorListItems) {
+    if(errorListItem.innerHTML === "<li>The username and/or password you specified are not correct.</li>") {
+      errorListItem.innerText = "Incorrect login details";
+    }
+  }
 </script>
 
 {% endblock %}

@@ -20,5 +20,17 @@
   </div>
 </div>
 
+<script>
+  let errorListItems = document.querySelectorAll('.errorlist');
+  for(errorListItem of errorListItems) {
+    if(errorListItem.innerHTML === "<li>You must type the same email each time.</li>") {
+      errorListItem.innerText = "Emails don't match.";
+    } else if (errorListItem.innerHTML === "<li>A user with that username already exists.</li>") {
+      errorListItem.innerText = "Username already exists";
+    } else if (errorListItem.innerHTML === "<li>You must type the same password each time.</li>") {
+      errorListItem.innerText = "Passwords don't match."
+    }
+  }
+</script>
 
 {% endblock %}
