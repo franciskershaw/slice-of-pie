@@ -7,22 +7,24 @@
 
 {% block content %}
 
-<div class="page-container text-center fill-page">
-  <div class="login-form-content center-content">
-    <h3>{% trans "Sign In" %}</h3>
-    <form class="login user-form" method="POST" action="{% url 'account_login' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if redirect_field_value %}
-      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-    {% endif %}
-    <button class="primaryAction" type="submit">{% trans "Log In" %}</button>
-    <p class="login-extras" id="password-reset">Reset your password <em><a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "here." %}</a></em></p>
-    </form>
-    <p class="login-extras">{% blocktrans %}Sign up for an account
-      <em><a href="{{ signup_url }}">here.</a></em>{% endblocktrans %}</p>
+<div class="page-container text-center">
+  <div class="login-content-outer">
+    <div class="login-form-content">
+      <h3>{% trans "Sign In" %}</h3>
+      <form class="login user-form" method="POST" action="{% url 'account_login' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <button class="primaryAction" type="submit">{% trans "Log In" %}</button>
+      <p class="login-extras" id="password-reset">Reset your password <em><a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "here." %}</a></em></p>
+      </form>
+      <p class="login-extras">{% blocktrans %}Sign up for an account
+        <em><a href="{{ signup_url }}">here.</a></em>{% endblocktrans %}</p>
+    </div>
   </div>
-</div>
+  </div>
 
 <script>
   let loginLabel = document.querySelector('[for="id_login"]');

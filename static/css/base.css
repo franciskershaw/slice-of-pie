@@ -8,6 +8,12 @@
   --white: #ffffff;
   --navbar-bg-contrast: hsl(0, 0%, 25%);
   --navbar-height: 10vh;
+  --page-content-height: 73vh;
+  --footer-height: 17vh;
+
+  --nav-tab-height: 7vh;
+  --page-tab-height: 81vh;
+  --footer-tab-height: 12vh; 
 
   --main-font: 'Varela Round', sans-serif;
   --h1-padding: 35px;
@@ -48,6 +54,7 @@ ul {
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 20px;
+  min-height: var(--page-content-height);
 }
 
 .center-content {
@@ -224,42 +231,10 @@ ul {
     transform: rotate(-45deg);
 }
 
-@media screen and (min-width: 768px) {
-  .navbar-toggle {
-      display: none;
-  }
-
-  #navigation-bar .navbar-menu,
-  #navigation-bar.opened .navbar-menu {
-      visibility: visible;
-      opacity: 1;
-      position: static;
-      display: block;
-      height: 100%;
-  }
-
-  #navigation-bar .navbar-links,
-  #navigation-bar.opened .navbar-links {
-      margin: 0;
-      padding: 0;
-      box-shadow: none;
-      position: static;
-      flex-direction: row;
-      list-style-type: none;
-      max-height: max-content;
-      width: 100%;
-      height: 100%;
-  }
-
-  #navigation-bar .navbar-link:last-child {
-      margin-right: 0;
-  }
-}
-
 /* Footer */
 
 footer {
-  height: 17vh;
+  height: var(--footer-height);
   background-color: var(--burgendy);
   justify-content: center;
   align-items: center;
@@ -323,18 +298,6 @@ button.close-sidebar {
   right: 30px;
   top: 15px;
   /* font-size: 150%; */
-}
-
-@media screen and (min-width: 768px) {
-  .sidebar {
-    width: 50%;
-  }
-}
-
-@media screen and (min-width: 992px) {
-  .sidebar {
-    width: 35%;
-  }
 }
 
 /* Login / Sign up / Forgot Password pages */
@@ -553,12 +516,6 @@ div.products h1 {
   border-left: none;
 }
 
-@media screen and (min-width: 768px) {
-  .filter-sort {
-    margin-bottom: 20px;
-  }
-}
-
 /* Product detail page */
 
 .product-detail {
@@ -612,4 +569,91 @@ div.products h1 {
 
 .toast-capper {
   height: 2px;
+}
+
+/* MEDIA QUERIES */
+
+@media screen and (min-width: 768px) {
+
+  .page-container {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .login-form-content {
+    padding: 30px 45px;
+  }
+
+  .login-extras {
+    font-size: 135%;
+  }
+
+  .user-form button {
+    width: 26%;
+    font-size: 150%;
+  }
+
+  .login-form-content h3 {
+    font-size: 215%;
+  }
+
+  .login-form-content label,
+  .login-form-content input {
+    font-size: 115%;
+  }
+
+  .sidebar {
+    width: 50%;
+  }
+  .filter-sort {
+    margin-bottom: 20px;
+  }
+
+  .navbar-toggle {
+    display: none;
+}
+
+#navigation-bar .navbar-menu,
+#navigation-bar.opened .navbar-menu {
+    visibility: visible;
+    opacity: 1;
+    position: static;
+    display: block;
+    height: 100%;
+}
+
+#navigation-bar .navbar-links,
+#navigation-bar.opened .navbar-links {
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    position: static;
+    flex-direction: row;
+    list-style-type: none;
+    max-height: max-content;
+    width: 100%;
+    height: 100%;
+}
+
+#navigation-bar .navbar-link:last-child {
+    margin-right: 0;
+}
+
+footer {
+  height: var(--footer-tab-height);
+}
+
+.page-container {
+  margin-top: var(--nav-tab-height);
+  min-height: var(--page-tab-height);
+}
+
+#navigation-bar {
+  height: var(--nav-tab-height);
+}
+
+@media screen and (min-width: 992px) {
+  .sidebar {
+    width: 35%;
+  }
 }
