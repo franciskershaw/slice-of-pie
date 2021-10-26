@@ -525,6 +525,7 @@ ul.errorlist {
   padding-top: 13px;
   padding-left: 35px;
   margin-bottom: 10px;
+  background-color: white;
 }
 
 .product-title {
@@ -536,10 +537,13 @@ ul.errorlist {
   font-size: 1.25rem;
 }
 
-.product-heart {
-  position: relative;
-  top: -115px;
-  right: 13px;
+button.prod-heart-btn {
+  position: absolute;
+  top: 15px;
+  right: 1px;
+  background: transparent;
+  border: none;
+  font-size: 185%;
 }
 
 .filter-options {
@@ -577,6 +581,10 @@ div#apply-filter {
   color: white;
   font-size: 130%;
   width: 85%;
+}
+
+button.btn.btn-primary.view-product a {
+  color: white;
 }
 
 /* Product detail page */

@@ -28,17 +28,17 @@
                <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
             </div>
             <div class="product-title">
-               <p>{{ product.name }}</p>
+               <p class="m-2">{{ product.name }}</p>
             </div>
             <div class="product-price">
-               <p>£{{ product.price }}</p>
+               <p class="m-2">£{{ product.price }}</p>
             </div>
             <div class="view-and-heart">
-               <button class="btn btn-primary">
+               <button class="btn btn-primary view-product">
                   <a href="{% url 'product_detail' product.id %}">View</a> 
                </button>
-               <button class="btn btn-primary">
-                  <i class="far fa-heart" aria-hidden="true"></i>
+               <button class="prod-heart-btn btn btn-primary">
+                  <i class="prod-heart-icon far fa-heart" aria-hidden="true"></i>
                   <span class="sr-only">Add to wishlist</span>
                </button>
             </div>
