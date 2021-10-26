@@ -453,6 +453,8 @@ Please see a full report of the testing applied to this project [here.](testing.
 
 * Code for the navigation bar was sourced and then tweaked to spec from [this helpful blog post](https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/) by Aleksandr Hovhannisyan
 
+* Help customising checkboxes pulled from [this helpful article](https://www.html5canvastutorials.com/blog/2012/06/custom-form-radio-checkbox/) by Roy Saurav
+
 ### Media
 
 * 

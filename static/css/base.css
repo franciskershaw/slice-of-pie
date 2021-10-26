@@ -6,6 +6,7 @@
   --blue: #2b70a1;
   --lavender: #fdeded;
   --white: #ffffff;
+  --transparent-bg: #80808030;
   --navbar-bg-contrast: hsl(0, 0%, 25%);
   --navbar-height: 10vh;
   --page-content-height: 73vh;
@@ -31,11 +32,45 @@ body {
   font-family: var(--main-font);
   background: rgb(1,22,39);
   background: linear-gradient(90deg, rgba(1,22,39,1) 0%, rgba(43,112,161,1) 75%);
+  color: var(--lavender);
   letter-spacing: .5px;
 }
 
 ul {
   padding-left: 0;
+}
+
+/* Source: checkbox custom styling pulled and tweaked from https://www.html5canvastutorials.com/blog/2012/06/custom-form-radio-checkbox/ */
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+input[type="checkbox"]:active, input[type="checkbox"]:checked:active {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+input[type="checkbox"]:checked {
+  background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+input[type="checkbox"]:checked:after {
+  content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #99a1a7;
 }
 
 .flex-container {
@@ -307,7 +342,7 @@ button.close-sidebar {
   border-radius: 5px;
   padding: 20px;
   color: var(--lavender);
-  background-color: #80808030;
+  background-color: var(--transparent-bg);
   margin-bottom: 20px;
 }
 
@@ -448,10 +483,26 @@ ul.errorlist {
   font-size: 150%;
   padding: 15px 0;
   letter-spacing: 1px;
-  color: var(--dark);
-  background-color: var(--lavender);
+  background-color: var(--transparent-bg);
   border: 1px solid;
   border-radius: 0px;
+}
+
+.filter-row {
+  margin-bottom: 15px;
+}
+
+.filter-btn-row {
+  margin-top: 10px;
+}
+
+.close-btn {
+  font-size: 130%;
+  padding: 7px;
+  border-radius: 7px;
+  border: 1px solid var(--white);
+  background-color: #a91932;
+  color: var(--white);
 }
 
 .product-card {
@@ -492,7 +543,9 @@ ul.errorlist {
 }
 
 .filter-options {
-  background-color: grey;
+  background: rgb(253,237,237);
+  background: linear-gradient(90deg, rgba(253,237,237,1) 66%, rgba(255,255,255,1) 86%);
+  color: var(--dark);
   height: 100vh;
   z-index: 50;
   position: fixed;
@@ -514,6 +567,16 @@ div.products h1 {
 
 #sort {
   border-left: none;
+}
+
+div#apply-filter {
+  border: 1px solid var(--white);
+  padding: 7px;
+  border-radius: 7px;
+  background-color: var(--blue);
+  color: white;
+  font-size: 130%;
+  width: 85%;
 }
 
 /* Product detail page */
@@ -546,12 +609,12 @@ div.products h1 {
   margin-bottom: 20px;
 }
 
-/* .product-quantity-outer {
-  margin-bottom: 15px;
-} */
-
 .product-description {
   padding: 0px 25px;
+}
+
+select#sort-select {
+  height: 100%;
 }
 
 /* Toasts */
