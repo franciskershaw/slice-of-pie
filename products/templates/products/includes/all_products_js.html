@@ -61,16 +61,28 @@
 
 <!-- Move filter form into desktop container -->
 <script>
+    let filterForm = document.querySelector('#filter-form');
+    let sortButton = document.querySelector('#sort-select');
+    let filterStart = document.querySelector('#filter-start');
+    console.log(filterStart);
+    let sortStart = document.querySelector('#sort-start');
+    console.log(sortStart);
+    let desktopContainer = document.querySelector('#filterDestination');
+    let sortDestination = document.querySelector('#sort-destination')
+    
     if (window.innerWidth > 992) {
-        console.log('HI')
-        let filterForm = document.querySelector('#filter-form');
-        let desktopContainer = document.querySelector('#filterDestination');
-        let sortDestination = document.querySelector('#sort-destination')
-        let sortButton = document.querySelector('#sort-select');
         filterForm.classList.remove('center-content');
         desktopContainer.appendChild(filterForm);
         sortDestination.appendChild(sortButton);
-    } else {
-        console.log(sortButton);
     }
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 992) {
+            filterForm.classList.remove('center-content');
+            desktopContainer.appendChild(filterForm);
+            sortDestination.appendChild(sortButton);
+        } else {
+            filterStart.appendChild(filterForm);
+            sortStart.appendChild(sortButton);
+        }
+    })
 </script>

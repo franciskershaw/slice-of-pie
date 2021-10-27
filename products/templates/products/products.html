@@ -18,7 +18,7 @@
             <div class="col-6 col-md-2 d-lg-none text-center p-0">
                <button id="filter" type="button" class="filter-sort btn btn-primary w-100">Filter</button>
             </div>
-            <div class="col-6 col-md-2 text-center p-0">
+            <div class="col-6 col-md-2 text-center p-0" id="sort-start">
                <select id="sort-select" class="filter-sort w-100 btn btn-primary">
                   <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
                   <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
