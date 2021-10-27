@@ -62,9 +62,15 @@
 <!-- Move filter form into desktop container -->
 <script>
     if (window.innerWidth > 992) {
+        console.log('HI')
         let filterForm = document.querySelector('#filter-form');
         let desktopContainer = document.querySelector('#filterDestination');
+        let sortDestination = document.querySelector('#sort-destination')
+        let sortButton = document.querySelector('#sort-select');
         filterForm.classList.remove('center-content');
         desktopContainer.appendChild(filterForm);
+        sortDestination.appendChild(sortButton);
+    } else {
+        console.log(sortButton);
     }
 </script>
