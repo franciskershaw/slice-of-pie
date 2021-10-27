@@ -58,3 +58,13 @@
     })
 
 </script>
+
+<!-- Move filter form into desktop container -->
+<script>
+    if (window.innerWidth > 992) {
+        let filterForm = document.querySelector('#filter-form');
+        let desktopContainer = document.querySelector('#filterDestination');
+        filterForm.classList.remove('center-content');
+        desktopContainer.appendChild(filterForm);
+    }
+</script>

@@ -5,46 +5,62 @@
 {% block content %}
 {% include 'includes/filter.html' %}
 <div class="products page-container container">
-   <h1 class="text-center">All Tables</h1>
    <div class="row">
-      <div class="col-md-4 d-none d-md-block"></div>
-      <div class="col-6 col-md-2 text-center p-0">
-         <button id="filter" type="button" class="filter-sort btn btn-primary w-100">Filter</button>
+      <div class="col-12">
+         <h1 class="text-center">All Tables</h1>
       </div>
-      <div class="col-6 col-md-2 text-center p-0">
-         <select id="sort-select" class="filter-sort w-100 btn btn-primary">
-            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-            <option value="levels_asc" {% if current_sorting == 'levels_asc' %}selected{% endif %}>Levels (least to most)</option>
-            <option value="levels_desc" {% if current_sorting == 'levels_desc' %}selected{% endif %}>Levels (most to least)</option>
-        </select>
-      </div>
-      <div class="col-md-4 d-none d-md-block"></div>
-      {% for product in products %}
-      <div class="col-12 col-md-4 border text-center product-card">
-         <div>
-            <div class="image-container">
-               <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
+      <div class="col-12">
+         <div class="row">
+            <div class="col-md-4 d-none d-md-block"></div>
+            <div class="col-6 col-md-2 d-lg-none text-center p-0">
+               <button id="filter" type="button" class="filter-sort btn btn-primary w-100">Filter</button>
             </div>
-            <div class="product-title">
-               <p class="m-2">{{ product.name }}</p>
+            <div class="col-6 col-md-2 text-center p-0">
+               <select id="sort-select" class="filter-sort w-100 btn btn-primary">
+                  <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                  <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                  <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                  <option value="levels_asc" {% if current_sorting == 'levels_asc' %}selected{% endif %}>Levels (least to most)</option>
+                  <option value="levels_desc" {% if current_sorting == 'levels_desc' %}selected{% endif %}>Levels (most to least)</option>
+               </select>
             </div>
-            <div class="product-price">
-               <p class="m-2">£{{ product.price }}</p>
-            </div>
-            <div class="view-and-heart">
-               <button class="btn btn-primary view-product">
-                  <a href="{% url 'product_detail' product.id %}">View</a> 
-               </button>
-               <button class="prod-heart-btn btn btn-primary">
-                  <i class="prod-heart-icon far fa-heart" aria-hidden="true"></i>
-                  <span class="sr-only">Add to wishlist</span>
-               </button>
-            </div>
+            <div class="col-md-4 d-none d-md-block"></div>
          </div>
       </div>
-   {% endfor %}
+   </div>
+   <!-- Products section and desktop filter -->
+   <div class="row">
+      <div class="col-3 d-none d-lg-block" id="filterDestination">
+         
+      </div>
+      <div class="col-12 col-lg-9">
+         <div class="row">
+            {% for product in products %}
+            <div class="col-12 col-md-4 border text-center product-card">
+               <div>
+                  <div class="image-container">
+                     <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
+                  </div>
+                  <div class="product-title">
+                     <p class="m-2">{{ product.name }}</p>
+                  </div>
+                  <div class="product-price">
+                     <p class="m-2">£{{ product.price }}</p>
+                  </div>
+                  <div class="view-and-heart">
+                     <button class="btn btn-primary view-product">
+                        <a href="{% url 'product_detail' product.id %}">View</a> 
+                     </button>
+                     <button class="prod-heart-btn btn btn-primary">
+                        <i class="prod-heart-icon far fa-heart" aria-hidden="true"></i>
+                        <span class="sr-only">Add to wishlist</span>
+                     </button>
+                  </div>
+               </div>
+            </div>
+            {% endfor %}
+         </div>
+      </div>
    </div>
 </div>
 
