@@ -294,7 +294,7 @@ footer ul li a {
 /* Wishlist and basket sidebars */
 
 .sidebar {
-  background-color: var(--burgendy);
+  background-color: var(--dark);
   color: var(--lavender);
   height: 100vh;
   z-index: 50;
@@ -304,6 +304,7 @@ footer ul li a {
   right: -105%;
   overflow-x: hidden;
   transition: 1.25s;
+  text-align: center;
 }
 
 .sidebar-opened {
@@ -318,6 +319,58 @@ footer ul li a {
 
 .empty-sidebar {
   font-size: 1.5rem;
+}
+
+.bskt-container {
+  margin-bottom: 25px;
+}
+
+.bskt-headers-container {
+  margin-bottom: 20px;
+}
+
+.bskt-headers {
+  font-size: 125%;
+}
+
+.bskt-img-container {
+  margin-bottom: 15px;
+}
+
+.update-form {
+  margin-bottom: 20px;
+}
+
+.input-group_bskt {
+  margin-bottom: 10px;
+}
+
+.bskt-qty-btn {
+  border-radius: 50%;
+  padding-left: 6px;
+  padding-right: 6px;
+  border: 1px solid var(--white);
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.qty_input_bskt {
+  width: 70%;
+  text-align: center;
+  border-radius: 13px;
+  border: 1px solid var(--lavender);
+}
+
+.bskt-btn {
+  border: 1px solid;
+  font-size: 150%;
+  margin: 5px;
+  padding: 5px;
+}
+
+.bskt-container h3 {
+  font-size: 125%;
+  margin-bottom: 15px;
 }
 
 button.close-sidebar {
@@ -528,6 +581,14 @@ ul.errorlist {
 	border-bottom: #9E703C 2px solid;
 }
 
+.bskt-image {
+  width: 50%;
+  border-radius: 10px;
+    padding-top: 13px;
+    padding-left: 20px;
+    background-color: var(--white);
+}
+
 .product-card-text-container {
 	padding: 0 10px;
 }
@@ -625,13 +686,13 @@ div#apply-filter {
   padding-top: 50px;
 }
 
-.product-image-detail {
+/* .product-image-detail {
   height: 240px;
   width: 265px;
   padding-top: 10px;
   padding-left: 50px;
   margin-bottom: 20px;
-}
+} */
 
 .product-title-detail {
   /* font-size: 130%; */

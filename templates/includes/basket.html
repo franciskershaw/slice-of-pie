@@ -1,59 +1,61 @@
 <div class="basket-sidebar sidebar flexbox-container container">
-    <div class="row text-center">
+    <div class="row">
         <div class="col-12 sidebar-header">
             <button class="close-sidebar"><i class="fas fa-times"><span class="sr-only">close sidebar</span></i></button>
             <div>Basket <i class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></div>
         </div>
         {% if basket_items %}
-        <div class="col-12">
-            <div>Items: {{ product_count }}</div>
+        <div class="col-12 bskt-headers-container">
+            <div class="bskt-headers">Items: {{ product_count }}</div>
+            <div class="bskt-headers">Total: £{{ total }}</div>
         </div>
-        <div class="col-12">
-            <div>Total: £{{ total }}</div>
-        </div>
-        {% for item in basket_items %}
-        <div class="col-12">
-            <img class="product-image product-image-detail" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
+    </div>
+    {% for item in basket_items %}
+    <div class="row bskt-container">
+        <div class="col-12 bskt-img-container">
+            <img class="product-image bskt-image" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
             alt="{{ product.name }}">
         </div>
-        <div class="col-12">
-            {{ item.product.name }} x {{ item.quantity }}
+        <div class="col-3"></div>
+        <div class="col-6">
+            <h3 class="product-card-text product-card-title">{{ item.product.name }}</h3>
         </div>
+        <div class="col-3"></div>
         <div class="col-12">
             <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}" id="form_{{ item.item_id }}">
                 {% csrf_token %}
-                <div class="form-group">
-                    <div class="input-group_bskt">
-                       <div class="input-group-prepend">
-                          <button class="decrement-qty_bskt btn btn-black btn-sm rounded-0" data-item_id="{{ item.item_id }}"
+                    <div class="input-group_bskt row">
+                        <div class="col-3"></div>
+                        <div class="col-2 p-0 text-right">
+                            <button class="decrement-qty_bskt bskt-qty-btn" data-item_id="{{ item.item_id }}"
                              id="decrement-qty_bskt_{{ item.item_id }}">
-                             <span>
-                                <i class="fas fa-minus fa-sm"></i>
-                             </span>
-                          </button>
-                       </div>
-                       <input class="form-control form-control-sm qty_input_bskt" type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                                <span>
+                                    <i class="fas fa-minus fa-sm"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-2 p-0">
+                            <input class="qty_input_bskt" type="number" name="quantity" value="{{ item.quantity }}" min="1"
                           max="99" data-item_id="{{ item.item_id }}" id="id_qty_bskt_{{ item.item_id }}">
-                       <div class="input-group-append">
-                          <button class="increment-qty_bskt btn btn-black btn-sm rounded-0" data-item_id="{{ item.item_id }}"
+                        </div>
+                        <div class="col-2 p-0 text-left">
+                            <button class="increment-qty_bskt bskt-qty-btn" data-item_id="{{ item.item_id }}"
                              id="increment-qty_bskt_{{ item.item_id }}">
-                             <span>
-                                <i class="fas fa-plus fa-sm"></i>
-                             </span>
-                          </button>
-                       </div>
+                                <span>
+                                    <i class="fas fa-plus fa-sm"></i>
+                                </span>
+                            </button>
+                        </div>
+                        <div class="col-3"></div>
                     </div>
-                 </div>
                  <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
-            <a class="update-link text-info"><small>Update</small></a>
-            <a class="remove-item text-danger float-right" id="remove_item{{ item.item_id }}"><small>Remove</small></a>
+            <a class="update-link bskt-btn">Update</a>
+            <a class="remove-item bskt-btn" id="remove_item{{ item.item_id }}">Remove</a>
         </div>
-        
-        {% endfor %}
-        <a href="{% url 'checkout' %}">
-            Secure Checkout
-        </a>
+    </div>    
+    {% endfor %}
+        <a class="bskt-btn checkout-btn" href="{% url 'checkout' %}">Secure Checkout</a>
         {% else %}
         <div class="col-12 empty-sidebar">
             <p>Your Basket is empty</p>
