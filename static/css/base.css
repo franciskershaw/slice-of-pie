@@ -6,7 +6,7 @@
   --golden: #ab793f;
   --lavender: #e7e0da;
   --white: #ffffff;
-  --blue: #2b70a1;
+  --blue: #14223d;
   --transparent-bg: #80808030;
   --navbar-bg-contrast: hsl(0, 0%, 25%);
   --navbar-height: 10vh;
@@ -32,6 +32,7 @@
 body {
   font-family: var(--main-font);
   letter-spacing: .5px;
+  background-color: var(--lavender);
 }
 
 ul {
@@ -294,7 +295,7 @@ footer ul li a {
 /* Wishlist and basket sidebars */
 
 .sidebar {
-  background-color: var(--dark);
+  background-color: var(--blue);
   color: var(--lavender);
   height: 100vh;
   z-index: 50;
@@ -305,6 +306,8 @@ footer ul li a {
   overflow-x: hidden;
   transition: 1.25s;
   text-align: center;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 .sidebar-opened {
@@ -323,6 +326,8 @@ footer ul li a {
 
 .bskt-container {
   margin-bottom: 25px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .bskt-headers-container {
@@ -331,6 +336,10 @@ footer ul li a {
 
 .bskt-headers {
   font-size: 125%;
+}
+
+.bskt-total {
+  margin-bottom: 5px;
 }
 
 .bskt-img-container {
@@ -354,6 +363,10 @@ footer ul li a {
   color: var(--white);
 }
 
+.bskt-qty-btn:disabled {
+  background-color: #80808063;
+}
+
 .qty_input_bskt {
   width: 70%;
   text-align: center;
@@ -366,11 +379,20 @@ footer ul li a {
   font-size: 150%;
   margin: 5px;
   padding: 5px;
+  color: var(--lavender);
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.bskt-container h3 {
-  font-size: 125%;
-  margin-bottom: 15px;
+.sub-total {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.bskt-btn:hover {
+  color: var(--dark);
+  background-color: var(--lavender);
+  text-decoration: none;
 }
 
 button.close-sidebar {
@@ -602,10 +624,15 @@ ul.errorlist {
   color: var(--burgendy);
   font-weight: 700;
   font-size: 125%;
+  text-shadow: 1px 1px #111a2c36
 }
 
 .product-card-cta-container {
 	padding: 0 0 20px;
+}
+
+.product-card-view a {
+  color: var(--burgendy);
 }
 
 /* Source: css animation borrowed from https://codemyui.com/minimalistic-hover-effect-button-animations/*/
@@ -640,6 +667,10 @@ ul.errorlist {
   color: var(--white);
 }
 
+.product-card-view a:hover {
+  color: var(--white);
+}
+
 .product-card-cta-container button:hover:after {
   top: auto;
   bottom: 0;
@@ -671,6 +702,8 @@ div.products h1 {
   padding-top: var(--h1-padding);
   font-size: var(--h1-size);
   margin-bottom: 20px;
+  color: var(--burgendy);
+  text-shadow: 1px 1px 1px #fbf9ef
 }
 
 #sort {
@@ -693,16 +726,7 @@ div#apply-filter {
   padding-top: 50px;
 }
 
-/* .product-image-detail {
-  height: 240px;
-  width: 265px;
-  padding-top: 10px;
-  padding-left: 50px;
-  margin-bottom: 20px;
-} */
-
 .product-title-detail {
-  /* font-size: 130%; */
   padding-right: 30px;
   padding-left: 30px;
   margin-bottom: 5px;
@@ -740,6 +764,13 @@ div#apply-filter {
 
 /* MEDIA QUERIES */
 
+@media screen and (min-width: 375px) {
+  .sidebar {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
 @media screen and (min-width: 768px) {
 
   .login-form-content {
@@ -774,19 +805,24 @@ div#apply-filter {
 
   .navbar-toggle {
     display: none;
-}
+  }
 
-#navigation-bar .navbar-menu,
-#navigation-bar.opened .navbar-menu {
+  .sidebar {
+    padding-left: 65px;
+    padding-right: 65px;
+  }
+
+  #navigation-bar .navbar-menu,
+  #navigation-bar.opened .navbar-menu {
     visibility: visible;
     opacity: 1;
     position: static;
     display: block;
     height: 100%;
-}
+  }
 
-#navigation-bar .navbar-links,
-#navigation-bar.opened .navbar-links {
+  #navigation-bar .navbar-links,
+  #navigation-bar.opened .navbar-links {
     margin: 0;
     padding: 0;
     box-shadow: none;
@@ -798,26 +834,49 @@ div#apply-filter {
     height: 100%;
 }
 
-#navigation-bar .navbar-link:last-child {
+  #navigation-bar .navbar-link:last-child {
     margin-right: 0;
-}
+  }
 
-footer {
-  height: var(--footer-tab-height);
-}
+  footer {
+    height: var(--footer-tab-height);
+  }
 
-.page-container {
-  margin-top: var(--nav-tab-height);
-  min-height: var(--page-tab-height);
-}
+  .page-container {
+    margin-top: var(--nav-tab-height);
+    min-height: var(--page-tab-height);
+  }
 
-#navigation-bar {
-  height: var(--nav-tab-height);
+  #navigation-bar {
+    height: var(--nav-tab-height);
   }
 }
 
 @media screen and (min-width: 992px) {
   .sidebar {
     width: 35%;
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .sidebar {
+    padding-right: 75px;
+    padding-left: 75px;
+  }
+} 
+
+@media screen and (min-width: 1500px) {
+  .sidebar {
+    padding-right: 95px;
+    padding-left: 95px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .sidebar {
+    padding-right: 145px;
+    padding-left: 145px;
   }
 }

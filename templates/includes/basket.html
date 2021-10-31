@@ -1,3 +1,4 @@
+{% load basket_tools %}
 <div class="basket-sidebar sidebar flexbox-container container">
     <div class="row">
         <div class="col-12 sidebar-header">
@@ -7,7 +8,8 @@
         {% if basket_items %}
         <div class="col-12 bskt-headers-container">
             <div class="bskt-headers">Items: {{ product_count }}</div>
-            <div class="bskt-headers">Total: £{{ total }}</div>
+            <div class="bskt-headers bskt-total">Total: £{{ total }}</div>
+            <a class="bskt-btn checkout-btn" href="{% url 'checkout' %}">Secure Checkout <i class="fas fa-lock"></i></a>
         </div>
     </div>
     {% for item in basket_items %}
@@ -16,11 +18,7 @@
             <img class="product-image bskt-image" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
             alt="{{ product.name }}">
         </div>
-        <div class="col-3"></div>
-        <div class="col-6">
-            <h3 class="product-card-text product-card-title">{{ item.product.name }}</h3>
-        </div>
-        <div class="col-3"></div>
+        <div class="col-12 sub-total">Subtotal: £{{ item.product.price | calc_subtotal:item.quantity }}</div>
         <div class="col-12">
             <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}" id="form_{{ item.item_id }}">
                 {% csrf_token %}
@@ -51,11 +49,10 @@
                  <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
             <a class="update-link bskt-btn">Update</a>
-            <a class="remove-item bskt-btn" id="remove_item{{ item.item_id }}">Remove</a>
+            <a class="remove-item bskt-btn border-0" id="remove_item{{ item.item_id }}"><i class="far fa-trash-alt"></i></a>
         </div>
     </div>    
     {% endfor %}
-        <a class="bskt-btn checkout-btn" href="{% url 'checkout' %}">Secure Checkout</a>
         {% else %}
         <div class="col-12 empty-sidebar">
             <p>Your Basket is empty</p>
@@ -65,7 +62,6 @@
         </div>
         {% endif %}
     </div>
-    <hr>
 </div>
 {% block postloadjs %}
 {% include 'products/includes/quantity_input_script_bskt.html' %}
