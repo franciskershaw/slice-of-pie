@@ -367,7 +367,8 @@ footer ul li a {
   background-color: #80808063;
 }
 
-.qty_input_bskt {
+.qty_input_bskt,
+.qty_input {
   width: 70%;
   text-align: center;
   border-radius: 13px;
@@ -574,11 +575,9 @@ ul.errorlist {
 }
 
 .product-card {
-  /* width: 30%; */
 	border: 3px solid #7D1224;
 	background: #fff;
 	border-radius: 10px;
-	/* margin: 10px; */
   margin-bottom: 25px;
 	box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 	text-align: center;
@@ -638,7 +637,7 @@ ul.errorlist {
 /* Source: css animation borrowed from https://codemyui.com/minimalistic-hover-effect-button-animations/*/
 
 .product-card-cta-container button {
-  padding: 10px 25px;
+  padding: 10px 15px;
 	background: #fff;
 	font-size: 16px;
 	font-weight: 700;
@@ -649,6 +648,7 @@ ul.errorlist {
 	border: 2px solid #7D1224;
   z-index: 1;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25em;
 }
 
 .product-card-cta-container button:after {
@@ -724,25 +724,33 @@ div#apply-filter {
 
 .product-detail {
   padding-top: 50px;
+  padding-left: 35px;
+  padding-right: 35px;
 }
 
-.product-title-detail {
-  padding-right: 30px;
-  padding-left: 30px;
-  margin-bottom: 5px;
+.product-title-detail h2 {
+  font-size: 130%;
 }
 
-.product-price-detail {
-  font-size: 1.5rem;
-  margin-bottom: 5px;
+.qty_input {
+  width: 90%;
 }
 
-.form-row {
-  margin-bottom: 20px;
+.input-group {
+  margin: 5px 0 15px 0;
 }
 
-.product-description {
-  padding: 0px 25px;
+.product-card-price.product-price-detail {
+  font-size: 150%;
+}
+
+.product-card-cta-container.detail-btns button {
+  padding: 10px 10px;
+}
+
+.product-card-cta-container button input[type="submit"] {
+  background: transparent;
+  border: none;
 }
 
 /* Toasts */
