@@ -64,9 +64,7 @@
     let filterForm = document.querySelector('#filter-form');
     let sortButton = document.querySelector('#sort-select');
     let filterStart = document.querySelector('#filter-start');
-    console.log(filterStart);
     let sortStart = document.querySelector('#sort-start');
-    console.log(sortStart);
     let desktopContainer = document.querySelector('#filterDestination');
     let sortDestination = document.querySelector('#sort-destination')
     
@@ -85,4 +83,17 @@
             sortStart.appendChild(sortButton);
         }
     })
+</script>
+
+<!-- Product animations -->
+<script type="text/javascript">
+    function productCardRight(card) {
+        var cardHover = card.querySelector('.product-card-image-container');
+        cardHover.style.transform = "translate(-100%,0)";
+    }
+
+    function productCardLeft(card) {
+        var cardHover = card.querySelector('.product-card-image-container');
+        cardHover.style.transform = "translate(0,0)";
+    }
 </script>

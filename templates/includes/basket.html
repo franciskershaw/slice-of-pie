@@ -5,21 +5,21 @@
             <div>Basket <i class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></div>
         </div>
         {% if basket_items %}
-        <div class="col-12 border">
+        <div class="col-12">
             <div>Items: {{ product_count }}</div>
         </div>
-        <div class="col-12 border">
+        <div class="col-12">
             <div>Total: £{{ total }}</div>
         </div>
         {% for item in basket_items %}
-        <div class="col-12 border">
+        <div class="col-12">
             <img class="product-image product-image-detail" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
             alt="{{ product.name }}">
         </div>
-        <div class="col-12 border">
+        <div class="col-12">
             {{ item.product.name }} x {{ item.quantity }}
         </div>
-        <div class="col-12 border">
+        <div class="col-12">
             <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}" id="form_{{ item.item_id }}">
                 {% csrf_token %}
                 <div class="form-group">

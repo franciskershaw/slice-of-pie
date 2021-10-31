@@ -33,34 +33,33 @@
    </div>
    <!-- Products section and desktop filter -->
    <div class="row">
-      <div class="col-3 d-none d-lg-block" id="filterDestination">
-         
-      </div>
-      <div class="col-12 col-lg-9">
+      <div class="col-2 d-none d-lg-block" id="filterDestination"></div>
+      <div class="col-12 col-lg-10">
          <div class="row">
             {% for product in products %}
-            <div class="col-12 col-md-4 border text-center product-card">
-               <div>
-                  <div class="image-container">
-                     <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
-                  </div>
-                  <div class="product-title">
-                     <p class="m-2">{{ product.name }}</p>
-                  </div>
-                  <div class="product-price">
-                     <p class="m-2">£{{ product.price }}</p>
-                  </div>
-                  <div class="view-and-heart">
-                     <button class="btn btn-primary view-product">
-                        <a href="{% url 'product_detail' product.id %}">View</a> 
-                     </button>
-                     <button class="prod-heart-btn btn btn-primary">
-                        <i class="prod-heart-icon far fa-heart" aria-hidden="true"></i>
-                        <span class="sr-only">Add to wishlist</span>
-                     </button>
+               <div class="product-card-container col-12 col-md-4">
+                  <div class="product-card" onmouseenter="productCardRight(this)" onmouseleave="productCardLeft(this)">
+                     <div class="product-card-image-container">
+                        <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
+                        <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_2 }}" alt="{{ product.name }}">
+                     </div>
+                     <div class="product-card-text-container">
+                        <h3 class="product-card-text product-card-title">{{ product.name }}</h3>
+                     </div>
+                     <div class="product-card-text-container">
+                        <h3 class="product-card-text product-card-price">£{{ product.price }}</h3>
+                     </div>
+                     <div class="product-card-cta-container">
+                        <button class="btn product-card-view">
+                           <a href="{% url 'product_detail' product.id %}">View</a>
+                        </button>
+                        <button class="btn product-card-fav">
+                           <i class="far fa-heart" aria-hidden="true"></i>
+                           <span class="sr-only">Add to wishlist</span>
+                        </button>
+                     </div>                     
                   </div>
                </div>
-            </div>
             {% endfor %}
          </div>
       </div>
