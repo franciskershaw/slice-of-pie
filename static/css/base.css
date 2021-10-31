@@ -591,10 +591,17 @@ ul.errorlist {
 
 .product-card-text-container {
 	padding: 0 10px;
+  margin-top: 10px;
 }
 
 .product-card-text {
   font-size: 100%;
+}
+
+.product-card-price {
+  color: var(--burgendy);
+  font-weight: 700;
+  font-size: 125%;
 }
 
 .product-card-cta-container {
