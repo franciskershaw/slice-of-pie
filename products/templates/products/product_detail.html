@@ -15,7 +15,7 @@
          </div>
       </div>
       <div class="col-12 col-md-6 key-product-actions-container">
-         <div class="row">
+         <div class="row product-info-row">
             <div class="col-12 product-title-detail">
                <h2>{{ product.name }}</h2>
             </div>
@@ -62,9 +62,12 @@
                   </div>
                </form>
             </div>
+            <div class="col-12 product-description text-left d-none d-lg-block">
+               <p><em>{{ product.description }}</em></p>
+            </div>
          </div>
       </div>
-      <div class="col-12 product-description text-left">
+      <div class="col-12 product-description text-left d-lg-none">
          <p><em>{{ product.description }}</em></p>
       </div>
       <div class="col-12">

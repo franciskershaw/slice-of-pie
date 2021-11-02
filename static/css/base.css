@@ -858,6 +858,14 @@ div#apply-filter {
   #navigation-bar {
     height: var(--nav-tab-height);
   }
+  .product-description p {
+    font-size: 115%;
+  }
+
+  .product-description {
+    padding-left: 85px;
+    padding-right: 85px;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -866,6 +874,10 @@ div#apply-filter {
     padding-right: 50px;
     padding-left: 50px;
   }
+  .product-description {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 }
 
 @media screen and (min-width: 1200px) {
