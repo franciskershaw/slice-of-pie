@@ -70,6 +70,39 @@
       <div class="col-12 product-description text-left d-lg-none">
          <p><em>{{ product.description }}</em></p>
       </div>
+   </div>
+   <div class="row recommended text-center">
+      <div class="col-12">
+         <h4>Other Slices of Pie...</h4>
+         <div class="row">
+            {% for random in random_products %}
+               <div class="col-12 col-md-4">
+                  <div class="product-card-container">
+                     <div class="product-card">
+                        <div class="product-card-image-container">
+                           <img class="product-image" src="{{ MEDIA_URL }}{{ random.image_1 }}" alt="{{ random.name }}">
+                        </div>
+                        <div class="product-card-text-container">
+                           <h3 class="product-card-text product-card-title">{{ random.name }}</h3>
+                        </div>
+                        <div class="product-card-text-container">
+                           <h3 class="product-card-text product-card-price">£{{ random.price }}</h3>
+                        </div>
+                        <div class="product-card-cta-container">
+                           <button class="btn product-card-view">
+                              <a href="{% url 'product_detail' random.id %}">View</a>
+                           </button>
+                           <button class="btn product-card-fav">
+                              <i class="far fa-heart" aria-hidden="true"></i>
+                              <span class="sr-only">Add to wishlist</span>
+                           </button>
+                        </div>                     
+                     </div>
+                  </div>
+               </div>
+            {% endfor %}
+         </div>
+      </div>
       <div class="col-12">
          <a href="{% url 'products' %}" class="btn btn-primary btn-md cta-btn">Browse all</a>
       </div>

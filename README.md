@@ -455,6 +455,8 @@ Please see a full report of the testing applied to this project [here.](testing.
 
 * Help customising checkboxes pulled from [this helpful article](https://www.html5canvastutorials.com/blog/2012/06/custom-form-radio-checkbox/) by Roy Saurav
 
+* Help getting a random product for the product detail page's recommended products from [this helpful article](https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html)
+
 ### Media
 
 * 

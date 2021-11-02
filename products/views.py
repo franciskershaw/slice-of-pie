@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from .models import Product, Material
+from .models import Product
 from .forms import ProductForm
+from django.db.models import Max
+import random
 
 # Create your views here.
 
@@ -64,8 +66,24 @@ def product_detail(request, product_id):
     """A view to return a product's detail page"""
     product = get_object_or_404(Product, pk=product_id)
 
+    def get_random():
+        random_products = []
+        # Source https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html
+        max_id = Product.objects.all().aggregate(max_id=Max("id"))['max_id']
+        pk_array = random.sample(range(1, max_id), 3)
+        prod_1 = Product.objects.get(pk=pk_array[0])
+        random_products.append(prod_1)
+        prod_2 = Product.objects.get(pk=pk_array[1])
+        random_products.append(prod_2)
+        prod_3 = Product.objects.get(pk=pk_array[2])
+        random_products.append(prod_3)
+
+        return random_products
+
+    random_product_array = get_random()
     context = {
         'product': product,
+        'random_products': random_product_array,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -76,7 +94,7 @@ def add_product(request):
     """Admin add product to store"""
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
-        return redirect(reverse('home'))  
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)

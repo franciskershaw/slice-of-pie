@@ -732,6 +732,10 @@ div#apply-filter {
   font-size: 130%;
 }
 
+.recommended h4 {
+  margin-bottom: 10px;
+}
+
 .qty_input {
   width: 90%;
 }
@@ -742,6 +746,10 @@ div#apply-filter {
 
 .product-card-price.product-price-detail {
   font-size: 150%;
+}
+
+.recommended {
+  margin-top: 10px;
 }
 
 .product-card-cta-container.detail-btns button {
@@ -796,6 +804,11 @@ div#apply-filter {
 
   .login-form-content h3 {
     font-size: 215%;
+  }
+
+  .recommended h4 {
+    margin-bottom: 15px;
+    font-size: 160%;
   }
 
   .login-form-content label,
@@ -877,7 +890,10 @@ div#apply-filter {
   .product-description {
     padding-left: 30px;
     padding-right: 30px;
-}
+  }
+  .product-title-detail h2 {
+    font-size: 155%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
