@@ -9,7 +9,7 @@
         <div class="col-12 bskt-headers-container">
             <div class="bskt-headers">Items: {{ product_count }}</div>
             <div class="bskt-headers bskt-total">Total: £{{ total }}</div>
-            <a class="bskt-btn checkout-btn" href="{% url 'checkout' %}">Secure Checkout <i class="fas fa-lock"></i></a>
+            <a class="bskt-btn" href="{% url 'checkout' %}">Secure Checkout <i class="fas fa-lock"></i></a>
         </div>
     </div>
     {% for item in basket_items %}

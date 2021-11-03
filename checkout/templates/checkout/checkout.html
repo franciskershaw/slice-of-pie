@@ -8,51 +8,53 @@
 
 {% block content %}
 <div class="checkout page-container container">
-    <h1>Time to checkout</h1>
+    <h1 class="text-center">Time to checkout</h1>
     <div class="row">
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 order-md-2 mb-3">
             <h2>Order Summary</h2>
             {% for item in basket_items %}
-                <div class="row">
-                    <div class="col-5">
+                <div class="row mb-3">
+                    <div class="col-5 checkout-img-container">
                         <img class="product-image" src="{{ MEDIA_URL }}{{ item.product.image_1 }}" alt="{{ item.name }}">
                     </div>
                     <div class="col-7">
                         <div class="row">
                             <div class="col-12">
-                                <p>{{ item.product.name }}</p>
+                                <p class="m-0"><strong>{{ item.product.name }}</strong></p>
                             </div>
                             <div class="col-12">
-                                <p>Quantity: {{ item.quantity }}</p>
+                                <p class="m-0">Quantity: <span class="product-card-price">{{ item.quantity }}</span></p>
                             </div>
                             <div class="col-12">
-                                <p>Unit price: {{ item.product.price }}</p>
+                                <p class="m-0">Unit price: <span class="product-card-price">£{{ item.product.price }}</span></p>
                             </div>
                         </div>
                     </div>
                 </div>
             {% endfor %}
-            <div class="col-12">
-                <h4>Order total: <strong>£{{ total | floatformat:2 }}</strong></h4>
-            </div>
-            <div class="col-12">
-                <h4>Delivery:
-                    {% if not delivery %}FREE{% else %}£{{ delivery | floatformat:2 }}{% endif %}</h4>
-            </div>
-            <div class="col-12">
-                <h4>£{{ grand_total | floatformat:2 }}</h4>
+            <div class="row order-summary-container pl-4 pr-4">
+                <div class="col-12">
+                    <p class="mb-1 order-summary">Order total: <strong class="product-card-price">£{{ total | floatformat:2 }}</strong></p>
+                </div>
+                <div class="col-12">
+                    <p class="mb-1 order-summary">Delivery:
+                        {% if not delivery %}<strong class="product-card-price">Free</strong>{% else %}£{{ delivery | floatformat:2 }}{% endif %}</p>
+                </div>
+                <div class="col-12">
+                    <p class="mb-1 order-summary">Grand total: <strong class="product-card-price">£{{ grand_total | floatformat:2 }}</strong></p>
+                </div>
             </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 order-md-1">
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                <fieldset class="checkout-fieldset">
+                    <legend>Details</legend>
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
-                <fieldset class="rounded px-3 mb-5">
-                    <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                <fieldset class="checkout-fieldset">
+                    <legend>Delivery</legend>
                     {{ order_form.phone_number | as_crispy_field }}
                     {{ order_form.street_address1 | as_crispy_field }}
                     {{ order_form.street_address2 | as_crispy_field }}
@@ -72,8 +74,8 @@
                         {% endif %}
                     </div>
                 </fieldset>
-                <fieldset >
-                    <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
+                <fieldset class="checkout-fieldset">
+                    <legend>Payment</legend>
                     <!-- A Stripe card element will go here -->
                     <div class="mb-3" id="card-element"></div>
                     <!-- Used to display form errors -->
@@ -81,19 +83,24 @@
                     <!-- Pass the client secret to the view so we can get the payment intent id -->
                     <input type="hidden" value="{{ client_secret }}" name="client_secret">
                 </fieldset>
-                <div class="submit-button text-right mt-5 mb-2">                    
-                    <button id="submit-button" class="btn btn-black rounded-0">
-                        <span class="font-weight-bold">Complete Order</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </button>
-                    <p class="small text-danger my-0">
-                        <span class="icon">
-                            <i class="fas fa-exclamation-circle"></i>
-                        </span>
-                        <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
-                    </p>
+                <div class="submit-button row mb-4">
+                    <div class="col-6">
+                        <button class="bskt-btn checkout-btn" id="submit-button">
+                            <span>Complete Order</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                        <p class="small text-danger text-center">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                        </p>
+                    </div>                    
+                    <div class="col-6">
+                        <a href="{% url 'products' %}" class="btn bskt-btn checkout-btn" id="cancel-checkout">Cancel</a>
+                    </div>
                 </div>
             </form>
         </div>

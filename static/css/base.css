@@ -396,6 +396,17 @@ footer ul li a {
   text-decoration: none;
 }
 
+.bskt-btn.checkout-btn {
+  background-color: var(--dark);
+  font-size: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+a.update-link.bskt-btn {
+  font-size: 125%;
+}
+
 button.close-sidebar {
   border: none;
   color: var(--lavender);
@@ -403,6 +414,14 @@ button.close-sidebar {
   position: absolute;
   right: 30px;
   top: 0px;
+}
+
+#cancel-checkout {
+  background-color: var(--burgendy);
+}
+
+#cancel-checkout a {
+  color: var(--lavender);
 }
 
 /* Login / Sign up / Forgot Password pages */
@@ -698,7 +717,8 @@ ul.errorlist {
   top: 0;
 }
 
-div.products h1 {
+div.products h1,
+div.checkout h1 {
   padding-top: var(--h1-padding);
   font-size: var(--h1-size);
   margin-bottom: 20px;
@@ -759,6 +779,33 @@ div#apply-filter {
 .product-card-cta-container button input[type="submit"] {
   background: transparent;
   border: none;
+}
+
+/* Checkout */
+
+.checkout-img-container {
+  padding-right: 5px;
+}
+
+.checkout-fieldset {
+  margin-bottom: 10px;
+}
+
+.order-summary {
+  font-size: 135%;
+}
+
+div.checkout span.product-card-price,
+div.checkout strong.product-card-price {
+  font-size: 100%;
+}
+
+div.checkout h2,
+div.checkout legend {
+  color: var(--burgendy);
+  text-shadow: 1px 1px 1px #fbf9ef;
+  font-size: 140%;
+  margin-bottom: 10px;
 }
 
 /* Toasts */
