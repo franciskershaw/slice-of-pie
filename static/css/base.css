@@ -82,9 +82,9 @@ input[type="checkbox"]:checked:after {
 
 .page-container {
   margin-top: var(--navbar-height);
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-top: 20px;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  /* padding-top: 20px; */
   min-height: var(--page-content-height);
 }
 
@@ -523,16 +523,26 @@ ul.errorlist {
 
 /* Homepage */
 
-.heading-container {
-  height: 55vh;
+.hero-section {
+  margin-bottom: 20px;
 }
 
-.home-cta-btn {
-  border: 1px solid var(--dark);
-  border-radius: 2px;
-  width: 100%;
-  padding-left: 5px;
-  padding-right: 5px;
+.heading-container {
+  height: 55vh;
+  background-image: url('/media/pie.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.index h1 {
+  color: var(--burgendy);
+  text-shadow: 1px 1px white;
+}
+
+a#sign-up-btn {
+  background-color: var(--burgendy);
 }
 
 /* All products page */
@@ -851,6 +861,10 @@ div.checkout legend {
     padding-right: 65px;
   }
 
+  .checkout-btn.bskt-btn.home-cta {
+    width: 40%;
+  }
+
   #navigation-bar .navbar-menu,
   #navigation-bar.opened .navbar-menu {
     visibility: visible;
@@ -900,6 +914,18 @@ div.checkout legend {
 }
 
 @media screen and (min-width: 992px) {
+  .heading-container {
+    background: none;
+  }
+  section.hero-section {
+    background-image: url('/media/pie.jpg');
+    background-repeat: no-repeat;
+    background-position: inherit;
+    background-size: cover;
+  }
+  .checkout-btn.bskt-btn.home-cta {
+    width: 60%;
+  }
   .sidebar {
     width: 35%;
     padding-right: 50px;
