@@ -5,79 +5,37 @@
 {% block content %}
 
 <div class="index page-container">
-    <!-- Hero animation, heading, and CTA buttons -->
-    <section id="hero-section" class="container-fluid landing-container">
-        <div class="index-content-container center-content">
-            <!-- Heading -->
-            <div class="index-headings-container">
-                <div class="row">
-                    <div class="col">
+    <section class="hero-section container-fluid">
+        <div class="row text-center">
+            <div class="col-12 col-lg-6 order-lg-2">
+                <div class="row heading-container">
+                    <div class="col-12 center-content">
                         <h1>Slice of Pie</h1>
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="#" class="btn home-cta-btn" role="button">Build Table</a>
+                    </div>
+                    <div class="col-6 text-left">
+                        <a href="#" class="btn home-cta-btn" role="button">Sign Up</a>
                     </div>
                 </div>
             </div>
-            <!-- CTA buttons -->
-            <div class="cta-btn-container">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <a href="#" class="btn btn-primary btn-md cta-btn">Build Table</a>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        {% if request.user.is_authenticated %}
-                            <a href="{% url 'products' %}" class="btn btn-primary btn-md cta-btn">All Tables</a>
-                        {% else %}
-                            <a href="{% url 'account_signup' %}" class="btn btn-primary btn-md cta-btn">Sign Up</a>
-                        {% endif %}
+            <div class="col-lg-6 d-none d-lg-block order-1">
+                <div class="row heading-container">
+                    <div class="col-12">
+                        This is where the other content lives halfway through
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section id="feature-section" class="container-fluid text-center">
-        <div class="feature-content-container">
-            <div class="feature-one">
-                <div class="row">
-                    <div class="col-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12">
-                                <h2>
-                                    Feature #1 (heading)
-                                </h2>
-                            </div>
-                            <div class="col-12">
-                                This is the image for feature #1
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-md cta-btn">View</a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-md cta-btn">Add</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="row">
-                            <div class="col-12">
-                                <h2>
-                                    Feature #2 (heading)
-                                </h2>
-                            </div>
-                            <div class="col-12">
-                                This is the image for feature #2
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-md cta-btn">View</a>
-                            </div>
-                            <div class="col-6">
-                                <a href="#" class="btn btn-primary btn-md cta-btn">Add</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <section class="feature-section container">
+        <div class="row text-center">
+            <div class="col-12 col-lg-6">
+                Feature 1
             </div>
-            <div class="feature-two">
-
+            <div class="col-12 col-lg-6">
+                Feature 2
             </div>
         </div>
     </section>
