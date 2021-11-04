@@ -541,6 +541,10 @@ ul.errorlist {
   text-shadow: 1px 1px white;
 }
 
+.feature-section h2 {
+  margin-bottom: 20px;
+}
+
 a#sign-up-btn {
   background-color: var(--burgendy);
 }
