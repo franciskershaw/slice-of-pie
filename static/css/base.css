@@ -793,6 +793,12 @@ div.checkout legend {
   margin-bottom: 10px;
 }
 
+/* Product builder page */
+
+#builder-container {
+  border: 1px solid black;
+}
+
 /* Toasts */
 
 .message-container {

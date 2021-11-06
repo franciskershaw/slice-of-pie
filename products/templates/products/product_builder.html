@@ -3,7 +3,41 @@
 
 {% block content %}
     <div class="product-builder page-container container">
-        <h1>Hello from product builder</h1>
+        <h1>Build your perfect table</h1>
+        <div id="builder-container" class="row text-center">
+            <div class="col-12 text-left">
+                <h2>Choose your size</h2>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-5 product-card-container">
+                        <img class="product-image" src="/media/placeholder.jpg" alt="">
+                    </div>
+                    <div class="col-7">60 Degrees (Small)</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row product-card-container">
+                    <div class="col-5">
+                        <img src="/media/placeholder.jpg" alt="" class="product-image">
+                    </div>
+                    <div class="col-7">120 Degrees (Medium)</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-5 product-card-container">
+                        <img src="/media/placeholder.jpg" alt="" class="product-image">
+                    </div>
+                    <div class="col-7">180 Degrees (Large)</div>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
+            <button class="bskt-btn checkout-btn">
+                Browse All
+            </button>
+        </div>
     </div>
 {% endblock %}
 
