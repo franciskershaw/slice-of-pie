@@ -155,3 +155,12 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted')
     return redirect(reverse('products'))
+
+
+def product_builder(request):
+    """A view to render the product builder page"""
+    products = Product.objects.all()
+    context = {
+        'products': products,
+    }
+    return render(request, 'products/product_builder.html', context)

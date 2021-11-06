@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="product-builder page-container container">
+        <h1>Hello from product builder</h1>
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+    {% include 'products/includes/product_builder_js.html' %}
+{% endblock %}
