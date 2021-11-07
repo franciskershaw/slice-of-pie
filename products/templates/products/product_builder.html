@@ -11,8 +11,8 @@
             <div class="col-12">
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
-                        <button id="60-degrees" class="size-choice">
-                            <img class="product-image builder-image" src="/media/placeholder.jpg" alt="">    
+                        <button id="60-degrees" class="size-choice builder-btn">
+                            <img class="product-image builder-image" src="/media/60deg.jpg" alt="">    
                         </button>
                     </div>
                     <div class="col-7">
@@ -23,8 +23,8 @@
             <div class="col-12">
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
-                        <button id="120-degrees" class="size-choice">
-                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        <button id="120-degrees" class="size-choice builder-btn">
+                            <img src="/media/120deg.jpg" alt="" class="product-image builder-image">
                         </button>
                     </div>
                     <div class="col-7">
@@ -35,8 +35,8 @@
             <div class="col-12">
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
-                        <button id="180-degrees" class="size-choice">
-                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        <button id="180-degrees" class="size-choice builder-btn">
+                            <img src="/media/180deg.jpg" alt="" class="product-image builder-image">
                         </button>                
                     </div>
                     <div class="col-7">
@@ -52,8 +52,8 @@
             <div class="col-12">
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
-                        <button id="1-level" class="levels-choice">
-                            <img class="product-image builder-image" src="/media/placeholder.jpg" alt="">
+                        <button id="1-level" class="levels-choice builder-btn">
+                            <img class="product-image builder-image" src="/media/1.jpg" alt="">
                         </button>
                     </div>
                     <div class="col-7">1 shelf</div>
@@ -62,8 +62,8 @@
             <div class="col-12">
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
-                        <button id="2-levels" class="levels-choice">
-                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        <button id="2-levels" class="levels-choice builder-btn">
+                            <img src="/media/2.jpg" alt="" class="product-image builder-image">
                         </button>
                     </div>
                     <div class="col-7">2 shelves</div>
@@ -72,8 +72,8 @@
             <div class="col-12">
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
-                        <button id="3-levels" class="levels-choice">
-                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        <button id="3-levels" class="levels-choice builder-btn">
+                            <img src="/media/3.jpg" alt="" class="product-image builder-image">
                         </button>
                     </div>
                     <div class="col-7">3 shelves</div>
@@ -91,7 +91,7 @@
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
                         <button id="acrylic" class="material-choice">
-                            <img class="product-image builder-image" src="/media/placeholder.jpg" alt="">
+                            <img class="product-image builder-image" src="/media/acrylic.jpg" alt="">
                         </button>
                     </div>
                     <div class="col-7">Acryllic</div>
@@ -101,7 +101,7 @@
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
                         <button id="plywood" class="material-choice">
-                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                            <img src="/media/plywood.jpg" alt="" class="product-image builder-image">
                         </button>                        
                     </div>
                     <div class="col-7">Plywood</div>
@@ -111,7 +111,7 @@
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
                         <button id="pine" class="material-choice">
-                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                            <img src="/media/pine.jpg" alt="" class="product-image builder-image">
                         </button>
                     </div>
                     <div class="col-7">Pine</div>
@@ -121,7 +121,7 @@
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
                         <button id="oak" class="material-choice">
-                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                            <img src="/media/oak.jpg" alt="" class="product-image builder-image">
                         </button>                        
                     </div>
                     <div class="col-7">Oak</div>
@@ -137,9 +137,11 @@
             </div>
         </div>
         <div class="row text-center">
-            <button class="bskt-btn checkout-btn">
-                Browse All
-            </button>
+            <div class="col-12">
+                <a href="{% url 'products' %}" id="browse-all" class="bskt-btn checkout-btn">
+                    Browse All
+                </a>
+            </div>
         </div>
     </div>
     <div id="all-products" class="d-none">
