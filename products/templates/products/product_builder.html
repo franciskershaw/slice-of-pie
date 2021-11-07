@@ -90,7 +90,7 @@
             <div class="col-12">
                 <div class="row builder-row align-items-center">
                     <div class="col-5 pr-0">
-                        <button id="acryllic" class="material-choice">
+                        <button id="acrylic" class="material-choice">
                             <img class="product-image builder-image" src="/media/placeholder.jpg" alt="">
                         </button>
                     </div>
@@ -131,13 +131,22 @@
                 <button id="back-to-level" class="btn bskt-btn checkout-btn">Previous</button>
             </div>
         </div>
+        <div id="view-table" class="row text-center builder-container d-none">
+            <div class="col-12">
+                <a id="table-link" href="" class="bskt-btn checkout-btn">View your table</a>
+            </div>
+        </div>
         <div class="row text-center">
             <button class="bskt-btn checkout-btn">
                 Browse All
             </button>
         </div>
     </div>
-    {{ products }}
+    <div id="all-products" class="d-none">
+        {% for product in products %}
+            <p id="{{ product.id }}" class="product-name {{ product.id }}">{{ product.name }}</p>
+        {% endfor %}
+    </div>
 {% endblock %}
 
 {% block postloadjs %}

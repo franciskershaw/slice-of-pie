@@ -18,13 +18,13 @@
        
         $('.size-choice').click(function() {
             if(this.getAttribute('id') == '60-degrees') {
-                userChoices.chosenSize = "60 Degrees";
+                userChoices.chosenSize = "60 Degree";
             } else if(this.getAttribute('id') == '120-degrees') {
-                userChoices.chosenSize = "120 Degrees";
+                userChoices.chosenSize = "120 Degree";
             } else if(this.getAttribute('id') == '180-degrees') {
-                userChoices.chosenSize = "180 Degrees";
+                userChoices.chosenSize = "180 Degree";
             }
-            console.log(`Size is ${userChoices.chosenSize}`);
+            console.log(userChoices.chosenSize);
             $('#size-container').addClass('d-none');
             $('#level-container').removeClass('d-none');
         })
@@ -37,14 +37,14 @@
             } else if(this.getAttribute('id') == '3-levels') {
                 userChoices.chosenLevels = "3 Level";
             }
-            console.log(`Levels is ${userChoices.chosenLevels}`);
+            console.log(userChoices.chosenLevels);
             $('#level-container').addClass('d-none');
             $('#material-container').removeClass('d-none');
         })
 
         $('.material-choice').click(function() {
-            if(this.getAttribute('id') == 'acryllic') {
-                userChoices.chosenMaterial = 'Acryllic';
+            if(this.getAttribute('id') == 'acrylic') {
+                userChoices.chosenMaterial = 'Acrylic';
             } else if(this.getAttribute('id') == 'plywood') {
                 userChoices.chosenMaterial = 'Plywood';
             } else if (this.getAttribute('id') == 'pine') {
@@ -52,15 +52,26 @@
             } else if (this.getAttribute('id') == 'oak') {
                 userChoices.chosenMaterial = "Oak";
             }
-            console.log(`Material is ${userChoices.chosenMaterial}`);
+            console.log(userChoices.chosenMaterial);
             findFinalProduct();
+            $('#material-container').addClass('d-none');
+            $('#view-table').removeClass('d-none');
         })
    })
 
    function findFinalProduct() {
-       console.log('hello from findFinalProduct');
        let finalProduct = userChoices.chosenLevels + " " + userChoices.chosenMaterial + " " + userChoices.chosenSize + " Slice Of Pie";
-       console.log(finalProduct);
+       
+       let productLink = document.querySelector('#table-link');
+
+       let productNames = document.getElementsByClassName('product-name');
+       Array.from(productNames).forEach(function(product) {
+           if (product.innerText == finalProduct) {
+               let productId = product.getAttribute('id');
+               productLink.href = `/products/${productId}`;
+               console.log(productLink);
+           }
+       })
    }
 
 
