@@ -4,33 +4,131 @@
 {% block content %}
     <div class="product-builder page-container container">
         <h1>Build your perfect table</h1>
-        <div id="builder-container" class="row text-center">
+        <div id="size-container" class="row text-center builder-container">
             <div class="col-12 text-left">
-                <h2>Choose your size</h2>
+                <h2 class="category-heading">Choose your size</h2>
             </div>
             <div class="col-12">
-                <div class="row">
-                    <div class="col-5 product-card-container">
-                        <img class="product-image" src="/media/placeholder.jpg" alt="">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="60-degrees" class="size-choice">
+                            <img class="product-image builder-image" src="/media/placeholder.jpg" alt="">    
+                        </button>
                     </div>
-                    <div class="col-7">60 Degrees (Small)</div>
+                    <div class="col-7">
+                        <p>60 Degrees (Small)</p>
+                    </div>
                 </div>
             </div>
             <div class="col-12">
-                <div class="row product-card-container">
-                    <div class="col-5">
-                        <img src="/media/placeholder.jpg" alt="" class="product-image">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="120-degrees" class="size-choice">
+                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        </button>
                     </div>
-                    <div class="col-7">120 Degrees (Medium)</div>
+                    <div class="col-7">
+                        <p>120 Degrees (Medium)</p>
+                    </div>
                 </div>
             </div>
             <div class="col-12">
-                <div class="row">
-                    <div class="col-5 product-card-container">
-                        <img src="/media/placeholder.jpg" alt="" class="product-image">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="180-degrees" class="size-choice">
+                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        </button>                
                     </div>
-                    <div class="col-7">180 Degrees (Large)</div>
+                    <div class="col-7">
+                        <p>180 Degrees (Large)</p>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <div id="level-container" class="row text-center builder-container d-none">
+            <div class="col-12 text-left">
+                <h2 class="category-heading">Choose number of levels</h2>
+            </div>
+            <div class="col-12">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="1-level" class="levels-choice">
+                            <img class="product-image builder-image" src="/media/placeholder.jpg" alt="">
+                        </button>
+                    </div>
+                    <div class="col-7">1 shelf</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="2-levels" class="levels-choice">
+                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        </button>
+                    </div>
+                    <div class="col-7">2 shelves</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="3-levels" class="levels-choice">
+                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        </button>
+                    </div>
+                    <div class="col-7">3 shelves</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <button id="back-to-size" class="btn bskt-btn checkout-btn">Previous</button>
+            </div>
+        </div>
+        <div id="material-container" class="row text-center builder-container d-none">
+            <div class="col-12 text-left">
+                <h2 class="category-heading">Choose your material</h2>
+            </div>
+            <div class="col-12">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="acryllic" class="material-choice">
+                            <img class="product-image builder-image" src="/media/placeholder.jpg" alt="">
+                        </button>
+                    </div>
+                    <div class="col-7">Acryllic</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="plywood" class="material-choice">
+                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        </button>                        
+                    </div>
+                    <div class="col-7">Plywood</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="pine" class="material-choice">
+                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        </button>
+                    </div>
+                    <div class="col-7">Pine</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="row builder-row align-items-center">
+                    <div class="col-5 pr-0">
+                        <button id="oak" class="material-choice">
+                            <img src="/media/placeholder.jpg" alt="" class="product-image builder-image">
+                        </button>                        
+                    </div>
+                    <div class="col-7">Oak</div>
+                </div>
+            </div>
+            <div class="col-12">
+                <button id="back-to-level" class="btn bskt-btn checkout-btn">Previous</button>
             </div>
         </div>
         <div class="row text-center">
@@ -39,6 +137,7 @@
             </button>
         </div>
     </div>
+    {{ products }}
 {% endblock %}
 
 {% block postloadjs %}

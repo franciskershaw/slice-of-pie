@@ -795,8 +795,31 @@ div.checkout legend {
 
 /* Product builder page */
 
-#builder-container {
+.product-builder {
+  padding-top: 15px;
+}
+
+.builder-container {
   border: 1px solid black;
+  padding-top: 15px;
+  padding-bottom: 20px;
+}
+
+.builder-row {
+  margin-bottom: 15px;
+}
+
+img.product-image.builder-image {
+  border: 0;
+  border-radius: 0;
+}
+
+.product-builder h1 {
+  font-size: 1.5rem;
+}
+
+.product-builder h2 {
+  font-size: 1.25rem;
 }
 
 /* Toasts */

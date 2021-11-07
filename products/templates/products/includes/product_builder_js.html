@@ -2,50 +2,65 @@
     const userChoices = {
         chosenSize: "",
         chosenLevels: "",
-        chosenMaterial: "",
-
-        finalProduct: "",
+        chosenMaterial: ""
     };
 
    $(document).ready(function () {
-       console.log('Ready!');
+
+        $('#back-to-size').click(function() {
+            $('#level-container').addClass('d-none');
+            $('#size-container').removeClass('d-none');
+        })
+        $('#back-to-level').click(function() {
+            $('#material-container').addClass('d-none');
+            $('#level-container').removeClass('d-none');
+        })
+       
+        $('.size-choice').click(function() {
+            if(this.getAttribute('id') == '60-degrees') {
+                userChoices.chosenSize = "60 Degrees";
+            } else if(this.getAttribute('id') == '120-degrees') {
+                userChoices.chosenSize = "120 Degrees";
+            } else if(this.getAttribute('id') == '180-degrees') {
+                userChoices.chosenSize = "180 Degrees";
+            }
+            console.log(`Size is ${userChoices.chosenSize}`);
+            $('#size-container').addClass('d-none');
+            $('#level-container').removeClass('d-none');
+        })
+
+        $('.levels-choice').click(function() {
+            if(this.getAttribute('id') == '1-level') {
+                userChoices.chosenLevels = "1 Level";
+            } else if(this.getAttribute('id') == '2-levels') {
+                userChoices.chosenLevels = "2 Level";
+            } else if(this.getAttribute('id') == '3-levels') {
+                userChoices.chosenLevels = "3 Level";
+            }
+            console.log(`Levels is ${userChoices.chosenLevels}`);
+            $('#level-container').addClass('d-none');
+            $('#material-container').removeClass('d-none');
+        })
+
+        $('.material-choice').click(function() {
+            if(this.getAttribute('id') == 'acryllic') {
+                userChoices.chosenMaterial = 'Acryllic';
+            } else if(this.getAttribute('id') == 'plywood') {
+                userChoices.chosenMaterial = 'Plywood';
+            } else if (this.getAttribute('id') == 'pine') {
+                userChoices.chosenMaterial = 'Pine';
+            } else if (this.getAttribute('id') == 'oak') {
+                userChoices.chosenMaterial = "Oak";
+            }
+            console.log(`Material is ${userChoices.chosenMaterial}`);
+            findFinalProduct();
+        })
    })
 
-   /*
-   This function keeps track of which category the user
-   has chosen and inputs it into the global variables
-   object. Calls removeContent when finished.
-   */
-   function trackCategory(category) {
-       console.log('hello from trackCategory');
-   }
-
-   /*
-   This function listens for a user's choice/input and removes
-   the relevant content from the product builder container and 
-   calls addContent when finished.
-   */
-   function removeContent() {
-       console.log('hello from removeContent');
-   }
-
-   /*
-   This function is called once content is removed and adds in
-   the correct section.
-   */
-
-   function addContent() {
-       console.log('hello from addContent');
-   }
-
-   /*
-   This function takes all the data from userChoices,
-   turns it into a product string, loops over the
-   products sent from backend, finds the match,
-   returns the correct link.
-   */
    function findFinalProduct() {
        console.log('hello from findFinalProduct');
+       let finalProduct = userChoices.chosenLevels + " " + userChoices.chosenMaterial + " " + userChoices.chosenSize + " Slice Of Pie";
+       console.log(finalProduct);
    }
 
 
