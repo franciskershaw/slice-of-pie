@@ -43,3 +43,25 @@ def basket_contents(request):
     }
 
     return context
+
+
+def wishlist_contents(request):
+    wishlist_items = []
+    product_count_wishlist = 0
+    wishlist = request.session.get('wishlist', {})
+
+    for item_id, quantity in wishlist.items():
+        product = get_object_or_404(Product, pk=item_id)
+        product_count_wishlist += quantity
+        wishlist_items.append({
+            'item_id': item_id,
+            'quantity': quantity,
+            'product': product,
+        })
+
+    context = {
+        'wishlist_items': wishlist_items,
+        'product_count_wishlist': product_count_wishlist,
+    }
+
+    return context

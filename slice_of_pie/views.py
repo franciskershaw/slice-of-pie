@@ -57,3 +57,38 @@ def remove_item(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
+
+
+def add_to_wishlist(request, item_id):
+
+    product = get_object_or_404(Product, pk=item_id)
+    print(product)
+    redirect_url = request.POST.get('redirect_url')
+    print(redirect_url)
+    wishlist = request.session.get('wishlist', {})
+    print(f'wishlist:{wishlist}')
+
+    if item_id in list(wishlist.keys()):
+        messages.info(request, f'{product.name} has already been favourited.')
+    else:
+        wishlist[item_id] = 1
+        messages.success(request, f'Added {product.name} to your favourites.')
+
+    request.session['wishlist'] = wishlist
+    return redirect(redirect_url)
+
+
+def remove_from_wishlist(request, item_id):
+
+    product = get_object_or_404(Product, pk=item_id)
+    try:
+        wishlist = request.session.get('wishlist', {})
+        wishlist.pop(item_id)
+        messages.success(request, f'Removed {product.name} from your favourites')
+
+        request.session['wishlist'] = wishlist
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)

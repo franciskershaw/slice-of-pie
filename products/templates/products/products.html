@@ -54,10 +54,14 @@
                         <button class="btn product-card-view">
                            <a href="{% url 'product_detail' product.id %}">View</a>
                         </button>
-                        <button class="btn product-card-fav">
-                           <i class="far fa-heart" aria-hidden="true"></i>
-                           <span class="sr-only">Add to wishlist</span>
-                        </button>
+                        <form method="POST" action="{% url 'add_to_wishlist' product.id %}" class="d-inline">
+                           {% csrf_token %}
+                           <button type="submit" class="btn product-card-fav">
+                              <i class="far fa-heart" aria-hidden="true"></i>
+                              <span class="sr-only">Add to wishlist</span>
+                           </button>
+                           <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </form>
                      </div>                     
                   </div>
                </div>
