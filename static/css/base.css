@@ -32,9 +32,8 @@
 body {
   font-family: var(--main-font);
   letter-spacing: .5px;
-  background-color: var(--lavender);
-  /* background: rgb(226,186,140);
-  background: radial-gradient(circle, rgba(226,186,140,1) 50%, rgba(231,224,218,1) 100%);  */
+  background: rgb(244,238,233);
+  background: linear-gradient(90deg, rgba(244,238,233,1) 31%, rgba(247,229,207,1) 76%);
 }
 
 ul {
@@ -808,11 +807,28 @@ div.checkout legend {
   margin-bottom: 15px;
 }
 
+button.builder-btn {
+  border: 2px solid var(--burgendy);
+  border-radius: 5px;
+}
+
+p.builder-info {
+  font-size: 130%;
+  color: var(--burgendy);
+  text-shadow: 1px 1px 1px #dedada;
+}
+
 img.product-image.builder-image {
   border: 0;
   border-radius: 0;
-  max-width: 100px;
-  max-height: 100px;
+  width: 100px;
+  height: 100px;
+  transition: 0.5s;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+img.product-image.builder-image:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
 }
 
 .product-builder h1 {
@@ -821,6 +837,15 @@ img.product-image.builder-image {
 
 .product-builder h2 {
   font-size: 1.25rem;
+}
+
+.bskt-btn.checkout-btn.prev-btn {
+  width: 35%;
+}
+
+a#browse-all {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 /* Toasts */
@@ -897,6 +922,17 @@ img.product-image.builder-image {
 
   .checkout-btn.bskt-btn.home-cta {
     width: 40%;
+  }
+
+  .builder-container {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    border: 5px solid var(--burgendy);
+    border-radius: 15px;
+}
+
+  .product-builder h1 {
+    text-align: center;
   }
 
   #navigation-bar .navbar-menu,
