@@ -18,10 +18,24 @@
             </div>
           </li>
         <li>
-            <button class="mobile-icon-btn wishlist-btn"><i class="fas fa-heart"></i></button>
+            <button class="mobile-icon-btn wishlist-btn">
+                <i class="fas fa-heart"></i>
+                {% if product_count_wishlist %}
+                <span class="nav-wishlist-count">
+                    {{ product_count_wishlist }}
+                </span>
+                {% endif %}
+            </button>
         </li>
         <li>
-            <button class="mobile-icon-btn basket-btn"><i class="fas fa-shopping-basket"></i></button>
+            <button class="mobile-icon-btn basket-btn">
+                <i class="fas fa-shopping-basket"></i>
+                {% if product_count %}
+                <span class="nav-basket-count">
+                    {{ product_count }}
+                </span>
+                {% endif %}
+            </button>
         </li>
     </ul>
 </div>

@@ -200,6 +200,30 @@ input[type="checkbox"]:checked:after {
   text-decoration: none;
 }
 
+.nav-wishlist-count {
+  font-size: 0.55rem;
+  position: absolute;
+  top: 11px;
+  right: 55px;
+  width: 14px;
+  height: 14px;
+  background-color: var(--burgendy);
+  border: 1px solid;
+  border-radius: 50%;
+}
+
+span.nav-basket-count {
+  font-size: 0.55rem;
+  position: absolute;
+  background-color: var(--burgendy);
+  border-radius: 50%;
+  top: 11px;
+  right: 21px;
+  border: 1px solid;
+  width: 14px;
+  height: 14px;
+}
+
 .navbar-toggle:focus .icon-bar,
 .navbar-toggle:hover .icon-bar {
     background-color: var(--white);
