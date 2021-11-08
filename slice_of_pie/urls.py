@@ -29,6 +29,7 @@ urlpatterns = [
     path('remove_item/<item_id>/', views.remove_item, name="remove_item"),
     path('add_to_wishlist/<item_id>/', views.add_to_wishlist, name="add_to_wishlist"),
     path('remove_from_wishlist/<item_id>/', views.remove_from_wishlist, name="remove_from_wishlist"),
+    path('into_basket/<item_id>/', views.into_basket, name="into_basket"),
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

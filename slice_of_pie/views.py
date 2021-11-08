@@ -92,3 +92,23 @@ def remove_from_wishlist(request, item_id):
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
+
+
+def into_basket(request, item_id):
+
+    product = get_object_or_404(Product, pk=item_id)
+    try:
+        basket = request.session.get('basket', {})
+        wishlist = request.session.get('wishlist', {})
+
+        wishlist.pop(item_id)
+        basket[item_id] = 1
+        messages.success(request, f'{product.name} moved into your basket')
+
+        request.session['basket'] = basket
+        request.session['wishlist'] = wishlist
+        return HttpResponse(status=200)
+
+    except Exception as e:
+        messages.error(request, f'Error moving item: {e}')
+        return HttpResponse(status=500)

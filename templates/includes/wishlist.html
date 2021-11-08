@@ -17,7 +17,7 @@
                 <div class="col-12">
                     <div class="row">
                         <div class="col-6 text-right">
-                            <i class="fas fa-shopping-basket"></i>
+                            <button class="btn into-basket bskt-btn" id="into_basket_{{ item.item_id }}"><i class="fas fa-shopping-basket"></i></button>
                         </div>
                         <div class="col-6 text-left">
                             <button class="btn remove-item bskt-btn" id="remove_{{ item.item_id }}"><i class="far fa-trash-alt"></i></button>
@@ -51,5 +51,18 @@
                 location.reload();
             });
     });
+
+    $('.into-basket').click(function(e) {
+        let csrfToken = "{{ csrf_token }}";
+        let itemId = $(this).attr('id').split('into_basket_')[1];
+        let url = `/into_basket/${itemId}/`;
+        let data = {
+            'csrfmiddlewaretoken': csrfToken
+        };
+        $.post(url, data)
+            .done(function () {
+                location.reload();
+            });
+    })
 </script>
 {% endblock %}
