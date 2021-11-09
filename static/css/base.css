@@ -911,11 +911,19 @@ img.profile-img {
   border: 1px solid;
 }
 
-#accordion h3 {
+.order-heading {
+  font-size: 130%;
+}
+
+.profile-order-address {
+  font-size: 90%;
+}
+
+.card-header h3 {
   font-size: 80%
 }
 
-#accordion h4 {
+.card-body h4 {
   font-size: 75%;
 }
 
