@@ -128,7 +128,7 @@ input[type="checkbox"]:checked:after {
 }
 
 button.navbar-toggle.d-md-none {
-  padding-left: 60px;
+  padding-left: 35px;
 }
 
 button.navbar-toggle.d-md-none:focus {
@@ -261,6 +261,7 @@ a#navbarDropdown {
   color: var(--lavender);
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-right: 5px;
 }
 
 #navigation-bar.opened .navbar-links {
@@ -901,6 +902,25 @@ img.product-image.builder-image:hover {
 a#browse-all {
   padding-left: 15px;
   padding-right: 15px;
+}
+
+/* Profile page */
+
+img.profile-img {
+  width: 100%;
+  border: 1px solid;
+}
+
+#accordion h3 {
+  font-size: 80%
+}
+
+#accordion h4 {
+  font-size: 75%;
+}
+
+#accordion h5 {
+  font-size: 70%;
 }
 
 /* Toasts */
