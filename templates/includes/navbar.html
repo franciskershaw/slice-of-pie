@@ -1,7 +1,7 @@
 <!-- Source - responsive navigation bar sourced and tweaked to spec from https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/ -->
 <nav class="navbar-container flex-container">
     <a href="{% url 'home' %}" class="brand-link">
-        Slice of Pie
+        <span class="d-none d-md-inline">Slice of Pie</span> <i class="fas fa-chart-pie"></i>
     </a>
     <button type="button" class="navbar-toggle d-md-none" aria-label="Open navigation menu">
         <span class="icon-bar"></span>
@@ -22,7 +22,7 @@
     <div class="navbar-menu desktop-icons d-none d-md-block">
         <ul class="navbar-links">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-user"></i>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
