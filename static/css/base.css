@@ -131,6 +131,10 @@ button.navbar-toggle.d-md-none {
   padding-left: 60px;
 }
 
+button.navbar-toggle.d-md-none:focus {
+  outline: none;
+}
+
 .brand-link:focus,
 .brand-link:hover {
   color: var(--white);
@@ -272,6 +276,8 @@ a#navbarDropdown {
   right: 0;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   z-index: 50;
+  border: 1px solid var(--lavender);
+  box-shadow: 0 0 20px rgb(0 0 0);
 }
 
 #navigation-bar.opened .navbar-menu {
@@ -317,10 +323,21 @@ footer ul {
 }
 
 footer ul li a {
-  text-decoration: none;
   color: var(--lavender);
-  text-decoration: none;
-  padding: 5px;
+    text-decoration: none;
+    padding-top: 8px;
+    padding-bottom: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border: 1px solid transparent;
+    transition: .7s;
+    border-radius: 3px;
+
+}
+
+footer ul li a:hover {
+  color: white;
+  border: 1px solid;
 }
 
 .footer-link a i {
