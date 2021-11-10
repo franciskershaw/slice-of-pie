@@ -484,9 +484,9 @@ button.close-sidebar {
 /* Login / Sign up / Forgot Password pages */
 
 .login-form-content {
-  border: 1px solid;
   border-radius: 5px;
   padding: 20px;
+  padding-top: 30px;
   margin-bottom: 20px;
 }
 
@@ -497,7 +497,7 @@ button.close-sidebar {
 .login-form-content h3 {
   font-size: 155%;
   padding-bottom: 10px;
-  text-shadow: 1px 1px #434242;
+  text-shadow: 1px 1px white;
 }
 
 .login-form-content label {
@@ -512,16 +512,17 @@ button.close-sidebar {
   padding-left: 10px;
   outline: none;
   height: 45px;
-  background-color: #ffffffcc;
   border: 1px solid var(--dark);
+  border-radius: 8px;
+  background: #f1e4d6;
 }
 
 .user-form input:focus {
-  background-color: var(--lavender);
+  background-color: white;
 }
 
 .user-form input:hover {
-  background-color: var(--lavender);
+  background-color: white;
 }
 
 .login-form-content label[for='id_remember'],
@@ -547,7 +548,9 @@ button.close-sidebar {
 }
 
 .user-form button:hover {
-  transform: scale(1.1);
+  background-color: white;
+  color: var(--burgendy);
+  border: 1px solid var(--burgendy);
 }
 
 .login-form-content a {
