@@ -30,7 +30,7 @@
                         <div class="card-body container-fluid">
                           {% for item in order.lineitems.all %}
                             <div class="row mb-2">
-                                <div class="col-4">
+                                <div class="col-4 text-center">
                                     <img class="profile-img" src="{{ MEDIA_URL }}{{ item.product.image_1 }}" alt="{{ item.product.name }}">
                                 </div>
                                 <div class="col-8">
@@ -65,7 +65,8 @@
                 {% endfor %}
             </div>
             {% else %}
-            <p>No orders</p>
+           <em><p>You haven't made any orders yet</p></em>
+           <a href="{% url 'product_builder' %}" class="btn checkout-btn bskt-btn profile-btn">Build Table</a>
             {% endif %}
         </section>
     </div>

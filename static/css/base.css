@@ -841,7 +841,8 @@ div.checkout strong.product-card-price {
 }
 
 div.checkout h2,
-div.checkout legend {
+div.checkout legend,
+div.profile h2 {
   color: var(--burgendy);
   text-shadow: 1px 1px 1px #fbf9ef;
   font-size: 140%;
@@ -926,6 +927,12 @@ img.profile-img {
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(255,255,255,1) 3%, rgba(255,217,171,1) 100%);
   text-shadow: 1px 1px 1px var(--lavender);
+  transition: 0.4s;
+}
+
+.card-header:hover {
+  transform: scale(1.025);
+  cursor: pointer;
 }
 
 .card-header h3 {
@@ -938,6 +945,12 @@ img.profile-img {
 
 .bskt-btn.checkout-btn.profile-btn {
   width: 55%;
+}
+
+.bskt-btn.checkout-btn.profile-btn:hover {
+  background: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
 }
 
 #accordion h5 {
@@ -1025,10 +1038,19 @@ img.profile-img {
     padding-bottom: 20px;
     border: 5px solid var(--burgendy);
     border-radius: 15px;
-}
+  }
+
+  .bskt-btn.checkout-btn.profile-btn {
+    width: 30%;
+  }
 
   .product-builder h1 {
     text-align: center;
+  }
+
+  .card-body h4,
+  .card-header h3 {
+    font-size: 100%;
   }
 
   #navigation-bar .navbar-menu,
