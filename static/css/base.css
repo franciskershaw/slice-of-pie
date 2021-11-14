@@ -442,6 +442,13 @@ footer ul li a:hover {
   cursor: pointer;
 }
 
+button.navbar-link.wishlist-btn:focus,
+button.navbar-link.basket-btn:focus,
+button.mobile-icon-btn.basket-btn:focus,
+button.mobile-icon-btn.wislist-btn:focus {
+  outline: none;
+}
+
 .sub-total {
   margin-bottom: 10px;
   font-weight: 700;
@@ -608,8 +615,6 @@ ul.errorlist {
 section.about-section {
   padding-top: 20px;
   padding-bottom: 20px;
-  /* background: rgb(2,0,36);
-  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 73%); */
   color: var(--white);
   background: rgb(218,161,70);
   background: linear-gradient(90deg, rgba(218,161,70,1) 0%, rgba(125,49,12,1) 73%);
@@ -633,12 +638,25 @@ section.about-section p {
   border: 1px solid white;
 }
 
+.heading-content-container {
+  max-width: 353px;}
+
 #home-image {
   width: 100%;
 }
 
+#home-tagline {
+  font-size: 115%;
+  color: white;
+}
+
 a#sign-up-btn {
   background-color: var(--burgendy);
+}
+
+div#tagline-container {
+  background-color: #1110104a;
+  border-radius: 4px;
 }
 
 /* All products page */
