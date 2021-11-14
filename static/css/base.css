@@ -601,6 +601,40 @@ ul.errorlist {
 
 .feature-section h2 {
   margin-bottom: 20px;
+  color: var(--burgendy);
+  text-shadow: 1px 1px 1px #fbf9ef;
+}
+
+section.about-section {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 73%); */
+  color: var(--white);
+  background: rgb(218,161,70);
+  background: linear-gradient(90deg, rgba(218,161,70,1) 0%, rgba(125,49,12,1) 73%);
+}
+
+section.about-section h2 {
+  text-shadow: 1px 1px 1px var(--dark);
+}
+
+section.about-section p {
+  font-size: 120%;
+}
+
+.about-image {
+  background-image: url('/media/home-img.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  opacity: 0.95;
+  border: 1px solid white;
+}
+
+#home-image {
+  width: 100%;
 }
 
 a#sign-up-btn {
