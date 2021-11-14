@@ -1185,3 +1185,15 @@ img.profile-img {
     padding-left: 145px;
   }
 }
+
+@media (min-width: 768px) and (max-height: 768px) {
+  footer {
+    height: var(--footer-height);
+  }
+  #navigation-bar {
+    height: var(--navbar-height);
+  }
+  .page-container {
+    min-height: var(--page-content-height);
+  }
+}
