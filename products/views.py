@@ -37,7 +37,6 @@ def all_products(request):
         products_array = products_materials + products_angles + products_levels
         if products_array:
             products = list(dict.fromkeys(products_array))
-            print(len(products))
 
         # Sorting
         if 'sort' in request.GET:

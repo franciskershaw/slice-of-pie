@@ -62,11 +62,8 @@ def remove_item(request, item_id):
 def add_to_wishlist(request, item_id):
 
     product = get_object_or_404(Product, pk=item_id)
-    print(product)
     redirect_url = request.POST.get('redirect_url')
-    print(redirect_url)
     wishlist = request.session.get('wishlist', {})
-    print(f'wishlist:{wishlist}')
 
     if item_id in list(wishlist.keys()):
         messages.info(request, f'{product.name} has already been favourited.')
