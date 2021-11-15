@@ -669,6 +669,10 @@ a#sign-up-btn:hover {
   color: white;
 }
 
+#featured-cta {
+  width: 50%;
+}
+
 a#sign-up-btn {
   background-color: var(--burgendy);
 }
@@ -1160,6 +1164,10 @@ img.profile-img {
   .card-body h4,
   .card-header h3 {
     font-size: 100%;
+  }
+
+  #featured-cta {
+    width: 30%;
   }
 
   #navigation-bar .navbar-menu,
