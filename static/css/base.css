@@ -1063,7 +1063,7 @@ img.profile-img {
   opacity: 0;
   animation-name: fadeIn;
   animation-duration: 2s;
-  animation-delay: 1.5s;
+  animation-delay: 1s;
   animation-fill-mode: forwards;
 }
 
@@ -1071,7 +1071,7 @@ img.profile-img {
   opacity: 0;
   animation-name: fadeIn;
   animation-duration: 2s;
-  animation-delay: 3.5s;
+  animation-delay: 2.5s;
   animation-fill-mode: forwards;
 }
 
@@ -1079,7 +1079,7 @@ img.profile-img {
   opacity: 0;
   animation-name: fadeIn;
   animation-duration: 2s;
-  animation-delay: 4.5s;
+  animation-delay: 3.5s;
   animation-fill-mode: forwards;
 }
 
