@@ -5,7 +5,7 @@
 {% block content %}
 
 <div class="index page-container">
-    <section class="hero-section container-fluid">
+    <section class="hero-section container-fluid appear-first">
         <div class="row text-center">
             <div class="col-12 col-lg-6 order-lg-2">
                 <div class="row heading-container">
@@ -35,7 +35,7 @@
             </div>
         </div>
     </section>
-    <section class="feature-section container text-center">
+    <section class="feature-section container text-center appear-second">
         <h2>Featured Tables</h2>
         <div class="row">
            <div class="col-2 d-none d-md-block"></div>
@@ -53,9 +53,9 @@
                        <h3 class="product-card-text product-card-price">£{{ most_popular.price }}</h3>
                      </div>
                      <div class="product-card-cta-container">
-                        <button class="btn product-card-view">
-                           <a href="{% url 'product_detail' most_popular.id %}">View</a>
-                        </button>
+                        <a href="{% url 'product_detail' most_popular.id %}">
+                           <button class="btn product-card-view">View</button>
+                        </a>
                         <form method="POST" action="{% url 'add_to_wishlist' most_popular.id %}" class="d-inline">
                         {% csrf_token %}
                            <button type="submit" class="btn product-card-fav">
@@ -82,9 +82,9 @@
                        <h3 class="product-card-text product-card-price">£{{ most_expensive.price }}</h3>
                      </div>
                      <div class="product-card-cta-container">
-                        <button class="btn product-card-view">
-                           <a href="{% url 'product_detail' most_expensive.id %}">View</a>
-                        </button>
+                        <a href="{% url 'product_detail' most_expensive.id %}">
+                           <button class="btn product-card-view">View</button>
+                        </a>
                         <form method="POST" action="{% url 'add_to_wishlist' most_expensive.id %}" class="d-inline">
                         {% csrf_token %}
                            <button type="submit" class="btn product-card-fav">
@@ -100,7 +100,7 @@
             <div class="col-2 d-none d-md-block"></div>
         </div>
     </section>
-    <section class="about-section">
+    <section class="about-section appear-third">
        <div class="container">
           <div class="row">
              <div class="col-12 col-lg-7">
