@@ -692,6 +692,15 @@ div#tagline-container {
   border: 1px solid;
   border-radius: 0px;
   height: 100%;
+  transition: 0.2s;
+}
+
+.filter-sort:hover,
+.filter-sort:active,
+.filter-sort:focus {
+  transform: scale(1.1);
+  background-color: var(--burgendy);
+  border: 1px solid white;
 }
 
 .filter-row {
@@ -1229,6 +1238,10 @@ img.profile-img {
   .login-content-outer {
     padding-left: 25%;
     padding-right: 25%;
+  }
+
+  .filter-sort {
+    margin-top: 10px;
   }
 
   .heading-container {
