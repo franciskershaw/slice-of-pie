@@ -24,7 +24,6 @@
             } else if(this.getAttribute('id') == '180-degrees') {
                 userChoices.chosenSize = "180 Degree";
             }
-            console.log(userChoices.chosenSize);
             $('#size-container').addClass('d-none');
             $('#level-container').removeClass('d-none');
         })
@@ -37,7 +36,6 @@
             } else if(this.getAttribute('id') == '3-levels') {
                 userChoices.chosenLevels = "3 Level";
             }
-            console.log(userChoices.chosenLevels);
             $('#level-container').addClass('d-none');
             $('#material-container').removeClass('d-none');
         })
@@ -52,7 +50,6 @@
             } else if (this.getAttribute('id') == 'oak') {
                 userChoices.chosenMaterial = "Oak";
             }
-            console.log(userChoices.chosenMaterial);
             findFinalProduct();
             $('#material-container').addClass('d-none');
             $('#view-table').removeClass('d-none');
@@ -69,39 +66,7 @@
            if (product.innerText == finalProduct) {
                let productId = product.getAttribute('id');
                productLink.href = `/products/${productId}`;
-               console.log(productLink);
            }
        })
    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </script>

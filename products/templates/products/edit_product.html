@@ -3,17 +3,19 @@
 
 {% block content %}
     <div class="page-container">
-        <h2>Product Management (under development)</h2>
-        <h4>Edit product</h4>
-        <div>
-            <form method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data">
+        <div class="login-content-outer">
+            <h2>Product Management</h2>
+            <h3>Edit product</h3>
+            <div>
+                <form method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <div>
-                    <a href="{% url 'products' %}" class="btn btn-md">Cancel</a>
-                    <button class="btn btn-md" type="submit">Update Product</button>
-                </div>
-            </form>
+                    <div>
+                        <a href="{% url 'products' %}" class="btn btn-md">Cancel</a>
+                        <button class="btn btn-md" type="submit">Update Product</button>
+                    </div>
+                </form>
+            </div>  
         </div>
     </div>
 {% endblock %}

@@ -40,7 +40,7 @@ ul {
 
 /* Source: checkbox custom styling pulled and tweaked from https://www.html5canvastutorials.com/blog/2012/06/custom-form-radio-checkbox/ */
 
-input[type="checkbox"] {
+input.filter-category[type="checkbox"] {
   -webkit-appearance: none;
 	background-color: #fafafa;
 	border: 1px solid #cacece;
@@ -51,18 +51,18 @@ input[type="checkbox"] {
 	position: relative;
 }
 
-input[type="checkbox"]:active, input[type="checkbox"]:checked:active {
+input.filter-category[type="checkbox"]:active, input[type="checkbox"]:checked:active {
   box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 }
 
-input[type="checkbox"]:checked {
+input.filter-category[type="checkbox"]:checked {
   background-color: #e9ecee;
 	border: 1px solid #adb8c0;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
 	color: #99a1a7;
 }
 
-input[type="checkbox"]:checked:after {
+input.filter-category[type="checkbox"]:checked:after {
   content: '\2714';
 	font-size: 14px;
 	position: absolute;
