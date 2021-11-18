@@ -8,7 +8,7 @@ Slice of Pie is the brainchild of Zoe Thexton, who produces custom triangular ta
 
 This project is the fourth and final of four 'milestone' projects which are required to complete the Code Institute's diploma in full stack web development. Assessment criteria for this milestone project focuses on the ability to produce a full-stack e-commerce store with secure Stripe payments built using the Django Python framework alongside HTML, CSS and JavaScript to control a centrally-owned datatset.
 
-You can view the live site [here](#) (site not live yet), and a link to the GitHub repository can be found [here](https://github.com/franciskershaw/slice-of-pie).
+You can view the live site [here](https://slice-of-pie.herokuapp.com/), and a link to the GitHub repository can be found [here](https://github.com/franciskershaw/slice-of-pie).
 
 ## Table of Contents
 * [UX](#ux)
@@ -157,7 +157,6 @@ Based on research and planning achieved during the strategy plane, and consideri
 * Ability to request new password if the user has forgotten.
 * Admin control should allow for CRUD capability on listed products.
 * Product builder needs to be aesthetically pleasing and seamless to the user journey.
-* Favouriting must remember saved products when logging back in.
 * Checkout must offer ability to save details for later (if logged in) or guest checkout for those that do not wish to create an account.
 
 #### Nice to haves
@@ -174,9 +173,10 @@ With the functional specifications and content requirements nicely ironed out, I
 
 1. **Homepage, containing:**
 
-* Animation or video which acts as an alternative to a hero image, with one potential idea being a quick animation of the table itself being assembled.
+* Hero image which captures the tone of the site and introduces the user to what is being sold.
 * The name of the site and calls to action directing the user to the ‘build your table’ and ‘create account’ sections of the site.
 * Featured products just beneath the fold, split into two sides of the screen. Each box has an image of the product and a ‘view’ button. First one could be the basic or flagship product (which is the cheapest available table), and the second one could be the most premium offering.
+* A brief about section to provide slightly more context for any organic visitors.
 
 2. **Registration/login/password reset forms, containing:**
 * Login or registration form.
@@ -188,11 +188,11 @@ With the functional specifications and content requirements nicely ironed out, I
 
 3. **Product builder page, containing:**
 * Entry and disappear animations that present the options available to build a table step by step, starting with choice of sizes, folowed by number of shelves, and finally the type of material.
-* The price updates after each choice is made, and you can go back to a previous step if yo uchange your mind.
+* Options which appear and disappear as per the users input.
 * The selection of the final parameter directs the user to the individual product detail page.
 
 4. **All products page, containing:**
-* Conventional suqre boxes structure as per most e-commerce stores, containing product images, descriptions, prices, 'view' buttons', and a heart which would add the product to the user's wishlist.
+* Conventional square boxes structure as per most e-commerce stores, containing product images, descriptions, prices, 'view' buttons', and a heart which would add the product to the user's wishlist.
 * Option to sort by price, amount of shelves, and size.
 * Option to filter by certain size of table, amount of shelves, or material.
 
@@ -256,17 +256,12 @@ At this point in development, it felt safe to start serious work on wireframes. 
 
 ![Product manager](media/nonproducts/product-manager.png)
 
-#### Changes from skeleton plane to final result
-
-(Will need completing once the site has been completed)
-
 ### Surface Plane
 
 Once wireframing was complete, it was time to start thinking seriously about how the Front End of the website should be approached in terms of 'look and feel'. I asked Zoe for some key words that she'd like to have associated with a website that she owns, and we settled on the follwoing:
 
 * Modern
-* Technology
-* Mature
+* Nature
 * Innovative
 * Homemade
 
@@ -276,26 +271,25 @@ These words would help inform some of the trickier aesthetic choices to be made 
 
 After combining the key associative words with the colour pallette generator found on Coolors, I settled on the following colour scheme for the website:
 
-* #ffefeb (white)
-* #2b70a1 (blue)
+* #e7e0da (off white)
+* #ab793f (copper)
 * #7d1224 (burgundy)
-* #8d91a0 (silver)
-* #011627 (rich black)
+* #14223d (dark blue)
+* #111a2c (rich black)
 
-(screenshot)
+![Coolors](media/nonproducts/ms4-coolors.png)
 
 #### Typography
 
 As the general feel of the site needed to feel professional and modern, plenty of existing fonts could be easily ruled out of contention out of the bat. In the end I settled on the Varela Round font from Google Fonts, as it was noted that the rounded edge of the lettering mirrors the tables that are on sale nicely.
 
-(screenshot of fonts)
+![Varela Round](media/nonproducts/varela-round.png)
 
 #### Animations
 
 I set out at the beginning of development with the intention of implementing all of the following animations to aid the user experience:
 
 * Change of image, or a zoom effect whenever a product is hovered over - be it on the homepage, product builder, or all products page.
-* I want the buttons to have some striking hover effects, as opposed to the simple change of colour that accompanied my previous projects.
 * The product builder feature will rely heavily on entry and exit animations for the various stages of the product building process.
 * Custom loading animations for when a page might take a while to load.
 
@@ -333,6 +327,7 @@ MySQL is the database in use for the development environment on this project, wh
 **Size/angle model**
 * Name
 * Friendly name
+(COULD ADD IN S/M/L AS AN ALTERNATIVE THING HERE)
 
 **Levels model**
 * Name
@@ -342,13 +337,25 @@ MySQL is the database in use for the development environment on this project, wh
 * Name
 * Friendly name
 
-## Features and Django Apps
+## Apps and Features
 
 ### Existing Features
 
 #### Consistent across all pages
 
-* 
+* A fixed navigation bar appears on everyth page with the logo and brand on the far left, the main site features in the middle, and interactive icons on the far left for the user's profile, wishlist, and shopping basket. The options present within the profile icon changes depending on whether a user is signed in, or whether a user is an admin user.
+
+(Screenshot here)
+
+* In mobile, the main navigation items collapse into a conventional burger icon, while the name of the site disappears in order to save space on the smaller screen size.
+
+(Screenshot here)
+
+* The footer also remains consistent across all pages, containing the logo, site name, and links to external social media sites.
+
+(Screenshot here)
+
+
 
 #### Homepage
 
