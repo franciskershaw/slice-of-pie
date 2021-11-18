@@ -427,15 +427,33 @@ MySQL is the database in use for the development environment on this project, wh
 
 ### Defensive design features
 
-(Intro to section)
+Several defensive design features were required for this project, as much for enhancing the general user experience as for protecting the site against any user with potentially hostile intentions.
 
 #### On the frontend
 
+* Should a user attempt to add a product into their basket that is already there, the product will update to the new quantity with a toast message explaining the product quantity has been updated rather than added for the first time.
+
+* If a user tries to add a product into their wishlist which is already there, an alert toast message appears informing the user that they have already added that product to their favourites.
+
+* Custom 404 pages were created to display at any point a user ended up on the wrong link with a redirect CTA back to safety. I elected to use 404 pages for all errors as I believe this code is slightly more user friendly and recognisable to general audiences on websites.
+
+* Any required form field will not allow a form to be submitted without 
+
 #### On the backend
 
-*Custom 404 and 500 pages were created as well*
+* The @login_required decorator was employed on several backend functions relating to admin permissions to restrict non superusers from certain actions on the site. That way, anyone who tries to force their way into certain sections or with a url to remove or edit products will be stopped and provided with a toast message explaining why they cannot continue.
+
+* Several of the forms have required=True coded into the backend in order to build on top of the required attribute from the front end.
 
 ### Features left to implement
+
+Due to time constraints imposed by the fortunate offer of my first full-time developer job before development of this project began, there were several features that I was not able to implement fully or at all by the time the submission deadline rolled around. However, I view this iteration of the site as version 1 (or beta), and I would very much like to return to rethink some aspects of the design and features.
+
+* I initially wanted an animation to greet the user when landing on the homepage, possibly of the tables assembling themselves in an aesthetically pleasing motion - I had neither the required skillset or time to learn how to make this a reality on this occasion.
+
+* I would like users with accounts to be able to leave reviews or testimonials for the site and aggregate an average rating.
+
+* As this product is personal to the site owner, it would be a nice added touch to include a blog feature where users can be updated about upcoming releases.
 
 ## Technologies used
 
@@ -443,16 +461,18 @@ MySQL is the database in use for the development environment on this project, wh
 
 * **HTML5:** Language used for structure and content across all pages.
 * **CSS3:** Language used to style elements from the HTML pages.
-* **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of the homepage modals and the grid system which greatly improved the responsiveness of each page.
-* **JavaScript:** Programming language used to add interactivity to the homepage and implement the logic required to make the game work.
-* **jQuery:** JavaScript framework which helped me select and manipulate elements with greater ease than purely through JavaScript.
-* **Python:** Backend language used to control the logic on the site.
-* **Flask:** Python framework used to simmplify the routing and HTML templating on the site.
-* **MongoDB**: Non-relational database used to store and update the information provided by users of the site.
+* **Bootstrap:** CSS and JavaScript framework which allowed for the quick implementation of various components and the grid system.
+* **JavaScript::** Programming language used to add interactivity across the site.
+* **jQuery::** JavaScript framework which helped me select and manipulate elements with greater ease than purely through JavaScript.
+* **Python/Django:** Backend language and high-level framework used to control the logic on the site.
+* **SQLite:** The database used as a default in my local development environment.
+* **PostgreSQL:** The database used for the live site through Heroku
 
 ### Additional tools
 
 * [Amiresponsive:](http://ami.responsivedesign.is/) Used to produce the hero image in README.md and check general responsiveness of the pages.
+* [AWS:](https://aws.amazon.com/) Used for hosting static files and media on the cloud in conjunction with Heroku's hosting.
+* [CSS Gradient:](https://cssgradient.io/) Used to create the subtle gradient in the background of all pages.
 * [dbdiagram:](https://dbdiagram.io/home) Used to create my entity relationship diagram.
 * [Favicon Generator:](https://realfavicongenerator.net/) Used to create the favicon on the browser tab.
 * [FontAwesome:](https://fontawesome.com/) Large database of icons which I used all over the site to add to the visual language.
@@ -461,6 +481,7 @@ MySQL is the database in use for the development environment on this project, wh
 * [Gitpod:](https://gitpod.io/) Development environment where all the code was written.
 * [Google Docs:](https://docs.google.com/) Used for note taking and was where much of my readme was initially written.
 * Google Developer Tools: Used for debugging and testing of responsiveness across several screen sizes. Also vital to the testing of JavaScript functions as and when they were created.
+* [Heroku:](https://www.heroku.com/) Hosted the live site
 * [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Nunito' font.
 * [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
 * [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
@@ -479,16 +500,19 @@ For the commits on this project, I continued to follow the basic rules I had set
 * Commit often, and keep messages as short as possible.
 * Start comments where possible with a prefix that summarises what the commit is for, such as fix (for bugs), add, remove, amend, style, or docs (for anything added to README.md).
 * Include the file name or function in question where possible.
-* Use the prefix 'logic:' in any commits aimed at amending or adding in something that was specifically related to backend logic.
 * Use the prefix 'test:' for any commits that were being pushed specifically to test bug fixes onto the live site.
 
 At the time of writing, these are among my recent commit messages and illustrate the format I applied for this project:
+
+![Commit Messages](media/nonproducts/commit-messages.png)
 
 ## Testing
 
 Please see a full report of the testing applied to this project [here.](testing.md)
 
 ## Deployment
+
+
 
 ## Setting up Amazon Web Services (AWS)
 
