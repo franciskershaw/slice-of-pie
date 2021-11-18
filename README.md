@@ -512,9 +512,92 @@ Please see a full report of the testing applied to this project [here.](testing.
 
 ## Deployment
 
+This project was deployed very early on during devlopment to Heroku and linked to GitHub through automatic deploys so that changes made to the development environment would update on the live site as soon as they were pushed from Gitpod.
 
+The steps taken to deploy this project were as follows:
+
+1. Open the project in Gitpod, and run the command *pip3 freeze > requirements.txt* to create a txt file that Heroku reads to check which dependencies are in use on the site.
+2. Create a Procfile by following these steps:
+    * Run *pip3 install gunicorn*
+    * Create a Procfile in your foot directory
+    * At the top of the Procfile, add *web: gunicorn slice_of_pie.wsgi:application*
+3. Commit these new changes to ensure your repository is up to date. 
+4. Create a new app in Heroku by signing into the dashboard, clicking 'Create new app' and choosing a relevant name (ensuring that there are dashes where spaces might be).
+5. Add a Postgres database to your Heroku app by navigating to the 'Resources' tab and searching for the Heroku Postgres free plan.
+6. Set up your Heroku config variables in the 'Settings' tab as follows:
+| Key               | Value
+| -----------       | ---------- 
+| DATABASE_URL      | *The postgres link goes here*
+| STRIPE_PUBLIC_KEY | *The secret key on the Stripe dashboard*
+| STRIPE_SECRET_KEY	| *The secret key on the Stripe dashboard*
+| USE_AWS           | True
+| SECRET_KEY        | *my_secret_key*
+7. Add a new database in your *settings.py* file as follows:
+    * Run *pip3 install dj_database_url* and *pip3 install pyscopg2* in your terminal, making sure not to forget to freeze these latest requirements to *requirments.txt*
+    * At the top of *settings.py*, add in the line *import dj_database_url* alongside your other imports
+    * Comment out *DATABASES* in your *settings.py* file (this will only be temporarily)
+    * Add this line in, which includes your Postgres URL so **do not push any changes to GitHub for the moment**:
+```
+    DATABASES = {
+        'default': dj_database_url.parse("*your Postrgres database URL*")
+    }
+```
+8. Make migrations of your models to the Postgres database with the *python3 manage.py makemigrations* and *python3 manage.py migrate* commands in your terminal.
+9. Load the data fixtures from the json data files with these commands (make sure products is definitely last, otherwise proceed in whatever order): 
+    * *python3 manage.py loaddata angles*
+    * *python3 manage.py loaddata levels*
+    * *python3 manage.py loaddata materials*
+    * *python3 manage.py loaddata products*
+10. Create a superuser which will have admin rights on the live site by running *python3 manage.py createsuperuser* in your terminal and following the steps when prompted.
+11. Uncomment the previously commented out DATABASES section and removing the sensetive postgres data. The final version of this section should be an if statement which checks which environment before assigning the correct database:
+```
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+```
+12. Add your live hostname to the *ALLOWED_HOSTS* section of *settings.py*, using a comma to separate from the 'localhost'
+13. Add your code changes to the staging area, commit, and push to GitHub.
+14. Finally, enable automatic deployment to Heroku:
+    * Navigate to the 'Deploy' section 
+    * Scroll to the Deployment method section
+    * Click connect to GitHub
+    * Search for your repository and select it
+    * Scroll down to 'Automatic Deployment, and click 'Enable Automatic Deploys'
 
 ## Setting up Amazon Web Services (AWS)
+
+You will likely need to host static files and iamges with AWS for a site like this, and can do so with the following steps:
+
+1. Create a free AWS account and head to the AWS management console.
+2. Search for s3 or find it in the services section, then create a new bucket.
+3. Enter a bucket name (chosing the name of your project would be logical here) and select the nearest available region, uncheck 'Block public access box', then click 'Create bucket'.
+4. Click into the newly created bucket, find 'Properties' and turn on static website hosting.
+5. In the Permissions section, paste in the following configuration:
+```
+[
+  {
+      "AllowedHeaders": [
+          "Authorization"
+      ],
+      "AllowedMethods": [
+          "GET"
+      ],
+      "AllowedOrigins": [
+          "*"
+      ],
+      "ExposeHeaders": []
+  }
+]
+```
+
 
 ## Setting up email confirmations
 
