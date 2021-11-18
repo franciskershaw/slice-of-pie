@@ -355,35 +355,75 @@ MySQL is the database in use for the development environment on this project, wh
 
 (Screenshot here)
 
-
+* All interactable content (like buttons and links) contain hover properties that indicate the user can click on them, while feedback from certain actions (such as adding or removing items from your basket or wishlist) is presented to the user via Bootstrap's toast components.
 
 #### Homepage
 
-* 
+* The homepage contains a hero image of a living room table with a plant and a teapot on it, which was chosen for its relaxed tone. The brand name, tagline and two main calls to action appear in the hero section. The calls to action will differ depending on whether a user is signed in, display 'Sign Up' if the user is not logged in instead of 'All Tables'
+
+* The content of the page appears through a staggered entry animation, which should mask the loading time on the main hero image for most devices.
+
+* Just beneath the fold, the user should be able to see the featured tables section which directs the users to the 'Most Popular' offering (in actual fact, the cheapest table the site has to offer) and 'Recommended' (which happens to be the most expensive product on offer).
+
+* A brief about section explaining the point of the site for those who have continued scrolling follows the featured section, containing one final call to action to direct users to the Table Builder page.
 
 #### Login and registration
 
-* 
-
-#### Products/product builder
-
-* 
+* Using Django's allauth plugin, the users can securely create new accounts and sign back in with either their email address or username.
 
 #### Profile
 
-* 
+* For users that have created their own personal accounts, they have access to a unique profile page that houses their delivery information and previous order history. I decided early on in the process to house all relevant order information in one convenient place by using Bootstrap's accordian feature to hide and reveal the order information interactively.
 
-#### Bag and wishlist
+#### All products page
 
-* 
+*Note: as the real life product is still currently in development, the product images had to be computer generated to provide as close a depiction to the final products as possible. This is mentioned in the product descriptions, however the intention is very much that on a future iteration of the site there will be professional grade photos taken to improve the overall aesthetics of the site and provide more useful refernces for the customers.*
+
+* The all products page is styled much like any conventional e-commerce store, with an option to filter or sort the products by preference. 
+
+* Hovering over the product images products a slide animation, displaying an alternative image for the user.
+
+* On smaller screen sizes the filter option becomes an offscreen element that slides down from the top if the user presses the button.
+
+* For users that have scrolled down, there is an option to return the user back to the top.
+
+#### Product builder
+
+* The main feature I wanted to push with this site was the interactive product builder, which essentially functions as an advanced filter for all the products in the database. The user is led on a journey whereby they think they are putting together a table based off of their own preferences, whereas information is actually being gathered through JavaScript to determine the product that they wish to browse.
+
+* The choices come into and out of frame through animations to improve the emotional response to this feature.
+
+#### Product detail page
+
+* The product detail page, which is the end point from both the product builder and browsing the all products page, contains a larger version of the products images box, alongside options to choose the quantity of the product or save a product in the wishlist for later, and a description of the product being viewed.
+
+* A randonly generated set of products appears beneath in order to provide more content and other options for the user to browse.
+
+#### Basket and wishlist
+
+* I decided early on that I wanted the basket and wishlist features to be sidebars so that users could access them wherever they were on the site. On mobile, these sidebars take up the entire viewport of the device, but anything above tablet size would only cover up a small portion of the screen.
+
+* Users are able to conveniently move items from their wishlist directly into their basket during their session.
 
 #### Checkout
 
-* 
+* The checkout app uses Stripe payments to securely take payment from prospective customers.
+
+* The view provides one section for delivery and payment details, and one section which summarises the order so that users are double sure of what they are purchasing.
+
+* There is also an option to save delivery details to the profile for those users who have created an account and are signed in.
+
+* A confirmation email is sent out to the users once the payment is complete so that they have a record, and the order is then added to their profile page.
+
+* Stripe webhooks are also fully functioning in order to properly capture any orders that might go wrong during the checkout process from a user perspective.
 
 #### Profile page
 
-* 
+* The profile page provides signed in users with the option to update their delivery details and peruse former orders.
+
+* All previous order information is hosued in accordion components to save space on the browser screen.
+
+* If ther user has not yet placed an order, there is a call to action directing them to the product builder so that they may begin their customer journey.
 
 ### Defensive design features
 
