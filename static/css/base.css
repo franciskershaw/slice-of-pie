@@ -908,6 +908,13 @@ div#apply-filter {
   border: none;
 }
 
+div#edit-delete-buttons {
+  padding: 4px;
+  /* position: absolute; */
+  z-index: 40;
+  /* right: 40px; */
+}
+
 /* Checkout */
 
 .checkout-img-container {

@@ -5,11 +5,19 @@
 {% block content %}
 <div class="product-detail page-container container">
    <div class="row text-center">
+      {% if request.user.is_superuser %}
+      <div class="col-12 text-right text-md-left">
+         <div id="edit-delete-buttons">
+            <a class="btn btn-primary" href="{% url 'edit_product' product.id %}"><i class="far fa-edit"></i></a>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProduct"><i
+                  class="far fa-trash-alt"></i></button>
+         </div>
+      </div>
+      {% endif %}
       <div class="col-12 col-md-6 product-card-container">
          <div class="product-card" onmouseenter="productCardRight(this)" onmouseleave="productCardLeft(this)">
             <div class="product-card-image-container">
-               <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}"
-               alt="{{ product.name }}">
+               <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
                <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_2 }}" alt="{{ product.name }}">
             </div>
          </div>
@@ -28,15 +36,16 @@
                   <div class="input-group row">
                      <div class="col-3"></div>
                      <div class="col-2 p-0 text-right">
-                        <button class="decrement-qty bskt-qty-btn" data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                        <button class="decrement-qty bskt-qty-btn" data-item_id="{{ product.id }}"
+                           id="decrement-qty_{{ product.id }}">
                            <span class="icon">
                               <i class="fas fa-minus"></i>
                            </span>
                         </button>
                      </div>
                      <div class="col-2 p-0">
-                        <input class="qty_input" type="number" name="quantity" value="1" min="1"
-                        max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                        <input class="qty_input" type="number" name="quantity" value="1" min="1" max="99"
+                           data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                      </div>
                      <div class="col-2 p-0 text-left">
                         <button class="increment-qty bskt-qty-btn" data-item_id="{{ product.id }}"
@@ -50,11 +59,12 @@
                   </div>
                   <div class="row">
                      <div class="col-6 product-card-cta-container detail-btns">
-                        <button><input type="submit" value="Add to Basket"> <i class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></button>
+                        <button><input type="submit" value="Add to Basket"> <i class="fas fa-shopping-basket"><span
+                                 class="sr-only">shopping basket</span></i></button>
                      </div>
                      <input type="hidden" name="redirect_url" value="{{ request.path }}">
                      <div class="col-6 product-card-cta-container detail-btns">
-                        <button>Save for later 
+                        <button>Save for later
                            <i class="far fa-heart" aria-hidden="true"></i>
                            <span class="sr-only">Add to wishlist</span>
                         </button>
@@ -76,30 +86,30 @@
          <h4>Other Slices of Pie...</h4>
          <div class="row">
             {% for random in random_products %}
-               <div class="col-12 col-md-4">
-                  <div class="product-card-container">
-                     <div class="product-card">
-                        <div class="product-card-image-container">
-                           <img class="product-image" src="{{ MEDIA_URL }}{{ random.image_1 }}" alt="{{ random.name }}">
-                        </div>
-                        <div class="product-card-text-container">
-                           <h3 class="product-card-text product-card-title">{{ random.name }}</h3>
-                        </div>
-                        <div class="product-card-text-container">
-                           <h3 class="product-card-text product-card-price">£{{ random.price }}</h3>
-                        </div>
-                        <div class="product-card-cta-container">
-                           <button class="btn product-card-view">
-                              <a href="{% url 'product_detail' random.id %}">View</a>
-                           </button>
-                           <button class="btn product-card-fav">
-                              <i class="far fa-heart" aria-hidden="true"></i>
-                              <span class="sr-only">Add to wishlist</span>
-                           </button>
-                        </div>                     
+            <div class="col-12 col-md-4">
+               <div class="product-card-container">
+                  <div class="product-card">
+                     <div class="product-card-image-container">
+                        <img class="product-image" src="{{ MEDIA_URL }}{{ random.image_1 }}" alt="{{ random.name }}">
+                     </div>
+                     <div class="product-card-text-container">
+                        <h3 class="product-card-text product-card-title">{{ random.name }}</h3>
+                     </div>
+                     <div class="product-card-text-container">
+                        <h3 class="product-card-text product-card-price">£{{ random.price }}</h3>
+                     </div>
+                     <div class="product-card-cta-container">
+                        <button class="btn product-card-view">
+                           <a href="{% url 'product_detail' random.id %}">View</a>
+                        </button>
+                        <button class="btn product-card-fav">
+                           <i class="far fa-heart" aria-hidden="true"></i>
+                           <span class="sr-only">Add to wishlist</span>
+                        </button>
                      </div>
                   </div>
                </div>
+            </div>
             {% endfor %}
          </div>
       </div>
@@ -108,10 +118,27 @@
       </div>
    </div>
 </div>
+{% if request.user.is_superuser %}
+<!-- Defensive modal for delting products -->
+<div class="modal fade text-center" id="deleteProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+   aria-hidden="true">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content text-center">
+         <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this product?</h5>
+         </div>
+         <div class="modal-body">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
+         </div>
+      </div>
+   </div>
+</div>
+   {% endif %}
 
-{% endblock %}
+   {% endblock %}
 
-{% block postloadjs %}
+   {% block postloadjs %}
    {{ block.super }}
    {% include 'products/includes/quantity_input_script.html' %}
-{% endblock %}
+   {% endblock %}
