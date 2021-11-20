@@ -322,7 +322,7 @@ footer ul li a:hover {
   background-color: var(--blue);
   color: var(--lavender);
   height: 100vh;
-  z-index: 50;
+  z-index: 200;
   position: fixed;
   width: 100vw;
   top: 0;
@@ -801,7 +801,7 @@ div#tagline-container {
   background: linear-gradient(90deg, rgba(253,237,237,1) 66%, rgba(255,255,255,1) 86%);
   color: var(--dark);
   height: 100vh;
-  z-index: 50;
+  z-index: 200;
   position: fixed;
   width: 100vw;
   top: -105%;
