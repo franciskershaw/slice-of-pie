@@ -51,9 +51,9 @@
                         <h3 class="product-card-text product-card-price">£{{ product.price }}</h3>
                      </div>
                      <div class="product-card-cta-container">
-                        <button class="btn product-card-view">
-                           <a href="{% url 'product_detail' product.id %}">View</a>
-                        </button>
+                        <a href="{% url 'product_detail' product.id %}" class="btn product-card-view">
+                           <button>View</button>
+                        </a>
                         <form method="POST" action="{% url 'add_to_wishlist' product.id %}" class="d-inline">
                            {% csrf_token %}
                            <button type="submit" class="btn product-card-fav">
