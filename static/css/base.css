@@ -745,6 +745,10 @@ div#tagline-container {
   color: var(--burgendy);
 }
 
+.unavailable img {
+  opacity: .5;
+}
+
 /* Source: css animation borrowed from https://codemyui.com/minimalistic-hover-effect-button-animations/*/
 
 .product-card-cta-container button {
