@@ -611,6 +611,8 @@ You will likely need to host static files and iamges with AWS for a site like th
 
 * Help getting a random product for the product detail page's recommended products from [this helpful article](https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html)
 
+* Help scrolling to the top of a page smoothly using JS found on [this article](https://stackoverflow.com/questions/15935318/smooth-scroll-to-top)
+
 ### Media
 
 * Hero image: https://unsplash.com/photos/iLFOK7ntmgs
