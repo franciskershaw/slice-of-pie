@@ -38,39 +38,6 @@ ul {
   padding-left: 0;
 }
 
-/* Source: checkbox custom styling pulled and tweaked from https://www.html5canvastutorials.com/blog/2012/06/custom-form-radio-checkbox/ */
-
-input.filter-category[type="checkbox"] {
-  -webkit-appearance: none;
-	background-color: #fafafa;
-	border: 1px solid #cacece;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
-	padding: 9px;
-	border-radius: 3px;
-	display: inline-block;
-	position: relative;
-}
-
-input.filter-category[type="checkbox"]:active, input[type="checkbox"]:checked:active {
-  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
-}
-
-input.filter-category[type="checkbox"]:checked {
-  background-color: #e9ecee;
-	border: 1px solid #adb8c0;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
-	color: #99a1a7;
-}
-
-input.filter-category[type="checkbox"]:checked:after {
-  content: '\2714';
-	font-size: 14px;
-	position: absolute;
-	top: 0px;
-	left: 3px;
-	color: #99a1a7;
-}
-
 .flex-container {
   padding-left: 1.4rem;
   padding-right: 1.4rem;
