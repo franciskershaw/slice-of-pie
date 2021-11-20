@@ -98,3 +98,39 @@
         cardHover.style.transform = "translate(0,0)";
     }
 </script>
+
+<!-- Check the radio button if a filter has been applied -->
+<script type="text/javascript">
+    let currentUrl = new URL(window.location);
+    let radioInputs = document.getElementsByClassName('filter-category');
+    let currentFilter = "";
+
+    if (currentUrl.search === "?angle=60_degree") {
+        currentFilter = "60_degree";
+    } else if (currentUrl.search === "?angle=120_degree") {
+        currentFilter = "120_degree";
+    } else if (currentUrl.search === "?angle=180_degree") {
+        currentFilter = "180_degree";
+    } else if (currentUrl.search === "?levels=1_level") {
+        currentFilter = "1_level";
+    } else if (currentUrl.search === "?levels=2_levels") {
+        currentFilter = "2_levels";
+    } else if (currentUrl.search === "?levels=3_levels") {
+        currentFilter = "3_levels";
+    } else if (currentUrl.search === "?material=acrylic") {
+        currentFilter = "acrylic";
+    } else if (currentUrl.search === "?material=plywood") {
+        currentFilter = "plywood";
+    } else if (currentUrl.search === "?material=oak") {
+        currentFilter = "oak";
+    } else if (currentUrl.search === "?material=pine") {
+        currentFilter = "pine";
+    }
+    
+    for (radioInput of radioInputs) {
+        if (radioInput.id === currentFilter) {
+            radioInput.setAttribute('checked', 'true');
+        }
+    }
+
+</script>
