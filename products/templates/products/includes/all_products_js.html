@@ -134,3 +134,11 @@
     }
 
 </script>
+
+<script type="text/javascript">
+    let backToTop = document.querySelector('#back-to-top');
+    backToTop.addEventListener('click', () => {
+        // Smooth scroll to top found on https://stackoverflow.com/questions/15935318/smooth-scroll-to-top
+        window.scrollTo({top: 0, behavior: 'smooth'});
+    })
+</script>

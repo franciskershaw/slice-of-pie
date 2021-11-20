@@ -718,9 +718,7 @@ div#tagline-container {
 .bskt-image {
   width: 50%;
   border-radius: 10px;
-    padding-top: 13px;
-    padding-left: 20px;
-    background-color: var(--white);
+  background-color: var(--white);
 }
 
 .product-card-text-container {
@@ -832,6 +830,19 @@ div#apply-filter {
   color: white;
   font-size: 130%;
   width: 85%;
+}
+
+button#back-to-top {
+  position: fixed;
+  bottom: 5px;
+  z-index: 100;
+  right: 5px;
+  font-size: 155%;
+  background-color: var(--burgendy);
+  color: white;
+  padding: 5px;
+  border: 1px solid white;
+  border-radius: 4px;
 }
 
 /* Product detail page */

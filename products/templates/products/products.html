@@ -5,6 +5,7 @@
 {% block content %}
 {% include 'products/includes/filter.html' %}
 <div class="products page-container container">
+   <button id="back-to-top"><i class="fas fa-arrow-up"></i></button>
    <div class="row">
       <div class="col-lg-2 d-none d-lg-block"></div>
       <div class="col-12 col-lg-8">
@@ -56,7 +57,7 @@
                         </a>
                         <form method="POST" action="{% url 'add_to_wishlist' product.id %}" class="d-inline">
                            {% csrf_token %}
-                           <button type="submit" class="btn product-card-fav">
+                           <button type="submit" class="btn product-card-fav{% if product in wishlist_items %} favourited{% endif %}">
                               <i class="far fa-heart" aria-hidden="true"></i>
                               <span class="sr-only">Add to wishlist</span>
                            </button>
