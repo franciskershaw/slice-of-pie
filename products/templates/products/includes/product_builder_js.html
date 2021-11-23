@@ -97,13 +97,6 @@
         })
     })
 
-    document.querySelectorAll('.icon-right').forEach(iconRight => {
-        iconRight.addEventListener('click', event => {
-            transformPosition -= productBuilderMiddleLevelsWidth
-            productBuilderMiddle.style.transform = `translateX(${transformPosition}px)`;
-        })
-    })
-
     function findFinalProduct() {
         let finalProduct = userChoices.chosenLevels + " " + userChoices.chosenMaterial + " " + userChoices.chosenSize +
             " Slice Of Pie";
@@ -117,6 +110,5 @@
                 productLink.href = `/products/${productId}`;
             }
         })
-        console.log(productLink.href);
     }
 </script>
