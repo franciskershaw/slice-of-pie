@@ -12,6 +12,16 @@
     var productBuilderMiddleLevels = document.querySelector('.productbuilder-middle-levels');
     var productBuilderMiddleLevelsWidth = (productBuilderMiddleLevels.getBoundingClientRect().width + 200);
 
+    function resizeVars() {
+        productBuilderMiddle = document.querySelector('.productbuilder-middle');
+        productBuilderMiddleLevels = document.querySelector('.productbuilder-middle-levels');
+        productBuilderMiddleLevelsWidth = (productBuilderMiddleLevels.getBoundingClientRect().width + 200);
+        transformPosition = 0;
+        productBuilderMiddle.style.transform = `translateX(${transformPosition}px)`;
+    }
+
+    window.addEventListener('resize', resizeVars);
+
     document.querySelectorAll('.productbuilder-productoptions').forEach(productOption => {
         productOption.addEventListener('click', event => {
             // Only execute function when product option tile clicked
@@ -64,8 +74,6 @@
                     userChoices.chosenMaterial = "Oak";
                 }
             }
-
-            console.log(userChoices)
 
             var newImageStr = productSelectedLevels + "-" + productSelectedMaterial + "-" +
                 productSelectedDeg
