@@ -1383,6 +1383,9 @@ img.profile-img {
   .product-title-detail h2 {
     font-size: 155%;
   }
+  .product-card-text {
+    font-size: 115%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
