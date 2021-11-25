@@ -9,7 +9,7 @@
         <div class="col-12 bskt-headers-container">
             <div class="bskt-headers">Items: {{ product_count }}</div>
             <div class="bskt-headers bskt-total">Total: £{{ total }}</div>
-            <a class="bskt-btn" href="{% url 'checkout' %}">Secure Checkout <i class="fas fa-lock"></i></a>
+            <a class="bskt-btn" href="{% url 'checkout' %}">Secure Checkout <i class="fas fa-lock"></i><span class="sr-only">Lock</span></a>
         </div>
     </div>
     {% for item in basket_items %}
@@ -29,6 +29,7 @@
                              id="decrement-qty_bskt_{{ item.item_id }}">
                                 <span>
                                     <i class="fas fa-minus fa-sm"></i>
+                                    <span class="sr-only">Minus</span>
                                 </span>
                             </button>
                         </div>
@@ -41,6 +42,7 @@
                              id="increment-qty_bskt_{{ item.item_id }}">
                                 <span>
                                     <i class="fas fa-plus fa-sm"></i>
+                                    <span class="sr-only">Add</span>
                                 </span>
                             </button>
                         </div>
@@ -49,7 +51,7 @@
                  <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
             <a class="update-link bskt-btn">Update</a>
-            <a class="remove-item bskt-btn border-0" id="remove_item{{ item.item_id }}"><i class="far fa-trash-alt"></i></a>
+            <a class="remove-item bskt-btn border-0" id="remove_item{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Delete</span></a>
         </div>
     </div>    
     {% endfor %}

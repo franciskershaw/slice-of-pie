@@ -1,7 +1,7 @@
 <!-- Source - responsive navigation bar sourced and tweaked to spec from https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/ -->
 <nav class="navbar-container flex-container">
     <a href="{% url 'home' %}" class="brand-link">
-       <span class="d-md-none">SP</span> <span class="d-none d-md-inline">Slice of Pie</span> <i class="fas fa-chart-pie"></i>
+       <span class="d-md-none">SP</span> <span class="d-none d-md-inline">Slice of Pie</span> <i class="fas fa-chart-pie"></i><span class="sr-only">Pie logo</span>
     </a>
     <button type="button" class="navbar-toggle d-md-none" aria-label="Open navigation menu">
         <span class="icon-bar"></span>
@@ -23,7 +23,7 @@
         <ul class="navbar-links">
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-user"></i>
+                  <i class="fas fa-user"></i><span class="sr-only">User</span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     {% if request.user.is_authenticated %}
@@ -41,6 +41,7 @@
             <li>
                 <button class="navbar-link wishlist-btn">
                     <i class="fas fa-heart"></i>
+                    <span class="sr-only">Wishlist</span>
                     {% if product_count_wishlist %}
                     <span class="nav-wishlist-count">
                     {{ product_count_wishlist }}
@@ -50,7 +51,7 @@
             </li>
             <li>
                 <button class="navbar-link basket-btn">
-                    <i class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i>
+                    <i class="fas fa-shopping-basket"><span class="sr-only">Basket</span></i>
                     {% if product_count %}
                     <span class="nav-basket-count">
                     {{ product_count }}
