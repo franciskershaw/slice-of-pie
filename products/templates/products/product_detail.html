@@ -59,7 +59,7 @@
                   </div>
                   <div class="row">
                      <div class="col-6 product-card-cta-container detail-btns">
-                        <button><input type="submit" value="Add to Basket"> <i class="fas fa-shopping-basket"><span
+                        <button id="add-to-basket-details"><input id="add-to-basket-input" type="submit" value="Add to Basket"> <i class="fas fa-shopping-basket"><span
                                  class="sr-only">shopping basket</span></i></button>
                      </div>
                      <input type="hidden" name="redirect_url" value="{{ request.path }}">
@@ -141,4 +141,16 @@
    {% block postloadjs %}
    {{ block.super }}
    {% include 'products/includes/quantity_input_script.html' %}
+   <script type="text/javascript">
+      let basketButton = document.querySelector('#add-to-basket-details');
+      let basketInput = document.querySelector('#add-to-basket-input');
+      console.log(basketButton);
+      console.log(basketInput);
+      basketButton.addEventListener('mouseover', () => {
+         basketInput.style.color = 'white';
+      })
+      basketButton.addEventListener('mouseout', () => {
+         basketInput.style.color = '#111a2c';
+      })
+   </script>
    {% endblock %}

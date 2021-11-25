@@ -888,13 +888,12 @@ button#back-to-top {
 .product-card-cta-container button input[type="submit"] {
   background: transparent;
   border: none;
+  transition: .2s;
 }
 
 div#edit-delete-buttons {
   padding: 4px;
-  /* position: absolute; */
   z-index: 40;
-  /* right: 40px; */
 }
 
 /* Checkout */
