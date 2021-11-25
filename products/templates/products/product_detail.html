@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block content %}
-<div class="product-detail page-container container">
+<div class="product-detail page-container container mb-2">
    <div class="row text-center">
       {% if request.user.is_superuser %}
       <div class="col-12 text-right text-md-left">
@@ -16,7 +16,7 @@
       {% endif %}
       <div class="col-12 col-md-6 product-card-container">
          <div class="product-card" onmouseenter="productCardRight(this)" onmouseleave="productCardLeft(this)">
-            <div class="product-card-image-container">
+            <div class="product-card-image-container {% if product.unavailable %} unavailable{% endif %}">
                <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
                <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_2 }}" alt="{{ product.name }}">
             </div>
@@ -28,7 +28,7 @@
                <h2>{{ product.name }}</h2>
             </div>
             <h3 class="col-12 product-card-price product-price-detail">
-               £{{ product.price }}
+               {% if product.unavailable %}Unavailable{% else %}£{{ product.price }}{% endif %}
             </h3>
             <div class="col-12">
                <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
@@ -59,64 +59,72 @@
                   </div>
                   <div class="row">
                      <div class="col-6 product-card-cta-container detail-btns">
-                        <button id="add-to-basket-details"><input id="add-to-basket-input" type="submit" value="Add to Basket"> <i class="fas fa-shopping-basket"><span
-                                 class="sr-only">shopping basket</span></i></button>
+                        <button id="add-to-basket-details" {% if product.unavailable %}disabled{% endif %}><input
+                              {% if product.unavailable %}disabled value="Unavailable" {% else %} value="Add to Basket"
+                              {% endif %} type="submit" id="add-to-basket-input"> <i
+                              class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></button>
                      </div>
                      <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                     <div class="col-6 product-card-cta-container detail-btns">
-                        <button>Save for later
-                           <i class="far fa-heart" aria-hidden="true"></i>
-                           <span class="sr-only">Add to wishlist</span>
-                        </button>
-                     </div>
-                  </div>
                </form>
-            </div>
-            <div class="col-12 product-description text-left d-none d-lg-block">
-               <p><em>{{ product.description }}</em></p>
+               
+               <div class="col-6 product-card-cta-container detail-btns">
+                  <form method="POST" action="{% url 'add_to_wishlist' product.id %}" class="d-inline">
+                     {% csrf_token %}
+                     <button type="submit" class="btn product-card-fav{% if product in wishlist_items %} favourited{% endif %}">
+                        Save for later
+                        <i class="far fa-heart" aria-hidden="true"></i>
+                        <span class="sr-only">Add to wishlist</span>
+                     </button>
+                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                  </form>
+               </div>
             </div>
          </div>
-      </div>
-      <div class="col-12 product-description text-left d-lg-none">
-         <p><em>{{ product.description }}</em></p>
+         <div class="col-12 product-description text-left d-none d-lg-block">
+            <p><em>{{ product.description }}</em></p>
+         </div>
       </div>
    </div>
-   <div class="row recommended text-center">
-      <div class="col-12">
-         <h4>Other Slices of Pie...</h4>
-         <div class="row">
-            {% for random in random_products %}
-            <div class="col-12 col-md-4">
-               <div class="product-card-container">
-                  <div class="product-card">
-                     <div class="product-card-image-container">
-                        <img class="product-image" src="{{ MEDIA_URL }}{{ random.image_1 }}" alt="{{ random.name }}">
-                     </div>
-                     <div class="product-card-text-container">
-                        <h3 class="product-card-text product-card-title">{{ random.name }}</h3>
-                     </div>
-                     <div class="product-card-text-container">
-                        <h3 class="product-card-text product-card-price">£{{ random.price }}</h3>
-                     </div>
-                     <div class="product-card-cta-container">
-                        <button class="btn product-card-view">
-                           <a href="{% url 'product_detail' random.id %}">View</a>
-                        </button>
-                        <button class="btn product-card-fav">
-                           <i class="far fa-heart" aria-hidden="true"></i>
-                           <span class="sr-only">Add to wishlist</span>
-                        </button>
-                     </div>
+   <div class="col-12 product-description text-left d-lg-none">
+      <p><em>{{ product.description }}</em></p>
+   </div>
+</div>
+<div class="row recommended text-center">
+   <div class="col-12">
+      <h4>Other Slices of Pie...</h4>
+      <div class="row">
+         {% for random in random_products %}
+         <div class="col-12 col-md-4">
+            <div class="product-card-container">
+               <div class="product-card">
+                  <div class="product-card-image-container">
+                     <img class="product-image" src="{{ MEDIA_URL }}{{ random.image_1 }}" alt="{{ random.name }}">
+                  </div>
+                  <div class="product-card-text-container">
+                     <h3 class="product-card-text product-card-title">{{ random.name }}</h3>
+                  </div>
+                  <div class="product-card-text-container">
+                     <h3 class="product-card-text product-card-price">£{{ random.price }}</h3>
+                  </div>
+                  <div class="product-card-cta-container">
+                     <button class="btn product-card-view">
+                        <a href="{% url 'product_detail' random.id %}">View</a>
+                     </button>
+                     <button class="btn product-card-fav">
+                        <i class="far fa-heart" aria-hidden="true"></i>
+                        <span class="sr-only">Add to wishlist</span>
+                     </button>
                   </div>
                </div>
             </div>
-            {% endfor %}
          </div>
-      </div>
-      <div class="col-12">
-         <a href="{% url 'products' %}" class="btn btn-primary btn-md cta-btn">Browse all</a>
+         {% endfor %}
       </div>
    </div>
+   <div class="col-12">
+      <a href="{% url 'products' %}" class="btn bskt-btn checkout-btn home-cta">Browse all</a>
+   </div>
+</div>
 </div>
 {% if request.user.is_superuser %}
 <!-- Defensive modal for delting products -->
@@ -134,23 +142,21 @@
       </div>
    </div>
 </div>
-   {% endif %}
+{% endif %}
 
-   {% endblock %}
+{% endblock %}
 
-   {% block postloadjs %}
-   {{ block.super }}
-   {% include 'products/includes/quantity_input_script.html' %}
-   <script type="text/javascript">
-      let basketButton = document.querySelector('#add-to-basket-details');
-      let basketInput = document.querySelector('#add-to-basket-input');
-      console.log(basketButton);
-      console.log(basketInput);
-      basketButton.addEventListener('mouseover', () => {
-         basketInput.style.color = 'white';
-      })
-      basketButton.addEventListener('mouseout', () => {
-         basketInput.style.color = '#111a2c';
-      })
-   </script>
-   {% endblock %}
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
+<script type="text/javascript">
+   let basketButton = document.querySelector('#add-to-basket-details');
+   let basketInput = document.querySelector('#add-to-basket-input');
+   basketButton.addEventListener('mouseover', () => {
+      basketInput.style.color = 'white';
+   })
+   basketButton.addEventListener('mouseout', () => {
+      basketInput.style.color = '#111a2c';
+   })
+</script>
+{% endblock %}

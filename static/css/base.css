@@ -434,6 +434,10 @@ button.mobile-icon-btn.wislist-btn:focus {
   text-align: center;
 }
 
+.bskt-btn.checkout-btn:hover {
+  background: white;
+}
+
 a.update-link.bskt-btn {
   font-size: 125%;
 }
