@@ -627,5 +627,7 @@ A huge thank you to all the people who took part in user testing, the Code Insti
 Stripe: typos in my webhook handlers caused 500 errors
 Navbar: profile button dropdown stopped working (was because navbar-links had overflow set to hidden)
 500 server error when removing items from wishlist (had same class name as basket which meant an undefined variable was in the url)
+Product builder resizing issues
+Save for later button on product details page was sending items into basket instead of wishlist - buttons were both in the same form
 
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
