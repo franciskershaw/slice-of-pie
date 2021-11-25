@@ -1158,6 +1158,12 @@ img.profile-img {
   border: 2px solid var(--burgendy);
 }
 
+/* Error pages */
+
+.error-btn {
+  width: 20%;
+}
+
 /* Animations */
 
 @keyframes fadeIn {
