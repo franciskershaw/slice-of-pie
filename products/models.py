@@ -52,7 +52,6 @@ class Product(models.Model):
     description = models.TextField()
     image_1 = models.ImageField(null=True, blank=True)
     image_2 = models.ImageField(null=True, blank=True)
-    image_url = models.URLField(max_length=2014, null=True, blank=True)
     unavailable = models.BooleanField(default=False)
 
     def __str__(self):
