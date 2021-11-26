@@ -7,21 +7,32 @@
         {% if wishlist_items %}
             {% for item in wishlist_items %}
             <div class="row bskt-container">
-                <div class="col-12 bskt-img-container">
+                <div class="col-12 bskt-img-container{% if item.product.unavailable %} unavailable{% endif %}">
                     <img class="product-image bskt-image" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
                     alt="{{ product.name }}">
                 </div>
                 <div class="col-12">
                     <p>{{ item.product.name }}</p>
                 </div>
+                {% if item.product.unavailable %}
+                    <div class="col-12">
+                        <p>Coming back soon</p>
+                    </div>
+                {% endif %}
                 <div class="col-12">
                     <div class="row">
-                        <div class="col-6 text-right">
-                            <button class="btn into-basket bskt-btn" id="into_basket_{{ item.item_id }}"><i class="fas fa-shopping-basket"></i><span class="sr-only">Basket</span></button>
-                        </div>
-                        <div class="col-6 text-left">
-                            <button class="btn remove-item-wishlist bskt-btn" id="remove_{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Remove</span></button>
-                        </div>
+                        {% if item.product.unavailable %}
+                            <div class="col-12 text-center">
+                                <button class="btn remove-item-wishlist bskt-btn" id="remove_{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Remove</span></button>
+                            </div>
+                        {% else %}
+                            <div class="col-6 text-right">
+                                <button class="btn into-basket bskt-btn" id="into_basket_{{ item.item_id }}"><i class="fas fa-shopping-basket"></i><span class="sr-only">Basket</span></button>
+                            </div>
+                            <div class="col-6 text-left">
+                                <button class="btn remove-item-wishlist bskt-btn" id="remove_{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Remove</span></button>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>    
