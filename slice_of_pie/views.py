@@ -12,12 +12,16 @@ def add_to_basket(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     basket = request.session.get('basket', {})
 
-    if item_id in list(basket.keys()):
-        basket[item_id] += quantity
-        messages.success(request, f'Updated {product.name} quantity to {basket[item_id]}')
+    if product.unavailable:
+        messages.error(request, 'This product is not currently available')
+        return redirect(redirect_url)
     else:
-        basket[item_id] = quantity
-        messages.success(request, f'Added {product.name} to your basket')
+        if item_id in list(basket.keys()):
+            basket[item_id] += quantity
+            messages.success(request, f'Updated {product.name} quantity to {basket[item_id]}')
+        else:
+            basket[item_id] = quantity
+            messages.success(request, f'Added {product.name} to your basket')
 
     request.session['basket'] = basket
 
@@ -98,9 +102,13 @@ def into_basket(request, item_id):
         basket = request.session.get('basket', {})
         wishlist = request.session.get('wishlist', {})
 
-        wishlist.pop(item_id)
-        basket[item_id] = 1
-        messages.success(request, f'{product.name} moved into your basket')
+        if product.unavailable:
+            messages.error(request, 'This product is not currently available')
+            return HttpResponse(status=200)
+        else:
+            wishlist.pop(item_id)
+            basket[item_id] = 1
+            messages.success(request, f'{product.name} moved into your basket')
 
         request.session['basket'] = basket
         request.session['wishlist'] = wishlist
