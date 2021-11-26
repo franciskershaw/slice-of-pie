@@ -1181,8 +1181,9 @@ img.profile-img {
 
 /* Error pages */
 
-.error-btn {
-  width: 20%;
+a.btn.bskt-btn.checkout-btn.error-btn {
+  width: 50%;
+  text-decoration: none;
 }
 
 /* Animations */
@@ -1313,6 +1314,10 @@ img.profile-img {
   .card-body h4,
   .card-header h3 {
     font-size: 100%;
+  }
+
+  a.btn.bskt-btn.checkout-btn.error-btn {
+    width: 20%;
   }
 
   #featured-cta {
