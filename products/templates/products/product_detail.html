@@ -85,13 +85,18 @@
             </div>
          </div>
          <div class="col-12 product-description text-left d-none d-lg-block">
-            <p><em>{{ product.description }}</em></p>
-            <p>{{ product.material.is_sustainable }}</p>
+            <p class="product-card-price">{{ product.description }}</p>
+            {% if product.material.is_sustainable %}
+            <p><i class="fas fa-tree"></i><span class="sr-only">Tree</span><strong>The {{ product.material }} used for producing this table has been made from recycled materials.</strong><i class="fas fa-tree"></i><span class="sr-only">Tree</span></p>
+            {% endif %}
          </div>
       </div>
    </div>
    <div class="col-12 product-description text-left d-lg-none">
-      <p><em>{{ product.description }}</em></p>
+      <p class="product-card-price">{{ product.description }}</p>
+      {% if product.material.is_sustainable %}
+         <p><i class="fas fa-tree"></i><span class="sr-only">Tree</span><strong>The {{ product.material }} used for producing this table has been made from recycled materials.</strong><i class="fas fa-tree"></i><span class="sr-only">Tree</span></p>
+      {% endif %}
    </div>
 </div>
 <div class="row recommended text-center">
