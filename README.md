@@ -629,5 +629,6 @@ Navbar: profile button dropdown stopped working (was because navbar-links had ov
 500 server error when removing items from wishlist (had same class name as basket which meant an undefined variable was in the url)
 Product builder resizing issues
 Save for later button on product details page was sending items into basket instead of wishlist - buttons were both in the same form
+Sort/filter clash - 500 error when sorting to a filtered selection, fixed by clearing the search paramaters in js so that it just sorts from all available products
 
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
