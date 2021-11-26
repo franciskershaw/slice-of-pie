@@ -40,7 +40,7 @@
             {% endfor %}
             <div class="row order-summary-container text-center text-lg-left">
                 <div class="col-12">
-                    <p class="m-0 order-summary">Delivery: <span class="product-card-price">{% if not delivery %}<strong class="product-card-price">Free</strong>{% else %}£{{ delivery | floatformat:2 }}{% endif %}</p></span></p>
+                    <p class="m-0 order-summary">Delivery: <span class="product-card-price">{% if not order.delivery_cost %}<strong class="product-card-price">Free</strong>{% else %}£{{ order.delivery_cost }}{% endif %}</p></span></p>
                 </div>
                 <div class="col-12">
                     <p class="mb-3 order-summary">Grand total: <strong class="product-card-price">£{{ order.grand_total }}</strong></p>
