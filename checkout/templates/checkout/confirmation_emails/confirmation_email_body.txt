@@ -9,4 +9,10 @@ Order Total: £{{ order.order_total }}
 Delivery: £{{ order.delivery_cost }}
 Grand Total: £{{ order.grand_total }}
 
-Fill out the rest later
+You have requested that the goods be delivered to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.country }}. 
+
+All being well, you should receive your order within one week.
+
+Thank you for shopping with Slice of Pie
+
+Customer Service
