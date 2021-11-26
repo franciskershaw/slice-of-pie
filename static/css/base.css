@@ -1279,6 +1279,7 @@ img.profile-img {
   .filter-sort {
     margin-bottom: 20px;
     height: 75%;
+    font-size: 125%;
   }
 
   .navbar-toggle {

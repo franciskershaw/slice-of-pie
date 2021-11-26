@@ -9,29 +9,29 @@
 <div class="products page-container container">
    <button id="back-to-top"><i class="fas fa-arrow-up"><span class="sr-only">Back to top</span></i></button>
    <div class="row">
-      <div class="col-lg-2 d-none d-lg-block"></div>
-      <div class="col-12 col-lg-8">
+      <div class="col-lg-3 d-none d-lg-block"></div>
+      <div class="col-12 col-lg-6">
          <h1 class="text-center">All Tables</h1>
       </div>
-      <div class="col-2 d-none d-lg-block" id="sort-destination">
+      <div class="col-3 d-none d-lg-block" id="sort-destination">
 
       </div>
       <div class="col-12">
          <div class="row">
-            <div class="col-md-4 d-none d-md-block"></div>
-            <div class="col-6 col-md-2 d-lg-none text-center p-0">
+            <div class="col-md-3 d-none d-md-block"></div>
+            <div class="col-6 col-md-3 d-lg-none text-center p-0">
                <button id="filter" type="button" class="filter-sort btn btn-primary w-100">Filter</button>
             </div>
-            <div class="col-6 col-md-2 text-center p-0" id="sort-start">
+            <div class="col-6 col-md-3 text-center p-0" id="sort-start">
                <select id="sort-select" class="filter-sort w-100 btn btn-primary">
                   <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by</option>
                   <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                   <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                  <option value="levels_asc" {% if current_sorting == 'levels_asc' %}selected{% endif %}>Levels (least to most)</option>
-                  <option value="levels_desc" {% if current_sorting == 'levels_desc' %}selected{% endif %}>Levels (most to least)</option>
+                  <option value="levels_asc" {% if current_sorting == 'levels_asc' %}selected{% endif %}>Levels (1-3)</option>
+                  <option value="levels_desc" {% if current_sorting == 'levels_desc' %}selected{% endif %}>Levels (3-1)</option>
                </select>
             </div>
-            <div class="col-md-4 d-none d-md-block"></div>
+            <div class="col-md-3 d-none d-md-block"></div>
          </div>
       </div>
    </div>
