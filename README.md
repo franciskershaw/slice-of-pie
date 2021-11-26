@@ -634,4 +634,6 @@ Delivery cost: missing / 100 in logic which meant my delivery was being multipli
 
 unsolved bugs:
 
+duplicate orders in profile page
+
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
