@@ -366,6 +366,19 @@ footer ul li a:hover {
   margin-bottom: 5px;
 }
 
+.cta-btn {
+  background: var(--burgendy);
+  border: 1px solid white;
+  transition: .2s;
+}
+
+.cta-btn:hover,
+a.btn.btn-primary.btn-md.cta-btn:active {
+  background: white;
+  border: 1px solid var(--burgendy);
+  color: var(--burgendy);
+}
+
 .bskt-img-container {
   margin-bottom: 15px;
 }
@@ -1354,6 +1367,10 @@ img.profile-img {
 }
 
 @media screen and (min-width: 992px) {
+
+  .cta-btn {
+    font-size: 150%;
+  }
 
   .login-content-outer {
     padding-left: 25%;
