@@ -631,4 +631,6 @@ Product builder resizing issues
 Save for later button on product details page was sending items into basket instead of wishlist - buttons were both in the same form
 Sort/filter clash - 500 error when sorting to a filtered selection, fixed by clearing the search paramaters in js so that it just sorts from all available products
 
+unsolved bugs:
+
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
