@@ -630,6 +630,7 @@ Navbar: profile button dropdown stopped working (was because navbar-links had ov
 Product builder resizing issues
 Save for later button on product details page was sending items into basket instead of wishlist - buttons were both in the same form
 Sort/filter clash - 500 error when sorting to a filtered selection, fixed by clearing the search paramaters in js so that it just sorts from all available products
+Delivery cost: missing / 100 in logic which meant my delivery was being multiplied by 5 instead of adding 5%
 
 unsolved bugs:
 
