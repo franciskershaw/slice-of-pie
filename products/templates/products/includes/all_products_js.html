@@ -3,12 +3,15 @@
     $('#sort-select').change(function() {
        var selector = $(this);
        var currentUrl = new URL(window.location);
+       console.log(currentUrl);
 
        var selectedVal = selector.val();
        if(selectedVal != "reset"){
           var sort = selectedVal.split("_")[0];
           var direction = selectedVal.split("_")[1];
-
+          currentUrl.searchParams.delete('angle');
+          currentUrl.searchParams.delete('material');
+          currentUrl.searchParams.delete('level');
           currentUrl.searchParams.set("sort", sort);
           currentUrl.searchParams.set("direction", direction);
 
