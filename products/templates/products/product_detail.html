@@ -12,7 +12,7 @@
          <div id="edit-delete-buttons">
             <a class="btn btn-primary" href="{% url 'edit_product' product.id %}"><i class="far fa-edit"></i><span class="sr-only">Edit</span></a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProduct"><i
-                  class="far fa-trash-alt"></i><span class="sr-only">Delete</span>/button>
+                  class="far fa-trash-alt"></i><span class="sr-only">Delete</span></button>
          </div>
       </div>
       {% endif %}
@@ -86,6 +86,8 @@
          </div>
          <div class="col-12 product-description text-left d-none d-lg-block">
             <p><em>{{ product.description }}</em></p>
+            <p>{{ product.image_url }}</p>
+            <p>{{ product.material.is_sustainable }}</p>
          </div>
       </div>
    </div>
