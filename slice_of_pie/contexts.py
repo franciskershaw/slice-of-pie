@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404
 
 
 def basket_contents(request):
-    """" Functionality for the shopping basket """
+    """ Functionality for the shopping basket """
 
     basket_items = []
     total = 0
@@ -46,6 +46,7 @@ def basket_contents(request):
 
 
 def wishlist_contents(request):
+    """ Functionality for the wishlist """
     wishlist_items = []
     product_count_wishlist = 0
     wishlist = request.session.get('wishlist', {})

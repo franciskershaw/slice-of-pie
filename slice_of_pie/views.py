@@ -64,6 +64,7 @@ def remove_item(request, item_id):
 
 
 def add_to_wishlist(request, item_id):
+    """ Add item to wishlist """
 
     product = get_object_or_404(Product, pk=item_id)
     redirect_url = request.POST.get('redirect_url')
@@ -80,6 +81,7 @@ def add_to_wishlist(request, item_id):
 
 
 def remove_from_wishlist(request, item_id):
+    """ Add item to wishlist """
 
     product = get_object_or_404(Product, pk=item_id)
     try:
@@ -96,6 +98,7 @@ def remove_from_wishlist(request, item_id):
 
 
 def into_basket(request, item_id):
+    """ Move item from wishlist into basket """
 
     product = get_object_or_404(Product, pk=item_id)
     try:

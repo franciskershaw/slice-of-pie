@@ -1,4 +1,4 @@
-/* Give the correct profile button the navBarDropdown ID */
+/* Give the correct profile button the navBarDropdown ID and aria label */
 let mobileDropdown = document.querySelector('[data-screen="link-small"]');
 let largerDropdown = document.querySelector('[data-screen="link-large"]');
 let mobileMenu = document.querySelector('[data-screen="menu-small')
