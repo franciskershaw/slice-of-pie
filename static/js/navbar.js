@@ -1,19 +1,27 @@
 /* Give the correct profile button the navBarDropdown ID */
-let mobileDropdown = document.querySelector('[data-screen="small"]');
-let largerDropdown = document.querySelector('[data-screen="large"]');
+let mobileDropdown = document.querySelector('[data-screen="link-small"]');
+let largerDropdown = document.querySelector('[data-screen="link-large"]');
+let mobileMenu = document.querySelector('[data-screen="menu-small')
+let largerMenu = document.querySelector('[data-screen="menu-large')
 
 if (window.innerWidth > 767) {
   largerDropdown.setAttribute('id', 'navbarDropdown');
+  largerDropdown.setAttribute('aria-labelledby', 'navbarDropdown');
 } else {
   mobileDropdown.setAttribute('id', 'navbarDropdown');
+  mobileDropdown.setAttribute('aria-labelledby', 'navbarDropdown');
 }
 window.addEventListener('resize', () => {
   if (window.innerWidth > 767) {
       mobileDropdown.removeAttribute('id', 'navbarDropdown');
+      mobileDropdown.removeAttribute('aria-labelledby', 'navbarDropdown');
       largerDropdown.setAttribute('id', 'navbarDropdown');
+      largerDropdown.setAttribute('aria-labelledby', 'navbarDropdown');
   } else {
-      largerDropdown.removeAttribute('id', 'navbarDropdown')
+      largerDropdown.removeAttribute('id', 'navbarDropdown');
+      largerDropdown.removeAttribute('aria-labelledby', 'navbarDropdown');
       mobileDropdown.setAttribute('id', 'navbarDropdown');
+      mobileDropdown.setAttribute('aria-labelledby', 'navbarDropdown');
   }
 })
 
