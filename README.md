@@ -655,5 +655,10 @@ Pep 8 validator
 One error on webhooks.py about indentation, changing it causes the code to fail
 Errors shown for long lines in settings but they cannot be shortened so are left
 
+Lighthouse
+* No major perforamce issues - compressed all images across the site to help (espeically for the all products page which has more content to load)
+
+Wave - not major accessibility errors or color contrasting errors.
+
 
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
