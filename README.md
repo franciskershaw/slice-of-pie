@@ -640,5 +640,7 @@ HTML validator:
 * stray closing div tag in the basket html page
 * clashing id and 'aria-labeledby' on navbar dropdown (unsolved as it breaks the site to remove it)
 * buttons were children of a tags
+* Form and div closing were overlapping on product detail
+* closing h3 tag was still an h1 on the create account page
 
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
