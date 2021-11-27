@@ -1,5 +1,5 @@
 <!-- Sort selector -->
-<script type="text/javascript">
+<script>
     $('#sort-select').change(function() {
        var selector = $(this);
        var currentUrl = new URL(window.location);
@@ -26,7 +26,7 @@
  </script>
 
 <!-- Open and close filter section -->
-<script type="text/javascript">
+<script>
     const filterBtn = document.querySelector('#filter');
     const filterOptions = document.querySelector('.filter-options')
     filterBtn.addEventListener('click', () => {
@@ -90,7 +90,7 @@
 </script>
 
 <!-- Product animations -->
-<script type="text/javascript">
+<script>
     function productCardRight(card) {
         var cardHover = card.querySelector('.product-card-image-container');
         cardHover.style.transform = "translate(-100%,0)";
@@ -103,7 +103,7 @@
 </script>
 
 <!-- Check the radio button if a filter has been applied -->
-<script type="text/javascript">
+<script>
     let currentUrl = new URL(window.location);
     let radioInputs = document.getElementsByClassName('filter-category');
     let currentFilter = "";
@@ -138,7 +138,7 @@
 
 </script>
 
-<script type="text/javascript">
+<script>
     let backToTop = document.querySelector('#back-to-top');
     backToTop.addEventListener('click', () => {
         // Smooth scroll to top found on https://stackoverflow.com/questions/15935318/smooth-scroll-to-top

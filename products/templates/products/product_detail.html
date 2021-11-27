@@ -170,7 +170,7 @@
 {% block postloadjs %}
   {{ block.super }}
   {% include 'products/includes/quantity_input_script.html' %}
-  <script type="text/javascript">
+  <script>
     let basketButton = document.querySelector('#add-to-basket-details');
     let basketInput = document.querySelector('#add-to-basket-input');
     basketButton.addEventListener('mouseover', () => {
