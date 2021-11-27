@@ -4,11 +4,13 @@
 
 ## Code Institute's Milestone Project 4 - Full Stack Frameworks
 
-Slice of Pie is the brainchild of Zoe Thexton, who produces custom triangular tables that fit seamlessly into any section of a person's living or bedroom. Designed using CAD software, the tables can be assembled by hand in a variety of sizes, types of wood, and number of shelving levels. The inspiration for this product came from the need to get creative with the limited space available in her own living room (and generally missing somewhere to put a cup of tea down as a result of this!), while the product's name comes from the triangular shape of the finished design. The only thing missing now is a means to sell this innovative product to consumers, so I offered to develop and build an e-commerce store capable of displaying the product range and accepting secure payments for orders. My aim for this project is to create a site that allows potential customers to browse all available designs or build their ideal table using a product builder, while allowing administrators to manage the products by adding, editting, or deleting SKUs when required.
+Slice of Pie is the brainchild of Zoe Thexton, who produces custom triangular tables that fit seamlessly into any section of a person's living or bedroom. Designed using CAD software, the tables can be assembled by hand in a variety of sizes, types of wood, and number of shelving levels. The inspiration for this product came from the need to get creative with the limited space available in her own living room (and generally missing somewhere to put a cup of tea down as a result of this!), while the product's name comes from the triangular shape of the finished design. The only thing missing now is a means to sell this innovative product to consumers, so I offered to develop and build a prototype ecommerce store capable of displaying the product range and accepting secure payments for orders. My aim for this project is to create a site that allows potential customers to browse all available designs or build their ideal table using a product builder, while allowing administrators to manage the products by adding, editing, or deleting SKUs when required.
 
-This project is the fourth and final of four 'milestone' projects which are required to complete the Code Institute's diploma in full stack web development. Assessment criteria for this milestone project focuses on the ability to produce a full-stack e-commerce store with secure Stripe payments built using the Django Python framework alongside HTML, CSS and JavaScript to control a centrally-owned datatset.
+This project is the fourth and final of four 'milestone' projects which are required to complete the Code Institute's diploma in full stack web development. Assessment criteria for this milestone project focuses on the ability to produce a full-stack ecommerce store with secure Stripe payments built using the Django Python framework alongside HTML, CSS and JavaScript to control a centrally-owned dataset.
 
 You can view the live site [here](https://slice-of-pie.herokuapp.com/), and a link to the GitHub repository can be found [here](https://github.com/franciskershaw/slice-of-pie).
+
+If you would like to run through the checkout process without spending any of your own money, use *4242 4242 4242 4242* as the long card number, *04/24* as the expiry date, *242* as the security code, and *424242* as the billing postcode.
 
 ## Table of Contents
 * [UX](#ux)
@@ -46,7 +48,7 @@ You can view the live site [here](https://slice-of-pie.herokuapp.com/), and a li
 My main goals for the creation of this website were as follows:
 
 * To create an ecommerce store where my client can sell a novel concept to the public.
-* Design the site in a way that makes the user’s journey from visit to checkout as pleasant as possible.
+* Design the site in a way that makes the user’s journey from visit to checkout as pleasant and quick as possible.
 * Demonstrate my new found skills applying Django as an MVC framework in order to pass this final part of the course and obtain my Diploma.
 
 ### User Stories
@@ -56,7 +58,7 @@ My main goals for the creation of this website were as follows:
 As the software developer building the store:
 
 1. I want to create a full-stack online shop on which users can browse and securely make purchases, and site admins have control to add, edit or delete items from the site so that I can pass this part of the course.
-2. I want this project to look as aesthetically pleasing as possible so that my final project of the course is the most impressive and displays my progress.
+2. I want this project to adequately display the huge progress I've made in the past year by combining all previously learnt languages and frameworks in unison on a fully-functioning and bug free site.
 
 #### Site owner/administrator
 
@@ -73,7 +75,7 @@ As a user/prospective customer:
 
 1. I want to be able to browse available products so that I can see if there’s anything I want to buy.
 2. I would like to be able to easily filter and sort products by a range of parameters so that I can quickly find what I am looking for.
-3. I want to see clearly if certain products are not available so that I don’t waste my time putting them in my basket
+3. I want to see clearly if certain products are not available so that I don’t waste my time putting them in my basket.
 4. I want to be able to add a product to my basket and then keep on browsing or proceed to checkout.
 5. I want to be able to remove or amend the quantity of products in my basket easily so that I have the power to change my mind during my journey.
 6. I would like to receive visual feedback at every stage of my journey when I perform actions, so that I am sure what I intended to do has in fact taken place.
@@ -82,7 +84,7 @@ As a user/prospective customer:
 9. As an account holder, I would like to be able to save products in my favourites so that I can decide later whether to proceed with my purchase.
 10. As an account holder, I would like to be able to save my delivery details so that checkout is faster during my next purchase.
 11. As an account holder who has saved their details, I would like to make amends to my saved delivery address so that I can ensure this information is updated accurately.
-12. At checkout, I would like the payment process to be simple and intuitive so that I don’t waste any time during my journey
+12. At checkout, I would like the payment process to be simple and intuitive so that I don’t waste any time during my journey.
 13. At checkout, I would like to be sure that my details are secure during the payment process so that I don’t feel like I’m taking any risks with my money.
 14. After checkout, I would like to receive an order confirmation both on my screen and in my emails so that I can review the purchase and make sure that everything occurred as it was supposed to.
 
@@ -90,7 +92,7 @@ As a user/prospective customer:
 
 ### Strategy Plane
 
-The **user stories** as detailed above were the first stage of strategising for the project and are at the forefront during every stage of development. Features that are not in service of the user stories were not considered during the creation of this project.
+The **user stories** as detailed above were the first stage of strategising for the project and were at the forefront during every stage of development. Features that are not in service of the user stories were not considered during the creation of this project.
 
 The **focus** of the project is:
 * To create a fully functioning online store that allows the site owner to sell small bespoke tables, on which new products can be added and old products can be removed.
@@ -101,9 +103,9 @@ The **business goals** of the stakeholder are:
 * Encourage users to return for future browsing and purchases.
 * Have a store that can have products added to it and removed so that the product selection remains fresh.
 
-*Therefore, a bespoke website using a full stack framework is required to meet the focus and business goals as it is the only way within my current skillset to produce an e-commerce store that is both aesthetically pleasing and contains the necessary features to allow users to browse and checkout securely, with administrators also able to manipulate the backend when needed.*
+*Therefore, a bespoke website using a full stack framework is required to meet the focus and business goals as it is the only way within my current skill set to produce an ecommerce store that is both aesthetically pleasing and contains the necessary features to allow users to browse and checkout securely, with administrators also able to manipulate the backend when needed.*
 
-At this early stage of planning, it was time to begin researching potential competitors online to get ideas about what features and style choices are prerequisites for an e-commerce store to be successful. As I believe the product being sold is quite novel, I searched mainly for 'quirky' furniture stores that might lead me in the right direction when making decisions later on.
+At this early stage of planning, it was time to begin researching potential competitors online to get ideas about what features and style choices are prerequisites for an ecommerce store to be successful. As I believe the product being sold is quite novel, I searched mainly for 'quirky' furniture stores that might lead me in the right direction when making decisions later on.
 
 The following sites stood out to me and provided inspiration for certain stylistic choices and features that could be implemented:
 
@@ -119,7 +121,6 @@ Using the below importance vs viability metric, I listed out all of the opportun
 | Sign-up to email updates                    | 3          | 3
 | Free shipping for ordering a certain amount | 2          | 4
 | Animation when you hover over a product     | 3          | 5
-| Animation when you hover over a product     | 3          | 5
 | ‘New’ label for new products                | 2          | 5
 | Product builder                             | 4          | 3
 | Blog                                        | 1          | 3
@@ -127,13 +128,13 @@ Using the below importance vs viability metric, I listed out all of the opportun
 | Heart icon to save for later                | 3          | 4
 | Search bar                                  | 2          | 4
 | Filtering of products                       | 5          | 3
-| **Total**                                   | **34**     | **46**
+| **Total**                                   | **31**     | **41**
 
-At this stage, I felt confident that the features I had in mind for the creation of this site would be mostly viable when compared to their relevant importance to the project. However, it was clear very early on that there were a couple of common e-commerce features that were surplus to requirements for this particular store and would not need to be included:
+At this stage, I felt confident that the features I had in mind for the creation of this site would be mostly viable when compared to their relevant importance to the project. However, it was clear very early on that there were a couple of common ecommerce features that were surplus to requirements for this particular store and would not need to be included:
 
-* Search bar - the site is essentially selling one type of product with different customisations available to it, so there is not an awful lot the user will likely want to search by. Advanced filtering and sorting is a far more logical method for the user to navigate the site.
-*  Blog - this is unnecessary for the requirements of version 1 of the project, but could be an interesting feature to include on a future iteration of the site.
-* 10% offer for signing up - this is slightly beyond the scope of this project, but again could well be something to pursue on a later version of the site.
+* Search bar - the site is essentially selling one type of product with different customisations available to it, so there is not an awful lot the user will likely want to search by. Filtering and sorting is a far more logical method for the user to navigate the site.
+*  Blog - this is unnecessary for the requirements of version 1 of the project, but could be an interesting feature to include on a future iteration of the site so that the site user can maintain engagement with customers.
+* 10% offer for signing up to a mailing list - this is slightly beyond the scope of this project, but again could well be something to pursue on a later version of the site.
 
 ### Scope Plane
 
@@ -143,21 +144,21 @@ Based on research and planning achieved during the strategy plane, and consideri
 
 * Registration and login capability, so that details and preferences can be saved.
 * Admin ability to manage content via the frontend.
-* Featured products on the homepage that can be editted by the administrator.
-* Product builder, which will basically be an advanced filter.
+* Product builder, which will basically be an advanced filter directing users to a more detailed page about the product of their choice.
 * Product details for individual products.
-* Ability to simply browse all available products and apply filters.
+* Ability to simply browse all available products and apply filters or sorting.
 * Add, remove or amending the shopping cart.
+* Add, remove or amending a wishlist or favourites.
 * Profile page for favourites and order history (if logged in).
 * Secure checkout and payment.
-* Free delivery for reaching a certain threshold
+* Free delivery for reaching a certain threshold.
 
 #### Content requirements
 
-* Ability to request new password if the user has forgotten.
+* Ability to request a new password if the user has forgotten.
 * Admin control should allow for CRUD capability on listed products.
-* Product builder needs to be aesthetically pleasing and seamless to the user journey.
-* Checkout must offer ability to save details for later (if logged in) or guest checkout for those that do not wish to create an account.
+* The product builder needs to be aesthetically pleasing and seamless to the user journey.
+* Checkout must offer the ability to save details for later (if logged in) or guest checkout for those that do not wish to create an account.
 
 #### Nice to haves
 
@@ -165,7 +166,7 @@ I felt at this stage that the above features would contribute to a well rounded 
 
 * Create an account using social media.
 * FAQ or about section to both give the seller a profile and explain what the product is and who the site owner is.
-* Sign up to mailing list form.
+* Sign up option for a mailing list.
 
 ### Structure Plane
 
@@ -176,23 +177,22 @@ With the functional specifications and content requirements nicely ironed out, I
 * Hero image which captures the tone of the site and introduces the user to what is being sold.
 * The name of the site and calls to action directing the user to the ‘build your table’ and ‘create account’ sections of the site.
 * Featured products just beneath the fold, split into two sides of the screen. Each box has an image of the product and a ‘view’ button. First one could be the basic or flagship product (which is the cheapest available table), and the second one could be the most premium offering.
-* A brief about section to provide slightly more context for any organic visitors.
+* (Bonus) A brief 'about' section to provide slightly more context for any organic visitors.
 
 2. **Registration/login/password reset forms, containing:**
 * Login or registration form.
-* Feedback if field are incorrectly populated.
+* Feedback if fields are incorrectly populated.
 * Option to switch from register to login, or vice versa.
 * Forgot password option on login form.
 * Confirm email address after logging in.
 * (Bonus) Ability to sign in using social media.
 
 3. **Product builder page, containing:**
-* Entry and disappear animations that present the options available to build a table step by step, starting with choice of sizes, folowed by number of shelves, and finally the type of material.
-* Options which appear and disappear as per the users input.
+* Animations that present the options available to build a table step by step, appearing and disappearing as per the users input.
 * The selection of the final parameter directs the user to the individual product detail page.
 
 4. **All products page, containing:**
-* Conventional square boxes structure as per most e-commerce stores, containing product images, descriptions, prices, 'view' buttons', and a heart which would add the product to the user's wishlist.
+* Conventional square boxes structure as per most ecommerce stores, containing product images, descriptions, prices, 'view' buttons', and a heart which would add the product to the user's wishlist.
 * Option to sort by price and amount of shelves.
 * Option to filter by certain size of table, amount of shelves, or material.
 
@@ -202,14 +202,15 @@ With the functional specifications and content requirements nicely ironed out, I
 * Quantity buttons, the default being 1 with the option to increase or decrease quantity accordingly.
 * Add to basket or wish list buttons.
 * Dimmed and disabled buttons if the product is unavailable.
+* Description, and information if the materials of the table are sustainably sourced or not.
 
 6. **Bag and wishlist sidebars across each page, containing:**
-* Bag items can be increased or decreased in quantity, or removed entirely.
-* Items in wish list can be added directly to the basket, or removed.
-* Checkout option directly from the bag, or a message saying 'Your bag is empty' if there is nothing in there.
+* Basket items which can be increased or decreased in quantity, or removed entirely.
+* Items in the wish list can be added directly to the basket, or removed.
+* Checkout option directly from the basket, or a message saying 'Your bag is empty' if there is nothing in there.
 
 7. **Checkout page, containing:**
-* A summary of what is about to be ordered, with the ability to edit or remove these products from checkout at this late stage.
+* A summary of what is about to be ordered.
 * Form with personal details and delivery details, which can be saved by the user if they want to and are logged in.
 
 8. **Product management page for administrators only, containing:**
@@ -219,7 +220,7 @@ With the functional specifications and content requirements nicely ironed out, I
 #### Interaction Design
 
 * The site needs a nonlinear structure through the use of a fixed navigation bar which allows users to choose what section of the site they can jump to.
-* A consistent footer across all pages can display the logo, copyright information and social links (if any exist).
+* A consistent footer across all pages can display the logo, copyright information and social links.
 * User feedback is required at various stages of their journey, such as:
     * When hovering over links.
     * Feedback message when any user actions pertaining to the bag or wish list through use of toasts.
@@ -228,15 +229,15 @@ With the functional specifications and content requirements nicely ironed out, I
 
 #### Information Architecture
 
-* Tree structure can be implemented with use of burger icon on mobile devices.
-* Priority of links from left to right
-* Priority as follows: logo on far left, then in the middle is ‘build table’ and ‘browse all’, far right is ‘Sign in/sign out’, ‘wish list’, ‘basket’
-* Most important CTAs should be visible on landing page: ‘build product’ or ‘create account’
-* Where possible there should be no more than three clicks for a user to reach end of journey (if applicable) 
+* Tree structure should be implemented with the use of burger icon on mobile devices.
+* Priority of links from left to right.
+* Priority as follows: logo on far left, then in the middle is ‘build table’ and ‘browse all’, far right is ‘Sign in/sign out’, ‘wish list’, ‘basket’.
+* Most important CTAs should be visible on the landing page: ‘build product’ or ‘create account’.
+* Where possible attempts should be made to reduce the amount of clicks taken for a user to reach the end of their journey.
 
 ### Skeleton Plane
 
-At this point in development, it felt safe to start serious work on wireframes. These were created using [InVision](https://www.invisionapp.com/), and were incredibly useful in ironing out any potential design flaws before any line of code has been written.
+At this point in development, it felt safe to start work on wireframes. These were created using [InVision](https://www.invisionapp.com/) as with all my previous projects, and were really useful in ironing out any potential design flaws before any line of code had been written.
 
 ![All wireframes](media/nonproducts/all-wireframes.png)
 
@@ -258,7 +259,7 @@ At this point in development, it felt safe to start serious work on wireframes. 
 
 ### Surface Plane
 
-Once wireframing was complete, it was time to start thinking seriously about how the Front End of the website should be approached in terms of 'look and feel'. I asked Zoe for some key words that she'd like to have associated with a website that she owns, and we settled on the follwoing:
+Once wireframing was complete, it was time to start thinking seriously about how the Front End of the website should be approached in terms of 'look and feel'. I asked Zoe for some key words that she'd like to have associated with a website that she owns, and we settled on the following:
 
 * Modern
 * Nature
@@ -269,7 +270,7 @@ These words would help inform some of the trickier aesthetic choices to be made 
 
 #### Colour Scheme
 
-After combining the key associative words with the colour pallette generator found on Coolors, I settled on the following colour scheme for the website:
+After combining the key associative words with the colour palette generator found on Coolors, I settled on the following colour scheme for the website:
 
 * #e7e0da (off white)
 * #ab793f (copper)
@@ -277,11 +278,13 @@ After combining the key associative words with the colour pallette generator fou
 * #14223d (dark blue)
 * #111a2c (rich black)
 
+The attempt here was to replicate some of the colours associated with the materials used when creating the products.
+
 ![Coolors](media/nonproducts/ms4-coolors.png)
 
 #### Typography
 
-As the general feel of the site needed to feel professional and modern, plenty of existing fonts could be easily ruled out of contention out of the bat. In the end I settled on the Varela Round font from Google Fonts, as it was noted that the rounded edge of the lettering mirrors the tables that are on sale nicely.
+As the general feel of the site needed to feel professional and modern, plenty of existing fonts could be easily ruled out of contention straight away. In the end I settled on the Varela Round font from Google Fonts, as it was noted that as well as looking professional, the rounded edge of the lettering mirrors the tables that are on sale nicely.
 
 ![Varela Round](media/nonproducts/varela-round.png)
 
@@ -343,7 +346,7 @@ MySQL is the database in use for the development environment on this project, wh
 
 #### Consistent across all pages
 
-* A fixed navigation bar appears on everyth page with the logo and brand on the far left, the main site features in the middle, and interactive icons on the far left for the user's profile, wishlist, and shopping basket. The options present within the profile icon changes depending on whether a user is signed in, or whether a user is an admin user.
+* A fixed navigation bar appears on every page with the logo and brand on the far left, the main site features in the middle, and interactive icons on the far left for the user's profile, wishlist, and shopping basket. The options present within the profile icon changes depending on whether a user is signed in, or whether a user is an admin user.
 
 (Screenshot here)
 
@@ -357,59 +360,85 @@ MySQL is the database in use for the development environment on this project, wh
 
 * All interactable content (like buttons and links) contain hover properties that indicate the user can click on them, while feedback from certain actions (such as adding or removing items from your basket or wishlist) is presented to the user via Bootstrap's toast components.
 
+(Screenshot here)
+
 #### Homepage
 
-* The homepage contains a hero image of a living room table with a plant and a teapot on it, which was chosen for its relaxed tone. The brand name, tagline and two main calls to action appear in the hero section. The calls to action will differ depending on whether a user is signed in, display 'Sign Up' if the user is not logged in instead of 'All Tables'
+* The homepage contains a hero image of a living room table with a plant and a teapot on it, which was chosen for its relaxed tone. The brand name, tagline and two main calls to action appear in the hero section. The calls to action will differ depending on whether a user is signed in, display 'Sign Up' if the user is not logged in instead of 'All Tables'.
 
 * The content of the page appears through a staggered entry animation, which should mask the loading time on the main hero image for most devices.
 
 * Just beneath the fold, the user should be able to see the featured tables section which directs the users to the 'Most Popular' offering (in actual fact, the cheapest table the site has to offer) and 'Recommended' (which happens to be the most expensive product on offer).
 
-* A brief about section explaining the point of the site for those who have continued scrolling follows the featured section, containing one final call to action to direct users to the Table Builder page.
+(Screenshot)
+
+* A brief 'about' section explaining the point of the site for those who have continued scrolling follows the featured section, containing one final call to action to direct users to the Table Builder page.
+
+(Screenshot)
 
 #### Login and registration
 
 * Using Django's allauth plugin, the users can securely create new accounts and sign back in with either their email address or username.
+* Feedback is provided should any user inputs be invalid.
+
+(Screenshot)
 
 #### Profile
 
-* For users that have created their own personal accounts, they have access to a unique profile page that houses their delivery information and previous order history. I decided early on in the process to house all relevant order information in one convenient place by using Bootstrap's accordian feature to hide and reveal the order information interactively.
+* For users that have created their own personal accounts, they have access to a unique profile page that houses their delivery information and previous order history. I decided early on in the process to house all relevant order information in one convenient place by using Bootstrap's accordion feature to hide and reveal the order information interactively.
+
+(Screenshot)
 
 #### All products page
 
-*Note: as the real life product is still currently in development, the product images had to be computer generated to provide as close a depiction to the final products as possible. This is mentioned in the product descriptions, however the intention is very much that on a future iteration of the site there will be professional grade photos taken to improve the overall aesthetics of the site and provide more useful refernces for the customers.*
+*Note: as the real life product is still currently in development, the product images had to be computer generated to provide as close a depiction to the final products as possible. This is mentioned in the product descriptions, however the intention is very much that on a future iteration of the site there will be professional grade photos taken to improve the overall aesthetics of the site and provide more useful references for the customers.*
 
-* The all products page is styled much like any conventional e-commerce store, with an option to filter or sort the products by preference. 
+* The all products page is styled much like any conventional ecommerce store, with an option to filter or sort the products by preference.
+*Note: I encountered a few bugs do do with combining filtering and sorting at the same time, which I go into further detail in the **Known Bugs** section of testing.md* 
 
-* Hovering over the product images products a slide animation, displaying an alternative image for the user.
+(Screenshot)
 
-* On smaller screen sizes the filter option becomes an offscreen element that slides down from the top if the user presses the button.
+* Hovering over the product images triggers a slide animation, displaying an alternative image for the user to look at.
 
-* For users that have scrolled down, there is an option to return the user back to the top.
+* On smaller screen sizes the filter option becomes an offscreen element that slides down from the top if the user presses the button. Using JavaScript, I ensured that if the user resizes their device this won't break the page.
+
+(Screenshots)
+
+* For users that have scrolled down, there is an option to return the user back to the top using a smooth transition.
+
+(Screenshot)
 
 #### Product builder
 
-* The main feature I wanted to push with this site was the interactive product builder, which essentially functions as an advanced filter for all the products in the database. The user is led on a journey whereby they think they are putting together a table based off of their own preferences, whereas information is actually being gathered through JavaScript to determine the product that they wish to browse.
+* The main feature I wanted to push with this site was the interactive product builder, which essentially functions as an advanced filter for all the products in the database. The user is led on a journey whereby they think they are putting together a table based on their own preferences, whereas information is actually being gathered through JavaScript to determine the product that they wish to browse.
 
 * The choices come into and out of frame through animations to improve the emotional response to this feature.
+
+(Screenshot)
 
 #### Product detail page
 
 * The product detail page, which is the end point from both the product builder and browsing the all products page, contains a larger version of the products images box, alongside options to choose the quantity of the product or save a product in the wishlist for later, and a description of the product being viewed.
 
-* A randonly generated set of products appears beneath in order to provide more content and other options for the user to browse.
+* Depending on which material is being used, there may be a supplementary description highlighting that the material has been sustainably sourced.
+
+* A randomly generated set of products appears beneath in order to provide more content and other options for the user to browse.
+
+(Screenshot)
 
 #### Basket and wishlist
 
 * I decided early on that I wanted the basket and wishlist features to be sidebars so that users could access them wherever they were on the site. On mobile, these sidebars take up the entire viewport of the device, but anything above tablet size would only cover up a small portion of the screen.
 
+(Screenshot)
+
 * Users are able to conveniently move items from their wishlist directly into their basket during their session.
 
 #### Checkout
 
-* The checkout app uses Stripe payments to securely take payment from prospective customers.
+* The checkout app uses Stripe payments to securely take payment from prospective customers, conveniently placing everything within one page to reduce the amount of clicks needed to complete a purchase.
 
-* The view provides one section for delivery and payment details, and one section which summarises the order so that users are double sure of what they are purchasing.
+* The view provides one section for delivery and payment details, and one section which summarises the order so that users can double check what they are purchasing.
 
 * There is also an option to save delivery details to the profile for those users who have created an account and are signed in.
 
@@ -417,13 +446,17 @@ MySQL is the database in use for the development environment on this project, wh
 
 * Stripe webhooks are also fully functioning in order to properly capture any orders that might go wrong during the checkout process from a user perspective.
 
+(Screenshot)
+
 #### Profile page
 
 * The profile page provides signed in users with the option to update their delivery details and peruse former orders.
 
-* All previous order information is hosued in accordion components to save space on the browser screen.
+* All previous order information is housed in accordion components to save space on the browser screen.
 
-* If ther user has not yet placed an order, there is a call to action directing them to the product builder so that they may begin their customer journey.
+* If the user has not yet placed an order, there is a call to action directing them to the product builder so that they may begin their customer journey.
+
+(Screenshot)
 
 ### Defensive design features
 
@@ -437,19 +470,29 @@ Several defensive design features were required for this project, as much for en
 
 * Custom 404 pages were created to display at any point a user ended up on the wrong link with a redirect CTA back to safety. I elected to use 404 pages for all errors as I believe this code is slightly more user friendly and recognisable to general audiences on websites.
 
-* Any required form field will not allow a form to be submitted without 
+* Any required form field will not allow a form to be submitted without filling in these fields correctly, through the use of the required attribute.
+
+* Unavailable products are greyed out, with their price being replaced with a very noticeable 'Unavailable', while the button to add to basket is disabled.
+
+(Screenshot)
+
+* If an unavailable product is in the wishlist, the buttons to add that item directly into the basket are removed, and a 'Coming soon' message replaces the product name.
+
+(Screenshot)
 
 #### On the backend
 
 * The @login_required decorator was employed on several backend functions relating to admin permissions to restrict non superusers from certain actions on the site. That way, anyone who tries to force their way into certain sections or with a url to remove or edit products will be stopped and provided with a toast message explaining why they cannot continue.
 
+* Checks are made to ensure that unavailable products are not added into the basket, thus ensuring the user does not accidentally purchase something that is not available for purchase.
+
 * Several of the forms have required=True coded into the backend in order to build on top of the required attribute from the front end.
 
 ### Features left to implement
 
-Due to time constraints imposed by the fortunate offer of my first full-time developer job before development of this project began, there were several features that I was not able to implement fully or at all by the time the submission deadline rolled around. However, I view this iteration of the site as version 1 (or beta), and I would very much like to return to rethink some aspects of the design and features.
+The scope of this project was a huge step up from my previous work, and unfortunately due to time constraints there were several features that I was not able to implement fully or at all by the time the submission deadline rolled around. However, I view this iteration of the site as version 1 and I would very much like to return to rethink some aspects of the design and features.
 
-* I initially wanted an animation to greet the user when landing on the homepage, possibly of the tables assembling themselves in an aesthetically pleasing motion - I had neither the required skillset or time to learn how to make this a reality on this occasion.
+* I initially wanted an animation to greet the user when landing on the homepage, possibly of the tables assembling themselves in an aesthetically pleasing motion - I had neither the required skill set or time to learn how to make this a reality on this occasion.
 
 * I would like users with accounts to be able to leave reviews or testimonials for the site and aggregate an average rating.
 
@@ -471,8 +514,8 @@ Due to time constraints imposed by the fortunate offer of my first full-time dev
 ### Additional tools
 
 * [Amiresponsive:](http://ami.responsivedesign.is/) Used to produce the hero image in README.md and check general responsiveness of the pages.
-* [AWS:](https://aws.amazon.com/) Used for hosting static files and media on the cloud in conjunction with Heroku's hosting.
-* [CSS Gradient:](https://cssgradient.io/) Used to create the subtle gradient in the background of all pages.
+* [AWS:](https://aws.amazon.com/) Used for hosting static files and media on the cloud in conjunction with Heroku.
+* [CSS Gradient:](https://cssgradient.io/) Used to create the subtle gradient in the background of all pages and in the about section of the homepage.
 * [dbdiagram:](https://dbdiagram.io/home) Used to create my entity relationship diagram.
 * [Favicon Generator:](https://realfavicongenerator.net/) Used to create the favicon on the browser tab.
 * [FontAwesome:](https://fontawesome.com/) Large database of icons which I used all over the site to add to the visual language.
@@ -481,11 +524,11 @@ Due to time constraints imposed by the fortunate offer of my first full-time dev
 * [Gitpod:](https://gitpod.io/) Development environment where all the code was written.
 * [Google Docs:](https://docs.google.com/) Used for note taking and was where much of my readme was initially written.
 * Google Developer Tools: Used for debugging and testing of responsiveness across several screen sizes. Also vital to the testing of JavaScript functions as and when they were created.
-* [Heroku:](https://www.heroku.com/) Hosted the live site
-* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Nunito' font.
+* [Heroku:](https://www.heroku.com/) Hosts the live site.
+* [Google Fonts:](https://fonts.google.com/) Provided my site with the 'Varela' font.
 * [InVision:](https://www.invisionapp.com/) Used to create all of my wireframes at the beginning of the development process.
 * [JSHint:](https://jshint.com/) Checked my javascript code was valid and error free.
-* [PEP8Online:](http://pep8online.com/) Confirmed that my Python code complied to PEP8 standards.
+* [PEP8Online:](http://pep8online.com/) Confirmed that my Python code complied with PEP8 standards.
 * [TinyJPG:](https://tinyjpg.com/) Service used to compress background images and help with site performance
 * [Trello:](https://trello.com/) Used to split all tasks into several sprints, to help bring the development process in line with agile principles.
 * [W3C CSS Validation Service:](https://jigsaw.w3.org/css-validator/) Confirmed that my CSS is legal.
@@ -512,15 +555,15 @@ Please see a full report of the testing applied to this project [here.](testing.
 
 ## Deployment
 
-This project was deployed very early on during devlopment to Heroku and linked to GitHub through automatic deploys so that changes made to the development environment would update on the live site as soon as they were pushed from Gitpod.
+This project was deployed very early on during development to Heroku and linked to GitHub through automatic deployments so that changes made to the development environment would update on the live site as soon as they were pushed from Gitpod.
 
 The steps taken to deploy this project were as follows:
 
-1. Open the project in Gitpod, and run the command *pip3 freeze > requirements.txt* to create a txt file that Heroku reads to check which dependencies are in use on the site.
+1. Open the project in Gitpod, and run the command ` pip3 freeze > requirements.txt ` to create a txt file that Heroku uses to check which dependencies are in use on the site.
 2. Create a Procfile by following these steps:
-    * Run *pip3 install gunicorn*
-    * Create a Procfile in your foot directory
-    * At the top of the Procfile, add *web: gunicorn slice_of_pie.wsgi:application*
+    * Run ` pip3 install gunicorn `
+    * Create a Procfile in your root directory
+    * At the top of the Procfile, add ` web: gunicorn slice_of_pie.wsgi:application `
 3. Commit these new changes to ensure your repository is up to date. 
 4. Create a new app in Heroku by signing into the dashboard, clicking 'Create new app' and choosing a relevant name (ensuring that there are dashes where spaces might be).
 5. Add a Postgres database to your Heroku app by navigating to the 'Resources' tab and searching for the Heroku Postgres free plan.
@@ -533,23 +576,23 @@ The steps taken to deploy this project were as follows:
 | USE_AWS           | True
 | SECRET_KEY        | *my_secret_key*
 7. Add a new database in your *settings.py* file as follows:
-    * Run *pip3 install dj_database_url* and *pip3 install pyscopg2* in your terminal, making sure not to forget to freeze these latest requirements to *requirments.txt*
-    * At the top of *settings.py*, add in the line *import dj_database_url* alongside your other imports
-    * Comment out *DATABASES* in your *settings.py* file (this will only be temporarily)
+    * Run ` pip3 install dj_database_url ` and ` pip3 install pyscopg2 ` in your terminal, making sure not to forget to freeze these latest requirements to *requirments.txt*
+    * At the top of *settings.py*, add in the line ` import dj_database_url ` alongside your other imports.
+    * Comment out *DATABASES* in your *settings.py* file (this will only be temporarily).
     * Add this line in, which includes your Postgres URL so **do not push any changes to GitHub for the moment**:
 ```
     DATABASES = {
         'default': dj_database_url.parse("*your Postrgres database URL*")
     }
 ```
-8. Make migrations of your models to the Postgres database with the *python3 manage.py makemigrations* and *python3 manage.py migrate* commands in your terminal.
+8. Make migrations of your models to the Postgres database with the ` python3 manage.py makemigrations ` and ` python3 manage.py migrate ` commands in your terminal.
 9. Load the data fixtures from the json data files with these commands (make sure products is definitely last, otherwise proceed in whatever order): 
-    * *python3 manage.py loaddata angles*
-    * *python3 manage.py loaddata levels*
-    * *python3 manage.py loaddata materials*
-    * *python3 manage.py loaddata products*
-10. Create a superuser which will have admin rights on the live site by running *python3 manage.py createsuperuser* in your terminal and following the steps when prompted.
-11. Uncomment the previously commented out DATABASES section and removing the sensetive postgres data. The final version of this section should be an if statement which checks which environment before assigning the correct database:
+    * ` python3 manage.py loaddata angles `
+    * ` python3 manage.py loaddata levels `
+    * ` python3 manage.py loaddata materials `
+    * ` python3 manage.py loaddata products `
+10. Create a superuser which will have admin rights on the live site by running ` python3 manage.py createsuperuser`  in your terminal and following the steps when prompted.
+11. Uncomment the previously commented out *DATABASES* section and removing the sensitive postgres data. The final version of this section should be an if statement which checks which environment before assigning the correct database:
 ```
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
@@ -566,20 +609,20 @@ else:
 12. Add your live hostname to the *ALLOWED_HOSTS* section of *settings.py*, using a comma to separate from the 'localhost'
 13. Add your code changes to the staging area, commit, and push to GitHub.
 14. Finally, enable automatic deployment to Heroku:
-    * Navigate to the 'Deploy' section 
-    * Scroll to the Deployment method section
-    * Click connect to GitHub
-    * Search for your repository and select it
-    * Scroll down to 'Automatic Deployment, and click 'Enable Automatic Deploys'
+    * Navigate to the 'Deploy' section. 
+    * Scroll to the Deployment method section.
+    * Click connect to GitHub.
+    * Search for your repository and select it.
+    * Scroll down to 'Automatic Deployment, and click 'Enable Automatic Deploys'.
 
 ## Setting up Amazon Web Services (AWS)
 
-You will likely need to host static files and iamges with AWS for a site like this, and can do so with the following steps:
-### S3
+You will likely need to host static files and images with AWS for a site like this, and can do so with the following steps:
+### *S3*
 1. Create a free AWS account and head to the AWS management console.
 2. Search for **S3** or find it in the services section, then create a new bucket.
-3. Enter a bucket name (chosing the name of your project would be logical here) and select the nearest available region, uncheck 'Block public access' box, then click 'Create bucket'.
-4. Click into the newly created bucket, navigate to 'Properties' tab, turn on static website hosting, and fill in index and error document fields with *index.html* and *error.html* respectively.
+3. Enter a bucket name (choosing the name of your project would be logical here) and select the nearest available region, uncheck *Block public access* box, then click *Create bucket*.
+4. Click on the newly created bucket, navigate to *Properties* tab, turn on static website hosting, and fill in index and error document fields with *index.html* and *error.html* respectively.
 5. In the Permissions section, paste in the following configuration:
 ```
 [
@@ -602,20 +645,20 @@ You will likely need to host static files and iamges with AWS for a site like th
 8. Return to the previous tab (without closing down the policy generator) and copy the arn number, paste it into the ARN field in the policy generator.
 9. Click 'Add Statement', click 'Generate Policy', copy the json code that displays, and paste it into the Bucket Policy tab from before.
 10. Add ` /*  ` to the end of the 'Resource' line, and click save.
-11. Navigate to the 'Access Control List' tab within permissions and set the List objects for everyone under the Public Access section.
+11. Navigate to the *Access Control List* tab within permissions and set the List objects for everyone under the Public Access section.
 ### IAM
 12. Return to the services section of AWS and open **IAM**
-13. Navigate to 'Groups', create a group, and name it something that makes sense for the project (with dashes instead of spaces).
+13. Navigate to *Groups*, create a group, and name it something that makes sense for the project (with dashes instead of spaces).
 14. Click 'Next Step' until you reach the 'Create Group' button, and click that one too.
 15. Click on 'Policies, then 'Create Policy'. Go to the JSON tab, then click 'import managed policy', then search and import the 'S3' policy.
-16. Retrieve the buket ARN from S3, and paste it in the 'Resource" line of the JSON document, duplicating it with a ` /* ` at the end of the second line.
+16. Retrieve the bucket ARN from S3, and paste it in the 'Resource' line of the JSON document, duplicating it with a ` /* ` at the end of the second line.
 17. Click 'Review Policy', give it a name and description, and click 'Create Policy'.
-18. Attach the policy to the previously created group by going to 'Groups', clicking on the correct group, click 'Attach Policy', search for and select the recently created policy, and click 'Attach Policy'
-19. Create a user to put in the group by navigating to 'Users', clicking 'Add user', fill in a user name, select 'Programmatic access', select 'Next'.
-20. Tick the corect user, and then click through the 'Next' buttons until the end before clicking 'Create User'
-21. Download and save the CSV file, this is important for connecting to Django.
-### Connecting to Django
-22. Back in your workspace, run two instalation commands: *pip3 install boto3* and *pip3 install django-storages*, making sure to freeze them in to the requirements.txt file.
+18. Attach the policy to the previously created group by going to *Groups*, clicking on the correct group, clicking 'Attach Policy', search for and select the recently created policy, and then click 'Attach Policy'.
+19. Create a user to put in the group by navigating to *Users*, clicking 'Add user', filling in a username, selecting 'Programmatic access', and then selecting 'Next'.
+20. Tick the correct user, and then click through the 'Next' buttons until the end before clicking 'Create User'.
+21. **Download and save the CSV file, this is important for connecting to Django.**
+### *Connecting to Django*
+22. Back in your workspace, run two installation commands: ` pip3 install boto3 ` and ` pip3 install django-storages `, making sure to freeze them in to the *requirements.txt* file.
 23. Add storages to installed apps in *settings.py*.
 24. Add the following line of code into *settings.py*:
     ```
@@ -642,10 +685,10 @@ You will likely need to host static files and iamges with AWS for a site like th
     ```
 24. Add all AWS variables to Heroku configuration settings (these can be found in the previously downloaded CSV file).
 25. Add in the USE_AWS variable into the Heroku configuration settings, with a value of *True*.
-26. Create a file called *custom_storages.py* in the root level directory, import settings and S3Boto3Storage from storages.backends.s3boto3 at the top of the file.
+26. Create a file called *custom_storages.py* in the root level directory of your workspace, import settings and S3Boto3Storage from storages.backends.s3boto3 at the top of the file.
 27. Create classes for static storage and media storage, inheriting S3Boto3Storage, and setting the location of the static and media files.
 28. Add, commit and push all changes to trigger automatic deployment to Heroku - you should be able to check everything is working so far from the build logs and in S3.
-29. Create a media folder in S3, and upload all the images required on the site, ensuring to grand public read access to the images.
+29. Create a media folder in S3, and upload all the images required on the site, ensuring to grant public read access to the images.
 
 ## Setting up email confirmations
 
@@ -654,8 +697,8 @@ If you want to set up automated emails with Django and Gmail, follow these steps
 1. Create a Gmail account (or sign in if you have one already), navigate to 'Account Settings', 'Other Google Account Settings', 'Security.
 2. Turn on 2-step verification if it hasn't already.
 3. Go to 'App passwords' within 'Security', select 'Mail' from the dropdown choices, and copy the long character password.
-4. Add this password into the Heroku configuration variabls as EMAIL_HOST_PASS.
-5. Copy your Gmail address and addd it as the EMAIL_HOST_USER to the Heroku configuration variables.
+4. Add this password into the Heroku configuration variables as EMAIL_HOST_PASS.
+5. Copy your Gmail address and add it as the EMAIL_HOST_USER to the Heroku configuration variables.
 
 ## Cloning
 
@@ -663,7 +706,7 @@ You're more than welcome to clone this repository is you like, just follow these
 
 1. Within this repository, navigate to the Code button and copy the URL
 2. In your workspace, run a ` git clone ` command with the repository url.
-3. Install the requirments by running ` pip3 install -r requirements.txt `.
+3. Install the requirements by running ` pip3 install -r requirements.txt `.
 4. Set environment variables as per all previous steps when setting up AWS and deploying to Heroku.
 5. Migrate the models by running the following commands
     ```
@@ -697,9 +740,9 @@ You're more than welcome to clone this repository is you like, just follow these
 
 Code snippets and inspiration are detailed below, and are also included via comments in the code itself.
 
-* My naviation bar was inspired by and amended from to spec after reading [this helpful blog post](https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/) by Aleksandr Hovhannisyan.
+* My navigation bar was inspired by and amended to spec after reading [this helpful blog post](https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/) by Aleksandr Hovhannisyan.
 
-* Help generating a random product for the product detail page's recommended products section was found on [this helpful article](https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html) and tweaked to work correctly.
+* Help generating a random product for the product detail page's recommended products section using python and django syntax was found on [this helpful article](https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html) and tweaked to work correctly.
 
 * Help implementing a smooth scrolling effect to the top of a page smoothly using JS was found on [this article](https://stackoverflow.com/questions/15935318/smooth-scroll-to-top).
 
