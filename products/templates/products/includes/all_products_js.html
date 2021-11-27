@@ -21,21 +21,21 @@
 
           window.location.replace(currentUrl);
        }
-    })
+    });
  </script>
 
 <!-- Open and close filter section -->
 <script>
     const filterBtn = document.querySelector('#filter');
-    const filterOptions = document.querySelector('.filter-options')
+    const filterOptions = document.querySelector('.filter-options');
     filterBtn.addEventListener('click', () => {
        filterOptions.classList.add('.filter-opened');
-    })
+    });
 
-    const closeFilter = document.querySelector('.close-filter')
+    const closeFilter = document.querySelector('.close-filter');
     closeFilter.addEventListener('click', () => {
        filterOptions.classList.remove('.filter-opened');
-    })
+    });
  </script>  
 
 <!-- Handle filter form -->
@@ -45,19 +45,19 @@
         let currentUrl = new URL(window.location)['href'];
         currentUrl = currentUrl.split('products/')[0];
         let urlString = currentUrl + 'products/?';
-        for (input of inputs) {
+        for (let input of inputs) {
             if (input['checked']) {
                 urlString += (input.classList[1] + '=' + input['value'] + '&');
             }
         }
         urlString = urlString.slice(0, -1);
         window.location = urlString;
-    };
+    }
 
     let button = document.querySelector('#apply-filter');
     button.addEventListener('click', () => {
         createUrl();
-    })
+    });
 
 </script>
 
@@ -85,18 +85,18 @@
             sortStart.appendChild(sortButton);
             filterForm.classList.add('center-content');
         }
-    })
+    });
 </script>
 
 <!-- Product animations -->
 <script>
     function productCardRight(card) {
-        var cardHover = card.querySelector('.product-card-image-container');
+        let cardHover = card.querySelector('.product-card-image-container');
         cardHover.style.transform = "translate(-100%,0)";
     }
 
     function productCardLeft(card) {
-        var cardHover = card.querySelector('.product-card-image-container');
+        let cardHover = card.querySelector('.product-card-image-container');
         cardHover.style.transform = "translate(0,0)";
     }
 </script>
@@ -129,7 +129,7 @@
         currentFilter = "pine";
     }
     
-    for (radioInput of radioInputs) {
+    for (let radioInput of radioInputs) {
         if (radioInput.id === currentFilter) {
             radioInput.setAttribute('checked', 'true');
         }
@@ -143,5 +143,5 @@
     backToTop.addEventListener('click', () => {
         // Smooth scroll to top found on https://stackoverflow.com/questions/15935318/smooth-scroll-to-top
         window.scrollTo({top: 0, behavior: 'smooth'});
-    })
+    });
 </script>

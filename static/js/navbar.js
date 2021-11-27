@@ -1,29 +1,29 @@
 /* Give the correct profile button the navBarDropdown ID and aria label */
 let mobileDropdown = document.querySelector('[data-screen="link-small"]');
 let largerDropdown = document.querySelector('[data-screen="link-large"]');
-let mobileMenu = document.querySelector('[data-screen="menu-small')
-let largerMenu = document.querySelector('[data-screen="menu-large')
+let mobileMenu = document.querySelector('[data-screen="menu-small');
+let largerMenu = document.querySelector('[data-screen="menu-large');
 
 if (window.innerWidth > 767) {
   largerDropdown.setAttribute('id', 'navbarDropdown');
-  largerDropdown.setAttribute('aria-labelledby', 'navbarDropdown');
+  largerMenu.setAttribute('aria-labelledby', 'navbarDropdown');
 } else {
   mobileDropdown.setAttribute('id', 'navbarDropdown');
-  mobileDropdown.setAttribute('aria-labelledby', 'navbarDropdown');
+  mobileMenu.setAttribute('aria-labelledby', 'navbarDropdown');
 }
 window.addEventListener('resize', () => {
   if (window.innerWidth > 767) {
       mobileDropdown.removeAttribute('id', 'navbarDropdown');
-      mobileDropdown.removeAttribute('aria-labelledby', 'navbarDropdown');
+      mobileMenu.removeAttribute('aria-labelledby', 'navbarDropdown');
       largerDropdown.setAttribute('id', 'navbarDropdown');
-      largerDropdown.setAttribute('aria-labelledby', 'navbarDropdown');
+      largerMenu.setAttribute('aria-labelledby', 'navbarDropdown');
   } else {
       largerDropdown.removeAttribute('id', 'navbarDropdown');
-      largerDropdown.removeAttribute('aria-labelledby', 'navbarDropdown');
+      largerMenu.removeAttribute('aria-labelledby', 'navbarDropdown');
       mobileDropdown.setAttribute('id', 'navbarDropdown');
-      mobileDropdown.setAttribute('aria-labelledby', 'navbarDropdown');
+      mobileMenu.setAttribute('aria-labelledby', 'navbarDropdown');
   }
-})
+});
 
 /* Source - responsive navigation bar sourced and tweaked to spec from https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/ */
 const navbar = document.getElementById("navigation-bar");

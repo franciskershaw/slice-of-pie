@@ -11,7 +11,7 @@
 
     // Ensure decrease input is initially disabled
     let allQtyInputsBskt = $('.qty_input_bskt');
-    for (input of allQtyInputsBskt) {
+    for (let input of allQtyInputsBskt) {
         let itemId = $(input).data('item_id');
         handleEnableDisableBskt(itemId);
     }
@@ -20,7 +20,7 @@
     $('.qty_input_bskt').change(function() {
         let itemId = $(this).data('item_id');
         handleEnableDisableBskt(itemId);
-    })
+    });
     
     // Increment the value of the quantity input field
     $('.increment-qty_bskt').click(function(e) {
@@ -30,7 +30,7 @@
         $(closestInput).val(currentValue + 1);
         let itemId = $(this).data('item_id');
         handleEnableDisableBskt(itemId);
-    })
+    });
 
     // Decrement the value of the quantity input field   
     $('.decrement-qty_bskt').click(function(e) {

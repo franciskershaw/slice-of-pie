@@ -116,5 +116,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function() {
         // Reload in case of error
         location.reload();
-    })
+    });
 });

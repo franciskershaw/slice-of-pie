@@ -7,8 +7,8 @@ $(document).ready( () => {
     wishListIcons.forEach((wishListIcon) => {
         wishListIcon.addEventListener('click', () => {
             wishListSideBar.classList.add('sidebar-opened');
-        })
-    })
+        });
+    });
 
     // Open basket
     const basketIcons = document.querySelectorAll('.basket-btn');
@@ -16,8 +16,8 @@ $(document).ready( () => {
     basketIcons.forEach((basketIcon) => {
         basketIcon.addEventListener('click', () => {
             basketSideBar.classList.add('sidebar-opened');
-        })
-    })
+        });
+    });
 
     // Close sidebars
     const closeButtons = document.querySelectorAll('.close-sidebar');
@@ -25,7 +25,7 @@ $(document).ready( () => {
         closeButton.addEventListener('click', () => {
             wishListSideBar.classList.remove('sidebar-opened');
             basketSideBar.classList.remove('sidebar-opened');
-        })
-    })
+        });
+    });
 
-})
+});

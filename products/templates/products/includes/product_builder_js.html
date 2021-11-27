@@ -7,10 +7,10 @@
         chosenMaterial: ""
     };
 
-    var transformPosition = 0;
-    var productBuilderMiddle = document.querySelector('.productbuilder-middle');
-    var productBuilderMiddleLevels = document.querySelector('.productbuilder-middle-levels');
-    var productBuilderMiddleLevelsWidth = (productBuilderMiddleLevels.getBoundingClientRect().width + 200);
+    let transformPosition = 0;
+    let productBuilderMiddle = document.querySelector('.productbuilder-middle');
+    let productBuilderMiddleLevels = document.querySelector('.productbuilder-middle-levels');
+    let productBuilderMiddleLevelsWidth = (productBuilderMiddleLevels.getBoundingClientRect().width + 200);
 
     function resizeVars() {
         productBuilderMiddle = document.querySelector('.productbuilder-middle');
@@ -27,19 +27,19 @@
             // Only execute function when product option tile clicked
             if (!event.target.matches('.productbuilder-productoptions-image')) return false;
 
-            var productSelectedImg = String(document.querySelector(
+            let productSelectedImg = String(document.querySelector(
                 '.productbuilder-productselected-image').src);
-            var productOptionSelected = event.target.parentNode;
-            var productOptionSelectedData = String(event.target.getAttribute("data-product"));
-            var productOptionSelectedType = productOptionSelected.classList[1];
-            var productOptionSelectedTypeAll = document.querySelectorAll(
+            let productOptionSelected = event.target.parentNode;
+            let productOptionSelectedData = String(event.target.getAttribute("data-product"));
+            let productOptionSelectedType = productOptionSelected.classList[1];
+            let productOptionSelectedTypeAll = document.querySelectorAll(
                 `.${productOptionSelectedType}`);
 
-            var productSelectedImgStr = productSelectedImg.split("media/")[1].split("-");
-            var productSelectedImgStart = productSelectedImg.split("media/")[0] + "media/";
-            var productSelectedLevels = productSelectedImgStr[0];
-            var productSelectedMaterial = productSelectedImgStr[1];
-            var productSelectedDeg = productSelectedImgStr[2];
+            let productSelectedImgStr = productSelectedImg.split("media/")[1].split("-");
+            let productSelectedImgStart = productSelectedImg.split("media/")[0] + "media/";
+            let productSelectedLevels = productSelectedImgStr[0];
+            let productSelectedMaterial = productSelectedImgStr[1];
+            let productSelectedDeg = productSelectedImgStr[2];
 
             if (productOptionSelectedType == "productbuilder-productoptions-levels") {
                 productSelectedLevels = productOptionSelectedData;
@@ -75,8 +75,8 @@
                 }
             }
 
-            var newImageStr = productSelectedLevels + "-" + productSelectedMaterial + "-" +
-                productSelectedDeg
+            let newImageStr = productSelectedLevels + "-" + productSelectedMaterial + "-" +
+                productSelectedDeg;
 
             for (let i = 0; i < productOptionSelectedTypeAll.length; i++) {
                 productOptionSelectedTypeAll[i].classList.remove(
@@ -88,22 +88,22 @@
             document.getElementById("productbuilder-productselected-image").src = productSelectedImg;
 
             if (productOptionSelectedType !== "productbuilder-productoptions-material") {
-                transformPosition -= productBuilderMiddleLevelsWidth
+                transformPosition -= productBuilderMiddleLevelsWidth;
                 productBuilderMiddle.style.transform = `translateX(${transformPosition}px)`;
             } else {
                 document.querySelector('#view-table').classList.remove("d-none");
             }
 
             findFinalProduct();
-        })
-    })
+        });
+    });
 
     document.querySelectorAll('.icon-left').forEach(iconLeft => {
         iconLeft.addEventListener('click', event => {
-            transformPosition += productBuilderMiddleLevelsWidth
+            transformPosition += productBuilderMiddleLevelsWidth;
             productBuilderMiddle.style.transform = `translateX(${transformPosition}px)`;
-        })
-    })
+        });
+    });
 
     function findFinalProduct() {
         let finalProduct = userChoices.chosenLevels + " " + userChoices.chosenMaterial + " " + userChoices.chosenSize +
@@ -117,6 +117,6 @@
                 let productId = product.getAttribute('id');
                 productLink.href = `/products/${productId}`;
             }
-        })
+        });
     }
 </script>
