@@ -23,7 +23,7 @@ You can view the live site [here](https://slice-of-pie.herokuapp.com/), and a li
         * [Typography](#typography)
         * [Animations](#animations)
     * [Data Model](#data-model)
-* [Features and Django Apps](#features-and-django-apps)
+* [Apps and Features](#apps-and-features)
 * [Existing Features](#existing-features)
 * [Defensive design features](#defensive-design-features)
 * [Features left to implement](#features-left-to-implement)
