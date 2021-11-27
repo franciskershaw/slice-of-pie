@@ -753,9 +753,9 @@ div#tagline-container {
 	padding: 0 0 20px;
 }
 
-.product-card-view a {
+/* .product-card-view a {
   color: var(--burgendy);
-}
+} */
 
 .unavailable img {
   opacity: .5;
@@ -763,7 +763,8 @@ div#tagline-container {
 
 /* Source: css animation borrowed from https://codemyui.com/minimalistic-hover-effect-button-animations/*/
 
-.product-card-cta-container button {
+.product-card-cta-container button,
+.product-card-cta-container a {
   padding: 10px 15px;
 	background: #fff;
 	font-size: 16px;
@@ -778,7 +779,8 @@ div#tagline-container {
   border-radius: 0.25em;
 }
 
-.product-card-cta-container button:after {
+.product-card-cta-container button:after,
+.product-card-cta-container a:after {
   position: absolute;
   content: "";
   width: 100%;
@@ -791,17 +793,20 @@ div#tagline-container {
 }
 
 .product-card-cta-container button:hover,
+.product-card-cta-container a:hover,
 .product-card-view a:hover {
   color: var(--white);
 }
 
-.product-card-cta-container button:hover:after {
+.product-card-cta-container button:hover:after,
+.product-card-cta-container a:hover:after {
   top: auto;
   bottom: 0;
   height: 100%;
 }
 
-.product-card-cta-container button:active {
+.product-card-cta-container button:active,
+.product-card-cta-container a:active {
   top: 2px;
 }
 

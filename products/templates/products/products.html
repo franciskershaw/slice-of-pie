@@ -60,7 +60,7 @@
                 </div>
                 <div class="product-card-cta-container">
                   <a href="{% url 'product_detail' product.id %}" class="btn product-card-view">
-                  <button>View</button>
+                    View
                   </a>
                   <form method="POST" action="{% url 'add_to_wishlist' product.id %}" class="d-inline">
                     {% csrf_token %}
