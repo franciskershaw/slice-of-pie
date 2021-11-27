@@ -682,20 +682,28 @@ You're more than welcome to clone this repository is you like, just follow these
 
 ## Credits
 
-* Code for the navigation bar was sourced and then tweaked to spec from [this helpful blog post](https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/) by Aleksandr Hovhannisyan
-
-* Help customising checkboxes pulled from [this helpful article](https://www.html5canvastutorials.com/blog/2012/06/custom-form-radio-checkbox/) by Roy Saurav
-
-* Help getting a random product for the product detail page's recommended products from [this helpful article](https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html)
-
-* Help scrolling to the top of a page smoothly using JS found on [this article](https://stackoverflow.com/questions/15935318/smooth-scroll-to-top)
-
 ### Media
 
-* Hero image: https://unsplash.com/photos/iLFOK7ntmgs
-* About image: https://unsplash.com/photos/wSBL_x4R-Io
+* The hero image found on the homepage is a free to licence photo from Unsplash, and can be found [here](https://unsplash.com/photos/iLFOK7ntmgs).
+
+* The image of various materials in the about section of the homepage was also from Unsplach, and can be found [here](https://unsplash.com/photos/wSBL_x4R-Io).
+
+* All product images were computer generated while the product remains in the prototype stage, and were produced by Zoe Thexton.
+
 
 ### Acknowledgements
+
+**The code for this project was inspired by the Code Institute's walk through project, *Boutique Ado*. There will be similarities in how much of the backend was structured, though with significant customisation to apply it properly to this project.**
+
+Code snippets and inspiration are detailed below, and are also included via comments in the code itself.
+
+* My naviation bar was inspired by and amended from to spec after reading [this helpful blog post](https://www.aleksandrhovhannisyan.com/blog/responsive-navbar-without-bootstrap/) by Aleksandr Hovhannisyan.
+
+* Help generating a random product for the product detail page's recommended products section was found on [this helpful article](https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html) and tweaked to work correctly.
+
+* Help implementing a smooth scrolling effect to the top of a page smoothly using JS was found on [this article](https://stackoverflow.com/questions/15935318/smooth-scroll-to-top).
+
+* The wipe-up hover effect that can be seen on all 'View' or add to wishlist buttons was borrowed from [this article](https://codemyui.com/minimalistic-hover-effect-button-animations/)
 
 A huge thank you to all the people who took part in user testing, the Code Institute's Slack community, and my mentor Aaron Sinnott for advice at various stages during development of the site.
 
