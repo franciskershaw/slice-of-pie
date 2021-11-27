@@ -1,55 +1,57 @@
 <div class="wishlist-sidebar sidebar flexbox-container container">
-    <div class="row">
-        <div class="col-12 sidebar-header">
-            <button class="close-sidebar"><i class="fas fa-times"><span class="sr-only">close sidebar</span></i></button>
-            <div>Wish List <i class="fas fa-heart"><span class="sr-only">wishlist</span></i></div>
-        </div>
-        {% if wishlist_items %}
-            {% for item in wishlist_items %}
-            <div class="row bskt-container">
-                <div class="col-12 bskt-img-container{% if item.product.unavailable %} unavailable{% endif %}">
-                    <img class="product-image bskt-image" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
-                    alt="{{ product.name }}">
-                </div>
-                <div class="col-12">
-                    <p>{{ item.product.name }}</p>
-                </div>
-                {% if item.product.unavailable %}
-                    <div class="col-12">
-                        <p>Coming back soon</p>
-                    </div>
-                {% endif %}
-                <div class="col-12">
-                    <div class="row">
-                        {% if item.product.unavailable %}
-                            <div class="col-12 text-center">
-                                <button class="btn remove-item-wishlist bskt-btn" id="remove_{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Remove</span></button>
-                            </div>
-                        {% else %}
-                            <div class="col-6 text-right">
-                                <button class="btn into-basket bskt-btn" id="into_basket_{{ item.item_id }}"><i class="fas fa-shopping-basket"></i><span class="sr-only">Basket</span></button>
-                            </div>
-                            <div class="col-6 text-left">
-                                <button class="btn remove-item-wishlist bskt-btn" id="remove_{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Remove</span></button>
-                            </div>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>    
-        {% endfor %}
-        {% else %}
-            <div class="col-12 empty-sidebar">
-                <p>Your wish list is empty</p>
-            </div>
-            <div class="col-12">
-                <a href="{% url 'product_builder' %}" class="btn btn-primary btn-md cta-btn">Build Table</a>
-            </div>
-        {% endif %}
+  <div class="row">
+    <div class="col-12 sidebar-header">
+      <button class="close-sidebar"><i class="fas fa-times"><span class="sr-only">close sidebar</span></i></button>
+      <div>Wish List <i class="fas fa-heart"><span class="sr-only">wishlist</span></i></div>
     </div>
+    {% if wishlist_items %}
+    <!-- Wishlist items -->
+      {% for item in wishlist_items %}
+        <div class="row bskt-container">
+          <div class="col-12 bskt-img-container{% if item.product.unavailable %} unavailable{% endif %}">
+            <img class="product-image bskt-image" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
+              alt="{{ product.name }}">
+          </div>
+          <div class="col-12">
+            <p>{{ item.product.name }}</p>
+          </div>
+          {% if item.product.unavailable %}
+            <div class="col-12">
+              <p>Coming back soon</p>
+            </div>
+          {% endif %}
+          <div class="col-12">
+            <div class="row">
+             <!-- User actions -->
+              {% if item.product.unavailable %}
+                <div class="col-12 text-center">
+                  <button class="btn remove-item-wishlist bskt-btn" id="remove_{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Remove</span></button>
+                </div>
+              {% else %}
+                <div class="col-6 text-right">
+                  <button class="btn into-basket bskt-btn" id="into_basket_{{ item.item_id }}"><i class="fas fa-shopping-basket"></i><span class="sr-only">Basket</span></button>
+                </div>
+                <div class="col-6 text-left">
+                  <button class="btn remove-item-wishlist bskt-btn" id="remove_{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Remove</span></button>
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="col-12 empty-sidebar">
+        <p>Your wish list is empty</p>
+      </div>
+      <div class="col-12">
+        <a href="{% url 'product_builder' %}" class="btn btn-primary btn-md cta-btn">Build Table</a>
+      </div>
+    {% endif %}
+  </div>
 </div>
 
-{% block postloadjs %}
-<script type="text/javascript">
+  {% block postloadjs %}
+  <script type="text/javascript">
     $('.remove-item-wishlist').click(function(e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('remove_')[1]
@@ -62,7 +64,7 @@
                 location.reload();
             });
     });
-
+    
     $('.into-basket').click(function(e) {
         let csrfToken = "{{ csrf_token }}";
         let itemId = $(this).attr('id').split('into_basket_')[1];
@@ -75,5 +77,5 @@
                 location.reload();
             });
     })
-</script>
-{% endblock %}
+  </script>
+  {% endblock %}

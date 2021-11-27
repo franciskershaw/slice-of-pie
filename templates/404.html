@@ -1,20 +1,19 @@
 {% extends "base.html" %}
+
 {% load static %}
 
 {% block content %}
-
-<div class="page-container container-fluid error-page">
+  <div class="page-container container-fluid error-page">
     <div class="row text-center login-form-content">
-        <div class="col-12">
-            <h1>404</h1>
-        </div>
-        <div class="col-12">
-            <h2>This page doesn't exist</h2>
-        </div>
-        <div class="col-12">
-            <a class="btn bskt-btn checkout-btn error-btn" href="{% url 'home' %}">Back Home</a>
-        </div>
+      <div class="col-12">
+        <h1>404</h1>
+      </div>
+      <div class="col-12">
+        <h2>This page doesn't exist</h2>
+      </div>
+      <div class="col-12">
+        <a class="btn bskt-btn checkout-btn error-btn" href="{% url 'home' %}">Back Home</a>
+      </div>
     </div>
-</div>
-
+  </div>
 {% endblock %}

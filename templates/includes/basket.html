@@ -1,94 +1,96 @@
 {% load basket_tools %}
 <div class="basket-sidebar sidebar flexbox-container container">
-    <div class="row">
-        <div class="col-12 sidebar-header">
-            <button class="close-sidebar"><i class="fas fa-times"><span class="sr-only">close sidebar</span></i></button>
-            <div>Basket <i class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></div>
-        </div>
-        {% if basket_items %}
-        <div class="col-12 bskt-headers-container">
-            <div class="bskt-headers">Items: {{ product_count }}</div>
-            <div class="bskt-headers bskt-total">Total: £{{ total }}</div>
-            <a class="bskt-btn" href="{% url 'checkout' %}">Secure Checkout <i class="fas fa-lock"></i><span class="sr-only">Lock</span></a>
-        </div>
+  <div class="row">
+    <div class="col-12 sidebar-header">
+      <button class="close-sidebar"><i class="fas fa-times"><span class="sr-only">close sidebar</span></i></button>
+      <div>Basket <i class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></div>
     </div>
-    {% for item in basket_items %}
-    <div class="row bskt-container">
-        <div class="col-12 bskt-img-container">
+    {% if basket_items %}
+    <!-- Basket information -->
+      <div class="col-12 bskt-headers-container">
+        <div class="bskt-headers">Items: {{ product_count }}</div>
+        <div class="bskt-headers bskt-total">Total: £{{ total }}</div>
+        <a class="bskt-btn" href="{% url 'checkout' %}">Secure Checkout <i class="fas fa-lock"></i><span class="sr-only">Lock</span></a>
+      </div>
+  </div>
+      <!-- Item information -->
+      {% for item in basket_items %}
+        <div class="row bskt-container">
+          <div class="col-12 bskt-img-container">
             <img class="product-image bskt-image" src="{{ MEDIA_URL }}{{ item.product.image_1 }}"
-            alt="{{ product.name }}">
-        </div>
-        <div class="col-12 sub-total">Subtotal: £{{ item.product.price | calc_subtotal:item.quantity }}</div>
-        <div class="col-12">
+              alt="{{ product.name }}">
+          </div>
+          <div class="col-12 sub-total">Subtotal: £{{ item.product.price | calc_subtotal:item.quantity }}</div>
+          <div class="col-12">
+            <!-- Update quantity form -->
             <form class="form update-form" method="POST" action="{% url 'adjust_basket' item.item_id %}" id="form_{{ item.item_id }}">
-                {% csrf_token %}
-                    <div class="input-group_bskt row">
-                        <div class="col-3"></div>
-                        <div class="col-2 p-0 text-right">
-                            <button class="decrement-qty_bskt bskt-qty-btn" data-item_id="{{ item.item_id }}"
-                             id="decrement-qty_bskt_{{ item.item_id }}">
-                                <span>
-                                    <i class="fas fa-minus fa-sm"></i>
-                                    <span class="sr-only">Minus</span>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="col-2 p-0">
-                            <input class="qty_input_bskt" type="number" name="quantity" value="{{ item.quantity }}" min="1"
-                          max="99" data-item_id="{{ item.item_id }}" id="id_qty_bskt_{{ item.item_id }}">
-                        </div>
-                        <div class="col-2 p-0 text-left">
-                            <button class="increment-qty_bskt bskt-qty-btn" data-item_id="{{ item.item_id }}"
-                             id="increment-qty_bskt_{{ item.item_id }}">
-                                <span>
-                                    <i class="fas fa-plus fa-sm"></i>
-                                    <span class="sr-only">Add</span>
-                                </span>
-                            </button>
-                        </div>
-                        <div class="col-3"></div>
-                    </div>
-                 <input type="hidden" name="redirect_url" value="{{ request.path }}">
+              {% csrf_token %}
+              <div class="input-group_bskt row">
+                <div class="col-3"></div>
+                <div class="col-2 p-0 text-right">
+                  <button class="decrement-qty_bskt bskt-qty-btn" data-item_id="{{ item.item_id }}"
+                    id="decrement-qty_bskt_{{ item.item_id }}">
+                  <span>
+                  <i class="fas fa-minus fa-sm"></i>
+                  <span class="sr-only">Minus</span>
+                  </span>
+                  </button>
+                </div>
+                <div class="col-2 p-0">
+                  <input class="qty_input_bskt" type="number" name="quantity" value="{{ item.quantity }}" min="1"
+                    max="99" data-item_id="{{ item.item_id }}" id="id_qty_bskt_{{ item.item_id }}">
+                </div>
+                <div class="col-2 p-0 text-left">
+                  <button class="increment-qty_bskt bskt-qty-btn" data-item_id="{{ item.item_id }}"
+                    id="increment-qty_bskt_{{ item.item_id }}">
+                  <span>
+                  <i class="fas fa-plus fa-sm"></i>
+                  <span class="sr-only">Add</span>
+                  </span>
+                  </button>
+                </div>
+                <div class="col-3"></div>
+              </div>
+              <input type="hidden" name="redirect_url" value="{{ request.path }}">
             </form>
             <a class="update-link bskt-btn">Update</a>
             <a class="remove-item bskt-btn border-0" id="remove_item{{ item.item_id }}"><i class="far fa-trash-alt"></i><span class="sr-only">Delete</span></a>
+          </div>
         </div>
-    </div>    
-    {% endfor %}
-        {% else %}
-        <div class="col-12 empty-sidebar">
-            <p>Your Basket is empty</p>
-        </div>
-        <div class="col-12">
-            <a href="{% url 'product_builder' %}" class="btn btn-primary btn-md cta-btn">Build Table</a>
-        </div>
-        {% endif %}
+      {% endfor %}
+    {% else %}
+      <div class="col-12 empty-sidebar">
+        <p>Your Basket is empty</p>
+      </div>
+      <div class="col-12">
+        <a href="{% url 'product_builder' %}" class="btn btn-primary btn-md cta-btn">Build Table</a>
+      </div>
+    {% endif %}
     </div>
 </div>
 {% block postloadjs %}
 {% include 'products/includes/quantity_input_script_bskt.html' %}
-
 <script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
-        console.log(form);
-        form.submit();
-    })
-
-    // Remove item and reload on click
-    $('.remove-item').click(function(e) {
-        let csrfToken = "{{ csrf_token }}";
-        let itemId = $(this).attr('id').split('remove_item')[1];
-        let url = `/remove_item/${itemId}/`;
-        let data = {
-            'csrfmiddlewaretoken': csrfToken
-        };
-        $.post(url, data)
-            .done(function () {
-                location.reload();
-            });
-    })
-
+  // Update quantity on click
+  $('.update-link').click(function(e) {
+      var form = $(this).prev('.update-form');
+      console.log(form);
+      form.submit();
+  })
+  
+  // Remove item and reload on click
+  $('.remove-item').click(function(e) {
+      let csrfToken = "{{ csrf_token }}";
+      let itemId = $(this).attr('id').split('remove_item')[1];
+      let url = `/remove_item/${itemId}/`;
+      let data = {
+          'csrfmiddlewaretoken': csrfToken
+      };
+      $.post(url, data)
+          .done(function () {
+              location.reload();
+          });
+  })
+  
 </script>
 {% endblock %}
