@@ -1,10 +1,10 @@
+import random
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Max
 from .models import Product
 from .forms import ProductForm
-from django.db.models import Max
-import random
 
 # Create your views here.
 
@@ -26,7 +26,8 @@ def all_products(request):
         # Filtering
         if 'material' in request.GET:
             materials = request.GET.getlist('material')
-            products_materials = list(products.filter(material__name__in=materials))
+            products_materials = list(
+                products.filter(material__name__in=materials))
         if 'angle' in request.GET:
             angles = request.GET.getlist('angle')
             products_angles = list(products.filter(angle__name__in=angles))
@@ -102,7 +103,9 @@ def add_product(request):
             messages.success(request, 'Successfully added product')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to add product.'
+                           'Please ensure the form is valid.')
     else:
         form = ProductForm()
 
@@ -129,7 +132,9 @@ def edit_product(request, product_id):
             messages.success(request, 'Succesffully updated product!')
             return redirect(reverse('product_detail', args=[product.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to update product.'
+                           'Please ensure the form is valid.')
     else:
         form = ProductForm(instance=product)
         messages.info(request, f'You are editing a product ({product.name})')

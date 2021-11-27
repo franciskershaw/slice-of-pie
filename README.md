@@ -646,4 +646,7 @@ HTML validator:
 CSS validator:
 * no errors
 
+JS Hint
+* semicolons and missing 'let' in for of loops
+
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue

@@ -14,7 +14,8 @@ class ProductForm(forms.ModelForm):
         angles = Angle.objects.all()
         levels = Level.objects.all()
 
-        friendly_names_materials = [(m.id, m.get_friendly_name()) for m in materials]
+        friendly_names_materials = [
+            (m.id, m.get_friendly_name()) for m in materials]
         friendly_names_angles = [(a.id, a.get_friendly_name()) for a in angles]
         friendly_names_levels = [(l.id, l.get_friendly_name()) for l in levels]
 

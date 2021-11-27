@@ -18,7 +18,9 @@ def add_to_basket(request, item_id):
     else:
         if item_id in list(basket.keys()):
             basket[item_id] += quantity
-            messages.success(request, f'Updated {product.name} quantity to {basket[item_id]}')
+            messages.success(
+                request,
+                f'Updated {product.name} quantity to {basket[item_id]}')
         else:
             basket[item_id] = quantity
             messages.success(request, f'Added {product.name} to your basket')
@@ -38,7 +40,8 @@ def adjust_basket(request, item_id):
 
     if quantity > 0:
         basket[item_id] = quantity
-        messages.success(request, f'Updated {product.name} quantity to {basket[item_id]}')
+        messages.success(
+            request, f'Updated {product.name} quantity to {basket[item_id]}')
     else:
         basket.pop(item_id)
         messages.success(request, f'Removed {product.name} from your basket')
@@ -87,7 +90,8 @@ def remove_from_wishlist(request, item_id):
     try:
         wishlist = request.session.get('wishlist', {})
         wishlist.pop(item_id)
-        messages.success(request, f'Removed {product.name} from your favourites')
+        messages.success(
+            request, f'Removed {product.name} from your favourites')
 
         request.session['wishlist'] = wishlist
         return HttpResponse(status=200)
