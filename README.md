@@ -1,6 +1,6 @@
 # Slice of Pie!
 
-![Wireframe temp hero image](media/nonproducts/landing-page.png)
+![Wireframe temp hero image](media/nonproducts/amiresponsive.png)
 
 ## Code Institute's Milestone Project 4 - Full Stack Frameworks
 
@@ -706,44 +706,3 @@ Code snippets and inspiration are detailed below, and are also included via comm
 * The wipe-up hover effect that can be seen on all 'View' or add to wishlist buttons was borrowed from [this article](https://codemyui.com/minimalistic-hover-effect-button-animations/)
 
 A huge thank you to all the people who took part in user testing, the Code Institute's Slack community, and my mentor Aaron Sinnott for advice at various stages during development of the site.
-
-#### Bugs
-
-Stripe: typos in my webhook handlers caused 500 errors
-Navbar: profile button dropdown stopped working (was because navbar-links had overflow set to hidden)
-500 server error when removing items from wishlist (had same class name as basket which meant an undefined variable was in the url)
-Product builder resizing issues
-Save for later button on product details page was sending items into basket instead of wishlist - buttons were both in the same form
-Sort/filter clash - 500 error when sorting to a filtered selection, fixed by clearing the search paramaters in js so that it just sorts from all available products
-Delivery cost: missing / 100 in logic which meant my delivery was being multiplied by 5 instead of adding 5%
-
-unsolved bugs:
-
-duplicate orders in profile page
-
-HTML validator:
-* stray closing div tag in the basket html page
-* clashing id and 'aria-labeledby' on navbar dropdown (unsolved as it breaks the site to remove it)
-* buttons were children of a tags
-* Form and div closing were overlapping on product detail
-* closing h3 tag was still an h1 on the create account page
-
-CSS validator:
-* no errors
-
-JS Hint
-* semicolons and missing 'let' in for of loops
-
-Pep 8
-used the command python3 -m flake8 to get a full list of problems, disregarded migrations, and went through each file to make lines shorter. A few exceptions but mostly compliant.
-Pep 8 validator
-One error on webhooks.py about indentation, changing it causes the code to fail
-Errors shown for long lines in settings but they cannot be shortened so are left
-
-Lighthouse
-* No major perforamce issues - compressed all images across the site to help (espeically for the all products page which has more content to load)
-
-Wave - not major accessibility errors or color contrasting errors.
-
-
-https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
