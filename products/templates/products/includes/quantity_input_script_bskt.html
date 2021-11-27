@@ -1,5 +1,4 @@
 <script>
-
     // Handle enabling and disabling of the quantity buttons
     function handleEnableDisableBskt(itemId) {
         let currentValueBskt = parseInt($(`#id_qty_bskt_${itemId}`).val());
@@ -17,13 +16,13 @@
     }
 
     // Change event for arrow key changes
-    $('.qty_input_bskt').change(function() {
+    $('.qty_input_bskt').change(function () {
         let itemId = $(this).data('item_id');
         handleEnableDisableBskt(itemId);
     });
-    
+
     // Increment the value of the quantity input field
-    $('.increment-qty_bskt').click(function(e) {
+    $('.increment-qty_bskt').click(function (e) {
         e.preventDefault();
         let closestInput = $(this).closest('.input-group_bskt').find('.qty_input_bskt')[0];
         let currentValue = parseInt($(closestInput).val());
@@ -33,7 +32,7 @@
     });
 
     // Decrement the value of the quantity input field   
-    $('.decrement-qty_bskt').click(function(e) {
+    $('.decrement-qty_bskt').click(function (e) {
         e.preventDefault();
         let closestInput = $(this).closest('.input-group_bskt').find('.qty_input_bskt')[0];
         let currentValue = parseInt($(closestInput).val());
@@ -41,5 +40,4 @@
         let itemId = $(this).data('item_id');
         handleEnableDisableBskt(itemId);
     });
-
 </script>

@@ -1,5 +1,4 @@
 <script>
-
     // Handle enabling and disabling of the quantity buttons
     function handleEnableDisable(itemId) {
         let currentValue = parseInt($(`#id_qty_${itemId}`).val());
@@ -17,13 +16,13 @@
     }
 
     // Change event for arrow key changes
-    $('.qty_input').change(function() {
+    $('.qty_input').change(function () {
         let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     });
-    
+
     // Increment the value of the quantity input field
-    $('.increment-qty').click(function(e) {
+    $('.increment-qty').click(function (e) {
         e.preventDefault();
         let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         let currentValue = parseInt($(closestInput).val());
@@ -33,7 +32,7 @@
     });
 
     // Decrement the value of the quantity input field   
-    $('.decrement-qty').click(function(e) {
+    $('.decrement-qty').click(function (e) {
         e.preventDefault();
         let closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         let currentValue = parseInt($(closestInput).val());
@@ -41,7 +40,6 @@
         let itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     });
-
 </script>
 
 <!-- Product animations -->
