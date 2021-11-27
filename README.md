@@ -647,10 +647,38 @@ You will likely need to host static files and iamges with AWS for a site like th
 28. Add, commit and push all changes to trigger automatic deployment to Heroku - you should be able to check everything is working so far from the build logs and in S3.
 29. Create a media folder in S3, and upload all the images required on the site, ensuring to grand public read access to the images.
 
-
 ## Setting up email confirmations
 
+If you want to set up automated emails with Django and Gmail, follow these steps:
+
+1. Create a Gmail account (or sign in if you have one already), navigate to 'Account Settings', 'Other Google Account Settings', 'Security.
+2. Turn on 2-step verification if it hasn't already.
+3. Go to 'App passwords' within 'Security', select 'Mail' from the dropdown choices, and copy the long character password.
+4. Add this password into the Heroku configuration variabls as EMAIL_HOST_PASS.
+5. Copy your Gmail address and addd it as the EMAIL_HOST_USER to the Heroku configuration variables.
+
 ## Cloning
+
+You're more than welcome to clone this repository is you like, just follow these steps:
+
+1. Within this repository, navigate to the Code button and copy the URL
+2. In your workspace, run a ` git clone ` command with the repository url.
+3. Install the requirments by running ` pip3 install -r requirements.txt `.
+4. Set environment variables as per all previous steps when setting up AWS and deploying to Heroku.
+5. Migrate the models by running the following commands
+    ```
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    ```
+5. Load data from the fixtures files into the local database by running the following commands:
+    ```
+    python3 manage.py loaddata levels
+    python3 manage.py loaddata angles
+    python3 manage.py loaddata materials
+    python3 manage.py loaddata products
+    ```
+6. Create a superuser so that you can access the Django admin panel by running ` python3 manage.py createsuperuser `
+7. Finally, to run the server and access the site preview run ` python3 manage.py runserver `
 
 ## Credits
 
