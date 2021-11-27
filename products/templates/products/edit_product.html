@@ -1,27 +1,30 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block extra_title %}Edit Product{% endblock %}
 
 {% block content %}
-<div class="page-container pt-4 pb-4">
-    <div class="container product-admin">
-        <div class="row">
-            <div class="col-12 text-center">
+    <div class="page-container pt-4 pb-4">
+       <div class="container product-admin">
+          <!-- Headline information -->
+          <div class="row">
+             <div class="col-12 text-center">
                 <h2>Product Management</h2>
                 <h3>Edit product</h3>
-            </div>
-            <div class="col-12">
+             </div>
+             <div class="col-12">
+                <!-- Edit product form -->
                 <form method="POST" action="{% url 'edit_product' product.id %}" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    {{ form | crispy }}
-                    <div class="text-center mb-4">
-                        <a class="btn btn-danger" href="{% url 'products' %}" class="btn btn-md">Cancel</a>
-                        <button class="btn btn-success" type="submit">Update Product</button>
-                    </div>
+                   {% csrf_token %}
+                   {{ form | crispy }}
+                   <div class="text-center mb-4">
+                      <a class="btn btn-danger" href="{% url 'products' %}" class="btn btn-md">Cancel</a>
+                      <button class="btn btn-success" type="submit">Update Product</button>
+                   </div>
                 </form>
-            </div>
-        </div>
+             </div>
+          </div>
+       </div>
     </div>
-</div>
 {% endblock %}

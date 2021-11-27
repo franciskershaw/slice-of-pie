@@ -1,86 +1,88 @@
 {% extends 'base.html' %}
+
 {% load static %}
 
 {% block extra_css %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+  <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
 
 {% block extra_title %}Success!{% endblock %}
 
 {% block content %}
-<div class="checkout page-container container login-form-content">
-    <section>
-        <h1>Thank you for your order!</h1>
-    </section>
-    <section>
-        <p>Your order information is below. A confirmation email will be sent to {{ order.email }}.</p>
-    </section>
-    <section class="row">
-        <div class="col-12 col-md-6">
+   <div class="checkout page-container container login-form-content">
+      <!-- Headline info -->
+      <section>
+         <h1>Thank you for your order!</h1>
+      </section>
+      <section>
+         <p>Your order information is below. A confirmation email will be sent to {{ order.email }}.</p>
+      </section>
+      <!-- Summary of the order -->
+      <section class="row">
+         <div class="col-12 col-md-6">
             <h2 class="text-center text-md-left">Summary</h2>
             {% for item in order.lineitems.all %}
-            <div class="row mb-3">
-                <div class="col-3 col-md-4 checkout-img-container">
+              <div class="row mb-3">
+                 <div class="col-3 col-md-4 checkout-img-container">
                     <img class="product-image" src="{{ MEDIA_URL }}{{ item.product.image_1 }}" alt="{{ item.name }}">
-                </div>
-                <div class="col-9 col-md-8">
+                 </div>
+                 <div class="col-9 col-md-8">
                     <div class="row">
-                        <div class="col-12">
-                            <p class="m-0"><strong>{{ item.product.name }}</strong></p>
-                        </div>
-                        <div class="col-12">
-                            <p class="m-0">Quantity: <span class="product-card-price">{{ item.quantity }}</span></p>
-                        </div>
-                        <div class="col-12">
-                            <p class="m-0">Unit price: <span class="product-card-price">£{{ item.product.price }}</span></p>
-                        </div>
+                       <div class="col-12">
+                          <p class="m-0"><strong>{{ item.product.name }}</strong></p>
+                       </div>
+                       <div class="col-12">
+                          <p class="m-0">Quantity: <span class="product-card-price">{{ item.quantity }}</span></p>
+                       </div>
+                       <div class="col-12">
+                          <p class="m-0">Unit price: <span class="product-card-price">£{{ item.product.price }}</span></p>
+                       </div>
                     </div>
-                </div>
-            </div>
+                 </div>
+              </div>
             {% endfor %}
             <div class="row order-summary-container text-center text-lg-left">
-                <div class="col-12">
-                    <p class="m-0 order-summary">Delivery: <span class="product-card-price">{% if not order.delivery_cost %}<strong class="product-card-price">Free</strong>{% else %}£{{ order.delivery_cost }}{% endif %}</p></span></p>
-                </div>
-                <div class="col-12">
-                    <p class="mb-3 order-summary">Grand total: <strong class="product-card-price">£{{ order.grand_total }}</strong></p>
-                </div>
+               <div class="col-12">
+                  <p class="m-0 order-summary">Delivery: <span class="product-card-price">{% if not order.delivery_cost %}<strong class="product-card-price">Free</strong>{% else %}£{{ order.delivery_cost }}{% endif %}
+                  </span></p>
+               </div>
+               <div class="col-12">
+                  <p class="mb-3 order-summary">Grand total: <strong class="product-card-price">£{{ order.grand_total }}</strong></p>
+               </div>
             </div>
-        </div>
-        <div class="col-12 col-md-6">
+         </div>
+         <div class="col-12 col-md-6">
             <h2 class="text-center text-md-left">Delivery</h2>
-        <div class="row mb-3 text-center text-md-left">
-            <div class="col-12">
-                <p class="mb-0 order-summary">{{ order.street_address1 }}</p>
-            </div>
-            {% if order.street_address2 %}
-                <div class="col-12">
+            <div class="row mb-3 text-center text-md-left">
+               <div class="col-12">
+                  <p class="mb-0 order-summary">{{ order.street_address1 }}</p>
+               </div>
+               {% if order.street_address2 %}
+                 <div class="col-12">
                     <p class="mb-0 order-summary">{{ order.street_address2 }}</p>
-                </div>
-            {% endif %}
-            <div class="col-12">
-                <p class="mb-0 order-summary">{{ order.town_or_city }}</p>
-            </div>
-            {% if order.county %}
-                <div class="col-12">
+                 </div>
+               {% endif %}
+               <div class="col-12">
+                  <p class="mb-0 order-summary">{{ order.town_or_city }}</p>
+               </div>
+               {% if order.county %}
+                 <div class="col-12">
                     <p class="mb-0 order-summary">{{ order.county }}</p>
-                </div>
-            {% endif %}
-            {% if order.postcode %}
-                <div class="col-12">
+                 </div>
+               {% endif %}
+               {% if order.postcode %}
+                 <div class="col-12">
                     <p class="mb-0 order-summary">{{ order.postcode }}</p>
-                </div>
-            {% endif %}
-            <div class="col-12">
-                <p class="mb-0 order-summary">{{ order.country }}</p>
+                 </div>
+               {% endif %}
+               <div class="col-12">
+                  <p class="mb-0 order-summary">{{ order.country }}</p>
+               </div>
+               <div class="col-12">
+                  <p class="mb-0 order-summary">{{ order.phone_number }}</p>
+               </div>
             </div>
-            <div class="col-12">
-                <p class="mb-0 order-summary">{{ order.phone_number }}</p>
-            </div>
-        </div>
-        </div>
-        
-    </section>
-
-</div>
+         </div>
+      </section>
+   </div>
 {% endblock %}
