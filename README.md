@@ -643,4 +643,7 @@ HTML validator:
 * Form and div closing were overlapping on product detail
 * closing h3 tag was still an h1 on the create account page
 
+CSS validator:
+* no errors
+
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
