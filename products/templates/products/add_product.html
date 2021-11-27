@@ -5,26 +5,26 @@
 {% block extra_title %}Add Product{% endblock %}
 
 {% block content %}
-   <div class="page-container pt-4 pb-4">
-      <div class="container product-admin">
-         <!-- Headline information -->
-         <div class="row">
-            <div class="col-12 text-center">
-               <h2>Product Management</h2>
-               <h3>Add product</h3>
+  <div class="page-container pt-4 pb-4">
+    <div class="container product-admin">
+      <!-- Headline information -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2>Product Management</h2>
+          <h3>Add product</h3>
+        </div>
+        <div class="col-12">
+          <!-- Add new product form -->
+          <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <div class="text-center">
+              <a class="btn btn-danger" href="{% url 'products' %}" class="btn btn-md">Cancel</a>
+              <button class="btn btn-success" type="submit">Add Product</button>
             </div>
-            <div class="col-12">
-               <!-- Add new product form -->
-               <form method="POST" action="{% url 'add_product' %}" enctype="multipart/form-data">
-                  {% csrf_token %}
-                  {{ form | crispy }}
-                  <div class="text-center">
-                     <a class="btn btn-danger" href="{% url 'products' %}" class="btn btn-md">Cancel</a>
-                     <button class="btn btn-success" type="submit">Add Product</button>
-                  </div>
-               </form>
-            </div>
-         </div>
+          </form>
+        </div>
       </div>
-   </div>
+    </div>
+  </div>
 {% endblock %}

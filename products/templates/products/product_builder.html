@@ -5,103 +5,103 @@
 {% block extra_title %}Table Builder{% endblock %}
 
 {% block content %}
-   <div class="page-container container productbuilder-container pt-4 pb-4">
-      <div class="productbuilder">
-         <div class="productbuilder-top row">
-            <h1 class="productbuilder-title col-12">Build Your Table</h1>
-            <!-- This image changes depending on user choices -->
-            <div class="productbuilder-productselected col-10 col-sm-8 col-md-6 col-lg-4">
-               <img class="productbuilder-productselected-image" id="productbuilder-productselected-image"
-                  src="{{ MEDIA_URL }}1-wireframe-60_1.jpg" alt="Your product so far">
-            </div>
-            <div class="productbuilder-hr d-none d-sm-block col-sm-8 col-lg-9"></div>
-         </div>
-         <div class="productbuilder-middle row">
-            <!-- Levels -->
-            <div class="productbuilder-middle-levels col-4">
-               <div class="productbuilder-middle-levels-content row">
-                  <h4 class="productbuilder-subtitle col-12">Choose Your Levels</h4>
-                  <div
-                     class="productbuilder-productoptions productbuilder-productoptions-levels productbuilder-productoptions-selected col-3">
-                     <img data-product="1" class="productbuilder-productoptions-image" src="{{ MEDIA_URL }}1.jpg" alt="1 level">
-                  </div>
-                  <div class="productbuilder-productoptions productbuilder-productoptions-levels col-3">
-                     <img data-product="2" class="productbuilder-productoptions-image" src="{{ MEDIA_URL }}2.jpg" alt="2 levels">
-                  </div>
-                  <div class="productbuilder-productoptions productbuilder-productoptions-levels col-3">
-                     <img data-product="3" class="productbuilder-productoptions-image" src="{{ MEDIA_URL }}3.jpg" alt="3 levels">
-                  </div>
-               </div>
-            </div>
-            <!-- Degrees -->
-            <div class="productbuilder-middle-deg col-4">
-               <div class="productbuilder-middle-deg-content row">
-                  <h4 class="productbuilder-subtitle col-12"><i class="icon-left fas fa-arrow-left"></i><span class="sr-only">Previous</span>Choose Your Slice</h4>
-                  <div
-                     class="productbuilder-productoptions productbuilder-productoptions-deg productbuilder-productoptions-selected col-3">
-                     <img data-product="60"
-                        class="productbuilder-productoptions-image productbuilder-productoptions-image-deg"
-                        src="{{ MEDIA_URL }}60.png" alt="60 degree angle">
-                  </div>
-                  <div class="productbuilder-productoptions productbuilder-productoptions-deg col-3">
-                     <img data-product="120"
-                        class="productbuilder-productoptions-image productbuilder-productoptions-image-deg"
-                        src="{{ MEDIA_URL }}120.png" alt="120 degree angle">
-                  </div>
-                  <div class="productbuilder-productoptions productbuilder-productoptions-deg col-3">
-                     <img data-product="180"
-                        class="productbuilder-productoptions-image productbuilder-productoptions-image-deg"
-                        src="{{ MEDIA_URL }}180.png" alt="180 degree angle">
-                  </div>
-               </div>
-            </div>
-            <!-- Materials -->
-            <div class="productbuilder-middle-material col-4">
-               <div class="productbuilder-middle-material-content row">
-                  <h4 class="productbuilder-subtitle col-12"><i class="icon-left fas fa-arrow-left"></i><span class="sr-only">Previous</span>Choose Your Material</h4>
-                  <div
-                     class="productbuilder-productoptions productbuilder-productoptions-material productbuilder-productoptions-selected col-2">
-                     <img data-product="acrylic"
-                        class="productbuilder-productoptions-image productbuilder-productoptions-image-material"
-                        src="{{ MEDIA_URL }}acrylic.jpg" alt="acrylic material">
-                  </div>
-                  <div class="productbuilder-productoptions productbuilder-productoptions-material col-2">
-                     <img data-product="oak"
-                        class="productbuilder-productoptions-image productbuilder-productoptions-image-material"
-                        src="{{ MEDIA_URL }}oak.jpg" alt="oak material">
-                  </div>
-                  <div class="productbuilder-productoptions productbuilder-productoptions-material col-2">
-                     <img data-product="pine"
-                        class="productbuilder-productoptions-image productbuilder-productoptions-image-material"
-                        src="{{ MEDIA_URL }}pine.jpg" alt="pine material">
-                  </div>
-                  <div class="productbuilder-productoptions productbuilder-productoptions-material col-2">
-                     <img data-product="plywood"
-                        class="productbuilder-productoptions-image productbuilder-productoptions-image-material"
-                        src="{{ MEDIA_URL }}plywood.jpg" alt="plywood material">
-                  </div>
-               </div>
-            </div>
-         </div>
-         <div class="productbuilder-bottom row">
-            <!-- Button appears once all three choices have been made -->
-            <div id="view-table" class="text-center builder-container d-none col-12 pb-4">
-               <div class="">
-                  <a id="table-link" href="" class="bskt-btn checkout-btn">View your table</a>
-               </div>
-            </div>
-         </div>
+  <div class="page-container container productbuilder-container pt-4 pb-4">
+    <div class="productbuilder">
+      <div class="productbuilder-top row">
+        <h1 class="productbuilder-title col-12">Build Your Table</h1>
+        <!-- This image changes depending on user choices -->
+        <div class="productbuilder-productselected col-10 col-sm-8 col-md-6 col-lg-4">
+          <img class="productbuilder-productselected-image" id="productbuilder-productselected-image"
+            src="{{ MEDIA_URL }}1-wireframe-60_1.jpg" alt="Your product so far">
+        </div>
+        <div class="productbuilder-hr d-none d-sm-block col-sm-8 col-lg-9"></div>
       </div>
-   </div>
-   <!-- All products sent from Django used by JavaScript to find correct final product -->
-   <div id="all-products" class="d-none">
-      {% for product in products %}
-         <p id="{{ product.id }}" class="product-name {{ product.id }}">{{ product.name }}</p>
-      {% endfor %}
-   </div>
+      <div class="productbuilder-middle row">
+        <!-- Levels -->
+        <div class="productbuilder-middle-levels col-4">
+          <div class="productbuilder-middle-levels-content row">
+            <h4 class="productbuilder-subtitle col-12">Choose Your Levels</h4>
+            <div
+              class="productbuilder-productoptions productbuilder-productoptions-levels productbuilder-productoptions-selected col-3">
+              <img data-product="1" class="productbuilder-productoptions-image" src="{{ MEDIA_URL }}1.jpg" alt="1 level">
+            </div>
+            <div class="productbuilder-productoptions productbuilder-productoptions-levels col-3">
+              <img data-product="2" class="productbuilder-productoptions-image" src="{{ MEDIA_URL }}2.jpg" alt="2 levels">
+            </div>
+            <div class="productbuilder-productoptions productbuilder-productoptions-levels col-3">
+              <img data-product="3" class="productbuilder-productoptions-image" src="{{ MEDIA_URL }}3.jpg" alt="3 levels">
+            </div>
+          </div>
+        </div>
+        <!-- Degrees -->
+        <div class="productbuilder-middle-deg col-4">
+          <div class="productbuilder-middle-deg-content row">
+            <h4 class="productbuilder-subtitle col-12"><i class="icon-left fas fa-arrow-left"></i><span class="sr-only">Previous</span>Choose Your Slice</h4>
+            <div
+              class="productbuilder-productoptions productbuilder-productoptions-deg productbuilder-productoptions-selected col-3">
+              <img data-product="60"
+                class="productbuilder-productoptions-image productbuilder-productoptions-image-deg"
+                src="{{ MEDIA_URL }}60.png" alt="60 degree angle">
+            </div>
+            <div class="productbuilder-productoptions productbuilder-productoptions-deg col-3">
+              <img data-product="120"
+                class="productbuilder-productoptions-image productbuilder-productoptions-image-deg"
+                src="{{ MEDIA_URL }}120.png" alt="120 degree angle">
+            </div>
+            <div class="productbuilder-productoptions productbuilder-productoptions-deg col-3">
+              <img data-product="180"
+                class="productbuilder-productoptions-image productbuilder-productoptions-image-deg"
+                src="{{ MEDIA_URL }}180.png" alt="180 degree angle">
+            </div>
+          </div>
+        </div>
+        <!-- Materials -->
+        <div class="productbuilder-middle-material col-4">
+          <div class="productbuilder-middle-material-content row">
+            <h4 class="productbuilder-subtitle col-12"><i class="icon-left fas fa-arrow-left"></i><span class="sr-only">Previous</span>Choose Your Material</h4>
+            <div
+              class="productbuilder-productoptions productbuilder-productoptions-material productbuilder-productoptions-selected col-2">
+              <img data-product="acrylic"
+                class="productbuilder-productoptions-image productbuilder-productoptions-image-material"
+                src="{{ MEDIA_URL }}acrylic.jpg" alt="acrylic material">
+            </div>
+            <div class="productbuilder-productoptions productbuilder-productoptions-material col-2">
+              <img data-product="oak"
+                class="productbuilder-productoptions-image productbuilder-productoptions-image-material"
+                src="{{ MEDIA_URL }}oak.jpg" alt="oak material">
+            </div>
+            <div class="productbuilder-productoptions productbuilder-productoptions-material col-2">
+              <img data-product="pine"
+                class="productbuilder-productoptions-image productbuilder-productoptions-image-material"
+                src="{{ MEDIA_URL }}pine.jpg" alt="pine material">
+            </div>
+            <div class="productbuilder-productoptions productbuilder-productoptions-material col-2">
+              <img data-product="plywood"
+                class="productbuilder-productoptions-image productbuilder-productoptions-image-material"
+                src="{{ MEDIA_URL }}plywood.jpg" alt="plywood material">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="productbuilder-bottom row">
+        <!-- Link appears once all three choices have been made -->
+        <div id="view-table" class="text-center builder-container d-none col-12 pb-4">
+          <div class="">
+            <a id="table-link" href="" class="bskt-btn checkout-btn">View your table</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- All products sent from Django used by JavaScript to find correct final product -->
+  <div id="all-products" class="d-none">
+    {% for product in products %}
+      <p id="{{ product.id }}" class="product-name {{ product.id }}">{{ product.name }}</p>
+    {% endfor %}
+  </div>
 {% endblock %}
 
 {% block postloadjs %}
-   {{ block.super }}
-   {% include 'products/includes/product_builder_js.html' %}
+  {{ block.super }}
+  {% include 'products/includes/product_builder_js.html' %}
 {% endblock %}

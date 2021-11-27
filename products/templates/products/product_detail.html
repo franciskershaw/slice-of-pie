@@ -5,171 +5,179 @@
 {% block extra_title %}More Info{% endblock %}
 
 {% block content %}
-<div class="product-detail page-container container mb-2">
-   <div class="row text-center">
+  <div class="product-detail page-container container mb-2">
+    <div class="row text-center">
       {% if request.user.is_superuser %}
-         <div class="col-12 text-right text-md-left">
-            <div id="edit-delete-buttons">
-               <a class="btn btn-primary" href="{% url 'edit_product' product.id %}"><i class="far fa-edit"></i><span class="sr-only">Edit</span></a>
-                  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProduct"><i
-                     class="far fa-trash-alt"></i><span class="sr-only">Delete</span></button>
-            </div>
-         </div>
+      <!-- Controls for editing and deleting products -->
+        <div class="col-12 text-right text-md-left">
+          <div id="edit-delete-buttons">
+            <a class="btn btn-primary" href="{% url 'edit_product' product.id %}"><i class="far fa-edit"></i><span class="sr-only">Edit</span></a>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteProduct"><i
+              class="far fa-trash-alt"></i><span class="sr-only">Delete</span></button>
+          </div>
+        </div>
       {% endif %}
-         <div class="col-12 col-md-6 product-card-container">
-            <div class="product-card" onmouseenter="productCardRight(this)" onmouseleave="productCardLeft(this)">
-               <div class="product-card-image-container {% if product.unavailable %} unavailable{% endif %}">
-                  <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
-                  <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_2 }}" alt="{{ product.name }}">
-               </div>
-            </div>
-         </div>
-         <div class="col-12 col-md-6 key-product-actions-container">
-            <div class="row product-info-row">
-               <div class="col-12 product-title-detail">
-                  <h2>{{ product.name }}</h2>
-               </div>
-               <h3 class="col-12 product-card-price product-price-detail">
-                  {% if product.unavailable %}Unavailable{% else %}£{{ product.price }}{% endif %}
-               </h3>
-               <div class="col-12">
-                  <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
-                     {% csrf_token %}
-                     <div class="input-group row">
-                        <div class="col-3"></div>
-                        <div class="col-2 p-0 text-right">
-                           <button class="decrement-qty bskt-qty-btn" data-item_id="{{ product.id }}"
-                              id="decrement-qty_{{ product.id }}">
-                              <span class="icon">
-                                 <i class="fas fa-minus"></i>
-                                 <span class="sr-only">Minus</span>
-                              </span>
-                           </button>
-                        </div>
-                        <div class="col-2 p-0">
-                           <input class="qty_input" type="number" name="quantity" value="1" min="1" max="99"
-                           data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                        </div>
-                        <div class="col-2 p-0 text-left">
-                           <button class="increment-qty bskt-qty-btn" data-item_id="{{ product.id }}"
-                              id="increment-qty_{{ product.id }}">
-                              <span class="icon">
-                                 <i class="fas fa-plus"></i>
-                                 <span class="sr-only">Add</span>
-                              </span>
-                           </button>
-                        </div>
-                        <div class="col-3"></div>
-                     </div>
-                     <div class="row">
-                        <div class="col-6 product-card-cta-container detail-btns">
-                           <button id="add-to-basket-details" {% if product.unavailable %}disabled{% endif %}><input
-                                 {% if product.unavailable %}disabled value="Unavailable" {% else %} value="Add to Basket"
-                                 {% endif %} type="submit" id="add-to-basket-input"> <i
-                                 class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></button>
-                        </div>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                  </form>
-                  <div class="col-6 product-card-cta-container detail-btns">
-                     <form method="POST" action="{% url 'add_to_wishlist' product.id %}" class="d-inline">
-                        {% csrf_token %}
-                        <button type="submit" class="btn product-card-fav{% if product in wishlist_items %} favourited{% endif %}">
-                           Save for later
-                           <i class="far fa-heart" aria-hidden="true"></i>
-                           <span class="sr-only">Add to wishlist</span>
-                        </button>
-                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                     </form>
-                  </div>
-               </div>
-            </div>
-            <div class="col-12 product-description text-left d-none d-lg-block">
-               <p class="product-card-price">{{ product.description }}</p>
-               {% if product.material.is_sustainable %}
-                  <p><i class="fas fa-tree"></i><span class="sr-only">Tree</span><strong>The {{ product.material }} used for producing this table has been made from recycled materials.</strong><i class="fas fa-tree"></i><span class="sr-only">Tree</span></p>
-               {% endif %}
-            </div>
-         </div>
+      <!-- Card images -->
+      <div class="col-12 col-md-6 product-card-container">
+        <div class="product-card" onmouseenter="productCardRight(this)" onmouseleave="productCardLeft(this)">
+          <div class="product-card-image-container {% if product.unavailable %} unavailable{% endif %}">
+            <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_1 }}" alt="{{ product.name }}">
+            <img class="product-image" src="{{ MEDIA_URL }}{{ product.image_2 }}" alt="{{ product.name }}">
+          </div>
+        </div>
       </div>
+      <!-- Card details -->
+      <div class="col-12 col-md-6 key-product-actions-container">
+        <div class="row product-info-row">
+          <div class="col-12 product-title-detail">
+            <h2>{{ product.name }}</h2>
+          </div>
+          <h3 class="col-12 product-card-price product-price-detail">
+            {% if product.unavailable %}Unavailable{% else %}£{{ product.price }}{% endif %}
+          </h3>
+          <div class="col-12">
+             <!-- Quantity controls -->
+            <form class="form" action="{% url 'add_to_basket' product.id %}" method="POST">
+              {% csrf_token %}
+              <div class="input-group row">
+                <div class="col-3"></div>
+                <div class="col-2 p-0 text-right">
+                  <button class="decrement-qty bskt-qty-btn" data-item_id="{{ product.id }}"
+                    id="decrement-qty_{{ product.id }}">
+                    <span class="icon">
+                    <i class="fas fa-minus"></i>
+                    <span class="sr-only">Minus</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="col-2 p-0">
+                  <input class="qty_input" type="number" name="quantity" value="1" min="1" max="99"
+                    data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                </div>
+                <div class="col-2 p-0 text-left">
+                  <button class="increment-qty bskt-qty-btn" data-item_id="{{ product.id }}"
+                    id="increment-qty_{{ product.id }}">
+                    <span class="icon">
+                    <i class="fas fa-plus"></i>
+                    <span class="sr-only">Add</span>
+                    </span>
+                  </button>
+                </div>
+                <div class="col-3"></div>
+              </div>
+              <div class="row">
+                 <!-- Add to basket -->
+                <div class="col-6 product-card-cta-container detail-btns">
+                  <button id="add-to-basket-details" {% if product.unavailable %}disabled{% endif %}><input
+                  {% if product.unavailable %}disabled value="Unavailable" {% else %} value="Add to Basket"
+                  {% endif %} type="submit" id="add-to-basket-input"> <i
+                    class="fas fa-shopping-basket"><span class="sr-only">shopping basket</span></i></button>
+                </div>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
+            <div class="col-6 product-card-cta-container detail-btns">
+               <!-- Add to wishlist -->
+            <form method="POST" action="{% url 'add_to_wishlist' product.id %}" class="d-inline">
+              {% csrf_token %}
+              <button type="submit" class="btn product-card-fav{% if product in wishlist_items %} favourited{% endif %}">
+              Save for later
+                <i class="far fa-heart" aria-hidden="true"></i>
+                <span class="sr-only">Add to wishlist</span>
+              </button>
+              <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form>
+            </div>
+            </div>
+          </div>
+          <!-- Description (desktop) -->
+          <div class="col-12 product-description text-left d-none d-lg-block">
+            <p class="product-card-price">{{ product.description }}</p>
+            {% if product.material.is_sustainable %}
+              <p><i class="fas fa-tree"></i><span class="sr-only">Tree</span><strong>The {{ product.material }} used for producing this table has been made from recycled materials.</strong><i class="fas fa-tree"></i><span class="sr-only">Tree</span></p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <!-- Description (mobile) -->
       <div class="col-12 product-description text-left d-lg-none">
-         <p class="product-card-price">{{ product.description }}</p>
-         {% if product.material.is_sustainable %}
-            <p><i class="fas fa-tree"></i><span class="sr-only">Tree</span><strong>The {{ product.material }} used for producing this table has been made from recycled materials.</strong><i class="fas fa-tree"></i><span class="sr-only">Tree</span></p>
-         {% endif %}
+        <p class="product-card-price">{{ product.description }}</p>
+        {% if product.material.is_sustainable %}
+          <p><i class="fas fa-tree"></i><span class="sr-only">Tree</span><strong>The {{ product.material }} used for producing this table has been made from recycled materials.</strong><i class="fas fa-tree"></i><span class="sr-only">Tree</span></p>
+        {% endif %}
       </div>
-   </div>
-   <div class="row recommended text-center">
+    </div>
+    <!-- Recommended section -->
+    <div class="row recommended text-center">
       <div class="col-12">
-         <h4>Other Slices of Pie...</h4>
-         <div class="row">
-            {% for random in random_products %}
+        <h4>Other Slices of Pie...</h4>
+        <div class="row">
+          {% for random in random_products %}
             <div class="col-12 col-md-4">
-               <div class="product-card-container">
-                  <div class="product-card">
-                     <div class="product-card-image-container">
-                        <img class="product-image" src="{{ MEDIA_URL }}{{ random.image_1 }}" alt="{{ random.name }}">
-                     </div>
-                     <div class="product-card-text-container">
-                        <h3 class="product-card-text product-card-title">{{ random.name }}</h3>
-                     </div>
-                     <div class="product-card-text-container">
-                        <h3 class="product-card-text product-card-price">£{{ random.price }}</h3>
-                     </div>
-                     <div class="product-card-cta-container">
-                        <a href="{% url 'product_detail' random.id %}" class="btn product-card-view">
-                           <button>View</button>
-                        </a>
-                        <form method="POST" action="{% url 'add_to_wishlist' random.id %}" class="d-inline">
-                           {% csrf_token %}
-                           <button type="submit" class="btn product-card-fav{% if product in wishlist_items %} favourited{% endif %}">
-                              <i class="far fa-heart" aria-hidden="true"></i>
-                              <span class="sr-only">Add to wishlist</span>
-                           </button>
-                           <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                        </form>
-                     </div>
+              <div class="product-card-container">
+                <div class="product-card">
+                  <div class="product-card-image-container">
+                    <img class="product-image" src="{{ MEDIA_URL }}{{ random.image_1 }}" alt="{{ random.name }}">
                   </div>
-               </div>
+                  <div class="product-card-text-container">
+                    <h3 class="product-card-text product-card-title">{{ random.name }}</h3>
+                  </div>
+                  <div class="product-card-text-container">
+                    <h3 class="product-card-text product-card-price">£{{ random.price }}</h3>
+                  </div>
+                  <div class="product-card-cta-container">
+                    <a href="{% url 'product_detail' random.id %}" class="btn product-card-view">
+                    <button>View</button>
+                    </a>
+                    <form method="POST" action="{% url 'add_to_wishlist' random.id %}" class="d-inline">
+                      {% csrf_token %}
+                      <button type="submit" class="btn product-card-fav{% if product in wishlist_items %} favourited{% endif %}">
+                      <i class="far fa-heart" aria-hidden="true"></i>
+                      <span class="sr-only">Add to wishlist</span>
+                      </button>
+                      <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
+                  </div>
+                </div>
+              </div>
             </div>
-            {% endfor %}
-         </div>
+          {% endfor %}
+        </div>
       </div>
       <div class="col-12">
-         <a href="{% url 'products' %}" class="btn bskt-btn checkout-btn home-cta">Browse all</a>
+        <a href="{% url 'products' %}" class="btn bskt-btn checkout-btn home-cta">Browse all</a>
       </div>
-   </div>
-</div>
-{% if request.user.is_superuser %}
-<!-- Defensive modal for delting products -->
-<div class="modal fade text-center" id="deleteProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-   aria-hidden="true">
-   <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content text-center">
-         <div class="modal-header">
+    </div>
+  </div>
+  {% if request.user.is_superuser %}
+    <!-- Defensive modal for delting products -->
+    <div class="modal fade text-center" id="deleteProduct" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+          <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this product?</h5>
-         </div>
-         <div class="modal-body">
+          </div>
+          <div class="modal-body">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             <a class="text-danger" href="{% url 'delete_product' product.id %}">Delete</a>
-         </div>
+          </div>
+        </div>
       </div>
-   </div>
-</div>
-{% endif %}
-
+    </div>
+  {% endif %}
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
-{% include 'products/includes/quantity_input_script.html' %}
-<script type="text/javascript">
-   let basketButton = document.querySelector('#add-to-basket-details');
-   let basketInput = document.querySelector('#add-to-basket-input');
-   basketButton.addEventListener('mouseover', () => {
-      basketInput.style.color = 'white';
-   })
-   basketButton.addEventListener('mouseout', () => {
-      basketInput.style.color = '#111a2c';
-   })
-</script>
+  {{ block.super }}
+  {% include 'products/includes/quantity_input_script.html' %}
+  <script type="text/javascript">
+    let basketButton = document.querySelector('#add-to-basket-details');
+    let basketInput = document.querySelector('#add-to-basket-input');
+    basketButton.addEventListener('mouseover', () => {
+       basketInput.style.color = 'white';
+    })
+    basketButton.addEventListener('mouseout', () => {
+       basketInput.style.color = '#111a2c';
+    })
+  </script>
 {% endblock %}
