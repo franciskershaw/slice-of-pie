@@ -649,4 +649,11 @@ CSS validator:
 JS Hint
 * semicolons and missing 'let' in for of loops
 
+Pep 8
+used the command python3 -m flake8 to get a full list of problems, disregarded migrations, and went through each file to make lines shorter. A few exceptions but mostly compliant.
+Pep 8 validator
+One error on webhooks.py about indentation, changing it causes the code to fail
+Errors shown for long lines in settings but they cannot be shortened so are left
+
+
 https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue

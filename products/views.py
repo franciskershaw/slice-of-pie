@@ -68,7 +68,8 @@ def product_detail(request, product_id):
 
     def get_random():
         random_products = []
-        # Source https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html
+        # Source
+        # https://books.agiliq.com/projects/django-orm-cookbook/en/latest/random.html
         max_id = Product.objects.all().aggregate(max_id=Max("id"))['max_id']
         pk_array = random.sample(range(1, max_id), 3)
         prod_1 = Product.objects.get(pk=pk_array[0])
