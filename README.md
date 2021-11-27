@@ -193,7 +193,7 @@ With the functional specifications and content requirements nicely ironed out, I
 
 4. **All products page, containing:**
 * Conventional square boxes structure as per most e-commerce stores, containing product images, descriptions, prices, 'view' buttons', and a heart which would add the product to the user's wishlist.
-* Option to sort by price, amount of shelves, and size.
+* Option to sort by price and amount of shelves.
 * Option to filter by certain size of table, amount of shelves, or material.
 
 5. **Product (detail) page, containing:**
@@ -314,28 +314,28 @@ MySQL is the database in use for the development environment on this project, wh
 #### Data models
 
 **Product model**
-* SKU
-* Name
-* Size
-* Levels
-* Material
-* Price
-* Image 1
-* Image 2
-* Unavailable - true or false.
+* SKU: a product ID of sorts to help identify it
+* Name: product name
+* Size: foreign key from the angle model
+* Levels: foreign key from the levels model
+* Material: foreign key from the material model
+* Price: product price
+* Image 1: default image for the product
+* Image 2: the second product that will appear on the site
+* Unavailable: boolean value to declare whether the product is available for purchase or not
 
 **Size/angle model**
-* Name
-* Friendly name
-(COULD ADD IN S/M/L AS AN ALTERNATIVE THING HERE)
+* Name: name of angle (how large it is)
+* Friendly name: available as an option when rendering to HTML templates
 
 **Levels model**
-* Name
-* Friendly name
+* Name: name of angle (how large it is)
+* Friendly name: available as an option when rendering to HTML templates
 
 **Material model**
-* Name
-* Friendly name
+* Name: name of angle (how large it is)
+* Friendly name: available as an option when rendering to HTML templates
+* Is sustainable: boolean value to determine whether the material is sustainably sourced.
 
 ## Apps and Features
 
@@ -575,11 +575,11 @@ else:
 ## Setting up Amazon Web Services (AWS)
 
 You will likely need to host static files and iamges with AWS for a site like this, and can do so with the following steps:
-
+### S3
 1. Create a free AWS account and head to the AWS management console.
-2. Search for s3 or find it in the services section, then create a new bucket.
-3. Enter a bucket name (chosing the name of your project would be logical here) and select the nearest available region, uncheck 'Block public access box', then click 'Create bucket'.
-4. Click into the newly created bucket, find 'Properties' and turn on static website hosting.
+2. Search for **S3** or find it in the services section, then create a new bucket.
+3. Enter a bucket name (chosing the name of your project would be logical here) and select the nearest available region, uncheck 'Block public access' box, then click 'Create bucket'.
+4. Click into the newly created bucket, navigate to 'Properties' tab, turn on static website hosting, and fill in index and error document fields with *index.html* and *error.html* respectively.
 5. In the Permissions section, paste in the following configuration:
 ```
 [
@@ -597,6 +597,55 @@ You will likely need to host static files and iamges with AWS for a site like th
   }
 ]
 ```
+6. Navigate to the Bucket Policy tab within permissions and click on policy generator.
+7. Choose S3 Bucket Policy, allow all principals by entering a star (*) in the Principal field, and select 'GetObject from the Actions dropdown.
+8. Return to the previous tab (without closing down the policy generator) and copy the arn number, paste it into the ARN field in the policy generator.
+9. Click 'Add Statement', click 'Generate Policy', copy the json code that displays, and paste it into the Bucket Policy tab from before.
+10. Add ` /*  ` to the end of the 'Resource' line, and click save.
+11. Navigate to the 'Access Control List' tab within permissions and set the List objects for everyone under the Public Access section.
+### IAM
+12. Return to the services section of AWS and open **IAM**
+13. Navigate to 'Groups', create a group, and name it something that makes sense for the project (with dashes instead of spaces).
+14. Click 'Next Step' until you reach the 'Create Group' button, and click that one too.
+15. Click on 'Policies, then 'Create Policy'. Go to the JSON tab, then click 'import managed policy', then search and import the 'S3' policy.
+16. Retrieve the buket ARN from S3, and paste it in the 'Resource" line of the JSON document, duplicating it with a ` /* ` at the end of the second line.
+17. Click 'Review Policy', give it a name and description, and click 'Create Policy'.
+18. Attach the policy to the previously created group by going to 'Groups', clicking on the correct group, click 'Attach Policy', search for and select the recently created policy, and click 'Attach Policy'
+19. Create a user to put in the group by navigating to 'Users', clicking 'Add user', fill in a user name, select 'Programmatic access', select 'Next'.
+20. Tick the corect user, and then click through the 'Next' buttons until the end before clicking 'Create User'
+21. Download and save the CSV file, this is important for connecting to Django.
+### Connecting to Django
+22. Back in your workspace, run two instalation commands: *pip3 install boto3* and *pip3 install django-storages*, making sure to freeze them in to the requirements.txt file.
+23. Add storages to installed apps in *settings.py*.
+24. Add the following line of code into *settings.py*:
+    ```
+    if 'USE_AWS' in os.environ:
+        // Cache control
+        AWS_S3_OBJECT_PARAMETERS = {
+            'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT', // handles cache control
+            'CacheControl': 'max-age-94608000',
+        }
+
+        // Bucket configuration
+        AWS_STORAGE_BUCKET_NAME = <bucket_name>
+        AWS_S3_REGION_NAME = <selected_region>
+        AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID)
+        AWS_SECRET_ACCESS_KEY_ID = os.environ.get('AWS_SECRET_ACCESS_KEY_ID)
+        AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+        // For static and media files
+        STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+        STATICFILES_LOCATION = 'static'
+        DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+        MEDIAFILES_LOCATION = 'media'
+
+    ```
+24. Add all AWS variables to Heroku configuration settings (these can be found in the previously downloaded CSV file).
+25. Add in the USE_AWS variable into the Heroku configuration settings, with a value of *True*.
+26. Create a file called *custom_storages.py* in the root level directory, import settings and S3Boto3Storage from storages.backends.s3boto3 at the top of the file.
+27. Create classes for static storage and media storage, inheriting S3Boto3Storage, and setting the location of the static and media files.
+28. Add, commit and push all changes to trigger automatic deployment to Heroku - you should be able to check everything is working so far from the build logs and in S3.
+29. Create a media folder in S3, and upload all the images required on the site, ensuring to grand public read access to the images.
 
 
 ## Setting up email confirmations
