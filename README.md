@@ -300,23 +300,18 @@ I set out at the beginning of development with the intention of implementing all
 
 #### Conceptual Design Phase
 
-A basic map of how I could get my various entities to interact with each other on a conceptual level was created as the below flowchart:
+Before implementing any database, I started by drawing up a very basic map of how I could get my various entities to interact with each other on a conceptual level:
 
 ![Conceptual design](media/nonproducts/conceptual-design.png)
+
+This helped 
 
 #### Logical Design Phase
 
 The finalised way my collections work would together on the backend is best illustrated by the below entity relationship diagram:
 
-(screenshot)
+![Logical design](media/nonproducts/eb-diagram.png)
 
-#### Physical Design Phase
-
-MySQL is the database in use for the development environment on this project, while PostgreSQL is the database used for the live site through deployment on Heroku.
-
-#### Data models
-
-**Product model**
 * SKU: a product ID of sorts to help identify it
 * Name: product name
 * Size: foreign key from the angle model
@@ -332,13 +327,18 @@ MySQL is the database in use for the development environment on this project, wh
 * Friendly name: available as an option when rendering to HTML templates
 
 **Levels model**
-* Name: name of angle (how large it is)
+* Name: name of levels (how many there are)
 * Friendly name: available as an option when rendering to HTML templates
 
 **Material model**
-* Name: name of angle (how large it is)
+* Name: name of material (type of wood)
 * Friendly name: available as an option when rendering to HTML templates
 * Is sustainable: boolean value to determine whether the material is sustainably sourced.
+
+#### Physical Design Phase
+
+SqLite3 is the database in use for the development environment on this project, while PostgreSQL is the database provisioned by Heroku on the deployed site.
+
 
 ## Apps and Features
 
