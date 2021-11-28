@@ -472,7 +472,7 @@ Mobile view | Filter collapsed
 
 ![edit/delete](media/nonproducts/readme-edit-delete.png)
 
-* If the admin user selects 'Unavailable' in the form, the product will change on the front end to inform users that this product is not currently available for purchase.
+* The admin user can select 'Unavailable' in the form, which will change the appearance of the product on the front end to inform users that this product is not currently available for purchase.
 
 ![unavailable](media/nonproducts/readme-product-unavailable.png)
 
@@ -492,11 +492,9 @@ Several defensive design features were required for this project, as much for en
 
 * Unavailable products are greyed out, with their price being replaced with a very noticeable 'Unavailable', while the button to add to basket is disabled.
 
-(Screenshot)
+* If an unavailable product is in the wishlist, the buttons to add that item directly into the basket are removed, and a 'Coming back soon' message replaces the product name.
 
-* If an unavailable product is in the wishlist, the buttons to add that item directly into the basket are removed, and a 'Coming soon' message replaces the product name.
-
-(Screenshot)
+![coming soon](media/nonproducts/readme-coming-soon.png)
 
 #### On the backend
 
