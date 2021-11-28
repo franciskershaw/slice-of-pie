@@ -117,6 +117,10 @@ I unfortunately ran out of time to do all of the things I wished to achieve on t
 
 * It was noted late on during development that the on some android devices using chrome, the hidden filter dropdown was obscuring part of the navbar. When the browser window is hidden, this problem doesn't surface. Once again, time constraints played their part in me not being able to fix this properly, but will be given attention before the roll out of version 2.
 
+*Mozilla Firefox browser image issue*
+
+* One of my user testers spotted that there was an issue with my card images when using firefox. I have a sliding animation that is triggered when a user hovers over several of the product image, but on firefox the cards simply show both images in the same card. The fix is to have the width be 200% instead of the 100% it is currently set as, however this would then break the stylings on all other browsers. This was not a decent trade off, so I elected to leave it unfixed as it was not a site breaking issue.
+
 ## Manual User Story Testing
 
 Testing my own user stories was carried out using the following criteria:
