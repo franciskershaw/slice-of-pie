@@ -22,9 +22,15 @@
             <div class="col-6 text-right">
               <a href="{% url 'product_builder' %}" class="btn checkout-btn bskt-btn home-cta" role="button">Build Table</a>
             </div>
+            {% if request.user.is_authenticated %}
+            <div class="col-6 text-left">
+              <a href="{% url 'products' %}" class="btn checkout-btn bskt-btn home-cta" role="button">All Tables</a>
+            </div>
+            {% else %}
             <div class="col-6 text-left">
               <a id="sign-up-btn" href="{% url 'account_signup' %}" class="btn checkout-btn bskt-btn home-cta" role="button">Sign Up</a>
             </div>
+            {% endif %}
           </div>
         </div>
         <div class="col-lg-6 d-none d-lg-block order-1 large-heading-container">
