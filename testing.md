@@ -281,7 +281,7 @@ The initial run of testing on the W3C html validator displayed a few significant
 
 * H1 missing a closing tag: this was a typo, I had amended an h3 into an h1 and forgot to close it off properly.
 
-* Stray closing ` div ` tag present on all pages if items are in the basket: this error drew my attention to the fact that there was indeed a rogue closing div tag in my basket which shouldn't have been there. **However, due to a mystery I was unable to solve before submission, the removal of this closing div tag would wreak havoc on my checkout page and checkout success page. The content of the pages were inexplicably moved into the basket sidebar, causing a startling UX error. I decided ruefully that it was better to leave the offending `</div>` where it was so that the user journey was not broken.
+* Stray closing ` div ` tag present on all pages if items are in the basket: this error drew my attention to the fact that there was indeed a rogue closing div tag in my basket which shouldn't have been there. After a lot of investigating, and nearly considering leaving it unfixed, I realised that my closing `div` needed to move one line up before the closing statement of a condition if loop. Now the validator shows no issues regardless of whether there is an item in the basket.
 
 ## CSS Validator
 
