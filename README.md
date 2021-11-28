@@ -79,8 +79,8 @@ As a user/prospective customer:
 4. I want to be able to add a product to my basket and then keep on browsing or proceed to checkout.
 5. I want to be able to remove or amend the quantity of products in my basket easily so that I have the power to change my mind during my journey.
 6. I would like to receive visual feedback at every stage of my journey when I perform actions, so that I am sure what I intended to do has in fact taken place.
-7. I want to be able to pay securely without creating an account so that I don’t need to have my details saved.
-8. I would like to register for an account so that I can save my payment details, and see my order history so that my journey on the site is made easier.
+7. I want to be able to complete an order without creating an account so that I don’t need to have my details saved.
+8. I would like to register for an account so that I can save my delivery details, and see my order history so that my journey on the site is made easier.
 9. As an account holder, I would like to be able to save products in my favourites so that I can decide later whether to proceed with my purchase.
 10. As an account holder, I would like to be able to save my delivery details so that checkout is faster during my next purchase.
 11. As an account holder who has saved their details, I would like to make amends to my saved delivery address so that I can ensure this information is updated accurately.
