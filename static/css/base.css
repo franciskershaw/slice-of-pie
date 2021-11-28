@@ -237,6 +237,7 @@ a#navbarDropdown {
 	background-color: var(--burgendy);
 	left: 0;
 	right: 0;
+	top: 0;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 	z-index: 50;
 	border: 1px solid var(--lavender);
