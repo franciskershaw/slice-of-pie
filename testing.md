@@ -73,27 +73,45 @@ This being only my second full stack website, and first using a MVC framework, t
 
 #### Fixed
 
-*Stripe webhooks error*
+*Stripe webhooks errors*
+
+Getting the webhooks to work proved incredibly tricky and several small mistakes during their development caused errors:
+
+* I was receiving 500 errors from stripe for a while which was hard to solve as there was no helpful debugging log to point me in the right direction. With no errors showing in my workspace, and status codes showing no issues, I eventually found that a small typo in my functions was to blame. **Once fixed, I had webhooks up and running.**
+
+* Eventually I got a 404 error for reaching the webhook endpoint, which seemingly arrived out of nowhere having previously worked fine. I realised after a long time that my being in a different country for a period of during development had subtly changed the url of my GitPod workspace, which meant that it was different to the endpoint that was present in Stripe. **Once this was spotted, it was an easy fix to get the right endpoint working.**
 
 *Navbar profile dropdown button error*
 
+* I made the mistake of accidentally initially implementing Bootstrap 5, which had only just been released at the start of development. As I am far more familiar with Bootstrap 4, I decided about half way through development to revert back to Bootstrap 4 - but did not envisage the scale of the syntax issues it would cause for the elements I had already written into the code. One of the more significant issues was that my profile icon dropdown was no longer working. **I eventually spotted an overflow:hidden property (which had not caused any issues previously) needed to be overidden to get the dropdown working properly.**
+
 *Save for later button on product detail page adding to basket instead of wishlist*
 
-*500 server error when removing items from wishlist*
+On the product detail page, there is an option to add the viewed product into the user's wishlist. However, for a while the button would add the product into the user's basket instead - despite being part of its own separate form. I realised that I had in fact placed the form as a child element of the main form, which meant the parent form took precedence with regard to the submit button. My initial fix to this problem was to have the closing ` </form> ` tag close off before the outer ` </div> ` tag, so that the form for the whislist lived outside of the basket form. However, the HTML validation I did flagged this as a major error so **I decided to rethink the structure of my eleements entirely.**  
 
 *Product builder resizing issues*
 
-*Delivery cost  being multiplied instead of taking a percentage of*
+* Ater completing the product builder page, it was noted during user testing that any resizing of the browser window broke the choice selection sections. This was because a specific calculation was being made for the spacing between the options. While this is not a site breaking issue, it bothered me that resizing the window would break the page in this way, **so I added some JavaScript which resets the sizing of the builder.**
+
+*Delivery cost being multiplied instead of taking a percentage of*
+
+* This was a strange bug, but one with a very simple solution it turns out. I couldn't work out why, but my delivery totals were not calculating properly at all. Instead of adding a small percentage for delivery, the cost was far larger than it was supposed to be. I eventually realised that I was missing a pretty crucial ` /100 ` in the logic, which was multiplying the total instead of deducting. **Adding the missing piece of logic solved the bug.**
 
 #### Outstanding bugs
 
-*Safari breaks navbar when items are in the basket*
+I unfortunately ran out of time to do all of the things I wished to achieve on this site, including the fixing of a few significant bugs. Without an impending deadline to consider, version 2 of this website will endeavour to fix all of these as a matter of priority. 
 
-*Favouriting festivals on browse.html refreshes the page and loses pagination*
+*Safari navbar issue*
+
+* User testing picked up that there was an issue with my navbar when using safari. Frustratingly, the navbar does not stick to the top as it does on every other browser, but instead shifts down about a quarter - interfering with other site content in the process. I found this issue detailed online in [this article](https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios) and apparantly it is a fairly common issue when applying the fixed position. I desparately wanted to fix this issue but found myself with not enough time to find a decent work around. **This will be looked at urgently before the roll out of version 2**.
 
 *500 error when sorting a filtered selection*
 
+* This bug has been partially fixed, but not necessarily in the way I wanted so I will detail it here in outstanding bugs. User testing picked up that the sorting function would throw an error if trying to sort on a filtered set of results. I quickly realised that this was because the filtered results were being rendered in the back end as a python list instead of a Django queryset, which meant that the ` order_by ` function was incompatible. Without a simple way to convert a python list into a Django specific query set, some more logic was required to get this working properly - which I unfortunately did not have time to look into. My quick fix for now, before fixing this properly on version 2, was **to use JavaScript to clear the seach parameters so that it would sort all results instead of just the filtered results.** 
+
 *Duplicate orders on the live version of the site*
+
+* On the live site, two order confirmations were being produced in the user's profile for thesame order even though only payment was only take once and only one order confirmation was being sent out. It became quickly clear through communication with the Code Institute's slack community that this is a widespread problem to do with Stripe webhooks, specifically the time Stripe was allowing before firing off a webhook for an incomplete order. This issue, while frustrating to come across, seemed insignificant compared when faced with the impending deadline. It will be looked at on version 2 in more detail.
 
 ## Manual User Story Testing
 
@@ -245,83 +263,42 @@ Testing my own user stories was carried out using the following criteria:
 
 ## HTML Validator
 
-The initial run of testing on the W3C html validator displayed a few errors and warning that warranted my attention:
+The initial run of testing on the W3C html validator displayed a few significant errors that warranted my attention:
 
-* 
+* Duplicate ids in the navbar: this was because I had two sets of the same icons displaying depending on the screen size. I wrote some JS to only populate the correct id as per the screen size being used.
 
-* 
+* Buttons were children of anchor tags: I had forgotten that this is invalid HTML, so I rewrote the code and corresponding CSS to make sure this was fixed.
 
-* 
+* Form and div closing tags clashing with each other: as mentioned earlier, I had attempted to close a form tag before its parent div tag had been closed so that I could fix a bug with my wishlist. This, it turns out, is very invalid as far as the HTML validator is concerned and threw several errors as a result. I rewrote my HTML to separate everything completely and fix the error.
 
-* 
+* H1 missing a closing tag: this was a typo, I had amended an h3 into an h1 and forgot to close it off properly.
+
+* Stray closing ` div ` tag present on all pages if items are in the basket: this error drew my attention to the fact that there was indeed a rogue closing div tag in my basket which shouldn't have been there. **However, due to a mystery I was unable to solve before submission, the removal of this closing div tag would wreak havoc on my checkout page and checkout success page. The content of the pages were inexplicably moved into the basket sidebar, causing a startling UX error. I decided ruefully that it was better to leave the offending `</div>` where it was so that the user journey was not broken.
 
 ## CSS Validator
 
-No errors were found when running style.css through the W3C CSS validator.
+No errors were found when running my CSS through the W3C CSS validator.
 
 ## JS Validator
 
-Using JSHint, I found that there were no critical errors in my written code. There were a few warnings displayed to do with a few missing or unnecessary semicolons, which were promptly rectified. I had also forgotten the keyword *let* for some of my *for of* statements, which I attribute to my recent introduction to Python and its lack of keywords in for loops.
+Using JSHint, I found that there were no critical errors in my written code. There were a few warnings displayed to do with a few missing or unnecessary semicolons, which were promptly rectified. I had also forgotten the keyword *let* for some of my *for of* statements. These coincidentally were the same errors brought to my attention last time I used JSHint, so going forward I'll be more weary of these syntax errors.
 
 ## PEP8 Compliance
 
-No errors were found when running my Python code through the PEP8 online service. There remained one warning on the GitPod linter about over indention which was only brought about by shortening the line. The function worked exactly as intended and as no errors were thrown by PEP8 online, I deemed this ok to leave.
+To check my python code complied to industry standard, I first rendered a list of all warnings in my workspace using the `python3 -m flake8 ` command. I disregarded all warnings from migration files and proceeded to work through every problem one by one. The vast majority were warnings about the line length, which were fixed by adding parentheses and moving onto another line.
+
+I then double checked everything by running each file throught Pep8 online, with no major errors being found. As with the flake8 linter in GitPod, warnings were made regarding the length of certain lines in my settings.py file, but as these were for important configuration settings I elected to leave them as they were. One line in my webhooks file was producing a warning regarding indentation, but changing it broke the functionality so I repositioned it to where it was before.
 
 ## Accessibility Testing
 
-Using the WAVE Accessibility Evaluation Tool, I found the following errors and warnings worthy of attention:
-
+Using the WAVE Accessibility Evaluation Tool, I was fortunate to find that on this occasion no colour contrast issues were present.
 
 ## Google Lighthouse
 
-Using Google's lighthouse feature, I was able to assess the performance of the site. All pages were working to a good standard, however issues with image size were highlighted. I compressed these using TinyJPG to help improve speed a bit. This was not possible for the images being rendered by URL link, but on future iterations of the site I'd like to use direct upload for these images which will help significantly.
+Using Google's lighthouse feature, I was able to assess the performance of the site. All pages were working to a good standard, however issues with image size were highlighted. I compressed these using TinyJPG to help improve speed a bit.
 
-The overall performance of the site (especially on mobile) has plenty of room for improvement on future iterations of the site, as dependency on Bootstrap among other things won't have helped with the speed.
+The overall performance of the site (especially on mobile) has plenty of room for improvement on future iterations of the site, and I think more research needs to be done on my end for how to render the large amounts of images required on the site in an efficient way.
 
 [Back to the top](#testing)
 
 [Back to main document](README.md)
-
-## Notes pasted from README document
-
-#### Bugs
-
-Stripe: typos in my webhook handlers caused 500 errors
-Navbar: profile button dropdown stopped working (was because navbar-links had overflow set to hidden)
-500 server error when removing items from wishlist (had same class name as basket which meant an undefined variable was in the url)
-Product builder resizing issues
-Save for later button on product details page was sending items into basket instead of wishlist - buttons were both in the same form
-Sort/filter clash - 500 error when sorting to a filtered selection, fixed by clearing the search paramaters in js so that it just sorts from all available products
-Delivery cost: missing / 100 in logic which meant my delivery was being multiplied by 5 instead of adding 5%
-
-unsolved bugs:
-
-duplicate orders in profile page
-
-HTML validator:
-* stray closing div tag in the basket html page
-* clashing id and 'aria-labeledby' on navbar dropdown (unsolved as it breaks the site to remove it)
-* buttons were children of a tags
-* Form and div closing were overlapping on product detail
-* closing h3 tag was still an h1 on the create account page
-
-CSS validator:
-* no errors
-
-JS Hint
-* semicolons and missing 'let' in for of loops
-
-Pep 8
-used the command python3 -m flake8 to get a full list of problems, disregarded migrations, and went through each file to make lines shorter. A few exceptions but mostly compliant.
-Pep 8 validator
-One error on webhooks.py about indentation, changing it causes the code to fail
-Errors shown for long lines in settings but they cannot be shortened so are left
-
-Lighthouse
-* No major perforamce issues - compressed all images across the site to help (espeically for the all products page which has more content to load)
-
-Wave - not major accessibility errors or color contrasting errors.
-
-
-https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios - safari navbar issue
-
