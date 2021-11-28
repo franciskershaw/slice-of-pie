@@ -73,6 +73,10 @@ This being only my second full stack website, and first using a MVC framework, t
 
 #### Fixed
 
+*Safari navbar issue*
+
+* User testing picked up that there was an issue with my navbar when using safari. Frustratingly, the navbar would not stick to the top as it did on every other browser, but instead shifted down about a quarter - interfering with other site content in the process. I was gearing up to leave this in the outstanding bugs section below, however I found that there are developer tools available on safari so had a last attempt. **I found that my navbar had 'right' and 'left' declarations, and adding a 'top' of 0 fixed the bug.**
+
 *Stripe webhooks errors*
 
 Getting the webhooks to work proved incredibly tricky and several small mistakes during their development caused errors:
@@ -101,10 +105,6 @@ On the product detail page, there is an option to add the viewed product into th
 
 I unfortunately ran out of time to do all of the things I wished to achieve on this site, including the fixing of a few significant bugs. Without an impending deadline to consider, version 2 of this website will endeavour to fix all of these as a matter of priority. 
 
-*Safari navbar issue*
-
-* User testing picked up that there was an issue with my navbar when using safari. Frustratingly, the navbar does not stick to the top as it does on every other browser, but instead shifts down about a quarter - interfering with other site content in the process. I found this issue detailed online in [this article](https://stackoverflow.com/questions/44922492/keep-element-fixed-while-safari-navigation-bar-collapes-on-ios) and apparantly it is a fairly common issue when applying the fixed position. I desparately wanted to fix this issue but found myself with not enough time to find a decent work around. **This will be looked at urgently before the roll out of version 2**.
-
 *500 error when sorting a filtered selection*
 
 * This bug has been partially fixed, but not necessarily in the way I wanted so I will detail it here in outstanding bugs. User testing picked up that the sorting function would throw an error if trying to sort on a filtered set of results. I quickly realised that this was because the filtered results were being rendered in the back end as a python list instead of a Django queryset, which meant that the ` order_by ` function was incompatible. Without a simple way to convert a python list into a Django specific query set, some more logic was required to get this working properly - which I unfortunately did not have time to look into. My quick fix for now, before fixing this properly on version 2, was **to use JavaScript to clear the seach parameters so that it would sort all results instead of just the filtered results.** 
@@ -112,6 +112,10 @@ I unfortunately ran out of time to do all of the things I wished to achieve on t
 *Duplicate orders on the live version of the site*
 
 * On the live site, two order confirmations were being produced in the user's profile for thesame order even though only payment was only take once and only one order confirmation was being sent out. It became quickly clear through communication with the Code Institute's slack community that this is a widespread problem to do with Stripe webhooks, specifically the time Stripe was allowing before firing off a webhook for an incomplete order. This issue, while frustrating to come across, seemed insignificant compared when faced with the impending deadline. It will be looked at on version 2 in more detail.
+
+*Chrome browser window on android pushing the filter down over the nabar*
+
+* It was noted late on during development that the on some android devices using chrome, the hidden filter dropdown was obscuring part of the navbar. When the browser window is hidden, this problem doesn't surface. Once again, time constraints played their part in me not being able to fix this properly, but will be given attention before the roll out of version 2.
 
 ## Manual User Story Testing
 
