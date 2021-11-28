@@ -346,48 +346,55 @@ MySQL is the database in use for the development environment on this project, wh
 
 #### Consistent across all pages
 
-* A fixed navigation bar appears on every page with the logo and brand on the far left, the main site features in the middle, and interactive icons on the far left for the user's profile, wishlist, and shopping basket. The options present within the profile icon changes depending on whether a user is signed in, or whether a user is an admin user.
+* A fixed navigation bar appears on every page with the logo and brand on the far left, the main site features in the middle, and interactive icons on the far left for the user's profile, wishlist, and shopping basket. The options present within the profile icon changes depending on whether a user is signed in, or whether a user is an admin user. If a user has items in their wishlist or basket, a small icon with the total quantity appears by the relevant icon.
 
-(Screenshot here)
+![desktop navigation](media/nonproducts/readme-nav-desktop.png)
 
-* In mobile, the main navigation items collapse into a conventional burger icon, while the name of the site disappears in order to save space on the smaller screen size.
+* In mobile, the main navigation items collapse into a conventional burger icon, while the name of the site disappears in order to save space on the smaller screen size. An animation turns the hamburger bars into an X when the navigation links are open for interaction.
 
-(Screenshot here)
+![mobile navigation](media/nonproducts/readme-nav-mob.png)
 
 * The footer also remains consistent across all pages, containing the logo, site name, and links to external social media sites.
 
-(Screenshot here)
+![footer](media/nonproducts/readme-footer.png)
 
 * All interactable content (like buttons and links) contain hover properties that indicate the user can click on them, while feedback from certain actions (such as adding or removing items from your basket or wishlist) is presented to the user via Bootstrap's toast components.
 
-(Screenshot here)
+![toats](media/nonproducts/readme-toast.png)
 
 #### Homepage
 
 * The homepage contains a hero image of a living room table with a plant and a teapot on it, which was chosen for its relaxed tone. The brand name, tagline and two main calls to action appear in the hero section. The calls to action will differ depending on whether a user is signed in, display 'Sign Up' if the user is not logged in instead of 'All Tables'.
 
+![home hero](media/nonproducts/readme-home-hero.png)
+
 * The content of the page appears through a staggered entry animation, which should mask the loading time on the main hero image for most devices.
 
 * Just beneath the fold, the user should be able to see the featured tables section which directs the users to the 'Most Popular' offering (in actual fact, the cheapest table the site has to offer) and 'Recommended' (which happens to be the most expensive product on offer).
 
-(Screenshot)
+![home featured](media/nonproducts/readme-home-featured.png)
 
 * A brief 'about' section explaining the point of the site for those who have continued scrolling follows the featured section, containing one final call to action to direct users to the Table Builder page.
 
-(Screenshot)
+![home about](media/nonproducts/readme-home-about.png)
 
 #### Login and registration
 
 * Using Django's allauth plugin, the users can securely create new accounts and sign back in with either their email address or username.
 * Feedback is provided should any user inputs be invalid.
 
-(Screenshot)
+![login](media/nonproducts/readme-login.png)
 
 #### Profile
 
-* For users that have created their own personal accounts, they have access to a unique profile page that houses their delivery information and previous order history. I decided early on in the process to house all relevant order information in one convenient place by using Bootstrap's accordion feature to hide and reveal the order information interactively.
+* The profile page provides signed in users with the option to update their delivery details and peruse former orders.
 
-(Screenshot)
+* All previous order information is housed in accordion components to save space on the browser screen.
+
+* If the user has not yet placed an order, there is a call to action directing them to the product builder so that they may begin their customer journey.
+
+![profile](media/nonproducts/readme-profile.png)
+
 
 #### All products page
 
@@ -396,17 +403,20 @@ MySQL is the database in use for the development environment on this project, wh
 * The all products page is styled much like any conventional ecommerce store, with an option to filter or sort the products by preference.
 *Note: I encountered a few bugs do do with combining filtering and sorting at the same time, which I go into further detail in the **Known Bugs** section of testing.md* 
 
-(Screenshot)
+![products desktop](media/nonproducts/readme-products-desktop.png)
 
 * Hovering over the product images triggers a slide animation, displaying an alternative image for the user to look at.
 
 * On smaller screen sizes the filter option becomes an offscreen element that slides down from the top if the user presses the button. Using JavaScript, I ensured that if the user resizes their device this won't break the page.
 
-(Screenshots)
+Mobile view | Filter collapsed
+:-----------|:----------------
+![products mobile](media/nonproducts/readme-products-mob.png) | ![filter](media/nonproducts/readme-products-filter.png)
+
 
 * For users that have scrolled down, there is an option to return the user back to the top using a smooth transition.
 
-(Screenshot)
+![scroll](media/nonproducts/readme-scrollup.png)
 
 #### Product builder
 
@@ -414,25 +424,29 @@ MySQL is the database in use for the development environment on this project, wh
 
 * The choices come into and out of frame through animations to improve the emotional response to this feature.
 
-(Screenshot)
+![product builder](media/nonproducts/readme-productbuilder.png)
 
 #### Product detail page
 
 * The product detail page, which is the end point from both the product builder and browsing the all products page, contains a larger version of the products images box, alongside options to choose the quantity of the product or save a product in the wishlist for later, and a description of the product being viewed.
 
-* Depending on which material is being used, there may be a supplementary description highlighting that the material has been sustainably sourced.
-
 * A randomly generated set of products appears beneath in order to provide more content and other options for the user to browse.
 
-(Screenshot)
+![product detail](media/nonproducts/readme-product-detail.png)
+
+* Depending on which material model is being used, there may be a supplementary description highlighting that the material has been sustainably sourced.
+
+![sustainable message](media/nonproducts/readme-sustainable.png)
 
 #### Basket and wishlist
 
 * I decided early on that I wanted the basket and wishlist features to be sidebars so that users could access them wherever they were on the site. On mobile, these sidebars take up the entire viewport of the device, but anything above tablet size would only cover up a small portion of the screen.
 
-(Screenshot)
+![basket](media/nonproducts/readme-basket.png)
 
 * Users are able to conveniently move items from their wishlist directly into their basket during their session.
+
+![wishlist](media/nonproducts/readme-wishlist.png)
 
 #### Checkout
 
@@ -446,17 +460,21 @@ MySQL is the database in use for the development environment on this project, wh
 
 * Stripe webhooks are also fully functioning in order to properly capture any orders that might go wrong during the checkout process from a user perspective.
 
-(Screenshot)
+![checkout](media/nonproducts/readme-checkout.png)
 
-#### Profile page
+#### Adding and editing products (admin only)
 
-* The profile page provides signed in users with the option to update their delivery details and peruse former orders.
+* Admin users can add new products into the database and onto the store via the front end by following the link present in the profile dropdown of the navigation bar.
 
-* All previous order information is housed in accordion components to save space on the browser screen.
+![add product](media/nonproducts/readme-add-product.png)
 
-* If the user has not yet placed an order, there is a call to action directing them to the product builder so that they may begin their customer journey.
+* Edit and delete buttons are present on the product detail page.
 
-(Screenshot)
+![edit/delete](media/nonproducts/readme-edit-delete.png)
+
+* If the admin user selects 'Unavailable' in the form, the product will change on the front end to inform users that this product is not currently available for purchase.
+
+![unavailable](media/nonproducts/readme-product-unavailable.png)
 
 ### Defensive design features
 
