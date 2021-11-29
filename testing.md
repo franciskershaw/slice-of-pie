@@ -7,7 +7,7 @@ Testing of this project was carried out through the following methods:
 * Constant review during development using Gitpod's browser previewers and Chrome developer tools.
 * User testing of the deployed site when close to completion.
 * Manual user story testing during and after the writing of the code.
-* Python unit tests
+* Automated unit test of the order form.
 * Automated testing of the HTML and CSS files using the WC3 validators.
 * Automated testing of the JavaScript and Python files using JSHINT and PEP8 Online respectively.
 * Automated testing of the site's accessibility using the WAVE accessibility tool.
@@ -24,7 +24,7 @@ As per my previous projects, I attempted to stick to agile principles by using T
 * [User Story Testing](#manual-user-story-testing)
 * [Stakeholder Story Testing](#manual-stakeholder-testing)
 * [Developer Testing](#manual-developer-testing)
-* [Python unit tests](#python-unit-tests)
+* [Automated Order Form Test](#automated-order-form-test)
 * [HTML Validator](#html-validator)
 * [CSS Validator](#css-validator)
 * [JS Validator](#js-validator)
@@ -45,7 +45,7 @@ Logic
 
 Following on from my previous projects, I made sure I continued with the process I had settled on when developing both the JavaScript functions and the Python back end logic for my site - that is to say start small and build up, making sure to check the console and print statements at all stages to ensure that the right results are being reached. Environment variables were also used to ensure that none of the sensitive secret keys were pushed to GitHub. *Note, I did at one point early on in development I did accidentally push my Postgres url to GitHub - however I replaced it with a new one by the end to ensure the security of the project was not compromised.*
 
-I started by building the most basic version of the back end, with placeholders providing the bare minimum content required to have a functioning site on the front end. This allowed me to focus fully on getting all of the core back end logic working properly as the scope of this project and Django in general is so large. Only once I felt confident that all of my apps were working proplery, and that the complicated process of deploying and linking to AWS was complete, did I full focus on building out the front end of the site.
+I started by building the most basic version of the back end, with placeholders providing the bare minimum content required to have a functioning site on the front end. This allowed me to focus fully on getting all of the core back end logic working properly as the scope of this project and Django in general is so large. Only once I felt confident that all of my apps were working properly, and that the complicated process of deploying and linking to AWS was complete, did I fully focus on building out the front end of the site.
 
 There were inevitably several interesting bugs that needed attention, for more information please see the 'notable bugs' section below.
 
@@ -83,23 +83,23 @@ Getting the webhooks to work proved incredibly tricky and several small mistakes
 
 * I was receiving 500 errors from stripe for a while which was hard to solve as there was no helpful debugging log to point me in the right direction. With no errors showing in my workspace, and status codes showing no issues, I eventually found that a small typo in my functions was to blame. **Once fixed, I had webhooks up and running.**
 
-* Eventually I got a 404 error for reaching the webhook endpoint, which seemingly arrived out of nowhere having previously worked fine. I realised after a long time that my being in a different country for a period of during development had subtly changed the url of my GitPod workspace, which meant that it was different to the endpoint that was present in Stripe. **Once this was spotted, it was an easy fix to get the right endpoint working.**
+* Eventually I got a 404 error for reaching the webhook endpoint, which seemingly arrived out of nowhere having previously worked fine. I realised after a long time that my being in a different country for a period of time during development had subtly changed the url of my GitPod workspace, which meant that it was different to the endpoint that was present in Stripe. **Once this was spotted, it was an easy fix to get the right endpoint working.**
 
 *Navbar profile dropdown button error*
 
-* I made the mistake of accidentally initially implementing Bootstrap 5, which had only just been released at the start of development. As I am far more familiar with Bootstrap 4, I decided about half way through development to revert back to Bootstrap 4 - but did not envisage the scale of the syntax issues it would cause for the elements I had already written into the code. One of the more significant issues was that my profile icon dropdown was no longer working. **I eventually spotted an overflow:hidden property (which had not caused any issues previously) needed to be overidden to get the dropdown working properly.**
+* I made the mistake of accidentally initially implementing Bootstrap 5, which had only just been released at the start of development. As I am far more familiar with Bootstrap 4, I decided about half way through development to revert back to Bootstrap 4 - but did not envisage the scale of the syntax issues it would cause for the elements I had already written into the code. One of the more significant issues was that my profile icon dropdown was no longer working. **I eventually spotted an overflow:hidden property (which had not caused any issues previously) needed to be overridden to get the dropdown working properly.**
 
 *Save for later button on product detail page adding to basket instead of wishlist*
 
-On the product detail page, there is an option to add the viewed product into the user's wishlist. However, for a while the button would add the product into the user's basket instead - despite being part of its own separate form. I realised that I had in fact placed the form as a child element of the main form, which meant the parent form took precedence with regard to the submit button. My initial fix to this problem was to have the closing ` </form> ` tag close off before the outer ` </div> ` tag, so that the form for the whislist lived outside of the basket form. However, the HTML validation I did flagged this as a major error so **I decided to rethink the structure of my eleements entirely.**  
+On the product detail page, there is an option to add the viewed product into the user's wishlist. However, for a while the button would add the product into the user's basket instead - despite being part of its own separate form. I realised that I had in fact placed the form as a child element of the main form, which meant the parent form took precedence with regard to the submit button. My initial fix to this problem was to have the closing ` </form> ` tag close off before the outer ` </div> ` tag, so that the form for the wishlist lived outside of the basket form. However, the HTML validation I did flagged this as a major error so **I decided to rethink the structure of my elements entirely.**  
 
 *Product builder resizing issues*
 
-* Ater completing the product builder page, it was noted during user testing that any resizing of the browser window broke the choice selection sections. This was because a specific calculation was being made for the spacing between the options. While this is not a site breaking issue, it bothered me that resizing the window would break the page in this way, **so I added some JavaScript which resets the sizing of the builder.**
+* After completing the product builder page, it was noted during user testing that any resizing of the browser window broke the choice selection sections. This was because a specific calculation was being made for the spacing between the options. While this is not a site breaking issue, it bothered me that resizing the window would break the page in this way, **so I added some JavaScript which resets the sizing of the builder.**
 
 *Delivery cost being multiplied instead of taking a percentage of*
 
-* This was a strange bug, but one with a very simple solution it turns out. I couldn't work out why, but my delivery totals were not calculating properly at all. Instead of adding a small percentage for delivery, the cost was far larger than it was supposed to be. I eventually realised that I was missing a pretty crucial ` /100 ` in the logic, which was multiplying the total instead of deducting. **Adding the missing piece of logic solved the bug.**
+* This was a strange bug, but one with a very simple solution in the end. I couldn't work out why initially, but my delivery charge was not being calculated correctly at all. Instead of adding a small percentage for delivery, the cost was far larger than it was supposed to be. I eventually realised that I was missing a pretty crucial ` /100 ` in the logic, which was multiplying the total instead of deducting. **Adding the missing piece of logic solved the bug.**
 
 #### Outstanding bugs
 
@@ -107,15 +107,15 @@ I unfortunately ran out of time to do all of the things I wished to achieve on t
 
 *500 error when sorting a filtered selection*
 
-* This bug has been partially fixed, but not necessarily in the way I wanted so I will detail it here in outstanding bugs. User testing picked up that the sorting function would throw an error if trying to sort on a filtered set of results. I quickly realised that this was because the filtered results were being rendered in the back end as a python list instead of a Django queryset, which meant that the ` order_by ` function was incompatible. Without a simple way to convert a python list into a Django specific query set, some more logic was required to get this working properly - which I unfortunately did not have time to look into. My quick fix for now, before fixing this properly on version 2, was **to use JavaScript to clear the seach parameters so that it would sort all results instead of just the filtered results.** 
+* This bug has been partially fixed, but not necessarily in the way I wanted so I will detail it here in outstanding bugs. User testing picked up that the sorting function would throw an error if trying to sort on a filtered set of results. I quickly realised that this was because the filtered results were being rendered in the back end as a python list instead of a Django queryset, which meant that the ` order_by ` function was incompatible. Without a simple way to convert a python list into a Django specific query set, some more logic was required to get this working properly - which I unfortunately did not have time to look into. My quick fix for now, before fixing this properly on version 2, was **to use JavaScript to clear the search parameters so that it would sort all results instead of just the filtered results.** 
 
 *Duplicate orders on the live version of the site*
 
-* On the live site, two order confirmations were being produced in the user's profile for thesame order even though only payment was only take once and only one order confirmation was being sent out. It became quickly clear through communication with the Code Institute's slack community that this is a widespread problem to do with Stripe webhooks, specifically the time Stripe was allowing before firing off a webhook for an incomplete order. This issue, while frustrating to come across, seemed insignificant compared when faced with the impending deadline. It will be looked at on version 2 in more detail.
+* On the live site, two order confirmations were being produced in the user's profile for the same order even though payment was only taken once and one order confirmation was being sent out. It became quickly clear through communication with the Code Institute's slack community that this is a fairly widespread problem to do with Stripe webhooks, specifically the time Stripe was allowing before firing off a webhook for an incomplete order. This issue, while frustrating to come across, seemed insignificant compared when faced with the impending deadline. It will be looked at on version 2 in more detail.
 
 *Chrome browser window on android pushing the filter down over the nabar*
 
-* It was noted late on during development that the on some android devices using chrome, the hidden filter dropdown was obscuring part of the navbar. When the browser window is hidden, this problem doesn't surface. Once again, time constraints played their part in me not being able to fix this properly, but will be given attention before the roll out of version 2.
+* It was noted late on during development that on some android devices using chrome, the hidden filter dropdown was obscuring part of the navbar. When the browser window is hidden, this problem doesn't surface. Once again, time constraints played their part in me not being able to fix this properly, but will be given attention before the roll out of version 2.
 
 *Mozilla Firefox browser image issue*
 
@@ -165,7 +165,7 @@ Testing my own user stories was carried out using the following criteria:
 
 ### ***6. I would like to receive visual feedback at every stage of my journey when I perform actions, so that I am sure what I intended to do has in fact taken place.***
 
-* Toast messages split into 3 categories (error, information, success) are displayed at various stages after actions have been performed to confirm to the user that what they had intented to happen has indeed taien place.
+* Toast messages split into 3 categories (error, information, success) are displayed at various stages after actions have been performed to confirm to the user that what they had intended to happen has indeed taken place.
 
 ![toast](media/nonproducts/readme-toast.png)
 
@@ -189,7 +189,7 @@ Testing my own user stories was carried out using the following criteria:
 
 ### ***9. As an account holder, I would like to be able to save products in my favourites so that I can decide later whether to proceed with my purchase.***
 
-* Either via the main product cards, or in the product detail page, users can add a product to their wishlist side bar and stored in the user's session. Products can be added directly into the basket from the wishlist for convenience.
+* Either via the main product cards, or in the product detail page, users can add a product to their wishlist side bar and store it in the user's session. Products can be added directly into the basket from the wishlist for convenience.
 
 ![wishlist](media/nonproducts/readme-wishlist.png)
 
@@ -212,11 +212,11 @@ Testing my own user stories was carried out using the following criteria:
 
 ### ***13. At checkout, I would like to be sure that my details are secure during the payment process so that I don’t feel like I’m taking any risks with my money.***
 
-* Stripe payments, one of the most popular and secure online payment systems around, have been implemented on the site and tested thoroughly to ensure that pyayments were being processed successfully and securely.
+* Stripe payments, one of the most popular and secure online payment systems around, have been implemented on the site and tested thoroughly to ensure that payments were being processed successfully and securely.
 
 * Webhooks are also used on the site in case something goes wrong on the users end during payment. This has led to one fairly noticeable UX bug, which I detailed above in the Notable bugs section.
 
-* Just in case the users were under any illusions about the security of the site, I included the padlock icon in the 'Secure Checkout' buton to put customers at ease.
+* Just in case the users were under any illusions about the security of the site, I included the padlock icon in the 'Secure Checkout' button to put customers at ease.
 
 ![secure checkout](media/nonproducts/readme-secure-checkout.png)
 
@@ -267,7 +267,11 @@ Testing my own user stories was carried out using the following criteria:
 
 * I have produced a fully functioning ecommerce store that could in theory begin selling real-life products, employing languages from across the stack in unison with a full stack framework, a far cry from what I was capable of a year ago when I began my coding journey.
 
-## Python Unit Tests
+## Automated Order Form Test
+
+Django as a full stack framework comes with several tools, one of which is the capability to produce automated unit tests. While most of my testing was done manually and through user testing, I thought it would be beneficial to write at least one test for my order form to absolutely guarantee that the required fields would not fail during an order. I chose this form to focus my limited remaining testing time on as it is the most important form to get right from a user's perspective. We wouldn't want users to accidentally leave out key bits of information for their delivery to take place. 
+
+This was written and saved to *test_forms.py* with the help of the Code Institute's tutorial on writing form tests. Fortunately, the test passed. If I work with Django again on future projects, I would very much like to learn more about how to write very comprehensive unit tests that can at least match the results gained from manual user testing as it clearly has a lot of value as a companion to user testing.
 
 ## HTML Validator
 
@@ -277,7 +281,7 @@ The initial run of testing on the W3C html validator displayed a few significant
 
 * Buttons were children of anchor tags: I had forgotten that this is invalid HTML, so I rewrote the code and corresponding CSS to make sure this was fixed.
 
-* Form and div closing tags clashing with each other: as mentioned earlier, I had attempted to close a form tag before its parent div tag had been closed so that I could fix a bug with my wishlist. This, it turns out, is very invalid as far as the HTML validator is concerned and threw several errors as a result. I rewrote my HTML to separate everything completely and fix the error.
+* Form and div closing tags clashing with each other: as mentioned earlier, I had attempted to close a form tag before its parent div tag had been closed so that I could fix a bug with my wishlist. This, it turns out, is very invalid as far as the HTML validator is concerned and throws several errors as a result. I rewrote my HTML to separate everything completely and fix the error.
 
 * H1 missing a closing tag: this was a typo, I had amended an h3 into an h1 and forgot to close it off properly.
 
@@ -293,9 +297,9 @@ Using JSHint, I found that there were no critical errors in my written code. The
 
 ## PEP8 Compliance
 
-To check my python code complied to industry standard, I first rendered a list of all warnings in my workspace using the `python3 -m flake8 ` command. I disregarded all warnings from migration files and proceeded to work through every problem one by one. The vast majority were warnings about the line length, which were fixed by adding parentheses and moving onto another line.
+To check my python code complied with industry standards, I first rendered a list of all warnings in my workspace using the `python3 -m flake8 ` command. I disregarded all warnings from migration files and proceeded to work through every problem one by one. The vast majority were warnings about the line length, which were fixed by adding parentheses and moving onto another line.
 
-I then double checked everything by running each file throught Pep8 online, with no major errors being found. As with the flake8 linter in GitPod, warnings were made regarding the length of certain lines in my settings.py file, but as these were for important configuration settings I elected to leave them as they were. One line in my webhooks file was producing a warning regarding indentation, but changing it broke the functionality so I repositioned it to where it was before.
+I then double checked everything by running each file through Pep8 online, with no major errors being found. As with the flake8 linter in GitPod, warnings were made regarding the length of certain lines in my settings.py file, but as these were for important configuration settings I elected to leave them as they were. One line in my webhooks file was producing a warning regarding indentation, but changing it broke the functionality so I repositioned it to where it was before.
 
 ## Accessibility Testing
 
