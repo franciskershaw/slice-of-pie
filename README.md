@@ -4,7 +4,7 @@
 
 ## Code Institute's Milestone Project 4 - Full Stack Frameworks
 
-Slice of Pie is the brainchild of Zoe Thexton, who produces custom triangular tables that fit seamlessly into any section of a person's living or bedroom. Designed using CAD software, the tables can be assembled by hand in a variety of sizes, types of wood, and number of shelving levels. The inspiration for this product came from the need to get creative with the limited space available in her own living room (and generally missing somewhere to put a cup of tea down as a result of this!), while the product's name comes from the triangular shape of the finished design. The only thing missing now is a means to sell this innovative product to consumers, so I offered to develop and build a prototype ecommerce store capable of displaying the product range and accepting secure payments for orders. My aim for this project is to create a site that allows potential customers to browse all available designs or build their ideal table using a product builder, while allowing administrators to manage the products by adding, editing, or deleting SKUs when required.
+Slice of Pie is the brainchild of Zoe Thexton, who produces custom triangular tables that fit seamlessly into any section of a person's living or bedroom. Designed using CAD software, the tables can be assembled by hand in a variety of sizes, types of wood, and number of shelving levels. The inspiration for this product came from the need to get creative with the limited space available in her own living room (and generally missing somewhere to put a cup of tea down as a result of this!), while the product's name comes from the triangular shape of the finished design. The only thing missing was a means to sell this innovative product to consumers, so I offered to develop and build a prototype ecommerce store capable of displaying the product range and accepting secure payments for orders. My aim for this project was to create a site that allows potential customers to browse all available designs or build their ideal table using a product builder, while allowing administrators to manage the products by adding, editing, or deleting SKUs when required.
 
 This project is the fourth and final of four 'milestone' projects which are required to complete the Code Institute's diploma in full stack web development. Assessment criteria for this milestone project focuses on the ability to produce a full-stack ecommerce store with secure Stripe payments built using the Django Python framework alongside HTML, CSS and JavaScript to control a centrally-owned dataset.
 
@@ -214,8 +214,8 @@ With the functional specifications and content requirements nicely ironed out, I
 * Form with personal details and delivery details, which can be saved by the user if they want to and are logged in.
 
 8. **Product management page for administrators only, containing:**
-* A simple form to add products onto the site, update them, or delete them if required.
-* 'Unavailable' option so that products can be made out of stock.
+* A form to add products onto the site, update them, or delete them if required.
+* 'Unavailable' option so that products are disabled to users when not available for purchase.
 
 #### Interaction Design
 
@@ -304,14 +304,13 @@ Before implementing any database, I started by drawing up a very basic map of ho
 
 ![Conceptual design](media/nonproducts/conceptual-design.png)
 
-This helped 
-
 #### Logical Design Phase
 
 The finalised way my collections work would together on the backend is best illustrated by the below entity relationship diagram:
 
 ![Logical design](media/nonproducts/eb-diagram.png)
 
+*Products*
 * SKU: a product ID of sorts to help identify it
 * Name: product name
 * Size: foreign key from the angle model
@@ -322,23 +321,22 @@ The finalised way my collections work would together on the backend is best illu
 * Image 2: the second product that will appear on the site
 * Unavailable: boolean value to declare whether the product is available for purchase or not
 
-**Size/angle model**
+*Size/angle model*
 * Name: name of angle (how large it is)
 * Friendly name: available as an option when rendering to HTML templates
 
-**Levels model**
+*Levels model*
 * Name: name of levels (how many there are)
 * Friendly name: available as an option when rendering to HTML templates
 
-**Material model**
+*Material model*
 * Name: name of material (type of wood)
 * Friendly name: available as an option when rendering to HTML templates
 * Is sustainable: boolean value to determine whether the material is sustainably sourced.
 
 #### Physical Design Phase
 
-SqLite3 is the database in use for the development environment on this project, while PostgreSQL is the database provisioned by Heroku on the deployed site.
-
+I started by writing all of the product information into a Google spreadsheet, making sure not to forget anything from the previous design steps. Once the information was converted into JSON, I loaded the data onto my workspace, converting it into a SqLite3 database in the process. PostgreSQL is the database provisioned by Heroku on the deployed site, the process of which can be found further down in the deployment section of the document.
 
 ## Apps and Features
 
@@ -401,7 +399,7 @@ SqLite3 is the database in use for the development environment on this project, 
 *Note: as the real life product is still currently in development, the product images had to be computer generated to provide as close a depiction to the final products as possible. This is mentioned in the product descriptions, however the intention is very much that on a future iteration of the site there will be professional grade photos taken to improve the overall aesthetics of the site and provide more useful references for the customers.*
 
 * The all products page is styled much like any conventional ecommerce store, with an option to filter or sort the products by preference.
-*Note: I encountered a few bugs do do with combining filtering and sorting at the same time, which I go into further detail in the **Known Bugs** section of testing.md* 
+*Note: I encountered a few bugs do do with combining filtering and sorting at the same time, which I go into further detail in the **Known Bugs** section of the testing document.* 
 
 ![products desktop](media/nonproducts/readme-products-desktop.png)
 
@@ -512,6 +510,8 @@ The scope of this project was a huge step up from my previous work, and unfortun
 
 * I would like users with accounts to be able to leave reviews or testimonials for the site and aggregate an average rating.
 
+* Currently, the wishlist only remains as long as the user keeps their session alive. This is fine for many users who would not log out every time they leave a site, however in the future I would like favourited items to become a part of the profile itself - that way preferences are saved for each session.
+
 * As this product is personal to the site owner, it would be a nice added touch to include a blog feature where users can be updated about upcoming releases.
 
 ## Technologies used
@@ -532,7 +532,6 @@ The scope of this project was a huge step up from my previous work, and unfortun
 * [Amiresponsive:](http://ami.responsivedesign.is/) Used to produce the hero image in README.md and check general responsiveness of the pages.
 * [AWS:](https://aws.amazon.com/) Used for hosting static files and media on the cloud in conjunction with Heroku.
 * [CSS Gradient:](https://cssgradient.io/) Used to create the subtle gradient in the background of all pages and in the about section of the homepage.
-* [dbdiagram:](https://dbdiagram.io/home) Used to create my entity relationship diagram.
 * [Favicon Generator:](https://realfavicongenerator.net/) Used to create the favicon on the browser tab.
 * [FontAwesome:](https://fontawesome.com/) Large database of icons which I used all over the site to add to the visual language.
 * [Free Formatter:](https://www.freeformatter.com/html-formatter.html) Used to help ensure code was consistently formatted across all files.
@@ -608,7 +607,7 @@ The steps taken to deploy this project were as follows:
     * ` python3 manage.py loaddata materials `
     * ` python3 manage.py loaddata products `
 10. Create a superuser which will have admin rights on the live site by running ` python3 manage.py createsuperuser`  in your terminal and following the steps when prompted.
-11. Uncomment the previously commented out *DATABASES* section and removing the sensitive postgres data. The final version of this section should be an if statement which checks which environment before assigning the correct database:
+11. Uncomment the previously commented out *DATABASES* section and remove the sensitive postgres data. The final version of this section should be an if statement which checks which environment is being used before assigning the correct database:
 ```
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
@@ -745,7 +744,7 @@ You're more than welcome to clone this repository is you like, just follow these
 
 * The hero image found on the homepage is a free to licence photo from Unsplash, and can be found [here](https://unsplash.com/photos/iLFOK7ntmgs).
 
-* The image of various materials in the about section of the homepage was also from Unsplach, and can be found [here](https://unsplash.com/photos/wSBL_x4R-Io).
+* The image of various materials in the about section of the homepage was also from Unsplash, and can be found [here](https://unsplash.com/photos/wSBL_x4R-Io).
 
 * All product images were computer generated while the product remains in the prototype stage, and were produced by Zoe Thexton.
 

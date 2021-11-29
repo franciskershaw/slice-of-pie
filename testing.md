@@ -7,7 +7,7 @@ Testing of this project was carried out through the following methods:
 * Constant review during development using Gitpod's browser previewers and Chrome developer tools.
 * User testing of the deployed site when close to completion.
 * Manual user story testing during and after the writing of the code.
-* Automated unit test of the order form.
+* Automated unit testing of the order form.
 * Automated testing of the HTML and CSS files using the WC3 validators.
 * Automated testing of the JavaScript and Python files using JSHINT and PEP8 Online respectively.
 * Automated testing of the site's accessibility using the WAVE accessibility tool.
@@ -47,11 +47,11 @@ Following on from my previous projects, I made sure I continued with the process
 
 I started by building the most basic version of the back end, with placeholders providing the bare minimum content required to have a functioning site on the front end. This allowed me to focus fully on getting all of the core back end logic working properly as the scope of this project and Django in general is so large. Only once I felt confident that all of my apps were working properly, and that the complicated process of deploying and linking to AWS was complete, did I fully focus on building out the front end of the site.
 
-There were inevitably several interesting bugs that needed attention, for more information please see the 'notable bugs' section below.
+There were inevitably several interesting bugs that needed attention throughout the development of this project, for more information please see the 'notable bugs' section further down the document.
 
 ### Post Deployment
 
-As this project depended almost entirely on the ability of users to interact with the website from the perspective of prospective paying customers, it was incredibly important to get feedback from user testing. With that in mind, I sent the live version of the website to 10 people with the following directives, leaving out specific instructions of *how* to achieve what the site could do to check that it was intuitive enough:
+As this project depended almost entirely on the ability of prospective paying customers to interact with the website and complete purchases, it was particularly important to get feedback from user testing. With that in mind, I sent the live version of the website to 10 people with the following directives, leaving out specific instructions of *how* to achieve what the site could do to check that it was intuitive enough:
 
 1. Create an account, confirm email address, sign back in.
 2. Build a table.
@@ -65,7 +65,7 @@ This defined structure for user testing helped me focus my testers to test the i
 2. Do all of my backend functions work outside of my own development environment and tools?
 3. Is there anything at all not working as it should do?
 
-Overall, I felt that questions 1-2 were answered with a yes as the general feedback was positive with regard to the ease of use on the site - and users were successfully able to complete their journeys. There were however a few bugs and general UX issues brought to my attention, which I will detail below. Some were fixed in time for submission, however with the lack of time available before the deadline there were some left unfixed for now which I explain in a section further down.
+Overall, I felt that questions 1-2 were answered with a yes as the general feedback was positive with regard to the ease of use on the site - and users were successfully able to complete their journeys. There were however a few bugs and general UX issues brought to my attention, which I will detail below. Some were fixed in time for submission, however with the lack of time available before the deadline there were some left unfixed for now which I explain in the *Outstanding bugs* section further down.
 
 ### Notable bugs
 
@@ -75,35 +75,35 @@ This being only my second full stack website, and first using a MVC framework, t
 
 *Safari navbar issue*
 
-* User testing picked up that there was an issue with my navbar when using safari. Frustratingly, the navbar would not stick to the top as it did on every other browser, but instead shifted down about a quarter - interfering with other site content in the process. I was gearing up to leave this in the outstanding bugs section below, however I found that there are developer tools available on safari so had a last attempt. **I found that my navbar had 'right' and 'left' declarations, and adding a 'top' of 0 fixed the bug.**
+* User testing picked up that there was an issue with my navigation bar when using safari. Frustratingly, the component would not remain fixed to the top of the window as it did on every other browser, but instead shifted down about a quarter of the view port, interfering with other important site content in the process. As I was confident this was only an issue on this particular browser, it made sense to make my first proper use of Safari's own developer tools to try and find out why this could be happening. **In the end, I noticed that I had included `right` and `left` positional declarations and that Safari needed to have a `top: 0` declaration to fix the bug.**
 
 *Stripe webhooks errors*
 
-Getting the webhooks to work proved incredibly tricky and several small mistakes during their development caused errors:
+Getting the webhooks to work properly with Stripe proved an incredibly tricky task, and several small mistakes made during their development caused errors:
 
-* I was receiving 500 errors from stripe for a while which was hard to solve as there was no helpful debugging log to point me in the right direction. With no errors showing in my workspace, and status codes showing no issues, I eventually found that a small typo in my functions was to blame. **Once fixed, I had webhooks up and running.**
+* I was receiving 500 errors from Stripe for a while which was hard to solve as there was no helpful debugging log to point me in the right direction. With no errors showing in my workspace, and status codes in my terminal showing no issues, I eventually found that a small typo in my functions was to blame. **Once fixed, I had webhooks up and running.**
 
 * Eventually I got a 404 error for reaching the webhook endpoint, which seemingly arrived out of nowhere having previously worked fine. I realised after a long time that my being in a different country for a period of time during development had subtly changed the url of my GitPod workspace, which meant that it was different to the endpoint that was present in Stripe. **Once this was spotted, it was an easy fix to get the right endpoint working.**
 
-*Navbar profile dropdown button error*
+*Navigation bar profile dropdown button error*
 
 * I made the mistake of accidentally initially implementing Bootstrap 5, which had only just been released at the start of development. As I am far more familiar with Bootstrap 4, I decided about half way through development to revert back to Bootstrap 4 - but did not envisage the scale of the syntax issues it would cause for the elements I had already written into the code. One of the more significant issues was that my profile icon dropdown was no longer working. **I eventually spotted an overflow:hidden property (which had not caused any issues previously) needed to be overridden to get the dropdown working properly.**
 
 *Save for later button on product detail page adding to basket instead of wishlist*
 
-On the product detail page, there is an option to add the viewed product into the user's wishlist. However, for a while the button would add the product into the user's basket instead - despite being part of its own separate form. I realised that I had in fact placed the form as a child element of the main form, which meant the parent form took precedence with regard to the submit button. My initial fix to this problem was to have the closing ` </form> ` tag close off before the outer ` </div> ` tag, so that the form for the wishlist lived outside of the basket form. However, the HTML validation I did flagged this as a major error so **I decided to rethink the structure of my elements entirely.**  
+On the product detail page, there is an option to add the viewed product into the user's wishlist. However, for a while the button would add the product into the user's basket instead - despite being part of its own separate form. I realised that I had in fact placed the form as a child element of the main form, which meant the parent form took precedence with regard to the submit button. My initial fix to this problem was to have the closing ` </form> ` tag close off before the outer ` </div> ` tag, so that the form for the wishlist lived outside of the basket form. However, the HTML validation I did flagged this as a major error so **I decided to rethink the structure of my elements entirely (more information below in the validation section of the document).**  
 
 *Product builder resizing issues*
 
-* After completing the product builder page, it was noted during user testing that any resizing of the browser window broke the choice selection sections. This was because a specific calculation was being made for the spacing between the options. While this is not a site breaking issue, it bothered me that resizing the window would break the page in this way, **so I added some JavaScript which resets the sizing of the builder.**
+* After completing the product builder page, it was noted during user testing that any resizing of the browser window broke the choice selection sections. This was because a specific calculation was being made for the spacing between the options. While this is not a site breaking issue, it bothered me that resizing the window would break the page in this way, **so I added some JavaScript which resets the sizing of the builder any time the window size is changed.**
 
 *Delivery cost being multiplied instead of taking a percentage of*
 
-* This was a strange bug, but one with a very simple solution in the end. I couldn't work out why initially, but my delivery charge was not being calculated correctly at all. Instead of adding a small percentage for delivery, the cost was far larger than it was supposed to be. I eventually realised that I was missing a pretty crucial ` /100 ` in the logic, which was multiplying the total instead of deducting. **Adding the missing piece of logic solved the bug.**
+* This was a strange bug, but one with a very simple solution in the end. I couldn't work out why initially, but my delivery charge was not being calculated correctly at all. Instead of adding a small percentage for delivery, the cost was far larger than it was supposed to be. I eventually realised that I was missing a pretty crucial ` /100 ` in the logic, which was multiplying the total instead of deducting a percentage. **Adding the missing piece of logic solved the bug.**
 
 #### Outstanding bugs
 
-I unfortunately ran out of time to do all of the things I wished to achieve on this site, including the fixing of a few significant bugs. Without an impending deadline to consider, version 2 of this website will endeavour to fix all of these as a matter of priority. 
+I unfortunately ran out of time to do all of the things I wished to achieve on this site, including the fixing of a few bugs. Without an impending deadline to consider, version 2 of this website will endeavour to fix all of these as a matter of priority. 
 
 *500 error when sorting a filtered selection*
 
@@ -111,7 +111,7 @@ I unfortunately ran out of time to do all of the things I wished to achieve on t
 
 *Duplicate orders on the live version of the site*
 
-* On the live site, two order confirmations were being produced in the user's profile for the same order even though payment was only taken once and one order confirmation was being sent out. It became quickly clear through communication with the Code Institute's slack community that this is a fairly widespread problem to do with Stripe webhooks, specifically the time Stripe was allowing before firing off a webhook for an incomplete order. This issue, while frustrating to come across, seemed insignificant compared when faced with the impending deadline. It will be looked at on version 2 in more detail.
+* On the live site, two order confirmations were being produced in the user's profile for the same order even though payment was only taken once and one order confirmation was being sent out. It became quickly clear through communication with the Code Institute's slack community that this is a fairly widespread problem to do with Stripe webhooks, specifically the time Stripe was allowing before firing off a webhook for an incomplete order. I decided that this issue, while frustrating to come across late during development, would be too time consuming to fix properly in the small amount of time I had left before submission of the project. Development of Slice of Pie version 2 will probably start by rethinking the way the webhooks are written so that this issue can be fixed from the beginning.
 
 *Chrome browser window on android pushing the filter down over the nabar*
 
@@ -119,7 +119,7 @@ I unfortunately ran out of time to do all of the things I wished to achieve on t
 
 *Mozilla Firefox browser image issue*
 
-* One of my user testers spotted that there was an issue with my card images when using firefox. I have a sliding animation that is triggered when a user hovers over several of the product image, but on firefox the cards simply show both images in the same card. The fix is to have the width be 200% instead of the 100% it is currently set as, however this would then break the stylings on all other browsers. This was not a decent trade off, so I elected to leave it unfixed as it was not a site breaking issue.
+* One of my user testers spotted that there was an issue with my card images when using firefox. I have a sliding animation that is triggered when a user hovers over several of the product images, but on firefox the cards simply show both images in the same card. The fix is to have the width be 200% instead of the 100% it is currently set as, however this would then break the stylings on all other browsers. This was not a decent trade off, so I elected to leave it unfixed as it was not a site breaking issue.
 
 ## Manual User Story Testing
 
@@ -189,7 +189,7 @@ Testing my own user stories was carried out using the following criteria:
 
 ### ***9. As an account holder, I would like to be able to save products in my favourites so that I can decide later whether to proceed with my purchase.***
 
-* Either via the main product cards, or in the product detail page, users can add a product to their wishlist side bar and store it in the user's session. Products can be added directly into the basket from the wishlist for convenience.
+* Either via the main product cards, or in the product detail page, users can add a product to their wishlist sidebar and store it in the user's session. Products can be added directly into the basket from the wishlist for convenience.
 
 ![wishlist](media/nonproducts/readme-wishlist.png)
 
@@ -239,6 +239,7 @@ Testing my own user stories was carried out using the following criteria:
 * There is also the option of performing these tasks on the front end by following the link in the profile dropdown, or editing products from the product detail page.
 
 ![add product](media/nonproducts/readme-add-product.png)
+
 ![edit/delete](media/nonproducts/readme-edit-delete.png)
 
 * An option within the add and edit product forms is to make a product unavailable, which will enact changes throughout the site.
@@ -246,6 +247,8 @@ Testing my own user stories was carried out using the following criteria:
 ### ***2. I would like users to be unable to purchase unavailable products so that I don’t have to go through a refund process.***
 
 * This is mostly covered in user story 2, but I would like to add that basket buttons are disabled when products are unavailable, and checks are made within the python functions to ensure nobody accidentally brute forces a product into their basket.
+
+![disabled button](media/nonproducts/readme-disabled-btn.png)
 
 ### ***3. I want users to have a product builder which allows them to feel like they are custom building their product as per their preferences so that my store stands out aesthetically compared to competitors.***
 
@@ -299,17 +302,17 @@ Using JSHint, I found that there were no critical errors in my written code. The
 
 To check my python code complied with industry standards, I first rendered a list of all warnings in my workspace using the `python3 -m flake8 ` command. I disregarded all warnings from migration files and proceeded to work through every problem one by one. The vast majority were warnings about the line length, which were fixed by adding parentheses and moving onto another line.
 
-I then double checked everything by running each file through Pep8 online, with no major errors being found. As with the flake8 linter in GitPod, warnings were made regarding the length of certain lines in my settings.py file, but as these were for important configuration settings I elected to leave them as they were. One line in my webhooks file was producing a warning regarding indentation, but changing it broke the functionality so I repositioned it to where it was before.
+I then double checked everything by running each file through Pep8 online, with no major errors being found. As with the flake8 linter in GitPod, warnings were made regarding the length of certain lines in my settings.py file, but as these were for important configuration settings I elected to leave them as they were. One line in my webhooks file was producing a warning regarding indentation, but changing it broke the functionality so I repositioned it back to where it was before.
 
 ## Accessibility Testing
 
-Using the WAVE Accessibility Evaluation Tool, I was fortunate to find that on this occasion no colour contrast issues were present.
+Using the WAVE Accessibility Evaluation Tool, I was fortunate to find that on this occasion no colour contrast issues were present. There were a few minor warnings but nothing urgent that needed rectifying.
 
 ## Google Lighthouse
 
 Using Google's lighthouse feature, I was able to assess the performance of the site. All pages were working to a good standard, however issues with image size were highlighted. I compressed these using TinyJPG to help improve speed a bit.
 
-The overall performance of the site (especially on mobile) has plenty of room for improvement on future iterations of the site, and I think more research needs to be done on my end for how to render the large amounts of images required on the site in an efficient way.
+The overall performance (especially on mobile) has plenty of room for improvement on future iterations of the site, and I think more research needs to be done on my end for how to render the large amounts of images required on the site in a more efficient way.
 
 [Back to the top](#testing)
 
